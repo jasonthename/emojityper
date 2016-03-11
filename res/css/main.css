@@ -3,5 +3,13 @@
 textarea#emoji {
     display: block;
     margin: 0 auto;
-    width: 30%;
+    width: 100%;
 }
+
+h1.title {
+    margin-bottom: 50px;
+}
+span.alt {
+    cursor: pointer;
+}
+
