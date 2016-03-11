@@ -1,10 +1,13 @@
 $(document).ready(function() {
+
+    var delimiters = [' ', ',', '\n'];
     console.log("Ready!");
 
     var findPreceedingSpace = function(str, index) {
         for (var spaceIndex = index; spaceIndex >= 0; spaceIndex--) {
-            if (str[spaceIndex] === ' ') {
-                //console.log("SpaceIndex: " + spaceIndex)
+            if ($.inArray(str[spaceIndex], delimiters) > -1) {
+                console.log("Found: " + str[spaceIndex])
+                console.log("SpaceIndex: " + spaceIndex)
                 return spaceIndex;
             }
         }
@@ -16,7 +19,7 @@ $(document).ready(function() {
         //console.log('Cursor position: ' + cursorPosition);
         var text = $input.val();
 
-        // -1 because we may have just pressed space
+        // -2 because we just pressed space
         var prevWord = text.slice(findPreceedingSpace(text, cursorPosition - 2), cursorPosition - 1);
         return prevWord;
     }
@@ -44,12 +47,12 @@ $(document).ready(function() {
     var $input = $('textarea#emoji');
 
     $input.keyup(function(event) {
+        console.log($input.prop('selectionStart'));
 
         if ($.inArray(event.keyCode, keycodes) !== -1) {
             //debugger;
             var prevWord = $.trim(getWordBeforeCursor());
-            console.log("prevword: " + prevWord);
-            console.log(EMOJI_MAP);
+            console.log("prevword: " + '"' +  prevWord + '"');
             var emojiList = EMOJI_MAP[prevWord];
             console.table(emojiList);
             if (emojiList === undefined)  {
