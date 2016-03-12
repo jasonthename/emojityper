@@ -1,9 +1,18 @@
 @import url('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css');
 
 textarea#emoji {
+
     display: block;
     margin: 0 auto;
     width: 100%;
+    font-size: 24pt;
+    color: #C5CAE9;
+    border: 0;
+    background: #7C4DFF;
+
+}
+div.main {
+    padding-top: 100px;
 }
 
 h1.title {
@@ -11,5 +20,10 @@ h1.title {
 }
 span.alt {
     cursor: pointer;
+    color: white;
+}
+
+body {
+    background: #7C4DFF;
 }
 
