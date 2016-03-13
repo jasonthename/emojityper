@@ -5,6 +5,7 @@ $(document).ready(function() {
 
     function clearSuggestions() {
         $('span.alt-emoji').remove();
+        $('div.alt').hide();
     }
 
     function getSymbols(string) {
@@ -79,8 +80,8 @@ $(document).ready(function() {
             32
     ];
 
-    var $input = $('textarea#emoji');
-    var $alt = $('span.alt');
+    var $input = $('input#emoji');
+    var $alt = $('p.alt');
 
     // Dynamically add click handlers as the emoji are created.
     $('div.alt').on('click', 'span.alt-emoji', function() {
@@ -119,6 +120,7 @@ $(document).ready(function() {
             }).join(" "))
             var newInput = replaceLast($input.val(), prevWord, emojiList[0]["emoji"]);
             $input.val(newInput);
+            $('div.alt').show();
         }
 
     });

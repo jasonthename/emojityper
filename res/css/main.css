@@ -1,15 +1,17 @@
 @import url('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css');
 
-textarea#emoji {
+input#emoji {
 
     display: block;
     margin: 0 auto;
     width: 100%;
-    font-size: 24pt;
-    color: #C5CAE9;
+    font-size: 3em;
+    color: #eeeeee;
     border: 0;
     background: #7C4DFF;
     text-align: center;
+    height: 3em;
+    line-height: 1em;
 }
 
 i.fa-github {
@@ -26,9 +28,18 @@ div.alt {
     font-size: 2em;
     text-align: center;
 }
-span.alt {
+div.alt {
+    margin-top: 50px;
+    font-size: 14px;
+}
+p.alt {
     cursor: pointer;
     color: white;
+    width: 50%;
+    margin: 0 auto;
+}
+span.alt-emoji {
+    font-size: 2em;
 }
 
 div.footer {
