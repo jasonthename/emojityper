@@ -8,7 +8,7 @@ input#emoji {
     font-size: 3em;
     color: #eeeeee;
     border: 0;
-    background: #7C4DFF;
+    background: #1976D2;
     text-align: center;
     height: 3em;
     line-height: 1em;
@@ -38,6 +38,10 @@ p.alt {
     width: 50%;
     margin: 0 auto;
 }
+p.suggest-hint {
+    color: #bbdefb;
+}
+
 span.alt-emoji {
     font-size: 2em;
 }
@@ -54,6 +58,6 @@ p.footer {
 }
 
 body {
-    background: #7C4DFF;
+    background: #1976D2;
 }
 
