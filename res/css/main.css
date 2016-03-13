@@ -9,7 +9,11 @@ textarea#emoji {
     color: #C5CAE9;
     border: 0;
     background: #7C4DFF;
+    text-align: center;
+}
 
+i.fa-github {
+    font-size: 2em;
 }
 div.main {
     padding-top: 100px;
@@ -18,9 +22,24 @@ div.main {
 h1.title {
     margin-bottom: 50px;
 }
+div.alt {
+    font-size: 2em;
+    text-align: center;
+}
 span.alt {
     cursor: pointer;
     color: white;
+}
+
+div.footer {
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: 300px;
+    display: block;
+
+}
+p.footer {
+    text-align: center;
 }
 
 body {

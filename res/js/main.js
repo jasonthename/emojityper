@@ -2,6 +2,29 @@ $(document).ready(function() {
 
     var delimiters = [' ', ',', '\n'];
     console.log("Ready!");
+
+    function clearSuggestions() {
+        $('span.alt-emoji').remove();
+    }
+
+    function getSymbols(string) {
+      var index = 0;
+      var length = string.length;
+      var output = [];
+      for (; index < length - 1; ++index) {
+        var charCode = string.charCodeAt(index); if (charCode >= 0xD800 && charCode <= 0xDBFF) {
+          charCode = string.charCodeAt(index + 1);
+          if (charCode >= 0xDC00 && charCode <= 0xDFFF) {
+            output.push(string.slice(index, index + 2));
+            ++index;
+            continue;
+          }
+        }
+        output.push(string.charAt(index));
+      }
+      output.push(string.charAt(index));
+      return output;
+    }
     var replaceAt = function(str, index, character) {
             return str.substr(0, index) + character + str.substr(index+character.length);
     }
@@ -15,9 +38,7 @@ $(document).ready(function() {
         return 0;
     };
     var getWordBeforeCursor = function() {
-        //var cursorPosition = window.getSelection().getRangeAt(0).startoffset;
         var cursorPosition = $input.prop('selectionStart');
-        //console.log('Cursor position: ' + cursorPosition);
         var text = $input.val();
 
         // -2 because we just pressed space
@@ -33,16 +54,13 @@ $(document).ready(function() {
         return null;
     }
 
-    var replaceWordBeforeCursor = function(replacement) {
+    var replaceBeforeCursor = function(replacement) {
+        // Replace the occurrence of `pattern` immediately before the cursor with `replacement`.
 
         var cursorPosition = $input.prop('selectionStart');
         var text = $input.val();
-        var preceedingSpaceIndex = findPreceedingSpace(text, cursorPosition - 2);
-        console.log("preceedingSpaceIndex = " + preceedingSpaceIndex);
-        var wordBeforeCursor = text.slice(preceedingSpaceIndex, cursorPosition - 1);
-        console.log('word before cursor: ' + wordBeforeCursor);
-
-        var replacementText = text.substring(0, preceedingSpaceIndex) + replacement + text.substring(preceedingSpaceIndex + 1 + replacement.length);
+        var lastIndexOfPattern = text.lastIndexOf(pattern);
+        var replacementText = text.substring(0, lastIndexOfPattern) + replacement + text.substring(lastIndexOfPattern + pattern.length);
         $input.val(replacementText);
 
 
@@ -70,20 +88,25 @@ $(document).ready(function() {
         // It's fiiiine, just replace whatever's behind the cursor with the clicked thing.
         //$input.val(replaceAt($input.val(), $input.prop('selectionStart') - 2, $(this).attr('data-emoji')));
 
-        //var newInput = replaceLast($input.val(), $(this).attr('data-canonical-emoji'), $(this).attr('data-emoji'));
-        //
-        replaceWordBeforeCursor($(this).attr('data-emoji'));
+        var newInput = replaceLast($input.val(), $(this).attr('data-canonical-emoji'), $(this).attr('data-emoji'));
+        $input.val(newInput);
+        
+        //replaceBeforeCursor($(this).attr('data-emoji'));
+        clearSuggestions();
+    });
 
-
+    $input.click(function() {
+        // Clear the suggestions when clicked.
+        clearSuggestions();
     });
 
     $input.keyup(function(event) {
-        console.log($input.prop('selectionStart'));
+        //console.log($input.prop('selectionStart'));
+        clearSuggestions();
 
         if ($.inArray(event.keyCode, keycodes) !== -1) {
-            //debugger;
             var prevWord = $.trim(getWordBeforeCursor());
-            console.log("prevword: " + '"' +  prevWord + '"');
+            //console.log("prevword: " + '"' +  prevWord + '"');
             var emojiList = EMOJI_MAP[prevWord];
             console.table(emojiList);
             if (emojiList === undefined)  {
