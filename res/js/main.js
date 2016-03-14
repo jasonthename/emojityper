@@ -84,6 +84,7 @@ $(document).ready(function() {
         var newInput = replaceLast($input.val(), $(this).attr('data-canonical-emoji'), $(this).attr('data-emoji'));
         $input.val(newInput);
         clearSuggestions();
+        $input.focus();
     });
 
     $input.click(function() {
@@ -114,7 +115,7 @@ $(document).ready(function() {
 
     });
 
-    $('input#emoji').focus();
+    $input.focus();
 
 
 });
