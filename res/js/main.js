@@ -26,9 +26,6 @@ $(document).ready(function() {
       output.push(string.charAt(index));
       return output;
     }
-    var replaceAt = function(str, index, character) {
-            return str.substr(0, index) + character + str.substr(index+character.length);
-    }
 
     var findPreceedingSpace = function(str, index) {
         for (var spaceIndex = index; spaceIndex >= 0; spaceIndex--) {
@@ -74,8 +71,6 @@ $(document).ready(function() {
             190,
             // ,
             188,
-            // Shift,
-            16,
             // Space
             32
     ];
@@ -87,12 +82,8 @@ $(document).ready(function() {
     $('div.alt').on('click', 'span.alt-emoji', function() {
 
         // It's fiiiine, just replace whatever's behind the cursor with the clicked thing.
-        //$input.val(replaceAt($input.val(), $input.prop('selectionStart') - 2, $(this).attr('data-emoji')));
-
         var newInput = replaceLast($input.val(), $(this).attr('data-canonical-emoji'), $(this).attr('data-emoji'));
         $input.val(newInput);
-        
-        //replaceBeforeCursor($(this).attr('data-emoji'));
         clearSuggestions();
     });
 
@@ -102,13 +93,12 @@ $(document).ready(function() {
     });
 
     $input.keyup(function(event) {
-        //console.log($input.prop('selectionStart'));
         clearSuggestions();
 
         if ($.inArray(event.keyCode, keycodes) !== -1) {
             var prevWord = $.trim(getWordBeforeCursor());
-            //console.log("prevword: " + '"' +  prevWord + '"');
-            var emojiList = EMOJI_MAP[prevWord];
+            console.log("prevword: " + '"' +  prevWord + '"');
+            var emojiList = EMOJI_MAP[prevWord.toLowerCase()];
             console.table(emojiList);
             if (emojiList === undefined)  {
                 return;
