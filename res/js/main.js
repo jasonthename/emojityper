@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
     var delimiters = [' ', ',', '\n'];
-    console.log("Ready!");
 
     function clearSuggestions() {
         $('span.alt-emoji').remove();
@@ -114,6 +113,8 @@ $(document).ready(function() {
         }
 
     });
+
+    $('input#emoji').focus();
 
 
 });
