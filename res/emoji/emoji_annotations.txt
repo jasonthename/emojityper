@@ -1,5 +1,7 @@
-😀|GRINNING FACE|face,grin,person
 😁|GRINNING FACE WITH SMILING EYES|eye,face,grin,person,smile
+✨|SPARKLES|emotion,entertainment,object,sign,sparkle,star
+😀|GRINNING FACE|face,grin,person
+⌚️|WATCH|clock,object,time,watch
 😂|FACE WITH TEARS OF JOY|face,joy,laugh,person,tear
 😃|SMILING FACE WITH OPEN MOUTH|face,mouth,open,person,smile
 😄|SMILING FACE WITH OPEN MOUTH AND SMILING EYES|eye,face,mouth,open,person,smile
@@ -244,13 +246,6 @@
 🙅🏽|FACE WITH NO GOOD GESTURE,TYPE-4 
 🙅🏾|FACE WITH NO GOOD GESTURE,TYPE-5 
 🙅🏿|FACE WITH NO GOOD GESTURE,TYPE-6 
-🙆|FACE WITH OK GESTURE
-≊|gesturing ok|gesture,hand,ok,person
-🙆🏻|FACE WITH OK GESTURE,TYPE-1-2 
-🙆🏼|FACE WITH OK GESTURE,TYPE-3 
-🙆🏽|FACE WITH OK GESTURE,TYPE-4 
-🙆🏾|FACE WITH OK GESTURE,TYPE-5 
-🙆🏿|FACE WITH OK GESTURE,TYPE-6 
 💁|INFORMATION DESK PERSON|hand,help,information,person,sassy
 💁🏻|INFORMATION DESK PERSON,TYPE-1-2 
 💁🏼|INFORMATION DESK PERSON,TYPE-3 
@@ -426,21 +421,21 @@
 ✋🏽|RAISED HAND,TYPE-4 
 ✋🏾|RAISED HAND,TYPE-5 
 ✋🏿|RAISED HAND,TYPE-6 
-👌|OK HAND SIGN
+👌|OK HAND SIGN|nice,ok,okay,perfect
 ≊|ok hand|body,hand,ok,person
 👌🏻|OK HAND SIGN,TYPE-1-2 
 👌🏼|OK HAND SIGN,TYPE-3 
 👌🏽|OK HAND SIGN,TYPE-4 
 👌🏾|OK HAND SIGN,TYPE-5 
 👌🏿|OK HAND SIGN,TYPE-6 
-👍|THUMBS UP SIGN
+👍|THUMBS UP SIGN|yes,positive,thumbs,thumb
 ≊|thumbs up +1,|body,hand,person,thumb,thumbs up,up
 👍🏻|THUMBS UP SIGN,TYPE-1-2 
 👍🏼|THUMBS UP SIGN,TYPE-3 
 👍🏽|THUMBS UP SIGN,TYPE-4 
 👍🏾|THUMBS UP SIGN,TYPE-5 
 👍🏿|THUMBS UP SIGN,TYPE-6 
-👎|THUMBS DOWN SIGN
+👎|THUMBS DOWN SIGN|no,negative
 ≊|thumbs down -1,|body,down,hand,person,thumb,thumbs down
 👎🏻|THUMBS DOWN SIGN,TYPE-1-2 
 👎🏼|THUMBS DOWN SIGN,TYPE-3 
@@ -914,7 +909,6 @@
 🛁|BATHTUB|bath,bathtub,object,place,travel
 ⌛️|HOURGLASS|hourglass,object,sand,time,timer
 ⏳|HOURGLASS WITH FLOWING SAND|hourglass,object,sand,time,timer
-⌚️|WATCH|clock,object,time,watch
 ⏰|ALARM CLOCK|alarm,clock,object,time
 ⏱️|STOPWATCH|clock,object,stopwatch,time
 ⏲️|TIMER CLOCK|clock,object,time,timer
@@ -1034,7 +1028,6 @@
 🎆|FIREWORKS|activity,celebration,entertainment,fireworks,object
 🎇|FIREWORK SPARKLER
 ≊|sparkler|activity,celebration,entertainment,fireworks,object,sparkle
-✨|SPARKLES|emotion,entertainment,object,sign,sparkle,star
 🎈|BALLOON|activity,balloon,celebration,entertainment,object
 🎉|PARTY POPPER|activity,celebration,entertainment,object,party,popper,tada
 🎊|CONFETTI BALL|activity,ball,celebration,confetti,entertainment,object
@@ -1555,7 +1548,7 @@
 🔟|KEYCAP TEN 10,|keycap,symbol,ten,word
 💯|HUNDRED POINTS SYMBOL|100,hundred,perfect
 ≊|hundred points 100,|full,hundred,office,score,symbol
-🔞|NO ONE UNDER EIGHTEEN SYMBOL
+🔞|NO ONE UNDER EIGHTEEN SYMBOL|18,prohibited,underage
 ≊|no one under eighteen 18,age|restriction,eighteen,forbidden,no,not,prohibited,symbol,underage,word
 🔠|INPUT SYMBOL FOR LATIN CAPITAL LETTERS
 ≊|input latin uppercase|input,latin,letters,symbol,uppercase,word
@@ -1911,3 +1904,10 @@
 🇿🇦|Flag for South Africa|flag,other,south,south africa
 🇿🇲|Flag for Zambia|flag,other,zambia
 🇿🇼|Flag for Zimbabwe|flag,other,zimbabwe
+🙆|FACE WITH OK GESTURE
+≊|gesturing ok|gesture,hand,ok,person
+🙆🏻|FACE WITH OK GESTURE,TYPE-1-2 
+🙆🏼|FACE WITH OK GESTURE,TYPE-3 
+🙆🏽|FACE WITH OK GESTURE,TYPE-4 
+🙆🏾|FACE WITH OK GESTURE,TYPE-5 
+🙆🏿|FACE WITH OK GESTURE,TYPE-6 
