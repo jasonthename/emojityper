@@ -93,14 +93,16 @@ $(document).ready(function() {
     });
 
     $input.keyup(function(event) {
+        $input.attr('disabled', true);
         clearSuggestions();
 
         if ($.inArray(event.keyCode, keycodes) !== -1) {
             var prevWord = $.trim(getWordBeforeCursor());
-            console.log("prevword: " + '"' +  prevWord + '"');
+            //console.log("prevword: " + '"' +  prevWord + '"');
             var emojiList = EMOJI_MAP[prevWord.toLowerCase()];
-            console.table(emojiList);
+            //console.table(emojiList);
             if (emojiList === undefined)  {
+                $input.attr('disabled', false);
                 return;
             }
             // Replace the contents of the textarea with The Good Stuff
@@ -114,6 +116,7 @@ $(document).ready(function() {
 
             // Don't show the suggestion box if there isn't  more than one. .
             if (alt_emoji_html.length < 2) {
+                $input.attr('disabled', false);
                 return;
             }
 
@@ -123,6 +126,8 @@ $(document).ready(function() {
             // mmmm damn that's some smooth UX
             $('div.alt').fadeIn(100);
         }
+
+        $input.attr('disabled', false);
 
     });
 
