@@ -58,7 +58,15 @@ p.footer {
     text-align: center;
 }
 
+div.social {
+    text-align: center;
+}
+div.social-item {
+    display: inline;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 body {
     background: #1976D2;
 }
-
