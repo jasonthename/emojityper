@@ -38,6 +38,7 @@ with open("annotations.txt") as f:
         # Turn multi words tags into single word tags, and remove duplicates.
         # Use the longest words first, assuming they contain the most meaning.
         tagslist.extend((tags.replace(" ", ",").split(",")))
+
         # Remove duplicates
         tagslist = set(tagslist)
 
@@ -47,7 +48,6 @@ with open("annotations.txt") as f:
                     "name": name
             }
 
-            # Check uniqueness of emoji too
             if tag in tag2emoji:
                 tag2emoji[tag].append(emoji_data)
             else:
@@ -55,7 +55,10 @@ with open("annotations.txt") as f:
 
 
 
+"""
 with open("../js/emojimap.js", "w") as f:
     # SO LEGIT
     f.write("var EMOJI_MAP = ")
     f.write(json.dumps(tag2emoji, indent=4, sort_keys=True))
+"""
+print("Not writing to file. It would possibly overwrite local changes!")

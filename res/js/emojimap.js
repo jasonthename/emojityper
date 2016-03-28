@@ -453,12 +453,6 @@ var EMOJI_MAP = {
             "name": "CLOCK FACE NINETHIRTY ninethirty"
         }
     ], 
-    "a": [
-        {
-            "emoji": "\ud83c\udd70\ufe0f", 
-            "name": "NEGATIVE SQUARED LATIN CAPITAL LETTER A a button"
-        }
-    ], 
     "ab": [
         {
             "emoji": "\ud83c\udd8e", 
@@ -6027,6 +6021,10 @@ var EMOJI_MAP = {
     ], 
     "cry": [
         {
+            "emoji": "\ud83d\ude02", 
+            "name": "FACE WITH TEARS OF JOY"
+        }, 
+        {
             "emoji": "\ud83d\ude22", 
             "name": "CRYING FACE"
         }, 
@@ -6040,6 +6038,10 @@ var EMOJI_MAP = {
         }
     ], 
     "crying": [
+        {
+            "emoji": "\ud83d\ude02", 
+            "name": "FACE WITH TEARS OF JOY"
+        }, 
         {
             "emoji": "\ud83d\ude22", 
             "name": "CRYING FACE"
@@ -6522,6 +6524,11 @@ var EMOJI_MAP = {
         }
     ], 
     "devil": [
+
+        {
+            "emoji": "\ud83d\ude08", 
+            "name": "SMILING FACE WITH HORNS"
+        }, 
         {
             "emoji": "\ud83d\udc7f", 
             "name": "IMP"
@@ -12003,6 +12010,12 @@ var EMOJI_MAP = {
             "name": "HAMSTER FACE"
         }
     ], 
+    "haha": [
+        {
+            "emoji": "\ud83d\ude02", 
+            "name": "FACE WITH TEARS OF JOY"
+        }
+    ],
     "hand": [
         {
             "emoji": "\ud83d\ude45", 
@@ -14193,6 +14206,16 @@ var EMOJI_MAP = {
             "name": "SMILING FACE WITH OPEN MOUTH AND TIGHTLYCLOSED EYES"
         }
     ], 
+    "laughing": [
+        {
+            "emoji": "\ud83d\ude02", 
+            "name": "FACE WITH TEARS OF JOY"
+        }, 
+        {
+            "emoji": "\ud83d\ude06", 
+            "name": "SMILING FACE WITH OPEN MOUTH AND TIGHTLYCLOSED EYES"
+        }
+    ], 
     "lavatory": [
         {
             "emoji": "\ud83d\udeb9", 
@@ -14797,6 +14820,16 @@ var EMOJI_MAP = {
             "name": "Flag for St. Lucia"
         }
     ], 
+    "lucky": [
+        {
+            "emoji": "\ud83c\udf40", 
+            "name": "FOUR LEAF CLOVER"
+        }, 
+        {
+            "emoji": "\u2618\ufe0f", 
+            "name": "SHAMROCK"
+        }
+    ],
     "luggage": [
         {
             "emoji": "\ud83d\udec5", 
@@ -19627,12 +19660,26 @@ var EMOJI_MAP = {
     ], 
     "ok": [
         {
+            "emoji": "\ud83d\udc4c", 
+            "name": "OK HAND SIGN ok hand"
+        }, 
+        {
             "emoji": "\ud83d\ude46", 
             "name": "FACE WITH OK GESTURE gesturing ok"
         }, 
         {
+            "emoji": "\ud83c\udd97", 
+            "name": "SQUARED OK"
+        }
+    ], 
+    "okay": [
+        {
             "emoji": "\ud83d\udc4c", 
             "name": "OK HAND SIGN ok hand"
+        }, 
+        {
+            "emoji": "\ud83d\ude46", 
+            "name": "FACE WITH OK GESTURE gesturing ok"
         }, 
         {
             "emoji": "\ud83c\udd97", 
@@ -23223,6 +23270,10 @@ var EMOJI_MAP = {
     ], 
     "plant": [
         {
+            "emoji": "\ud83c\udf31", 
+            "name": "SEEDLING"
+        }, 
+        {
             "emoji": "\ud83d\udc90", 
             "name": "BOUQUET"
         }, 
@@ -23253,10 +23304,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udf37", 
             "name": "TULIP"
-        }, 
-        {
-            "emoji": "\ud83c\udf31", 
-            "name": "SEEDLING"
         }, 
         {
             "emoji": "\ud83c\udf32", 
