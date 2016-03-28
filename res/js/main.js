@@ -131,6 +131,18 @@ $(document).ready(function() {
 
     });
 
+    var clipboard = new Clipboard('button.copy');
+    var $clipboardBtn = $('button.copy');
+    clipboard.on('success', function(e) {
+        console.log("Copied!");
+        $clipboardBtn.text('Copied!');
+        window.setTimeout(function() {
+            $clipboardBtn.text('Copy to clipboard');
+        }, 1000);
+
+        e.clearSelection();
+    });
+
     $input.focus();
 
 

@@ -58,4 +58,4 @@ with open("annotations.txt") as f:
 with open("../js/emojimap.js", "w") as f:
     # SO LEGIT
     f.write("var EMOJI_MAP = ")
-    f.write(json.dumps(tag2emoji))
+    f.write(json.dumps(tag2emoji, indent=4, sort_keys=True))

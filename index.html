@@ -5,9 +5,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Emojityper</title>
+    <title>⌨️Emojityper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Emoji ready to copy and paste! Just type words to get emoji.">
+    <meta name="description" content="Emoji ready to copy and paste! List of all emoji, just type some words to get emoji. Laughing crying emoji 😂">
     <meta name="author" content="@_notlikethis">
 
     <!-- Le styles -->
@@ -26,7 +26,10 @@
   <body>
       <div class="container">
           <div class="main">
-          <input type="text" id="emoji" placeholder="Type words here to get emoji! (e.g 'sushi fireworks joy 100')"></input>
+              <input type="text" id="emoji" placeholder="Type words here to get emoji! (e.g 'plant joy 100 tree')"></input>
+
+              <button class="btn btn-primary copy" data-clipboard-target="#emoji" alt="Copy to clipboard">Copy to clipboard</button>
+
           <div class="alt" style="display:none;">
               <p class="suggest-hint">A different one?</p>
               <p class="alt"></p>
@@ -68,8 +71,8 @@
     <script src="res/js/jquery-1.9.1.min.js"></script>
     <script src="res/js/bootstrap.js"></script>
     <script src="res/js/emojimap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.8/clipboard.min.js"></script>
     <script src="res/js/main.js"></script>
-    <!-- Place this tag right after the last button or just before your close body tag. -->
     <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
