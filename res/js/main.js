@@ -97,26 +97,47 @@ $(document).ready(function() {
     });
 
     $input.keyup(function(event) {
+        $input.attr('disabled', true);
         clearSuggestions();
 
         if ($.inArray(event.keyCode, keycodes) !== -1) {
             var prevWord = $.trim(getWordBeforeCursor());
-            console.log("prevword: " + '"' +  prevWord + '"');
+            //console.log("prevword: " + '"' +  prevWord + '"');
             var emojiList = EMOJI_MAP[prevWord.toLowerCase()];
-            console.table(emojiList);
+            //console.table(emojiList);
             if (emojiList === undefined)  {
+                $input.attr('disabled', false);
                 return;
             }
 
             $alt.html(emojiList.map(function(i) {
                 return '<span class="alt-emoji" data-canonical-emoji="' + emojiList[0].emoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
             }).join(" "))
+            // Replace the contents of the textarea with The Good Stuff
             var newInput = replaceLast($input.val(), prevWord, emojiList[0]["emoji"]);
 
             // XSS YOURSELF I DARE YOU
             $input.val(newInput);
-            $('div.alt').show();
+
+            // Make HTML for each of the suggestions.
+            var alt_emoji_html = emojiList.map(function(i) {
+                return '<span class="alt-emoji btn btn-primary" alt="' + i.name + '" data-canonical-emoji="' + emojiList[0].emoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
+            });
+
+            // Don't show the suggestion box if there isn't  more than one. .
+            if (alt_emoji_html.length < 2) {
+                $input.attr('disabled', false);
+                return;
+            }
+
+            // XSS ME I DARE YOU
+            $alt.html(alt_emoji_html.join('\n'));
+
+            // mmmm damn that's some smooth UX
+            $('div.alt').fadeIn(100);
         }
+
+        $input.attr('disabled', false);
 
     });
 
