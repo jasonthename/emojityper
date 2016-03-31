@@ -1,3 +1,5 @@
+// Hello you probably don't want to be involved with this js spaghetti, you probably want emojimap.js
+
 $(document).ready(function() {
 
     var delimiters = [' ', ',', '\n'];
@@ -7,6 +9,8 @@ $(document).ready(function() {
         $('div.alt').hide();
     }
 
+    // Gets a list of the 'characters' in a string, treating each unicode 'character' as a single character.
+    // If you try just indexing a regular js string, you'll see the true jank of js and unicode
     function getSymbols(string) {
       var index = 0;
       var length = string.length;
@@ -34,6 +38,7 @@ $(document).ready(function() {
         }
         return 0;
     };
+
     var getWordBeforeCursor = function() {
         var cursorPosition = $input.prop('selectionStart');
         var text = $input.val();
@@ -44,6 +49,7 @@ $(document).ready(function() {
     }
 
     var replaceLast = function(str, pattern, replacement) {
+        // Replace the last occurrence of a pattern in a string.
         n = str.lastIndexOf(pattern);
         if (n !== -1) {
                 return str.substring(0, n) + replacement + str.substring(n + pattern.length);
@@ -59,8 +65,6 @@ $(document).ready(function() {
         var lastIndexOfPattern = text.lastIndexOf(pattern);
         var replacementText = text.substring(0, lastIndexOfPattern) + replacement + text.substring(lastIndexOfPattern + pattern.length);
         $input.val(replacementText);
-
-
     }
 
     var keycodes = [
@@ -88,7 +92,7 @@ $(document).ready(function() {
     });
 
     $input.click(function() {
-        // Clear the suggestions when clicked.
+        // Clear the suggestions when clicked so it's clear that you can only change emoji right after typing one.
         clearSuggestions();
     });
 
@@ -104,17 +108,19 @@ $(document).ready(function() {
                 return;
             }
 
-            // XSS ME I DARE YOU
             $alt.html(emojiList.map(function(i) {
                 return '<span class="alt-emoji" data-canonical-emoji="' + emojiList[0].emoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
             }).join(" "))
             var newInput = replaceLast($input.val(), prevWord, emojiList[0]["emoji"]);
+
+            // XSS YOURSELF I DARE YOU
             $input.val(newInput);
             $('div.alt').show();
         }
 
     });
 
+    // Focus the input on pageload damn that's a smooth UX.
     $input.focus();
 
 
