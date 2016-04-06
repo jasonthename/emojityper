@@ -141,6 +141,19 @@ $(document).ready(function() {
 
     });
 
+<<<<<<< HEAD
+    var clipboard = new Clipboard('button.copy');
+    var $clipboardBtn = $('button.copy');
+    clipboard.on('success', function(e) {
+        console.log("Copied!");
+        $clipboardBtn.text('Copied!');
+        window.setTimeout(function() {
+            $clipboardBtn.text('Copy to clipboard');
+        }, 1000);
+
+        e.clearSelection();
+    });
+
     // Focus the input on pageload damn that's a smooth UX.
     $input.focus();
 
