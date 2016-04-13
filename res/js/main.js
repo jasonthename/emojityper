@@ -4,14 +4,14 @@ $(document).ready(function() {
 
     var delimiters = [' ', ',', '\n'];
 
-    function clearSuggestions() {
+    var clearSuggestions = function() {
         $('span.alt-emoji').remove();
         $('div.alt').hide();
     }
 
     // Gets a list of the 'characters' in a string, treating each unicode 'character' as a single character.
     // If you try just indexing a regular js string, you'll see the true jank of js and unicode
-    function getSymbols(string) {
+    var getSymbols = function(string) {
       var index = 0;
       var length = string.length;
       var output = [];
@@ -135,13 +135,14 @@ $(document).ready(function() {
 
             // mmmm damn that's some smooth UX
             $('div.alt').fadeIn(100);
+
+            $('button.copy').show();
         }
 
         $input.attr('disabled', false);
 
     });
 
-<<<<<<< HEAD
     var clipboard = new Clipboard('button.copy');
     var $clipboardBtn = $('button.copy');
     clipboard.on('success', function(e) {

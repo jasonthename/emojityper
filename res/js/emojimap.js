@@ -1,14 +1,32 @@
 var EMOJI_MAP = {
+    "nice": [
+        {
+            "emoji": "\ud83d\udc4c", 
+            "name": "OK HAND SIGN ok hand"
+        }, 
+    ],
     "+1": [
         {
             "emoji": "\ud83d\udc4d", 
-            "name": "THUMBS UP SIGN thumbs up"
+            "name": "?"
+        }
+    ], 
+    "-1": [
+        {
+            "emoji": "\ud83d\udc4e", 
+            "name": "?"
+        }
+    ], 
+    "-_-": [
+        {
+            "emoji": "\ud83d\ude11", 
+            "name": "?"
         }
     ], 
     "0": [
         {
             "emoji": "0\ufe0f\u20e3", 
-            "name": "Keycap DIGIT ZERO"
+            "name": "?"
         }
     ], 
     "00": [
@@ -63,6 +81,10 @@ var EMOJI_MAP = {
     ], 
     "1": [
         {
+            "emoji": "1\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc4e", 
             "name": "THUMBS DOWN SIGN thumbs down"
         }, 
@@ -73,13 +95,13 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd5c", 
             "name": "CLOCK FACE ONETHIRTY onethirty"
-        }, 
-        {
-            "emoji": "1\ufe0f\u20e3", 
-            "name": "Keycap DIGIT ONE"
         }
     ], 
     "10": [
+        {
+            "emoji": "\ud83d\udd1f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd59", 
             "name": "CLOCK FACE TEN OCLOCK ten o\u2019clock"
@@ -87,16 +109,18 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd65", 
             "name": "CLOCK FACE TENTHIRTY tenthirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd1f", 
-            "name": "KEYCAP TEN"
         }
     ], 
     "100": [
         {
             "emoji": "\ud83d\udcaf", 
-            "name": "HUNDRED POINTS SYMBOL hundred points"
+            "name": "?"
+        }
+    ], 
+    "101": [
+        {
+            "emoji": "\ud83d\udc29", 
+            "name": "?"
         }
     ], 
     "10:00": [
@@ -146,7 +170,7 @@ var EMOJI_MAP = {
     "1234": [
         {
             "emoji": "\ud83d\udd22", 
-            "name": "INPUT SYMBOL FOR NUMBERS input numbers"
+            "name": "?"
         }
     ], 
     "12:00": [
@@ -164,7 +188,7 @@ var EMOJI_MAP = {
     "18": [
         {
             "emoji": "\ud83d\udd1e", 
-            "name": "NO ONE UNDER EIGHTEEN SYMBOL no one under eighteen"
+            "name": "?"
         }
     ], 
     "1:00": [
@@ -181,16 +205,20 @@ var EMOJI_MAP = {
     ], 
     "2": [
         {
+            "emoji": "2\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc46", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd51", 
             "name": "CLOCK FACE TWO OCLOCK two o\u2019clock"
         }, 
         {
             "emoji": "\ud83d\udd5d", 
             "name": "CLOCK FACE TWOTHIRTY twothirty"
-        }, 
-        {
-            "emoji": "2\ufe0f\u20e3", 
-            "name": "Keycap DIGIT TWO"
         }
     ], 
     "2:00": [
@@ -207,6 +235,14 @@ var EMOJI_MAP = {
     ], 
     "3": [
         {
+            "emoji": "\ud83d\ude17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "3\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd52", 
             "name": "CLOCK FACE THREE OCLOCK three o\u2019clock"
         }, 
@@ -221,10 +257,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\uddb1\ufe0f", 
             "name": "THREE BUTTON MOUSE computer mouse"
-        }, 
-        {
-            "emoji": "3\ufe0f\u20e3", 
-            "name": "Keycap DIGIT THREE"
         }
     ], 
     "30": [
@@ -291,6 +323,10 @@ var EMOJI_MAP = {
     ], 
     "4": [
         {
+            "emoji": "4\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf40", 
             "name": "FOUR LEAF CLOVER"
         }, 
@@ -301,10 +337,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd5f", 
             "name": "CLOCK FACE FOURTHIRTY fourthirty"
-        }, 
-        {
-            "emoji": "4\ufe0f\u20e3", 
-            "name": "Keycap DIGIT FOUR"
         }
     ], 
     "4:00": [
@@ -321,16 +353,16 @@ var EMOJI_MAP = {
     ], 
     "5": [
         {
+            "emoji": "5\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd54", 
             "name": "CLOCK FACE FIVE OCLOCK five o\u2019clock"
         }, 
         {
             "emoji": "\ud83d\udd60", 
             "name": "CLOCK FACE FIVETHIRTY fivethirty"
-        }, 
-        {
-            "emoji": "5\ufe0f\u20e3", 
-            "name": "Keycap DIGIT FIVE"
         }
     ], 
     "5:00": [
@@ -347,16 +379,16 @@ var EMOJI_MAP = {
     ], 
     "6": [
         {
+            "emoji": "6\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd55", 
             "name": "CLOCK FACE SIX OCLOCK six o\u2019clock"
         }, 
         {
             "emoji": "\ud83d\udd61", 
             "name": "CLOCK FACE SIXTHIRTY sixthirty"
-        }, 
-        {
-            "emoji": "6\ufe0f\u20e3", 
-            "name": "Keycap DIGIT SIX"
         }
     ], 
     "6:00": [
@@ -373,16 +405,16 @@ var EMOJI_MAP = {
     ], 
     "7": [
         {
+            "emoji": "7\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd56", 
             "name": "CLOCK FACE SEVEN OCLOCK seven o\u2019clock"
         }, 
         {
             "emoji": "\ud83d\udd62", 
             "name": "CLOCK FACE SEVENTHIRTY seventhirty"
-        }, 
-        {
-            "emoji": "7\ufe0f\u20e3", 
-            "name": "Keycap DIGIT SEVEN"
         }
     ], 
     "7:00": [
@@ -399,6 +431,10 @@ var EMOJI_MAP = {
     ], 
     "8": [
         {
+            "emoji": "8\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd57", 
             "name": "CLOCK FACE EIGHT OCLOCK eight o\u2019clock"
         }, 
@@ -409,10 +445,12 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udfb1", 
             "name": "BILLIARDS"
-        }, 
+        }
+    ], 
+    "80s": [
         {
-            "emoji": "8\ufe0f\u20e3", 
-            "name": "Keycap DIGIT EIGHT"
+            "emoji": "\ud83d\udcfc", 
+            "name": "?"
         }
     ], 
     "8:00": [
@@ -427,7 +465,17 @@ var EMOJI_MAP = {
             "name": "CLOCK FACE EIGHTTHIRTY eightthirty"
         }
     ], 
+    "8ball": [
+        {
+            "emoji": "\ud83c\udfb1", 
+            "name": "?"
+        }
+    ], 
     "9": [
+        {
+            "emoji": "9\ufe0f\u20e3", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd58", 
             "name": "CLOCK FACE NINE OCLOCK nine o\u2019clock"
@@ -435,10 +483,38 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd64", 
             "name": "CLOCK FACE NINETHIRTY ninethirty"
+        }
+    ], 
+    "90s": [
+        {
+            "emoji": "\ud83d\udcbe", 
+            "name": "?"
         }, 
         {
-            "emoji": "9\ufe0f\u20e3", 
-            "name": "Keycap DIGIT NINE"
+            "emoji": "\ud83d\udcfc", 
+            "name": "?"
+        }
+    ], 
+    "911": [
+        {
+            "emoji": "\ud83c\udd98", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude94", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea8", 
+            "name": "?"
         }
     ], 
     "9:00": [
@@ -453,28 +529,106 @@ var EMOJI_MAP = {
             "name": "CLOCK FACE NINETHIRTY ninethirty"
         }
     ], 
+    "MLB": [
+        {
+            "emoji": "\u26be\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "NASA": [
+        {
+            "emoji": "\ud83d\ude80", 
+            "name": "?"
+        }
+    ], 
+    "NBA": [
+        {
+            "emoji": "\ud83c\udfc0", 
+            "name": "?"
+        }
+    ], 
+    "NFL": [
+        {
+            "emoji": "\ud83c\udfc8", 
+            "name": "?"
+        }
+    ], 
+    "PA": [
+        {
+            "emoji": "\ud83c\udfa4", 
+            "name": "?"
+        }
+    ], 
+    "PS4": [
+        {
+            "emoji": "\ud83c\udfae", 
+            "name": "?"
+        }
+    ], 
+    "UFO": [
+        {
+            "emoji": "\ud83d\udc7d", 
+            "name": "?"
+        }
+    ], 
+    "UK": [
+        {
+            "emoji": "\ud83c\uddec\ud83c\udde7", 
+            "name": "?"
+        }
+    ], 
+    "USA": [
+        {
+            "emoji": "\ud83c\udf0e", 
+            "name": "?"
+        }
+    ], 
+    "a": [
+        {
+            "emoji": "\ud83d\udca0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd70\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "ab": [
         {
             "emoji": "\ud83c\udd8e", 
-            "name": "NEGATIVE SQUARED AB ab button"
+            "name": "?"
         }
     ], 
     "abc": [
         {
             "emoji": "\ud83d\udd24", 
-            "name": "INPUT SYMBOL FOR LATIN LETTERS input latin letters"
+            "name": "?"
         }
     ], 
     "abcd": [
         {
+            "emoji": "\ud83d\udd20", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd21", 
-            "name": "INPUT SYMBOL FOR LATIN SMALL LETTERS input latin lowercase"
+            "name": "?"
+        }
+    ], 
+    "above": [
+        {
+            "emoji": "\ud83c\udd99", 
+            "name": "?"
         }
     ], 
     "accept": [
         {
+            "emoji": "\ud83d\udc4d", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\ude51", 
-            "name": "CIRCLED IDEOGRAPH ACCEPT circled accept ideograph"
+            "name": "?"
         }
     ], 
     "access": [
@@ -483,10 +637,54 @@ var EMOJI_MAP = {
             "name": "WHEELCHAIR SYMBOL wheelchair"
         }
     ], 
+    "accessories": [
+        {
+            "emoji": "\ud83d\udc52", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc53", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u231a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5d", 
+            "name": "?"
+        }
+    ], 
+    "accessory": [
+        {
+            "emoji": "\ud83d\udc5c", 
+            "name": "?"
+        }
+    ], 
     "accommodation": [
         {
             "emoji": "\ud83d\udecc", 
             "name": "SLEEPING ACCOMMODATION person in bed"
+        }
+    ], 
+    "accomodation": [
+        {
+            "emoji": "\ud83c\udfe8", 
+            "name": "?"
+        }
+    ], 
+    "acting": [
+        {
+            "emoji": "\ud83c\udfad", 
+            "name": "?"
         }
     ], 
     "activity": [
@@ -667,6 +865,12 @@ var EMOJI_MAP = {
             "name": "CINEMA"
         }
     ], 
+    "addition": [
+        {
+            "emoji": "\u2795", 
+            "name": "?"
+        }
+    ], 
     "address": [
         {
             "emoji": "\ud83d\udce2", 
@@ -686,13 +890,99 @@ var EMOJI_MAP = {
     "advantage": [
         {
             "emoji": "\ud83c\ude50", 
-            "name": "CIRCLED IDEOGRAPH ADVANTAGE circled advantage ideograph"
+            "name": "?"
         }
     ], 
     "aerial": [
         {
             "emoji": "\ud83d\udea1", 
-            "name": "AERIAL TRAMWAY"
+            "name": "?"
+        }
+    ], 
+    "affection": [
+        {
+            "emoji": "\ud83d\ude3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc96", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc95", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc92", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc98", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc97", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc99", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9c", 
+            "name": "?"
         }
     ], 
     "afghanistan": [
@@ -704,7 +994,7 @@ var EMOJI_MAP = {
     "africa": [
         {
             "emoji": "\ud83c\udf0d", 
-            "name": "EARTH GLOBE EUROPEAFRICA globe showing europeafrica"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\uddff\ud83c\udde6", 
@@ -717,10 +1007,44 @@ var EMOJI_MAP = {
             "name": "Flag for Central African Republic"
         }
     ], 
+    "afternoon": [
+        {
+            "emoji": "\ud83d\udd05", 
+            "name": "?"
+        }
+    ], 
     "age": [
         {
             "emoji": "\ud83d\udd1e", 
             "name": "NO ONE UNDER EIGHTEEN SYMBOL no one under eighteen"
+        }
+    ], 
+    "agree": [
+        {
+            "emoji": "\u2705", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd97", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2611\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude51", 
+            "name": "?"
+        }
+    ], 
+    "agriculture": [
+        {
+            "emoji": "\ud83d\ude9c", 
+            "name": "?"
         }
     ], 
     "aid": [
@@ -729,10 +1053,20 @@ var EMOJI_MAP = {
             "name": "HELMET WITH WHITE CROSS"
         }
     ], 
+    "air": [
+        {
+            "emoji": "\ud83d\udca8", 
+            "name": "?"
+        }
+    ], 
     "airplane": [
         {
+            "emoji": "\ud83d\udcba", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u2708\ufe0f", 
-            "name": "AIRPLANE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udee9\ufe0f", 
@@ -747,10 +1081,16 @@ var EMOJI_MAP = {
             "name": "AIRPLANE ARRIVING airplane arrival"
         }
     ], 
+    "airport": [
+        {
+            "emoji": "\ud83d\udec4", 
+            "name": "?"
+        }
+    ], 
     "alarm": [
         {
             "emoji": "\u23f0", 
-            "name": "ALARM CLOCK"
+            "name": "?"
         }
     ], 
     "albania": [
@@ -759,10 +1099,46 @@ var EMOJI_MAP = {
             "name": "Flag for Albania"
         }
     ], 
+    "alcohol": [
+        {
+            "emoji": "\ud83c\udf7a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf79", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf78", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf76", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf77", 
+            "name": "?"
+        }
+    ], 
     "alembic": [
         {
             "emoji": "\u2697\ufe0f", 
             "name": "ALEMBIC"
+        }
+    ], 
+    "alert": [
+        {
+            "emoji": "\u26a0\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea8", 
+            "name": "?"
         }
     ], 
     "algeria": [
@@ -774,7 +1150,7 @@ var EMOJI_MAP = {
     "alien": [
         {
             "emoji": "\ud83d\udc7d", 
-            "name": "EXTRATERRESTRIAL ALIEN alien"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc7e", 
@@ -783,20 +1159,68 @@ var EMOJI_MAP = {
     ], 
     "alphabet": [
         {
+            "emoji": "\ud83c\udd8e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd20", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd7e\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u24c2\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd71\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2139\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd7f\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd21", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd24", 
-            "name": "INPUT SYMBOL FOR LATIN LETTERS input latin letters"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd70\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u00ae\ufe0f", 
+            "name": "?"
         }
     ], 
     "alternation": [
         {
             "emoji": "\u303d\ufe0f", 
-            "name": "PART ALTERNATION MARK"
+            "name": "?"
         }
     ], 
     "ambulance": [
         {
             "emoji": "\ud83d\ude91", 
-            "name": "AMBULANCE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea8", 
+            "name": "?"
         }
     ], 
     "america": [
@@ -815,6 +1239,14 @@ var EMOJI_MAP = {
     ], 
     "american": [
         {
+            "emoji": "\ud83c\uddfa\ud83c\uddf8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\uddfd", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udfc8", 
             "name": "AMERICAN FOOTBALL"
         }, 
@@ -830,7 +1262,13 @@ var EMOJI_MAP = {
     "americas": [
         {
             "emoji": "\ud83c\udf0e", 
-            "name": "EARTH GLOBE AMERICAS globe showing americas"
+            "name": "?"
+        }
+    ], 
+    "ampersand": [
+        {
+            "emoji": "\ud83d\udd23", 
+            "name": "?"
         }
     ], 
     "amphora": [
@@ -851,6 +1289,10 @@ var EMOJI_MAP = {
     ], 
     "anchor": [
         {
+            "emoji": "\u2693", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u2693\ufe0f", 
             "name": "ANCHOR"
         }, 
@@ -859,7 +1301,25 @@ var EMOJI_MAP = {
             "name": "TRIDENT EMBLEM"
         }
     ], 
+    "ancient": [
+        {
+            "emoji": "\ud83d\udcdc", 
+            "name": "?"
+        }
+    ], 
     "and": [
+        {
+            "emoji": "\ud83d\udd29", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf74", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\uddfa\ud83c\uddf8", 
             "name": "Flag for United States"
@@ -874,17 +1334,17 @@ var EMOJI_MAP = {
     "angel": [
         {
             "emoji": "\ud83d\ude07", 
-            "name": "SMILING FACE WITH HALO"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc7c", 
-            "name": "BABY ANGEL"
+            "name": "?"
         }
     ], 
     "anger": [
         {
             "emoji": "\ud83d\udca2", 
-            "name": "ANGER SYMBOL"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\uddef\ufe0f", 
@@ -900,15 +1360,23 @@ var EMOJI_MAP = {
     "angry": [
         {
             "emoji": "\ud83d\ude21", 
-            "name": "POUTING FACE"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude20", 
-            "name": "ANGRY FACE"
+            "emoji": "\ud83d\udc4a", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udca2", 
-            "name": "ANGER SYMBOL"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc7f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude20", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\uddef\ufe0f", 
@@ -924,305 +1392,333 @@ var EMOJI_MAP = {
     "anguished": [
         {
             "emoji": "\ud83d\ude27", 
-            "name": "ANGUISHED FACE"
+            "name": "?"
         }
     ], 
     "animal": [
         {
-            "emoji": "\ud83d\ude3a", 
-            "name": "SMILING CAT FACE WITH OPEN MOUTH"
-        }, 
-        {
-            "emoji": "\ud83d\ude38", 
-            "name": "GRINNING CAT FACE WITH SMILING EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude39", 
-            "name": "CAT FACE WITH TEARS OF JOY"
+            "emoji": "\ud83d\udc07", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude3b", 
-            "name": "SMILING CAT FACE WITH HEARTSHAPED EYES"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude3c", 
-            "name": "CAT FACE WITH WRY SMILE"
+            "emoji": "\ud83d\udc37", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude3d", 
-            "name": "KISSING CAT FACE WITH CLOSED EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude40", 
-            "name": "WEARY CAT FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude3f", 
-            "name": "CRYING CAT FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude3e", 
-            "name": "POUTING CAT FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude48", 
-            "name": "SEENOEVIL MONKEY seenoevil"
-        }, 
-        {
-            "emoji": "\ud83d\ude49", 
-            "name": "HEARNOEVIL MONKEY hearnoevil"
-        }, 
-        {
-            "emoji": "\ud83d\ude4a", 
-            "name": "SPEAKNOEVIL MONKEY speaknoevil"
-        }, 
-        {
-            "emoji": "\ud83d\udc35", 
-            "name": "MONKEY FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc12", 
-            "name": "MONKEY"
-        }, 
-        {
-            "emoji": "\ud83d\udc36", 
-            "name": "DOG FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc15", 
-            "name": "DOG"
-        }, 
-        {
-            "emoji": "\ud83d\udc29", 
-            "name": "POODLE"
-        }, 
-        {
-            "emoji": "\ud83d\udc3a", 
-            "name": "WOLF FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc31", 
-            "name": "CAT FACE"
+            "emoji": "\ud83d\udc25", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc08", 
-            "name": "CAT"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc0b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc27", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc24", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc02", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc20", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc33", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc06", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc0c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude39", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc21", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude49", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf64", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc28", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc00", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude40", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc12", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc11", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc04", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc23", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc22", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc0d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc05", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc09", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc10", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc16", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc31", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc03", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc01", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc29", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc39", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude48", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc26", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc0a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc30", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83e\udd81", 
             "name": "LION FACE"
         }, 
         {
-            "emoji": "\ud83d\udc2f", 
-            "name": "TIGER FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc05", 
-            "name": "TIGER"
-        }, 
-        {
-            "emoji": "\ud83d\udc06", 
-            "name": "LEOPARD"
-        }, 
-        {
-            "emoji": "\ud83d\udc34", 
-            "name": "HORSE FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc0e", 
-            "name": "HORSE"
-        }, 
-        {
             "emoji": "\ud83e\udd84", 
             "name": "UNICORN FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc2e", 
-            "name": "COW FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc02", 
-            "name": "OX"
-        }, 
-        {
-            "emoji": "\ud83d\udc03", 
-            "name": "WATER BUFFALO"
-        }, 
-        {
-            "emoji": "\ud83d\udc04", 
-            "name": "COW"
-        }, 
-        {
-            "emoji": "\ud83d\udc37", 
-            "name": "PIG FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc16", 
-            "name": "PIG"
-        }, 
-        {
-            "emoji": "\ud83d\udc17", 
-            "name": "BOAR"
-        }, 
-        {
-            "emoji": "\ud83d\udc3d", 
-            "name": "PIG NOSE"
-        }, 
-        {
-            "emoji": "\ud83d\udc0f", 
-            "name": "RAM"
-        }, 
-        {
-            "emoji": "\ud83d\udc11", 
-            "name": "SHEEP"
-        }, 
-        {
-            "emoji": "\ud83d\udc10", 
-            "name": "GOAT"
-        }, 
-        {
-            "emoji": "\ud83d\udc2a", 
-            "name": "DROMEDARY CAMEL camel"
-        }, 
-        {
-            "emoji": "\ud83d\udc2b", 
-            "name": "BACTRIAN CAMEL twohump camel"
-        }, 
-        {
-            "emoji": "\ud83d\udc18", 
-            "name": "ELEPHANT"
-        }, 
-        {
-            "emoji": "\ud83d\udc2d", 
-            "name": "MOUSE FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc01", 
-            "name": "MOUSE"
-        }, 
-        {
-            "emoji": "\ud83d\udc00", 
-            "name": "RAT"
-        }, 
-        {
-            "emoji": "\ud83d\udc39", 
-            "name": "HAMSTER FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc30", 
-            "name": "RABBIT FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc07", 
-            "name": "RABBIT"
         }, 
         {
             "emoji": "\ud83d\udc3f\ufe0f", 
             "name": "CHIPMUNK"
         }, 
         {
-            "emoji": "\ud83d\udc3b", 
-            "name": "BEAR FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc28", 
-            "name": "KOALA"
-        }, 
-        {
-            "emoji": "\ud83d\udc3c", 
-            "name": "PANDA FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc3e", 
-            "name": "PAW PRINTS"
-        }, 
-        {
             "emoji": "\ud83e\udd83", 
             "name": "TURKEY"
         }, 
         {
-            "emoji": "\ud83d\udc14", 
-            "name": "CHICKEN"
-        }, 
-        {
-            "emoji": "\ud83d\udc13", 
-            "name": "ROOSTER"
-        }, 
-        {
-            "emoji": "\ud83d\udc23", 
-            "name": "HATCHING CHICK"
-        }, 
-        {
-            "emoji": "\ud83d\udc24", 
-            "name": "BABY CHICK"
-        }, 
-        {
-            "emoji": "\ud83d\udc25", 
-            "name": "FRONTFACING BABY CHICK"
-        }, 
-        {
-            "emoji": "\ud83d\udc26", 
-            "name": "BIRD"
-        }, 
-        {
-            "emoji": "\ud83d\udc27", 
-            "name": "PENGUIN"
-        }, 
-        {
             "emoji": "\ud83d\udd4a\ufe0f", 
             "name": "DOVE OF PEACE dove"
-        }, 
-        {
-            "emoji": "\ud83d\udc38", 
-            "name": "FROG FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc0a", 
-            "name": "CROCODILE"
-        }, 
-        {
-            "emoji": "\ud83d\udc22", 
-            "name": "TURTLE"
-        }, 
-        {
-            "emoji": "\ud83d\udc0d", 
-            "name": "SNAKE"
-        }, 
-        {
-            "emoji": "\ud83d\udc32", 
-            "name": "DRAGON FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc09", 
-            "name": "DRAGON"
-        }, 
-        {
-            "emoji": "\ud83d\udc33", 
-            "name": "SPOUTING WHALE"
-        }, 
-        {
-            "emoji": "\ud83d\udc0b", 
-            "name": "WHALE"
-        }, 
-        {
-            "emoji": "\ud83d\udc2c", 
-            "name": "DOLPHIN"
-        }, 
-        {
-            "emoji": "\ud83d\udc1f", 
-            "name": "FISH"
-        }, 
-        {
-            "emoji": "\ud83d\udc20", 
-            "name": "TROPICAL FISH"
-        }, 
-        {
-            "emoji": "\ud83d\udc21", 
-            "name": "BLOWFISH"
-        }, 
-        {
-            "emoji": "\ud83d\udc19", 
-            "name": "OCTOPUS"
         }, 
         {
             "emoji": "\ud83d\udc1a", 
@@ -1231,26 +1727,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83e\udd80", 
             "name": "CRAB"
-        }, 
-        {
-            "emoji": "\ud83d\udc0c", 
-            "name": "SNAIL"
-        }, 
-        {
-            "emoji": "\ud83d\udc1b", 
-            "name": "BUG"
-        }, 
-        {
-            "emoji": "\ud83d\udc1c", 
-            "name": "ANT"
-        }, 
-        {
-            "emoji": "\ud83d\udc1d", 
-            "name": "HONEYBEE"
-        }, 
-        {
-            "emoji": "\ud83d\udc1e", 
-            "name": "LADY BEETLE"
         }, 
         {
             "emoji": "\ud83d\udd77\ufe0f", 
@@ -1265,10 +1741,16 @@ var EMOJI_MAP = {
             "name": "SCORPION"
         }
     ], 
+    "annoyed": [
+        {
+            "emoji": "\ud83d\ude20", 
+            "name": "?"
+        }
+    ], 
     "ant": [
         {
             "emoji": "\ud83d\udc1c", 
-            "name": "ANT"
+            "name": "?"
         }
     ], 
     "antarctic": [
@@ -1317,14 +1799,30 @@ var EMOJI_MAP = {
             "name": "PERSON BOWING DEEPLY person bowing"
         }
     ], 
+    "appetizer": [
+        {
+            "emoji": "\ud83c\udf64", 
+            "name": "?"
+        }
+    ], 
+    "applause": [
+        {
+            "emoji": "\ud83d\udc4f", 
+            "name": "?"
+        }
+    ], 
     "apple": [
         {
-            "emoji": "\ud83c\udf4e", 
-            "name": "RED APPLE"
+            "emoji": "\ud83c\udf4f", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf4f", 
-            "name": "GREEN APPLE"
+            "emoji": "\ud83d\udcf1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4e", 
+            "name": "?"
         }
     ], 
     "apply": [
@@ -1334,6 +1832,10 @@ var EMOJI_MAP = {
         }
     ], 
     "aquarius": [
+        {
+            "emoji": "\u2652", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udffa", 
             "name": "AMPHORA"
@@ -1355,6 +1857,18 @@ var EMOJI_MAP = {
             "name": "Flag for Saudi Arabia"
         }
     ], 
+    "arabs": [
+        {
+            "emoji": "\ud83d\udc73", 
+            "name": "?"
+        }
+    ], 
+    "arcade": [
+        {
+            "emoji": "\ud83d\udc7e", 
+            "name": "?"
+        }
+    ], 
     "archer": [
         {
             "emoji": "\ud83c\udff9", 
@@ -1365,6 +1879,16 @@ var EMOJI_MAP = {
             "name": "SAGITTARIUS"
         }
     ], 
+    "architect": [
+        {
+            "emoji": "\ud83d\udccf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd0", 
+            "name": "?"
+        }
+    ], 
     "argentina": [
         {
             "emoji": "\ud83c\udde6\ud83c\uddf7", 
@@ -1372,6 +1896,10 @@ var EMOJI_MAP = {
         }
     ], 
     "aries": [
+        {
+            "emoji": "\u2648", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc0f", 
             "name": "RAM"
@@ -1381,10 +1909,22 @@ var EMOJI_MAP = {
             "name": "ARIES"
         }
     ], 
+    "arm": [
+        {
+            "emoji": "\ud83d\udcaa", 
+            "name": "?"
+        }
+    ], 
     "armenia": [
         {
             "emoji": "\ud83c\udde6\ud83c\uddf2", 
             "name": "Flag for Armenia"
+        }
+    ], 
+    "arrest": [
+        {
+            "emoji": "\ud83d\udc6e", 
+            "name": "?"
         }
     ], 
     "arrival": [
@@ -1407,6 +1947,110 @@ var EMOJI_MAP = {
     ], 
     "arrow": [
         {
+            "emoji": "\u23eb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25c0\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2194\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u23ec", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2934\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25b6\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u21aa\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2196\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b07\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b06\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2935\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u27a1\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2197\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2195\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u21a9\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2198\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2199\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u267b\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b05\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1a", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc98", 
             "name": "HEART WITH ARROW"
         }, 
@@ -1415,68 +2059,8 @@ var EMOJI_MAP = {
             "name": "MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT mobile phone with arrow"
         }, 
         {
-            "emoji": "\ud83d\udce9", 
-            "name": "ENVELOPE WITH DOWNWARDS ARROW ABOVE envelope with arrow"
-        }, 
-        {
             "emoji": "\ud83c\udff9", 
             "name": "BOW AND ARROW"
-        }, 
-        {
-            "emoji": "\u2b06\ufe0f", 
-            "name": "UPWARDS BLACK ARROW up arrow"
-        }, 
-        {
-            "emoji": "\u2197\ufe0f", 
-            "name": "NORTH EAST ARROW upright arrow"
-        }, 
-        {
-            "emoji": "\u27a1\ufe0f", 
-            "name": "BLACK RIGHTWARDS ARROW right arrow"
-        }, 
-        {
-            "emoji": "\u2198\ufe0f", 
-            "name": "SOUTH EAST ARROW downright arrow"
-        }, 
-        {
-            "emoji": "\u2b07\ufe0f", 
-            "name": "DOWNWARDS BLACK ARROW down arrow"
-        }, 
-        {
-            "emoji": "\u2199\ufe0f", 
-            "name": "SOUTH WEST ARROW downleft arrow"
-        }, 
-        {
-            "emoji": "\u2b05\ufe0f", 
-            "name": "LEFTWARDS BLACK ARROW left arrow"
-        }, 
-        {
-            "emoji": "\u2196\ufe0f", 
-            "name": "NORTH WEST ARROW upleft arrow"
-        }, 
-        {
-            "emoji": "\u2195\ufe0f", 
-            "name": "UP DOWN ARROW updown arrow"
-        }, 
-        {
-            "emoji": "\u2194\ufe0f", 
-            "name": "LEFT RIGHT ARROW leftright arrow"
-        }, 
-        {
-            "emoji": "\u21a9\ufe0f", 
-            "name": "LEFTWARDS ARROW WITH HOOK right arrow curving left"
-        }, 
-        {
-            "emoji": "\u21aa\ufe0f", 
-            "name": "RIGHTWARDS ARROW WITH HOOK left arrow curving right"
-        }, 
-        {
-            "emoji": "\u2934\ufe0f", 
-            "name": "ARROW POINTING RIGHTWARDS THEN CURVING UPWARDS right arrow curving up"
-        }, 
-        {
-            "emoji": "\u2935\ufe0f", 
-            "name": "ARROW POINTING RIGHTWARDS THEN CURVING DOWNWARDS right arrow curving down"
         }, 
         {
             "emoji": "\ud83d\udd03", 
@@ -1485,22 +2069,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd04", 
             "name": "ANTICLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS anticlockwise arrows button"
-        }, 
-        {
-            "emoji": "\ud83d\udd19", 
-            "name": "BACK WITH LEFTWARDS ARROW ABOVE back arrow"
-        }, 
-        {
-            "emoji": "\ud83d\udd1a", 
-            "name": "END WITH LEFTWARDS ARROW ABOVE end arrow"
-        }, 
-        {
-            "emoji": "\ud83d\udd1b", 
-            "name": "ON WITH EXCLAMATION MARK WITH LEFT RIGHT ARROW ABOVE on! arrow"
-        }, 
-        {
-            "emoji": "\ud83d\udd1c", 
-            "name": "SOON WITH RIGHTWARDS ARROW ABOVE soon arrow"
         }, 
         {
             "emoji": "\ud83d\udd1d", 
@@ -1519,10 +2087,6 @@ var EMOJI_MAP = {
             "name": "CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS WITH CIRCLED ONE OVERLAY repeat single button"
         }, 
         {
-            "emoji": "\u25b6\ufe0f", 
-            "name": "BLACK RIGHTPOINTING TRIANGLE play button"
-        }, 
-        {
             "emoji": "\u23e9", 
             "name": "BLACK RIGHTPOINTING DOUBLE TRIANGLE fastforword button"
         }, 
@@ -1535,46 +2099,26 @@ var EMOJI_MAP = {
             "name": "BLACK RIGHTPOINTING TRIANGLE WITH DOUBLE VERTICAL BAR play or pause button"
         }, 
         {
-            "emoji": "\u25c0\ufe0f", 
-            "name": "BLACK LEFTPOINTING TRIANGLE reverse button"
-        }, 
-        {
             "emoji": "\u23ea", 
             "name": "BLACK LEFTPOINTING DOUBLE TRIANGLE fast reverse button"
         }, 
         {
             "emoji": "\u23ee\ufe0f", 
             "name": "BLACK LEFTPOINTING DOUBLE TRIANGLE WITH VERTICAL BAR last track button"
-        }, 
-        {
-            "emoji": "\ud83d\udd3c", 
-            "name": "UPPOINTING SMALL RED TRIANGLE up button"
-        }, 
-        {
-            "emoji": "\u23eb", 
-            "name": "BLACK UPPOINTING DOUBLE TRIANGLE fast up button"
-        }, 
-        {
-            "emoji": "\ud83d\udd3d", 
-            "name": "DOWNPOINTING SMALL RED TRIANGLE down button"
-        }, 
-        {
-            "emoji": "\u23ec", 
-            "name": "BLACK DOWNPOINTING DOUBLE TRIANGLE fast down button"
         }
     ], 
     "arrows": [
         {
-            "emoji": "\ud83d\udd03", 
-            "name": "CLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS clockwise vertical arrows"
+            "emoji": "\ud83d\udd04", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd04", 
-            "name": "ANTICLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS anticlockwise arrows button"
+            "emoji": "\ud83d\udd03", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd00", 
-            "name": "TWISTED RIGHTWARDS ARROWS shuffle tracks button"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd01", 
@@ -1587,22 +2131,22 @@ var EMOJI_MAP = {
     ], 
     "art": [
         {
+            "emoji": "\ud83c\udfa8", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udfad", 
             "name": "PERFORMING ARTS"
         }, 
         {
             "emoji": "\ud83d\uddbc\ufe0f", 
             "name": "FRAME WITH PICTURE"
-        }, 
-        {
-            "emoji": "\ud83c\udfa8", 
-            "name": "ARTIST PALETTE"
         }
     ], 
     "articulated": [
         {
             "emoji": "\ud83d\ude9b", 
-            "name": "ARTICULATED LORRY"
+            "name": "?"
         }
     ], 
     "artist": [
@@ -1614,7 +2158,7 @@ var EMOJI_MAP = {
     "arts": [
         {
             "emoji": "\ud83c\udfad", 
-            "name": "PERFORMING ARTS"
+            "name": "?"
         }
     ], 
     "aruba": [
@@ -1631,14 +2175,28 @@ var EMOJI_MAP = {
     ], 
     "asia": [
         {
+            "emoji": "\ud83c\udf91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\uddfe", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf0f", 
-            "name": "EARTH GLOBE ASIAAUSTRALIA globe showing asiaaustralia"
+            "name": "?"
         }
     ], 
     "asiaaustralia": [
         {
             "emoji": "\ud83c\udf0f", 
             "name": "EARTH GLOBE ASIAAUSTRALIA globe showing asiaaustralia"
+        }
+    ], 
+    "asian": [
+        {
+            "emoji": "\ud83c\udf5a", 
+            "name": "?"
         }
     ], 
     "ask": [
@@ -1650,7 +2208,7 @@ var EMOJI_MAP = {
     "asterisk": [
         {
             "emoji": "\u2733\ufe0f", 
-            "name": "EIGHT SPOKED ASTERISK eightspoked asterisk"
+            "name": "?"
         }, 
         {
             "emoji": "*\ufe0f\u20e3", 
@@ -1660,7 +2218,67 @@ var EMOJI_MAP = {
     "astonished": [
         {
             "emoji": "\ud83d\ude32", 
-            "name": "ASTONISHED FACE"
+            "name": "?"
+        }
+    ], 
+    "astrology": [
+        {
+            "emoji": "\u2649", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2652", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2653", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2651", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2650", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26ce", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2648", 
+            "name": "?"
+        }
+    ], 
+    "at": [
+        {
+            "emoji": "\ud83c\udf09", 
+            "name": "?"
         }
     ], 
     "atheist": [
@@ -1669,16 +2287,22 @@ var EMOJI_MAP = {
             "name": "ATOM SYMBOL"
         }
     ], 
+    "athlete": [
+        {
+            "emoji": "\ud83c\udfca", 
+            "name": "?"
+        }
+    ], 
     "athletic": [
         {
             "emoji": "\ud83d\udc5f", 
-            "name": "ATHLETIC SHOE running shoe"
+            "name": "?"
         }
     ], 
     "atm": [
         {
             "emoji": "\ud83c\udfe7", 
-            "name": "AUTOMATED TELLER MACHINE ATM sign"
+            "name": "?"
         }
     ], 
     "atom": [
@@ -1687,10 +2311,16 @@ var EMOJI_MAP = {
             "name": "ATOM SYMBOL"
         }
     ], 
+    "attack": [
+        {
+            "emoji": "\ud83d\udc4a", 
+            "name": "?"
+        }
+    ], 
     "aubergine": [
         {
             "emoji": "\ud83c\udf46", 
-            "name": "AUBERGINE eggplant"
+            "name": "?"
         }
     ], 
     "australia": [
@@ -1717,12 +2347,42 @@ var EMOJI_MAP = {
     ], 
     "automobile": [
         {
-            "emoji": "\ud83d\ude97", 
-            "name": "AUTOMOBILE"
+            "emoji": "\ud83d\ude98", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude98", 
-            "name": "ONCOMING AUTOMOBILE"
+            "emoji": "\ud83d\ude97", 
+            "name": "AUTOMOBILE"
+        }
+    ], 
+    "aw": [
+        {
+            "emoji": "\ud83d\ude26", 
+            "name": "?"
+        }
+    ], 
+    "award": [
+        {
+            "emoji": "\ud83c\udfc6", 
+            "name": "?"
+        }
+    ], 
+    "awesome": [
+        {
+            "emoji": "\ud83c\udf1f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2747\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2728", 
+            "name": "?"
         }
     ], 
     "azerbaijan": [
@@ -1734,43 +2394,51 @@ var EMOJI_MAP = {
     "b": [
         {
             "emoji": "\ud83c\udd71\ufe0f", 
-            "name": "NEGATIVE SQUARED LATIN CAPITAL LETTER B b button"
+            "name": "?"
         }
     ], 
     "baby": [
         {
+            "emoji": "\ud83d\udc25", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc24", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc23", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udebc", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc76", 
-            "name": "BABY"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7c", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc7c", 
             "name": "BABY ANGEL"
-        }, 
-        {
-            "emoji": "\ud83d\udc23", 
-            "name": "HATCHING CHICK"
-        }, 
-        {
-            "emoji": "\ud83d\udc24", 
-            "name": "BABY CHICK"
-        }, 
-        {
-            "emoji": "\ud83d\udc25", 
-            "name": "FRONTFACING BABY CHICK"
-        }, 
-        {
-            "emoji": "\ud83c\udf7c", 
-            "name": "BABY BOTTLE"
-        }, 
-        {
-            "emoji": "\ud83d\udebc", 
-            "name": "BABY SYMBOL"
         }
     ], 
     "back": [
         {
             "emoji": "\ud83d\udd19", 
-            "name": "BACK WITH LEFTWARDS ARROW ABOVE back arrow"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u21a9\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b05\ufe0f", 
+            "name": "?"
         }
     ], 
     "backhand": [
@@ -1797,16 +2465,40 @@ var EMOJI_MAP = {
             "name": "SCHOOL SATCHEL school backpack"
         }
     ], 
+    "backward": [
+        {
+            "emoji": "\u25c0\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "bactrian": [
         {
             "emoji": "\ud83d\udc2b", 
             "name": "BACTRIAN CAMEL twohump camel"
         }
     ], 
+    "bad": [
+        {
+            "emoji": "\ud83d\udcc9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26d4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u303d\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "badge": [
         {
             "emoji": "\ud83d\udcdb", 
-            "name": "NAME BADGE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd30", 
+            "name": "?"
         }
     ], 
     "badminton": [
@@ -1817,20 +2509,20 @@ var EMOJI_MAP = {
     ], 
     "bag": [
         {
+            "emoji": "\ud83c\udf92", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5d", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc5c", 
             "name": "HANDBAG"
         }, 
         {
-            "emoji": "\ud83d\udc5d", 
-            "name": "POUCH"
-        }, 
-        {
             "emoji": "\ud83d\udecd\ufe0f", 
             "name": "SHOPPING BAGS"
-        }, 
-        {
-            "emoji": "\ud83c\udf92", 
-            "name": "SCHOOL SATCHEL school backpack"
         }, 
         {
             "emoji": "\ud83d\udcb0", 
@@ -1840,7 +2532,7 @@ var EMOJI_MAP = {
     "baggage": [
         {
             "emoji": "\ud83d\udec4", 
-            "name": "BAGGAGE CLAIM"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udec5", 
@@ -1877,12 +2569,16 @@ var EMOJI_MAP = {
     ], 
     "ball": [
         {
+            "emoji": "\ud83d\udd2e", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf59", 
-            "name": "RICE BALL"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf8a", 
-            "name": "CONFETTI BALL"
+            "name": "?"
         }, 
         {
             "emoji": "\u26bd\ufe0f", 
@@ -1939,38 +2635,34 @@ var EMOJI_MAP = {
         {
             "emoji": "\u26f9\ufe0f", 
             "name": "PERSON WITH BALL"
-        }, 
-        {
-            "emoji": "\ud83d\udd2e", 
-            "name": "CRYSTAL BALL"
         }
     ], 
     "balloon": [
         {
+            "emoji": "\ud83c\udf88", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udcac", 
-            "name": "SPEECH BALLOON"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcad", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\uddef\ufe0f", 
             "name": "RIGHT ANGER BUBBLE"
-        }, 
-        {
-            "emoji": "\ud83d\udcad", 
-            "name": "THOUGHT BALLOON"
-        }, 
-        {
-            "emoji": "\ud83c\udf88", 
-            "name": "BALLOON"
         }
     ], 
     "ballot": [
         {
-            "emoji": "\ud83d\uddf3\ufe0f", 
-            "name": "BALLOT BOX WITH BALLOT"
+            "emoji": "\u2611\ufe0f", 
+            "name": "?"
         }, 
         {
-            "emoji": "\u2611\ufe0f", 
-            "name": "BALLOT BOX WITH CHECK"
+            "emoji": "\ud83d\uddf3\ufe0f", 
+            "name": "BALLOT BOX WITH BALLOT"
         }
     ], 
     "ballpoint": [
@@ -1979,16 +2671,48 @@ var EMOJI_MAP = {
             "name": "LOWER LEFT BALLPOINT PEN pen"
         }
     ], 
+    "balls": [
+        {
+            "emoji": "\ud83c\udfbe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26bd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26be\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "bamboo": [
         {
             "emoji": "\ud83c\udf8d", 
-            "name": "PINE DECORATION"
+            "name": "?"
+        }
+    ], 
+    "ban": [
+        {
+            "emoji": "\u270b", 
+            "name": "?"
         }
     ], 
     "banana": [
         {
             "emoji": "\ud83c\udf4c", 
-            "name": "BANANA"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc12", 
+            "name": "?"
         }
     ], 
     "bandage": [
@@ -2000,7 +2724,7 @@ var EMOJI_MAP = {
     "bangbang": [
         {
             "emoji": "\u203c\ufe0f", 
-            "name": "DOUBLE EXCLAMATION MARK"
+            "name": "?"
         }
     ], 
     "bangladesh": [
@@ -2011,8 +2735,12 @@ var EMOJI_MAP = {
     ], 
     "bank": [
         {
+            "emoji": "\ud83c\udfe7", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udfe6", 
-            "name": "BANK"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcb4", 
@@ -2045,10 +2773,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udcb1", 
             "name": "CURRENCY EXCHANGE"
-        }, 
-        {
-            "emoji": "\ud83c\udfe7", 
-            "name": "AUTOMATED TELLER MACHINE ATM sign"
         }
     ], 
     "banknote": [
@@ -2075,14 +2799,66 @@ var EMOJI_MAP = {
     ], 
     "banner": [
         {
+            "emoji": "\ud83c\uddf7\ud83c\uddfa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddf0\ud83c\uddf7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddfa\ud83c\uddf8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udde8\ud83c\uddf3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddef\ud83c\uddf5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udde9\ud83c\uddea", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddea\ud83c\uddf8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddeb\ud83c\uddf7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddee\ud83c\uddf9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddec\ud83c\udde7", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf8b", 
             "name": "TANABATA TREE"
         }
     ], 
     "bar": [
         {
+            "emoji": "\ud83c\udfaf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcca", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf6b", 
-            "name": "CHOCOLATE BAR"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf76", 
@@ -2117,10 +2893,6 @@ var EMOJI_MAP = {
             "name": "IZAKAYA LANTERN red paper lantern"
         }, 
         {
-            "emoji": "\ud83d\udcca", 
-            "name": "BAR CHART"
-        }, 
-        {
             "emoji": "\u23ed\ufe0f", 
             "name": "BLACK RIGHTPOINTING DOUBLE TRIANGLE WITH VERTICAL BAR next track button"
         }, 
@@ -2147,14 +2919,20 @@ var EMOJI_MAP = {
             "name": "Flag for Barbados"
         }
     ], 
+    "barbecue": [
+        {
+            "emoji": "\ud83c\udf61", 
+            "name": "?"
+        }
+    ], 
     "barber": [
+        {
+            "emoji": "\ud83d\udc88", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc87", 
             "name": "HAIRCUT"
-        }, 
-        {
-            "emoji": "\ud83d\udc88", 
-            "name": "BARBER POLE"
         }
     ], 
     "barbuda": [
@@ -2175,6 +2953,12 @@ var EMOJI_MAP = {
             "name": "ANTENNA WITH BARS antenna bars"
         }
     ], 
+    "bart": [
+        {
+            "emoji": "\ud83d\ude8e", 
+            "name": "?"
+        }
+    ], 
     "barthelemy": [
         {
             "emoji": "\ud83c\udde7\ud83c\uddf1", 
@@ -2190,13 +2974,13 @@ var EMOJI_MAP = {
     "baseball": [
         {
             "emoji": "\u26be\ufe0f", 
-            "name": "BASEBALL"
+            "name": "?"
         }
     ], 
     "basketball": [
         {
             "emoji": "\ud83c\udfc0", 
-            "name": "BASKETBALL AND HOOP basketball"
+            "name": "?"
         }
     ], 
     "bat": [
@@ -2212,30 +2996,114 @@ var EMOJI_MAP = {
     "bath": [
         {
             "emoji": "\ud83d\udec0", 
-            "name": "BATH person taking bath"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2668\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udec1", 
             "name": "BATHTUB"
         }
     ], 
-    "bathtub": [
+    "bathroom": [
+        {
+            "emoji": "\ud83d\udebd", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udec0", 
-            "name": "BATH person taking bath"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udec1", 
-            "name": "BATHTUB"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udebf", 
+            "name": "?"
+        }
+    ], 
+    "bathtub": [
+        {
+            "emoji": "\ud83d\udec1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udec0", 
+            "name": "BATH person taking bath"
         }
     ], 
     "battery": [
         {
             "emoji": "\ud83d\udd0b", 
-            "name": "BATTERY"
+            "name": "?"
+        }
+    ], 
+    "bbcall": [
+        {
+            "emoji": "\ud83d\udcdf", 
+            "name": "?"
         }
     ], 
     "beach": [
+        {
+            "emoji": "\ud83d\udc63", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc20", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf65", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc59", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf79", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\uddff", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2600\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf34", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udfd6\ufe0f", 
             "name": "BEACH WITH UMBRELLA"
@@ -2256,7 +3124,7 @@ var EMOJI_MAP = {
     "bear": [
         {
             "emoji": "\ud83d\udc3b", 
-            "name": "BEAR FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc28", 
@@ -2285,6 +3153,10 @@ var EMOJI_MAP = {
     ], 
     "beauty": [
         {
+            "emoji": "\ud83d\udc85", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc87", 
             "name": "HAIRCUT"
         }
@@ -2302,29 +3174,59 @@ var EMOJI_MAP = {
     "bee": [
         {
             "emoji": "\ud83d\udc1d", 
-            "name": "HONEYBEE"
+            "name": "?"
+        }
+    ], 
+    "beef": [
+        {
+            "emoji": "\ud83d\udc02", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc04", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf54", 
+            "name": "?"
         }
     ], 
     "beer": [
         {
             "emoji": "\ud83c\udf7a", 
-            "name": "BEER MUG"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf7b", 
             "name": "CLINKING BEER MUGS"
         }
     ], 
+    "beers": [
+        {
+            "emoji": "\ud83c\udf7b", 
+            "name": "?"
+        }
+    ], 
+    "bees": [
+        {
+            "emoji": "\ud83c\udf6f", 
+            "name": "?"
+        }
+    ], 
     "beetle": [
         {
             "emoji": "\ud83d\udc1e", 
-            "name": "LADY BEETLE"
+            "name": "?"
         }
     ], 
     "beginner": [
         {
             "emoji": "\ud83d\udd30", 
-            "name": "JAPANESE SYMBOL FOR BEGINNER"
+            "name": "?"
         }
     ], 
     "behind": [
@@ -2365,20 +3267,20 @@ var EMOJI_MAP = {
     ], 
     "bell": [
         {
-            "emoji": "\ud83d\udece\ufe0f", 
-            "name": "BELLHOP BELL"
-        }, 
-        {
             "emoji": "\ud83c\udf90", 
-            "name": "WIND CHIME"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd14", 
-            "name": "BELL"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd15", 
-            "name": "BELL WITH CANCELLATION STROKE bell with slash"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udece\ufe0f", 
+            "name": "BELLHOP BELL"
         }
     ], 
     "bellhop": [
@@ -2396,7 +3298,7 @@ var EMOJI_MAP = {
     "bento": [
         {
             "emoji": "\ud83c\udf71", 
-            "name": "BENTO BOX"
+            "name": "?"
         }
     ], 
     "bermuda": [
@@ -2411,7 +3313,47 @@ var EMOJI_MAP = {
             "name": "STRAWBERRY"
         }
     ], 
+    "bet": [
+        {
+            "emoji": "\ud83c\udfb0", 
+            "name": "?"
+        }
+    ], 
+    "betting": [
+        {
+            "emoji": "\ud83c\udfc7", 
+            "name": "?"
+        }
+    ], 
     "beverage": [
+        {
+            "emoji": "\u2615", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf79", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf78", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf76", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf77", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u2615\ufe0f", 
             "name": "HOT BEVERAGE"
@@ -2419,14 +3361,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udf75", 
             "name": "TEACUP WITHOUT HANDLE"
-        }, 
-        {
-            "emoji": "\ud83c\udf76", 
-            "name": "SAKE BOTTLE AND CUP sake"
-        }, 
-        {
-            "emoji": "\ud83c\udf77", 
-            "name": "WINE GLASS"
         }
     ], 
     "bhutan": [
@@ -2444,7 +3378,7 @@ var EMOJI_MAP = {
     "bicycle": [
         {
             "emoji": "\ud83d\udeb2", 
-            "name": "BICYCLE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udeb4", 
@@ -2462,31 +3396,31 @@ var EMOJI_MAP = {
     "bicycles": [
         {
             "emoji": "\ud83d\udeb3", 
-            "name": "NO BICYCLES"
+            "name": "?"
         }
     ], 
     "bicyclist": [
         {
             "emoji": "\ud83d\udeb4", 
-            "name": "BICYCLIST"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udeb5", 
-            "name": "MOUNTAIN BICYCLIST mountain biker"
+            "name": "?"
         }
     ], 
     "bike": [
         {
-            "emoji": "\ud83d\udeb2", 
-            "name": "BICYCLE"
-        }, 
-        {
             "emoji": "\ud83d\udeb4", 
-            "name": "BICYCLIST"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udeb5", 
-            "name": "MOUNTAIN BICYCLIST mountain biker"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb2", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udeb3", 
@@ -2502,17 +3436,21 @@ var EMOJI_MAP = {
     "bikini": [
         {
             "emoji": "\ud83d\udc59", 
-            "name": "BIKINI"
+            "name": "?"
         }
     ], 
     "bill": [
         {
-            "emoji": "\ud83d\udcb4", 
-            "name": "BANKNOTE WITH YEN SIGN yen banknote"
+            "emoji": "\ud83d\udcb3", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcb5", 
-            "name": "BANKNOTE WITH DOLLAR SIGN dollar banknote"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb4", 
+            "name": "BANKNOTE WITH YEN SIGN yen banknote"
         }, 
         {
             "emoji": "\ud83d\udcb6", 
@@ -2539,7 +3477,21 @@ var EMOJI_MAP = {
             "name": "BILLIARDS"
         }
     ], 
+    "bills": [
+        {
+            "emoji": "\ud83d\udcb7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb8", 
+            "name": "?"
+        }
+    ], 
     "bin": [
+        {
+            "emoji": "\ud83d\udeaf", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udeae", 
             "name": "PUT LITTER IN ITS PLACE SYMBOL litter in bin sign"
@@ -2553,8 +3505,28 @@ var EMOJI_MAP = {
     ], 
     "bird": [
         {
+            "emoji": "\ud83d\udc25", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc24", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf57", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc23", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc26", 
-            "name": "BIRD"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd4a\ufe0f", 
@@ -2569,8 +3541,24 @@ var EMOJI_MAP = {
     ], 
     "birthday": [
         {
+            "emoji": "\ud83c\udf89", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf81", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf88", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8a", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf82", 
-            "name": "BIRTHDAY CAKE"
+            "name": "?"
         }
     ], 
     "bissau": [
@@ -2580,6 +3568,42 @@ var EMOJI_MAP = {
         }
     ], 
     "black": [
+        {
+            "emoji": "\u2712\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fc\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25aa\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udccf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26ab", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2734\ufe0f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u2764\ufe0f", 
             "name": "HEAVY BLACK HEART red heart"
@@ -2605,16 +3629,8 @@ var EMOJI_MAP = {
             "name": "BLACK CLUB SUIT club suit"
         }, 
         {
-            "emoji": "\ud83c\udccf", 
-            "name": "PLAYING CARD BLACK JOKER joker"
-        }, 
-        {
             "emoji": "\u260e\ufe0f", 
             "name": "BLACK TELEPHONE telephone"
-        }, 
-        {
-            "emoji": "\u2712\ufe0f", 
-            "name": "BLACK NIB"
         }, 
         {
             "emoji": "\u2702\ufe0f", 
@@ -2643,10 +3659,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\u267b\ufe0f", 
             "name": "BLACK UNIVERSAL RECYCLING SYMBOL recycling symbol"
-        }, 
-        {
-            "emoji": "\u2734\ufe0f", 
-            "name": "EIGHT POINTED BLACK STAR eightpointed star"
         }, 
         {
             "emoji": "\u2753", 
@@ -2697,14 +3709,6 @@ var EMOJI_MAP = {
             "name": "BLACK CIRCLE FOR RECORD record button"
         }, 
         {
-            "emoji": "\u25aa\ufe0f", 
-            "name": "BLACK SMALL SQUARE"
-        }, 
-        {
-            "emoji": "\u25fc\ufe0f", 
-            "name": "BLACK MEDIUM SQUARE"
-        }, 
-        {
             "emoji": "\u25fe\ufe0f", 
             "name": "BLACK MEDIUM SMALL SQUARE black mediumsmall square"
         }, 
@@ -2713,21 +3717,43 @@ var EMOJI_MAP = {
             "name": "BLACK LARGE SQUARE"
         }, 
         {
-            "emoji": "\ud83d\udd32", 
-            "name": "BLACK SQUARE BUTTON"
-        }, 
-        {
             "emoji": "\u26ab\ufe0f", 
             "name": "MEDIUM BLACK CIRCLE black circle"
+        }
+    ], 
+    "black-square": [
+        {
+            "emoji": "\u2611\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "blade": [
+        {
+            "emoji": "\ud83d\udd2a", 
+            "name": "?"
         }
     ], 
     "blond": [
         {
             "emoji": "\ud83d\udc71", 
-            "name": "PERSON WITH BLOND HAIR"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc78", 
+            "name": "?"
+        }
+    ], 
+    "blonde": [
+        {
+            "emoji": "\ud83d\udc71", 
+            "name": "?"
         }
     ], 
     "blood": [
+        {
+            "emoji": "\ud83d\udc89", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udd70\ufe0f", 
             "name": "NEGATIVE SQUARED LATIN CAPITAL LETTER A a button"
@@ -2747,12 +3773,12 @@ var EMOJI_MAP = {
     ], 
     "blossom": [
         {
-            "emoji": "\ud83c\udf38", 
-            "name": "CHERRY BLOSSOM"
+            "emoji": "\ud83c\udf3c", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf3c", 
-            "name": "BLOSSOM"
+            "emoji": "\ud83c\udf38", 
+            "name": "?"
         }
     ], 
     "blow": [
@@ -2768,7 +3794,7 @@ var EMOJI_MAP = {
     "blowfish": [
         {
             "emoji": "\ud83d\udc21", 
-            "name": "BLOWFISH"
+            "name": "?"
         }
     ], 
     "blowing": [
@@ -2777,30 +3803,344 @@ var EMOJI_MAP = {
             "name": "WIND BLOWING FACE wind face"
         }
     ], 
+    "blown": [
+        {
+            "emoji": "\ud83d\udca5", 
+            "name": "?"
+        }
+    ], 
     "blue": [
         {
-            "emoji": "\ud83d\ude30", 
-            "name": "FACE WITH OPEN MOUTH AND COLD SWEAT"
+            "emoji": "\ud83d\udd37", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc99", 
-            "name": "BLUE HEART"
+            "emoji": "\ud83d\udc8e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca0", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcd8", 
-            "name": "BLUE BOOK"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd37", 
-            "name": "LARGE BLUE DIAMOND"
+            "emoji": "\ud83c\udf00", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude99", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd39", 
-            "name": "SMALL BLUE DIAMOND"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc99", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd35", 
-            "name": "LARGE BLUE CIRCLE blue circle"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude30", 
+            "name": "FACE WITH OPEN MOUTH AND COLD SWEAT"
+        }
+    ], 
+    "blue-circle": [
+        {
+            "emoji": "\u24c2\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "blue-square": [
+        {
+            "emoji": "\ud83c\udd96", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "#\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u23eb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd99", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd20", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "2\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25c0\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd97", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd04", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd92", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "5\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u23ec", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2934\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udec5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25b6\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "7\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u21aa\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "3\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udebb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udebe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2196\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b07\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b06\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2935\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u27a1\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "8\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude01", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2197\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2139\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2195\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "1\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udec2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udec4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udead", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd02", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u23ea", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd7f\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd23", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude02\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u267f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u23e9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udec3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u21a9\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "6\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd21", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeae", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "9\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2198\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude87", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2199\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd22", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd95", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd24", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "0\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b05\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "4\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd00", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude33", 
+            "name": "?"
+        }
+    ], 
+    "blues": [
+        {
+            "emoji": "\ud83c\udfb7", 
+            "name": "?"
+        }
+    ], 
+    "bluetooth": [
+        {
+            "emoji": "\ud83d\udcf6", 
+            "name": "?"
         }
     ], 
     "bluray": [
@@ -2815,23 +4155,43 @@ var EMOJI_MAP = {
     ], 
     "blush": [
         {
+            "emoji": "\ud83d\ude33", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u263a\ufe0f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude0a", 
-            "name": "SMILING FACE WITH SMILING EYES"
+            "name": "?"
         }
     ], 
     "boar": [
         {
             "emoji": "\ud83d\udc17", 
-            "name": "BOAR"
+            "name": "?"
         }
     ], 
     "board": [
+        {
+            "emoji": "\ud83c\udf93", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udfac", 
             "name": "CLAPPER BOARD"
         }
     ], 
     "boat": [
+        {
+            "emoji": "\u2693", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26f5", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u26f5\ufe0f", 
             "name": "SAILBOAT"
@@ -2919,10 +4279,6 @@ var EMOJI_MAP = {
             "name": "RAISED HAND"
         }, 
         {
-            "emoji": "\ud83d\udc4c", 
-            "name": "OK HAND SIGN ok hand"
-        }, 
-        {
             "emoji": "\ud83d\udc4d", 
             "name": "THUMBS UP SIGN thumbs up"
         }, 
@@ -2996,13 +4352,17 @@ var EMOJI_MAP = {
     "bolt": [
         {
             "emoji": "\ud83d\udd29", 
-            "name": "NUT AND BOLT"
+            "name": "?"
         }
     ], 
     "bomb": [
         {
+            "emoji": "\ud83d\udca5", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udca3", 
-            "name": "BOMB"
+            "name": "?"
         }
     ], 
     "bonaire": [
@@ -3014,7 +4374,7 @@ var EMOJI_MAP = {
     "bone": [
         {
             "emoji": "\ud83c\udf56", 
-            "name": "MEAT ON BONE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf57", 
@@ -3023,28 +4383,28 @@ var EMOJI_MAP = {
     ], 
     "book": [
         {
-            "emoji": "\ud83d\udcd4", 
-            "name": "NOTEBOOK WITH DECORATIVE COVER"
-        }, 
-        {
             "emoji": "\ud83d\udcd5", 
-            "name": "CLOSED BOOK"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcd6", 
-            "name": "OPEN BOOK"
-        }, 
-        {
-            "emoji": "\ud83d\udcd7", 
-            "name": "GREEN BOOK"
-        }, 
-        {
-            "emoji": "\ud83d\udcd8", 
-            "name": "BLUE BOOK"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcd9", 
-            "name": "ORANGE BOOK"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd4", 
+            "name": "NOTEBOOK WITH DECORATIVE COVER"
         }, 
         {
             "emoji": "\ud83d\udcda", 
@@ -3054,29 +4414,33 @@ var EMOJI_MAP = {
     "bookmark": [
         {
             "emoji": "\ud83d\udcd1", 
-            "name": "BOOKMARK TABS"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd16", 
-            "name": "BOOKMARK"
+            "name": "?"
         }
     ], 
     "books": [
         {
             "emoji": "\ud83d\udcda", 
-            "name": "BOOKS"
+            "name": "?"
         }
     ], 
     "boom": [
         {
             "emoji": "\ud83d\udca5", 
-            "name": "COLLISION SYMBOL collision"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca3", 
+            "name": "?"
         }
     ], 
     "boot": [
         {
             "emoji": "\ud83d\udc62", 
-            "name": "WOMANS BOOTS woman\u2019s boot"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfbf", 
@@ -3087,6 +4451,54 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udc62", 
             "name": "WOMANS BOOTS woman\u2019s boot"
+        }
+    ], 
+    "booze": [
+        {
+            "emoji": "\ud83c\udf7a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf79", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf78", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf76", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf77", 
+            "name": "?"
+        }
+    ], 
+    "border": [
+        {
+            "emoji": "\ud83c\udf8c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udec3", 
+            "name": "?"
+        }
+    ], 
+    "bored": [
+        {
+            "emoji": "\ud83d\ude12", 
+            "name": "?"
+        }
+    ], 
+    "born": [
+        {
+            "emoji": "\ud83d\udc23", 
+            "name": "?"
         }
     ], 
     "bosnia": [
@@ -3104,7 +4516,7 @@ var EMOJI_MAP = {
     "bottle": [
         {
             "emoji": "\ud83c\udf7c", 
-            "name": "BABY BOTTLE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf76", 
@@ -3115,10 +4527,32 @@ var EMOJI_MAP = {
             "name": "BOTTLE WITH POPPING CORK"
         }
     ], 
+    "bottom": [
+        {
+            "emoji": "\u23ec", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b07\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2935\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3d", 
+            "name": "?"
+        }
+    ], 
     "bouquet": [
         {
             "emoji": "\ud83d\udc90", 
-            "name": "BOUQUET"
+            "name": "?"
         }
     ], 
     "bouvet": [
@@ -3130,7 +4564,7 @@ var EMOJI_MAP = {
     "bow": [
         {
             "emoji": "\ud83d\ude47", 
-            "name": "PERSON BOWING DEEPLY person bowing"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude4f", 
@@ -3149,6 +4583,10 @@ var EMOJI_MAP = {
     ], 
     "bowl": [
         {
+            "emoji": "\ud83c\udf75", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf5c", 
             "name": "STEAMING BOWL"
         }
@@ -3156,13 +4594,27 @@ var EMOJI_MAP = {
     "bowling": [
         {
             "emoji": "\ud83c\udfb3", 
-            "name": "BOWLING"
+            "name": "?"
+        }
+    ], 
+    "bowtie": [
+        {
+            "emoji": "\ud83c\udf80", 
+            "name": "?"
         }
     ], 
     "box": [
         {
+            "emoji": "\ud83d\udce6", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf71", 
-            "name": "BENTO BOX"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2611\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf81", 
@@ -3177,26 +4629,34 @@ var EMOJI_MAP = {
             "name": "INBOX TRAY"
         }, 
         {
-            "emoji": "\ud83d\udce6", 
-            "name": "PACKAGE"
-        }, 
-        {
             "emoji": "\ud83d\uddf3\ufe0f", 
             "name": "BALLOT BOX WITH BALLOT"
         }, 
         {
             "emoji": "\ud83d\uddc3\ufe0f", 
             "name": "CARD FILE BOX"
-        }, 
-        {
-            "emoji": "\u2611\ufe0f", 
-            "name": "BALLOT BOX WITH CHECK"
         }
     ], 
     "boy": [
         {
+            "emoji": "\ud83d\udc71", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc76", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude47", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc66", 
-            "name": "BOY"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc72", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc66", 
@@ -3235,10 +4695,28 @@ var EMOJI_MAP = {
             "name": "Family: WOMAN,WOMAN,BOY,BOY"
         }
     ], 
+    "branch": [
+        {
+            "emoji": "\ud83c\udf8b", 
+            "name": "?"
+        }
+    ], 
     "branches": [
         {
             "emoji": "\ud83d\udd4e", 
             "name": "MENORAH WITH NINE BRANCHES menorah"
+        }
+    ], 
+    "brand": [
+        {
+            "emoji": "\u2122\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "brass": [
+        {
+            "emoji": "\ud83c\udfba", 
+            "name": "?"
         }
     ], 
     "brazil": [
@@ -3256,31 +4734,49 @@ var EMOJI_MAP = {
     "bread": [
         {
             "emoji": "\ud83c\udf5e", 
-            "name": "BREAD"
+            "name": "?"
         }
     ], 
     "break": [
         {
             "emoji": "\ud83d\udc94", 
-            "name": "BROKEN HEART"
+            "name": "?"
+        }
+    ], 
+    "breakfast": [
+        {
+            "emoji": "\ud83c\udf5e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf73", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf75", 
+            "name": "?"
         }
     ], 
     "bride": [
         {
+            "emoji": "\ud83d\udc92", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc70", 
-            "name": "BRIDE WITH VEIL"
+            "name": "?"
         }
     ], 
     "bridge": [
         {
             "emoji": "\ud83c\udf09", 
-            "name": "BRIDGE AT NIGHT"
+            "name": "?"
         }
     ], 
     "briefcase": [
         {
             "emoji": "\ud83d\udcbc", 
-            "name": "BRIEFCASE"
+            "name": "?"
         }
     ], 
     "bright": [
@@ -3308,11 +4804,15 @@ var EMOJI_MAP = {
     "brightness": [
         {
             "emoji": "\ud83d\udd05", 
-            "name": "LOW BRIGHTNESS SYMBOL dim button"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2600\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd06", 
-            "name": "HIGH BRIGHTNESS SYMBOL bright button"
+            "name": "?"
         }
     ], 
     "britain": [
@@ -3323,8 +4823,20 @@ var EMOJI_MAP = {
     ], 
     "british": [
         {
+            "emoji": "\ud83d\udcb7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc82", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf75", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\uddec\ud83c\udde7", 
-            "name": "Flag for United Kingdom"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\uddee\ud83c\uddf4", 
@@ -3335,10 +4847,36 @@ var EMOJI_MAP = {
             "name": "Flag for British Virgin Islands"
         }
     ], 
+    "broadcast": [
+        {
+            "emoji": "\ud83d\udd0a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd08", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd09", 
+            "name": "?"
+        }
+    ], 
     "broken": [
         {
             "emoji": "\ud83d\udc94", 
-            "name": "BROKEN HEART"
+            "name": "?"
+        }
+    ], 
+    "bromance": [
+        {
+            "emoji": "\ud83d\udc6c", 
+            "name": "?"
+        }
+    ], 
+    "brown": [
+        {
+            "emoji": "\ud83d\udc34", 
+            "name": "?"
         }
     ], 
     "brunei": [
@@ -3349,12 +4887,16 @@ var EMOJI_MAP = {
     ], 
     "bubble": [
         {
-            "emoji": "\ud83d\udc41\ufe0f\u200d\ud83d\udde8", 
-            "name": "EYE,LEFT SPEECH BUBBLE eye in speech bubble"
+            "emoji": "\ud83d\udcac", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcac", 
-            "name": "SPEECH BALLOON"
+            "emoji": "\ud83d\udcad", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc41\ufe0f\u200d\ud83d\udde8", 
+            "name": "EYE,LEFT SPEECH BUBBLE eye in speech bubble"
         }, 
         {
             "emoji": "\ud83d\udde8\ufe0f", 
@@ -3363,10 +4905,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\uddef\ufe0f", 
             "name": "RIGHT ANGER BUBBLE"
-        }, 
-        {
-            "emoji": "\ud83d\udcad", 
-            "name": "THOUGHT BALLOON"
         }
     ], 
     "buddhist": [
@@ -3378,16 +4916,90 @@ var EMOJI_MAP = {
     "buffalo": [
         {
             "emoji": "\ud83d\udc03", 
-            "name": "WATER BUFFALO"
+            "name": "?"
         }
     ], 
     "bug": [
         {
             "emoji": "\ud83d\udc1b", 
-            "name": "BUG"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1e", 
+            "name": "?"
+        }
+    ], 
+    "build": [
+        {
+            "emoji": "\ud83d\udc77", 
+            "name": "?"
         }
     ], 
     "building": [
+        {
+            "emoji": "\ud83c\udfe5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfef", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26ea", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfea", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfed", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udff0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfeb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfec", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe4", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udfdb\ufe0f", 
             "name": "CLASSICAL BUILDING"
@@ -3409,64 +5021,12 @@ var EMOJI_MAP = {
             "name": "DERELICT HOUSE BUILDING"
         }, 
         {
-            "emoji": "\ud83c\udfe0", 
-            "name": "HOUSE BUILDING"
-        }, 
-        {
             "emoji": "\ud83c\udfe1", 
             "name": "HOUSE WITH GARDEN"
         }, 
         {
-            "emoji": "\ud83c\udfe2", 
-            "name": "OFFICE BUILDING"
-        }, 
-        {
-            "emoji": "\ud83c\udfe3", 
-            "name": "JAPANESE POST OFFICE"
-        }, 
-        {
-            "emoji": "\ud83c\udfe4", 
-            "name": "EUROPEAN POST OFFICE post office"
-        }, 
-        {
-            "emoji": "\ud83c\udfe5", 
-            "name": "HOSPITAL"
-        }, 
-        {
-            "emoji": "\ud83c\udfe6", 
-            "name": "BANK"
-        }, 
-        {
-            "emoji": "\ud83c\udfe8", 
-            "name": "HOTEL"
-        }, 
-        {
             "emoji": "\ud83c\udfe9", 
             "name": "LOVE HOTEL"
-        }, 
-        {
-            "emoji": "\ud83c\udfea", 
-            "name": "CONVENIENCE STORE"
-        }, 
-        {
-            "emoji": "\ud83c\udfeb", 
-            "name": "SCHOOL"
-        }, 
-        {
-            "emoji": "\ud83c\udfec", 
-            "name": "DEPARTMENT STORE"
-        }, 
-        {
-            "emoji": "\ud83c\udfed", 
-            "name": "FACTORY"
-        }, 
-        {
-            "emoji": "\ud83c\udfef", 
-            "name": "JAPANESE CASTLE"
-        }, 
-        {
-            "emoji": "\ud83c\udff0", 
-            "name": "EUROPEAN CASTLE castle"
         }, 
         {
             "emoji": "\u26ea\ufe0f", 
@@ -3483,6 +5043,10 @@ var EMOJI_MAP = {
     ], 
     "buildings": [
         {
+            "emoji": "\ud83c\udf06", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udfd8\ufe0f", 
             "name": "HOUSE BUILDINGS"
         }, 
@@ -3494,7 +5058,7 @@ var EMOJI_MAP = {
     "bulb": [
         {
             "emoji": "\ud83d\udca1", 
-            "name": "ELECTRIC LIGHT BULB light bulb"
+            "name": "?"
         }
     ], 
     "bulgaria": [
@@ -3523,6 +5087,16 @@ var EMOJI_MAP = {
             "name": "HIGHSPEED TRAIN WITH BULLET NOSE"
         }
     ], 
+    "bullettrain": [
+        {
+            "emoji": "\ud83d\ude85", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude84", 
+            "name": "?"
+        }
+    ], 
     "bullseye": [
         {
             "emoji": "\ud83c\udfaf", 
@@ -3532,7 +5106,7 @@ var EMOJI_MAP = {
     "bunny": [
         {
             "emoji": "\ud83d\udc6f", 
-            "name": "WOMAN WITH BUNNY EARS women partying"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc30", 
@@ -3543,10 +5117,22 @@ var EMOJI_MAP = {
             "name": "RABBIT"
         }
     ], 
+    "bureau": [
+        {
+            "emoji": "\ud83c\udfe2", 
+            "name": "?"
+        }
+    ], 
     "burger": [
         {
             "emoji": "\ud83c\udf54", 
             "name": "HAMBURGER"
+        }
+    ], 
+    "burger king": [
+        {
+            "emoji": "\ud83c\udf54", 
+            "name": "?"
         }
     ], 
     "burkina": [
@@ -3576,11 +5162,15 @@ var EMOJI_MAP = {
     "bus": [
         {
             "emoji": "\ud83d\ude8c", 
-            "name": "BUS"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude8d", 
-            "name": "ONCOMING BUS"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcba", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude8e", 
@@ -3597,6 +5187,42 @@ var EMOJI_MAP = {
     ], 
     "business": [
         {
+            "emoji": "\ud83d\udcc9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26f3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc54", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcbc", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u303d\ufe0f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd74\ufe0f", 
             "name": "MAN IN BUSINESS SUIT LEVITATING"
         }
@@ -3604,13 +5230,13 @@ var EMOJI_MAP = {
     "busstop": [
         {
             "emoji": "\ud83d\ude8f", 
-            "name": "BUS STOP"
+            "name": "?"
         }
     ], 
     "bust": [
         {
             "emoji": "\ud83d\udc64", 
-            "name": "BUST IN SILHOUETTE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc65", 
@@ -3620,10 +5246,56 @@ var EMOJI_MAP = {
     "busts": [
         {
             "emoji": "\ud83d\udc65", 
-            "name": "BUSTS IN SILHOUETTE"
+            "name": "?"
+        }
+    ], 
+    "butterfly": [
+        {
+            "emoji": "\ud83d\udc50", 
+            "name": "?"
         }
     ], 
     "button": [
+        {
+            "emoji": "\ud83d\udd18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fc\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26ab", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd33", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd35", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\uddb1\ufe0f", 
             "name": "THREE BUTTON MOUSE computer mouse"
@@ -3739,18 +5411,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udd99", 
             "name": "SQUARED UP WITH EXCLAMATION MARK up! button"
-        }, 
-        {
-            "emoji": "\ud83d\udd18", 
-            "name": "RADIO BUTTON"
-        }, 
-        {
-            "emoji": "\ud83d\udd32", 
-            "name": "BLACK SQUARE BUTTON"
-        }, 
-        {
-            "emoji": "\ud83d\udd33", 
-            "name": "WHITE SQUARE BUTTON"
         }
     ], 
     "cabinet": [
@@ -3772,7 +5432,7 @@ var EMOJI_MAP = {
     "cableway": [
         {
             "emoji": "\ud83d\udea0", 
-            "name": "MOUNTAIN CABLEWAY"
+            "name": "?"
         }
     ], 
     "cabo": [
@@ -3784,7 +5444,13 @@ var EMOJI_MAP = {
     "cactus": [
         {
             "emoji": "\ud83c\udf35", 
-            "name": "CACTUS"
+            "name": "?"
+        }
+    ], 
+    "cafe": [
+        {
+            "emoji": "\u2615", 
+            "name": "?"
         }
     ], 
     "caicos": [
@@ -3795,16 +5461,40 @@ var EMOJI_MAP = {
     ], 
     "cake": [
         {
+            "emoji": "\ud83c\udf70", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf65", 
-            "name": "FISH CAKE WITH SWIRL DESIGN fish cake with swirl"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf82", 
-            "name": "BIRTHDAY CAKE"
+            "name": "?"
+        }
+    ], 
+    "calculate": [
+        {
+            "emoji": "\ud83d\udccf", 
+            "name": "?"
+        }
+    ], 
+    "calculation": [
+        {
+            "emoji": "\u2716\ufe0f", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf70", 
-            "name": "SHORTCAKE"
+            "emoji": "\u2796", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2797", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2795", 
+            "name": "?"
         }
     ], 
     "caledonia": [
@@ -3815,12 +5505,12 @@ var EMOJI_MAP = {
     ], 
     "calendar": [
         {
-            "emoji": "\ud83d\udcc5", 
-            "name": "CALENDAR"
+            "emoji": "\ud83d\udcc6", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcc6", 
-            "name": "TEAROFF CALENDAR"
+            "emoji": "\ud83d\udcc5", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\uddd3\ufe0f", 
@@ -3833,6 +5523,12 @@ var EMOJI_MAP = {
             "name": "MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT mobile phone with arrow"
         }
     ], 
+    "calling": [
+        {
+            "emoji": "\ud83d\udcf2", 
+            "name": "?"
+        }
+    ], 
     "cambodia": [
         {
             "emoji": "\ud83c\uddf0\ud83c\udded", 
@@ -3842,29 +5538,29 @@ var EMOJI_MAP = {
     "camel": [
         {
             "emoji": "\ud83d\udc2a", 
-            "name": "DROMEDARY CAMEL camel"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc2b", 
-            "name": "BACTRIAN CAMEL twohump camel"
+            "name": "?"
         }
     ], 
     "camera": [
         {
             "emoji": "\ud83c\udfa5", 
-            "name": "MOVIE CAMERA"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf9", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcf7", 
-            "name": "CAMERA"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcf8", 
             "name": "CAMERA WITH FLASH"
-        }, 
-        {
-            "emoji": "\ud83d\udcf9", 
-            "name": "VIDEO CAMERA"
         }, 
         {
             "emoji": "\ud83c\udfa6", 
@@ -3877,7 +5573,17 @@ var EMOJI_MAP = {
             "name": "Flag for Cameroon"
         }
     ], 
+    "camp": [
+        {
+            "emoji": "\u26fa", 
+            "name": "?"
+        }
+    ], 
     "camping": [
+        {
+            "emoji": "\ud83d\udd26", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udfd5\ufe0f", 
             "name": "CAMPING"
@@ -3888,6 +5594,10 @@ var EMOJI_MAP = {
         }
     ], 
     "canada": [
+        {
+            "emoji": "\ud83c\udf41", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udde8\ud83c\udde6", 
             "name": "Flag for Canada"
@@ -3921,6 +5631,10 @@ var EMOJI_MAP = {
     ], 
     "cancer": [
         {
+            "emoji": "\u264b", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83e\udd80", 
             "name": "CRAB"
         }, 
@@ -3950,21 +5664,21 @@ var EMOJI_MAP = {
     "candy": [
         {
             "emoji": "\ud83c\udf6c", 
-            "name": "CANDY"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf6d", 
-            "name": "LOLLIPOP"
+            "name": "?"
         }
     ], 
     "cap": [
         {
-            "emoji": "\ud83d\udc72", 
-            "name": "MAN WITH GUA PI MAO man with chinese cap"
+            "emoji": "\ud83c\udf93", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf93", 
-            "name": "GRADUATION CAP"
+            "emoji": "\ud83d\udc72", 
+            "name": "MAN WITH GUA PI MAO man with chinese cap"
         }
     ], 
     "cape": [
@@ -3976,7 +5690,7 @@ var EMOJI_MAP = {
     "capital": [
         {
             "emoji": "\ud83d\udd20", 
-            "name": "INPUT SYMBOL FOR LATIN CAPITAL LETTERS input latin uppercase"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udd70\ufe0f", 
@@ -4007,6 +5721,10 @@ var EMOJI_MAP = {
     ], 
     "capricorn": [
         {
+            "emoji": "\u2651", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc10", 
             "name": "GOAT"
         }, 
@@ -4017,8 +5735,40 @@ var EMOJI_MAP = {
     ], 
     "car": [
         {
+            "emoji": "\ud83d\ude93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude8c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude9c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude90", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude94", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude99", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude97", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude83", 
-            "name": "RAILWAY CAR"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude98", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude9e", 
@@ -4027,22 +5777,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\ude8b", 
             "name": "TRAM CAR"
-        }, 
-        {
-            "emoji": "\ud83d\ude93", 
-            "name": "POLICE CAR"
-        }, 
-        {
-            "emoji": "\ud83d\ude94", 
-            "name": "ONCOMING POLICE CAR"
-        }, 
-        {
-            "emoji": "\ud83d\ude97", 
-            "name": "AUTOMOBILE"
-        }, 
-        {
-            "emoji": "\ud83d\ude98", 
-            "name": "ONCOMING AUTOMOBILE"
         }, 
         {
             "emoji": "\ud83d\udea8", 
@@ -4058,6 +5792,14 @@ var EMOJI_MAP = {
         }
     ], 
     "card": [
+        {
+            "emoji": "\ud83d\udcc7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb3", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u2660\ufe0f", 
             "name": "BLACK SPADE SUIT spade suit"
@@ -4083,20 +5825,18 @@ var EMOJI_MAP = {
             "name": "FLOWER PLAYING CARDS"
         }, 
         {
-            "emoji": "\ud83d\udcb3", 
-            "name": "CREDIT CARD"
-        }, 
-        {
             "emoji": "\ud83d\uddc2\ufe0f", 
             "name": "CARD INDEX DIVIDERS"
         }, 
         {
-            "emoji": "\ud83d\udcc7", 
-            "name": "CARD INDEX"
-        }, 
-        {
             "emoji": "\ud83d\uddc3\ufe0f", 
             "name": "CARD FILE BOX"
+        }
+    ], 
+    "cardboard": [
+        {
+            "emoji": "\ud83d\udce6", 
+            "name": "?"
         }
     ], 
     "cardinal": [
@@ -4119,14 +5859,34 @@ var EMOJI_MAP = {
     ], 
     "cards": [
         {
+            "emoji": "\u2660\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2666\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2665\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udccf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2663\ufe0f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udfb4", 
-            "name": "FLOWER PLAYING CARDS"
+            "name": "?"
         }
     ], 
     "care": [
         {
             "emoji": "\ud83d\udc85", 
-            "name": "NAIL POLISH"
+            "name": "?"
         }
     ], 
     "caribbean": [
@@ -4135,19 +5895,75 @@ var EMOJI_MAP = {
             "name": "Flag for Caribbean Netherlands"
         }
     ], 
+    "carnival": [
+        {
+            "emoji": "\ud83c\udf86", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfaa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa2", 
+            "name": "?"
+        }
+    ], 
     "carousel": [
         {
             "emoji": "\ud83c\udfa0", 
-            "name": "CAROUSEL HORSE"
+            "name": "?"
         }
     ], 
     "carp": [
         {
             "emoji": "\ud83c\udf8f", 
-            "name": "CARP STREAMER"
+            "name": "?"
+        }
+    ], 
+    "carriage": [
+        {
+            "emoji": "\ud83d\ude8b", 
+            "name": "?"
         }
     ], 
     "cars": [
+        {
+            "emoji": "\ud83d\ude93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude9b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude95", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude96", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude92", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd7f\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude9a", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udea8", 
             "name": "POLICE CARS REVOLVING LIGHT police car\u2019s light"
@@ -4159,60 +5975,150 @@ var EMOJI_MAP = {
             "name": "POLICE CARS REVOLVING LIGHT police car\u2019s light"
         }
     ], 
+    "cash": [
+        {
+            "emoji": "\ud83c\udfe7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe6", 
+            "name": "?"
+        }
+    ], 
+    "casino": [
+        {
+            "emoji": "\ud83c\udfb0", 
+            "name": "?"
+        }
+    ], 
+    "cassette": [
+        {
+            "emoji": "\u27bf", 
+            "name": "?"
+        }
+    ], 
     "castle": [
         {
             "emoji": "\ud83c\udfef", 
-            "name": "JAPANESE CASTLE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udff0", 
-            "name": "EUROPEAN CASTLE castle"
+            "name": "?"
+        }
+    ], 
+    "casual": [
+        {
+            "emoji": "\ud83d\udc55", 
+            "name": "?"
         }
     ], 
     "cat": [
         {
-            "emoji": "\ud83d\ude3a", 
-            "name": "SMILING CAT FACE WITH OPEN MOUTH"
+            "emoji": "\ud83d\ude3b", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude38", 
-            "name": "GRINNING CAT FACE WITH SMILING EYES"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude39", 
-            "name": "CAT FACE WITH TEARS OF JOY"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude3b", 
-            "name": "SMILING CAT FACE WITH HEARTSHAPED EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude3c", 
-            "name": "CAT FACE WITH WRY SMILE"
+            "emoji": "\ud83d\udc2f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude3d", 
-            "name": "KISSING CAT FACE WITH CLOSED EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude40", 
-            "name": "WEARY CAT FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude3f", 
-            "name": "CRYING CAT FACE"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude3e", 
-            "name": "POUTING CAT FACE"
+            "emoji": "\ud83d\ude40", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3a", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc31", 
-            "name": "CAT FACE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3e", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc08", 
             "name": "CAT"
+        }
+    ], 
+    "cat2": [
+        {
+            "emoji": "\ud83d\udc08", 
+            "name": "?"
+        }
+    ], 
+    "cats": [
+        {
+            "emoji": "\ud83d\ude3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc08", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude39", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude40", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3e", 
+            "name": "?"
+        }
+    ], 
+    "caution": [
+        {
+            "emoji": "\ud83d\udea7", 
+            "name": "?"
         }
     ], 
     "cayman": [
@@ -4223,38 +6129,42 @@ var EMOJI_MAP = {
     ], 
     "cd": [
         {
-            "emoji": "\ud83d\udcbf", 
-            "name": "OPTICAL DISC"
+            "emoji": "\ud83d\udcc0", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcc0", 
-            "name": "DVD"
+            "emoji": "\ud83d\udcbf", 
+            "name": "?"
         }
     ], 
     "celebration": [
         {
-            "emoji": "\ud83c\udf85", 
-            "name": "FATHER CHRISTMAS santa claus"
+            "emoji": "\ud83c\udf84", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf88", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf82", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude4c", 
-            "name": "PERSON RAISING BOTH HANDS IN CELEBRATION person raising hands"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf85", 
+            "name": "FATHER CHRISTMAS santa claus"
         }, 
         {
             "emoji": "\ud83c\udf93", 
             "name": "GRADUATION CAP"
         }, 
         {
-            "emoji": "\ud83c\udf82", 
-            "name": "BIRTHDAY CAKE"
-        }, 
-        {
             "emoji": "\ud83c\udf83", 
             "name": "JACKOLANTERN"
-        }, 
-        {
-            "emoji": "\ud83c\udf84", 
-            "name": "CHRISTMAS TREE"
         }, 
         {
             "emoji": "\ud83c\udf86", 
@@ -4263,10 +6173,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udf87", 
             "name": "FIREWORK SPARKLER sparkler"
-        }, 
-        {
-            "emoji": "\ud83c\udf88", 
-            "name": "BALLOON"
         }, 
         {
             "emoji": "\ud83c\udf89", 
@@ -4353,7 +6259,17 @@ var EMOJI_MAP = {
             "name": "Flag for Central African Republic"
         }
     ], 
+    "century": [
+        {
+            "emoji": "\ud83d\udcaf", 
+            "name": "?"
+        }
+    ], 
     "ceremony": [
+        {
+            "emoji": "\ud83c\udfc6", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udf91", 
             "name": "MOON VIEWING CEREMONY moon ceremony"
@@ -4407,45 +6323,67 @@ var EMOJI_MAP = {
             "name": "WEDDING"
         }
     ], 
+    "characters": [
+        {
+            "emoji": "\ud83d\udd23", 
+            "name": "?"
+        }
+    ], 
+    "charger": [
+        {
+            "emoji": "\ud83d\udd0c", 
+            "name": "?"
+        }
+    ], 
     "chart": [
         {
-            "emoji": "\ud83d\udcb9", 
-            "name": "CHART WITH UPWARDS TREND AND YEN SIGN chart increasing with yen"
-        }, 
-        {
-            "emoji": "\ud83d\udcc8", 
-            "name": "CHART WITH UPWARDS TREND chart increasing"
-        }, 
-        {
             "emoji": "\ud83d\udcc9", 
-            "name": "CHART WITH DOWNWARDS TREND chart decreasing"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb9", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcca", 
-            "name": "BAR CHART"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc8", 
+            "name": "?"
+        }
+    ], 
+    "chatting": [
+        {
+            "emoji": "\ud83d\udcac", 
+            "name": "?"
         }
     ], 
     "check": [
         {
             "emoji": "\u2705", 
-            "name": "WHITE HEAVY CHECK MARK"
+            "name": "?"
         }, 
         {
             "emoji": "\u2611\ufe0f", 
-            "name": "BALLOT BOX WITH CHECK"
+            "name": "?"
         }, 
         {
             "emoji": "\u2714\ufe0f", 
-            "name": "HEAVY CHECK MARK"
+            "name": "?"
         }
     ], 
     "checkered": [
         {
             "emoji": "\ud83c\udfc1", 
-            "name": "CHEQUERED FLAG"
+            "name": "?"
         }
     ], 
     "checkin": [
+        {
+            "emoji": "\ud83c\udfe8", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udeeb", 
             "name": "AIRPLANE DEPARTURE"
@@ -4459,12 +6397,22 @@ var EMOJI_MAP = {
     ], 
     "cheese": [
         {
+            "emoji": "\ud83d\udc2d", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83e\uddc0", 
             "name": "CHEESE WEDGE"
         }, 
         {
             "emoji": "\ud83c\udf55", 
             "name": "SLICE OF PIZZA pizza"
+        }
+    ], 
+    "cheeseburger": [
+        {
+            "emoji": "\ud83c\udf54", 
+            "name": "?"
         }
     ], 
     "chemistry": [
@@ -4482,13 +6430,13 @@ var EMOJI_MAP = {
     "cherries": [
         {
             "emoji": "\ud83c\udf52", 
-            "name": "CHERRIES"
+            "name": "?"
         }
     ], 
     "cherry": [
         {
             "emoji": "\ud83c\udf38", 
-            "name": "CHERRY BLOSSOM"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf52", 
@@ -4498,7 +6446,7 @@ var EMOJI_MAP = {
     "chestnut": [
         {
             "emoji": "\ud83c\udf30", 
-            "name": "CHESTNUT"
+            "name": "?"
         }
     ], 
     "chevron": [
@@ -4509,42 +6457,76 @@ var EMOJI_MAP = {
     ], 
     "chick": [
         {
-            "emoji": "\ud83d\udc23", 
-            "name": "HATCHING CHICK"
+            "emoji": "\ud83d\udc25", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc24", 
-            "name": "BABY CHICK"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc25", 
-            "name": "FRONTFACING BABY CHICK"
+            "emoji": "\ud83d\udc23", 
+            "name": "?"
         }
     ], 
     "chicken": [
         {
+            "emoji": "\ud83d\udc25", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc24", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc13", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc14", 
-            "name": "CHICKEN"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf57", 
-            "name": "POULTRY LEG"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc23", 
+            "name": "?"
         }
     ], 
     "child": [
         {
+            "emoji": "\ud83d\udebc", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc76", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc6a", 
-            "name": "FAMILY"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udeb8", 
             "name": "CHILDREN CROSSING"
+        }
+    ], 
+    "childish": [
+        {
+            "emoji": "\ud83d\ude1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1b", 
+            "name": "?"
         }
     ], 
     "children": [
         {
             "emoji": "\ud83d\udeb8", 
-            "name": "CHILDREN CROSSING"
+            "name": "?"
         }
     ], 
     "chile": [
@@ -4556,13 +6538,21 @@ var EMOJI_MAP = {
     "chime": [
         {
             "emoji": "\ud83c\udf90", 
-            "name": "WIND CHIME"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd14", 
+            "name": "?"
         }
     ], 
     "china": [
         {
             "emoji": "\ud83c\udde8\ud83c\uddf3", 
-            "name": "Flag for China"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf5a", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udded\ud83c\uddf0", 
@@ -4579,40 +6569,84 @@ var EMOJI_MAP = {
     ], 
     "chinese": [
         {
+            "emoji": "\ud83c\ude32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u3297\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u3299\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude2f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude39", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udde8\ud83c\uddf3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude50", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude37\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc09", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude51", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udc04", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude33", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc72", 
             "name": "MAN WITH GUA PI MAO man with chinese cap"
         }, 
         {
-            "emoji": "\ud83c\ude51", 
-            "name": "CIRCLED IDEOGRAPH ACCEPT circled accept ideograph"
-        }, 
-        {
-            "emoji": "\ud83c\ude38", 
-            "name": "SQUARED CJK UNIFIED IDEOGRAPH7533 squared apply ideograph"
-        }, 
-        {
-            "emoji": "\ud83c\ude34", 
-            "name": "SQUARED CJK UNIFIED IDEOGRAPH5408 squared together ideograph"
-        }, 
-        {
-            "emoji": "\ud83c\ude33", 
-            "name": "SQUARED CJK UNIFIED IDEOGRAPH7A7A squared empty ideograph"
-        }, 
-        {
-            "emoji": "\u3297\ufe0f", 
-            "name": "CIRCLED IDEOGRAPH CONGRATULATION circled congratulate ideograph"
-        }, 
-        {
-            "emoji": "\u3299\ufe0f", 
-            "name": "CIRCLED IDEOGRAPH SECRET circled secret ideograph"
-        }, 
-        {
             "emoji": "\ud83c\ude3a", 
             "name": "SQUARED CJK UNIFIED IDEOGRAPH55B6 squared operating ideograph"
-        }, 
-        {
-            "emoji": "\ud83c\ude35", 
-            "name": "SQUARED CJK UNIFIED IDEOGRAPH6E80 squared fullness ideograph"
         }
     ], 
     "chipmunk": [
@@ -4621,10 +6655,32 @@ var EMOJI_MAP = {
             "name": "CHIPMUNK"
         }
     ], 
+    "chips": [
+        {
+            "emoji": "\ud83c\udf5f", 
+            "name": "?"
+        }
+    ], 
+    "chipsticks": [
+        {
+            "emoji": "\ud83c\udf5c", 
+            "name": "?"
+        }
+    ], 
     "chocolate": [
         {
+            "emoji": "\ud83c\udf6a", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf6b", 
-            "name": "CHOCOLATE BAR"
+            "name": "?"
+        }
+    ], 
+    "christ": [
+        {
+            "emoji": "\u26ea", 
+            "name": "?"
         }
     ], 
     "christian": [
@@ -4643,12 +6699,28 @@ var EMOJI_MAP = {
     ], 
     "christmas": [
         {
-            "emoji": "\ud83c\udf85", 
-            "name": "FATHER CHRISTMAS santa claus"
+            "emoji": "\ud83c\udf81", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf84", 
-            "name": "CHRISTMAS TREE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26c4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2744\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf85", 
+            "name": "FATHER CHRISTMAS santa claus"
         }, 
         {
             "emoji": "\ud83c\udde8\ud83c\uddfd", 
@@ -4657,11 +6729,29 @@ var EMOJI_MAP = {
     ], 
     "church": [
         {
+            "emoji": "\u26ea", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u26ea\ufe0f", 
             "name": "CHURCH"
         }
     ], 
+    "cigarette": [
+        {
+            "emoji": "\ud83d\udeac", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udead", 
+            "name": "?"
+        }
+    ], 
     "cinema": [
+        {
+            "emoji": "\ud83c\udfa6", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udfa5", 
             "name": "MOVIE CAMERA"
@@ -4673,13 +6763,77 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udcfd\ufe0f", 
             "name": "FILM PROJECTOR"
-        }, 
-        {
-            "emoji": "\ud83c\udfa6", 
-            "name": "CINEMA"
         }
     ], 
     "circle": [
+        {
+            "emoji": "\ud83d\udeab", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeaf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b55", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26aa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u00a9\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26ab", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude50", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26d4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u00ae\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb3", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd03", 
             "name": "CLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS clockwise vertical arrows"
@@ -4715,14 +6869,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\u26ab\ufe0f", 
             "name": "MEDIUM BLACK CIRCLE black circle"
-        }, 
-        {
-            "emoji": "\ud83d\udd34", 
-            "name": "LARGE RED CIRCLE red circle"
-        }, 
-        {
-            "emoji": "\ud83d\udd35", 
-            "name": "LARGE BLUE CIRCLE blue circle"
         }
     ], 
     "circled": [
@@ -4753,8 +6899,40 @@ var EMOJI_MAP = {
     ], 
     "circus": [
         {
+            "emoji": "\ud83c\udf89", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf88", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udfaa", 
-            "name": "CIRCUS TENT"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd2e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc12", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc18", 
+            "name": "?"
         }
     ], 
     "citrus": [
@@ -4765,12 +6943,20 @@ var EMOJI_MAP = {
     ], 
     "city": [
         {
-            "emoji": "\ud83c\udfd9\ufe0f", 
-            "name": "CITYSCAPE"
+            "emoji": "\ud83c\udf07", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf06", 
-            "name": "CITYSCAPE AT DUSK"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf03", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfd9\ufe0f", 
+            "name": "CITYSCAPE"
         }, 
         {
             "emoji": "\ud83c\uddfb\ud83c\udde6", 
@@ -4836,25 +7022,25 @@ var EMOJI_MAP = {
     "cl": [
         {
             "emoji": "\ud83c\udd91", 
-            "name": "SQUARED CL"
+            "name": "?"
         }
     ], 
     "claim": [
         {
             "emoji": "\ud83d\udec4", 
-            "name": "BAGGAGE CLAIM"
+            "name": "?"
         }
     ], 
     "clap": [
         {
             "emoji": "\ud83d\udc4f", 
-            "name": "CLAPPING HANDS SIGN clapping hands"
+            "name": "?"
         }
     ], 
     "clapper": [
         {
             "emoji": "\ud83c\udfac", 
-            "name": "CLAPPER BOARD"
+            "name": "?"
         }
     ], 
     "clapping": [
@@ -4869,10 +7055,52 @@ var EMOJI_MAP = {
             "name": "CLASSICAL BUILDING"
         }
     ], 
+    "classroom": [
+        {
+            "emoji": "\ud83d\udcd4", 
+            "name": "?"
+        }
+    ], 
+    "classy": [
+        {
+            "emoji": "\ud83c\udfa9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc68", 
+            "name": "?"
+        }
+    ], 
     "claus": [
         {
             "emoji": "\ud83c\udf85", 
             "name": "FATHER CHRISTMAS santa claus"
+        }
+    ], 
+    "clean": [
+        {
+            "emoji": "\ud83d\udec0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udec1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udebf", 
+            "name": "?"
+        }
+    ], 
+    "cleaning": [
+        {
+            "emoji": "\ud83d\udeb0", 
+            "name": "?"
+        }
+    ], 
+    "clef": [
+        {
+            "emoji": "\ud83c\udfbc", 
+            "name": "?"
         }
     ], 
     "clenched": [
@@ -4900,7 +7128,7 @@ var EMOJI_MAP = {
     "clipboard": [
         {
             "emoji": "\ud83d\udccb", 
-            "name": "CLIPBOARD"
+            "name": "?"
         }
     ], 
     "clipperton": [
@@ -4911,12 +7139,16 @@ var EMOJI_MAP = {
     ], 
     "clock": [
         {
-            "emoji": "\u231a\ufe0f", 
-            "name": "WATCH"
+            "emoji": "\u231b", 
+            "name": "?"
         }, 
         {
             "emoji": "\u23f0", 
-            "name": "ALARM CLOCK"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u231a\ufe0f", 
+            "name": "WATCH"
         }, 
         {
             "emoji": "\u23f1\ufe0f", 
@@ -5027,10 +7259,154 @@ var EMOJI_MAP = {
             "name": "CLOCK FACE ELEVENTHIRTY eleventhirty"
         }
     ], 
+    "clock1": [
+        {
+            "emoji": "\ud83d\udd50", 
+            "name": "?"
+        }
+    ], 
+    "clock10": [
+        {
+            "emoji": "\ud83d\udd59", 
+            "name": "?"
+        }
+    ], 
+    "clock1030": [
+        {
+            "emoji": "\ud83d\udd65", 
+            "name": "?"
+        }
+    ], 
+    "clock11": [
+        {
+            "emoji": "\ud83d\udd5a", 
+            "name": "?"
+        }
+    ], 
+    "clock1130": [
+        {
+            "emoji": "\ud83d\udd66", 
+            "name": "?"
+        }
+    ], 
+    "clock12": [
+        {
+            "emoji": "\ud83d\udd5b", 
+            "name": "?"
+        }
+    ], 
+    "clock1230": [
+        {
+            "emoji": "\ud83d\udd67", 
+            "name": "?"
+        }
+    ], 
+    "clock130": [
+        {
+            "emoji": "\ud83d\udd5c", 
+            "name": "?"
+        }
+    ], 
+    "clock2": [
+        {
+            "emoji": "\ud83d\udd51", 
+            "name": "?"
+        }
+    ], 
+    "clock230": [
+        {
+            "emoji": "\ud83d\udd5d", 
+            "name": "?"
+        }
+    ], 
+    "clock3": [
+        {
+            "emoji": "\ud83d\udd52", 
+            "name": "?"
+        }
+    ], 
+    "clock330": [
+        {
+            "emoji": "\ud83d\udd5e", 
+            "name": "?"
+        }
+    ], 
+    "clock4": [
+        {
+            "emoji": "\ud83d\udd53", 
+            "name": "?"
+        }
+    ], 
+    "clock430": [
+        {
+            "emoji": "\ud83d\udd5f", 
+            "name": "?"
+        }
+    ], 
+    "clock5": [
+        {
+            "emoji": "\ud83d\udd54", 
+            "name": "?"
+        }
+    ], 
+    "clock530": [
+        {
+            "emoji": "\ud83d\udd60", 
+            "name": "?"
+        }
+    ], 
+    "clock6": [
+        {
+            "emoji": "\ud83d\udd55", 
+            "name": "?"
+        }
+    ], 
+    "clock630": [
+        {
+            "emoji": "\ud83d\udd61", 
+            "name": "?"
+        }
+    ], 
+    "clock7": [
+        {
+            "emoji": "\ud83d\udd56", 
+            "name": "?"
+        }
+    ], 
+    "clock730": [
+        {
+            "emoji": "\ud83d\udd62", 
+            "name": "?"
+        }
+    ], 
+    "clock8": [
+        {
+            "emoji": "\ud83d\udd57", 
+            "name": "?"
+        }
+    ], 
+    "clock830": [
+        {
+            "emoji": "\ud83d\udd63", 
+            "name": "?"
+        }
+    ], 
+    "clock9": [
+        {
+            "emoji": "\ud83d\udd58", 
+            "name": "?"
+        }
+    ], 
+    "clock930": [
+        {
+            "emoji": "\ud83d\udd64", 
+            "name": "?"
+        }
+    ], 
     "clockwise": [
         {
             "emoji": "\ud83d\udd03", 
-            "name": "CLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS clockwise vertical arrows"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd01", 
@@ -5043,36 +7419,40 @@ var EMOJI_MAP = {
     ], 
     "closed": [
         {
+            "emoji": "\ud83d\udcd5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd10", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude1a", 
-            "name": "KISSING FACE WITH CLOSED EYES"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcea", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf02", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude3d", 
             "name": "KISSING CAT FACE WITH CLOSED EYES"
         }, 
         {
-            "emoji": "\ud83c\udf02", 
-            "name": "CLOSED UMBRELLA"
-        }, 
-        {
-            "emoji": "\ud83d\udcd5", 
-            "name": "CLOSED BOOK"
-        }, 
-        {
             "emoji": "\ud83d\udceb", 
             "name": "CLOSED MAILBOX WITH RAISED FLAG"
         }, 
         {
-            "emoji": "\ud83d\udcea", 
-            "name": "CLOSED MAILBOX WITH LOWERED FLAG"
-        }, 
-        {
             "emoji": "\ud83d\udd12", 
             "name": "LOCK"
-        }, 
-        {
-            "emoji": "\ud83d\udd10", 
-            "name": "CLOSED LOCK WITH KEY"
         }
     ], 
     "closet": [
@@ -5081,10 +7461,24 @@ var EMOJI_MAP = {
             "name": "WATER CLOSET"
         }
     ], 
+    "cloth": [
+        {
+            "emoji": "\ud83d\udc55", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc54", 
+            "name": "?"
+        }
+    ], 
     "clothes": [
         {
             "emoji": "\ud83d\udc5a", 
-            "name": "WOMANS CLOTHES woman\u2019s clothes"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc57", 
+            "name": "?"
         }
     ], 
     "clothing": [
@@ -5192,7 +7586,15 @@ var EMOJI_MAP = {
     "cloud": [
         {
             "emoji": "\u2601\ufe0f", 
-            "name": "CLOUD"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf00", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcad", 
+            "name": "?"
         }, 
         {
             "emoji": "\u26c5\ufe0f", 
@@ -5239,10 +7641,16 @@ var EMOJI_MAP = {
             "name": "WIND BLOWING FACE wind face"
         }
     ], 
+    "cloudy": [
+        {
+            "emoji": "\u26c5", 
+            "name": "?"
+        }
+    ], 
     "clover": [
         {
             "emoji": "\ud83c\udf40", 
-            "name": "FOUR LEAF CLOVER"
+            "name": "?"
         }
     ], 
     "club": [
@@ -5254,13 +7662,25 @@ var EMOJI_MAP = {
     "clubs": [
         {
             "emoji": "\u2663\ufe0f", 
-            "name": "BLACK CLUB SUIT club suit"
+            "name": "?"
+        }
+    ], 
+    "cluck": [
+        {
+            "emoji": "\ud83d\udc14", 
+            "name": "?"
         }
     ], 
     "clue": [
         {
             "emoji": "\ud83d\udddd\ufe0f", 
             "name": "OLD KEY"
+        }
+    ], 
+    "cn": [
+        {
+            "emoji": "\ud83c\udde8\ud83c\uddf3", 
+            "name": "?"
         }
     ], 
     "coast": [
@@ -5272,13 +7692,17 @@ var EMOJI_MAP = {
     "coaster": [
         {
             "emoji": "\ud83c\udfa2", 
-            "name": "ROLLER COASTER"
+            "name": "?"
         }
     ], 
     "cocktail": [
         {
+            "emoji": "\ud83c\udf79", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf78", 
-            "name": "COCKTAIL GLASS"
+            "name": "?"
         }
     ], 
     "cocos": [
@@ -5288,6 +7712,10 @@ var EMOJI_MAP = {
         }
     ], 
     "coffee": [
+        {
+            "emoji": "\u2615", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u2615\ufe0f", 
             "name": "HOT BEVERAGE"
@@ -5305,7 +7733,29 @@ var EMOJI_MAP = {
             "name": "PURSE"
         }
     ], 
+    "coins": [
+        {
+            "emoji": "\ud83d\udcb0", 
+            "name": "?"
+        }
+    ], 
     "cold": [
+        {
+            "emoji": "\ud83c\udfbf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude30", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26c4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2744\ufe0f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude05", 
             "name": "SMILING FACE WITH OPEN MOUTH AND COLD SWEAT"
@@ -5319,20 +7769,12 @@ var EMOJI_MAP = {
             "name": "FACE WITH MEDICAL MASK"
         }, 
         {
-            "emoji": "\ud83d\ude30", 
-            "name": "FACE WITH OPEN MOUTH AND COLD SWEAT"
-        }, 
-        {
             "emoji": "\ud83c\udfd4\ufe0f", 
             "name": "SNOW CAPPED MOUNTAIN snowcapped mountain"
         }, 
         {
             "emoji": "\ud83c\udf28\ufe0f", 
             "name": "CLOUD WITH SNOW"
-        }, 
-        {
-            "emoji": "\u2744\ufe0f", 
-            "name": "SNOWFLAKE"
         }, 
         {
             "emoji": "\u2603\ufe0f", 
@@ -5347,10 +7789,16 @@ var EMOJI_MAP = {
             "name": "DROPLET"
         }
     ], 
+    "college": [
+        {
+            "emoji": "\ud83c\udf93", 
+            "name": "?"
+        }
+    ], 
     "collision": [
         {
             "emoji": "\ud83d\udca5", 
-            "name": "COLLISION SYMBOL collision"
+            "name": "?"
         }
     ], 
     "colombia": [
@@ -5425,6 +7873,54 @@ var EMOJI_MAP = {
     ], 
     "communication": [
         {
+            "emoji": "\ud83d\udcde", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2709\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcfb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcec", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udceb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcea", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u260e\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce7", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udce2", 
             "name": "PUBLIC ADDRESS LOUDSPEAKER loudspeaker"
         }, 
@@ -5445,36 +7941,16 @@ var EMOJI_MAP = {
             "name": "MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT mobile phone with arrow"
         }, 
         {
-            "emoji": "\ud83d\udcde", 
-            "name": "TELEPHONE RECEIVER"
-        }, 
-        {
             "emoji": "\ud83d\udcdf", 
             "name": "PAGER"
-        }, 
-        {
-            "emoji": "\ud83d\udce0", 
-            "name": "FAX MACHINE"
-        }, 
-        {
-            "emoji": "\ud83d\udce1", 
-            "name": "SATELLITE ANTENNA"
         }, 
         {
             "emoji": "\ud83d\udcf0", 
             "name": "NEWSPAPER"
         }, 
         {
-            "emoji": "\ud83d\udce7", 
-            "name": "EMAIL SYMBOL email"
-        }, 
-        {
             "emoji": "\ud83d\udce8", 
             "name": "INCOMING ENVELOPE"
-        }, 
-        {
-            "emoji": "\ud83d\udce9", 
-            "name": "ENVELOPE WITH DOWNWARDS ARROW ABOVE envelope with arrow"
         }, 
         {
             "emoji": "\ud83d\udce4", 
@@ -5487,18 +7963,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udce6", 
             "name": "PACKAGE"
-        }, 
-        {
-            "emoji": "\ud83d\udceb", 
-            "name": "CLOSED MAILBOX WITH RAISED FLAG"
-        }, 
-        {
-            "emoji": "\ud83d\udcea", 
-            "name": "CLOSED MAILBOX WITH LOWERED FLAG"
-        }, 
-        {
-            "emoji": "\ud83d\udcec", 
-            "name": "OPEN MAILBOX WITH RAISED FLAG"
         }, 
         {
             "emoji": "\ud83d\udced", 
@@ -5555,6 +8019,12 @@ var EMOJI_MAP = {
             "name": "Flag for Comoros"
         }
     ], 
+    "competition": [
+        {
+            "emoji": "\ud83c\udfc7", 
+            "name": "?"
+        }
+    ], 
     "compression": [
         {
             "emoji": "\ud83d\udddc\ufe0f", 
@@ -5564,7 +8034,7 @@ var EMOJI_MAP = {
     "computer": [
         {
             "emoji": "\ud83d\udcbb", 
-            "name": "PERSONAL COMPUTER laptop computer"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udda5\ufe0f", 
@@ -5603,22 +8073,48 @@ var EMOJI_MAP = {
             "name": "DVD"
         }
     ], 
+    "concern": [
+        {
+            "emoji": "\ud83d\ude1f", 
+            "name": "?"
+        }
+    ], 
+    "concert": [
+        {
+            "emoji": "\ud83c\udfab", 
+            "name": "?"
+        }
+    ], 
     "confetti": [
         {
             "emoji": "\ud83c\udf8a", 
-            "name": "CONFETTI BALL"
+            "name": "?"
+        }
+    ], 
+    "confirm": [
+        {
+            "emoji": "\u2611\ufe0f", 
+            "name": "?"
         }
     ], 
     "confounded": [
         {
             "emoji": "\ud83d\ude16", 
-            "name": "CONFOUNDED FACE"
+            "name": "?"
         }
     ], 
     "confused": [
         {
+            "emoji": "\u2753", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude15", 
-            "name": "CONFUSED FACE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude16", 
+            "name": "?"
         }
     ], 
     "congo": [
@@ -5643,6 +8139,12 @@ var EMOJI_MAP = {
             "name": "Flag for Congo  Kinshasa"
         }
     ], 
+    "congrats": [
+        {
+            "emoji": "\ud83d\udc4f", 
+            "name": "?"
+        }
+    ], 
     "congratulate": [
         {
             "emoji": "\u3297\ufe0f", 
@@ -5658,46 +8160,104 @@ var EMOJI_MAP = {
     "congratulations": [
         {
             "emoji": "\u3297\ufe0f", 
-            "name": "CIRCLED IDEOGRAPH CONGRATULATION circled congratulate ideograph"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf86", 
+            "name": "?"
+        }
+    ], 
+    "connection": [
+        {
+            "emoji": "\ud83d\udcf6", 
+            "name": "?"
+        }
+    ], 
+    "console": [
+        {
+            "emoji": "\ud83c\udfae", 
+            "name": "?"
+        }
+    ], 
+    "constellation": [
+        {
+            "emoji": "\u26ce", 
+            "name": "?"
         }
     ], 
     "construction": [
         {
+            "emoji": "\ud83d\udea7", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc77", 
-            "name": "CONSTRUCTION WORKER"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfd7\ufe0f", 
             "name": "BUILDING CONSTRUCTION"
+        }
+    ], 
+    "container": [
+        {
+            "emoji": "\ud83c\udf7c", 
+            "name": "?"
+        }
+    ], 
+    "contest": [
+        {
+            "emoji": "\ud83c\udfc6", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udea7", 
-            "name": "CONSTRUCTION SIGN construction"
+            "emoji": "\ud83c\udfc1", 
+            "name": "?"
+        }
+    ], 
+    "continue": [
+        {
+            "emoji": "\u2b06\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u23e9", 
+            "name": "?"
         }
     ], 
     "control": [
         {
-            "emoji": "\ud83c\udf9b\ufe0f", 
-            "name": "CONTROL KNOBS"
+            "emoji": "\ud83d\udec2", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udec2", 
-            "name": "PASSPORT CONTROL"
+            "emoji": "\ud83c\udf9b\ufe0f", 
+            "name": "CONTROL KNOBS"
         }
     ], 
     "controller": [
         {
             "emoji": "\ud83c\udfae", 
-            "name": "VIDEO GAME"
+            "name": "?"
+        }
+    ], 
+    "contulations": [
+        {
+            "emoji": "\ud83c\udf89", 
+            "name": "?"
         }
     ], 
     "convenience": [
         {
             "emoji": "\ud83c\udfea", 
-            "name": "CONVENIENCE STORE"
+            "name": "?"
         }
     ], 
     "cook": [
+        {
+            "emoji": "\ud83d\udd25", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udde8\ud83c\uddf0", 
             "name": "Flag for Cook Islands"
@@ -5712,7 +8272,7 @@ var EMOJI_MAP = {
     "cookie": [
         {
             "emoji": "\ud83c\udf6a", 
-            "name": "COOKIE"
+            "name": "?"
         }
     ], 
     "cooking": [
@@ -5739,24 +8299,32 @@ var EMOJI_MAP = {
     ], 
     "cool": [
         {
-            "emoji": "\ud83d\ude0e", 
-            "name": "SMILING FACE WITH SUNGLASSES"
+            "emoji": "\ud83c\udd92", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udd92", 
-            "name": "SQUARED COOL"
+            "emoji": "\ud83d\ude0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2728", 
+            "name": "?"
         }
     ], 
     "cop": [
         {
             "emoji": "\ud83d\udc6e", 
-            "name": "POLICE OFFICER"
+            "name": "?"
         }
     ], 
     "copyright": [
         {
             "emoji": "\u00a9\ufe0f", 
-            "name": "COPYRIGHT SIGN copyright"
+            "name": "?"
         }
     ], 
     "cork": [
@@ -5768,7 +8336,7 @@ var EMOJI_MAP = {
     "corn": [
         {
             "emoji": "\ud83c\udf3d", 
-            "name": "EAR OF MAIZE ear of corn"
+            "name": "?"
         }
     ], 
     "cornwall": [
@@ -5805,32 +8373,96 @@ var EMOJI_MAP = {
             "name": "COUCH AND LAMP"
         }
     ], 
+    "countdown": [
+        {
+            "emoji": "\u23f3", 
+            "name": "?"
+        }
+    ], 
     "counterclockwise": [
         {
             "emoji": "\ud83d\udd04", 
-            "name": "ANTICLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS anticlockwise arrows button"
+            "name": "?"
+        }
+    ], 
+    "country": [
+        {
+            "emoji": "\ud83c\uddf7\ud83c\uddfa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddf0\ud83c\uddf7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddfa\ud83c\uddf8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udde8\ud83c\uddf3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddef\ud83c\uddf5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udde9\ud83c\uddea", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddea\ud83c\uddf8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\uddfe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddeb\ud83c\uddf7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddee\ud83c\uddf9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddec\ud83c\udde7", 
+            "name": "?"
         }
     ], 
     "couple": [
         {
-            "emoji": "\ud83d\udc6b", 
-            "name": "MAN AND WOMAN HOLDING HANDS"
+            "emoji": "\ud83d\udc6c", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc6c", 
-            "name": "TWO MEN HOLDING HANDS"
+            "emoji": "\ud83d\udc6b", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc6d", 
-            "name": "TWO WOMEN HOLDING HANDS"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc92", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc70", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc8f", 
             "name": "KISS"
-        }, 
-        {
-            "emoji": "\ud83d\udc91", 
-            "name": "COUPLE WITH HEART"
         }, 
         {
             "emoji": "\ud83d\udc69\u200d\u2764\ufe0f\u200d\ud83d\udc68", 
@@ -5845,20 +8477,40 @@ var EMOJI_MAP = {
             "name": "Couple with heart: WOMAN,WOMAN"
         }
     ], 
+    "couplekiss": [
+        {
+            "emoji": "\ud83d\udc8f", 
+            "name": "?"
+        }
+    ], 
     "cover": [
         {
             "emoji": "\ud83d\udcd4", 
-            "name": "NOTEBOOK WITH DECORATIVE COVER"
+            "name": "?"
         }
     ], 
     "cow": [
         {
+            "emoji": "\ud83d\udc02", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc2e", 
-            "name": "COW FACE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc03", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc04", 
             "name": "COW"
+        }
+    ], 
+    "cow2": [
+        {
+            "emoji": "\ud83d\udc04", 
+            "name": "?"
         }
     ], 
     "crab": [
@@ -5874,7 +8526,7 @@ var EMOJI_MAP = {
     "cracker": [
         {
             "emoji": "\ud83c\udf58", 
-            "name": "RICE CRACKER"
+            "name": "?"
         }
     ], 
     "crayon": [
@@ -5885,15 +8537,19 @@ var EMOJI_MAP = {
     ], 
     "cream": [
         {
-            "emoji": "\ud83c\udf66", 
-            "name": "SOFT ICE CREAM"
+            "emoji": "\ud83c\udf68", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf68", 
-            "name": "ICE CREAM"
+            "emoji": "\ud83c\udf66", 
+            "name": "SOFT ICE CREAM"
         }
     ], 
     "creature": [
+        {
+            "emoji": "\ud83d\udc19", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc79", 
             "name": "JAPANESE OGRE ogre"
@@ -5918,21 +8574,39 @@ var EMOJI_MAP = {
     "credit": [
         {
             "emoji": "\ud83d\udcb3", 
-            "name": "CREDIT CARD"
+            "name": "?"
+        }
+    ], 
+    "creepy": [
+        {
+            "emoji": "\ud83d\udc80", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc7a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc79", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf83", 
+            "name": "?"
         }
     ], 
     "crescent": [
         {
             "emoji": "\ud83c\udf12", 
-            "name": "WAXING CRESCENT MOON SYMBOL waxing crescent moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf18", 
-            "name": "WANING CRESCENT MOON SYMBOL waning crescent moon"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf19", 
-            "name": "CRESCENT MOON"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf18", 
+            "name": "?"
         }, 
         {
             "emoji": "\u262a\ufe0f", 
@@ -5945,6 +8619,12 @@ var EMOJI_MAP = {
             "name": "CRICKET BAT AND BALL cricket"
         }
     ], 
+    "croak": [
+        {
+            "emoji": "\ud83d\udc38", 
+            "name": "?"
+        }
+    ], 
     "croatia": [
         {
             "emoji": "\ud83c\udded\ud83c\uddf7", 
@@ -5954,10 +8634,14 @@ var EMOJI_MAP = {
     "crocodile": [
         {
             "emoji": "\ud83d\udc0a", 
-            "name": "CROCODILE"
+            "name": "?"
         }
     ], 
     "cross": [
+        {
+            "emoji": "\u274e", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u26d1\ufe0f", 
             "name": "HELMET WITH WHITE CROSS"
@@ -5981,10 +8665,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\u274c", 
             "name": "CROSS MARK"
-        }, 
-        {
-            "emoji": "\u274e", 
-            "name": "NEGATIVE SQUARED CROSS MARK cross mark button"
         }
     ], 
     "crossbones": [
@@ -5995,12 +8675,12 @@ var EMOJI_MAP = {
     ], 
     "crossed": [
         {
-            "emoji": "\u2694\ufe0f", 
-            "name": "CROSSED SWORDS"
+            "emoji": "\ud83c\udf8c", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf8c", 
-            "name": "CROSSED FLAGS"
+            "emoji": "\u2694\ufe0f", 
+            "name": "CROSSED SWORDS"
         }, 
         {
             "emoji": "\ud83d\udd00", 
@@ -6010,27 +8690,45 @@ var EMOJI_MAP = {
     "crossing": [
         {
             "emoji": "\ud83d\udeb8", 
-            "name": "CHILDREN CROSSING"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb7", 
+            "name": "?"
         }
     ], 
     "crown": [
         {
             "emoji": "\ud83d\udc51", 
-            "name": "CROWN"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc78", 
+            "name": "?"
+        }
+    ], 
+    "crush": [
+        {
+            "emoji": "\ud83d\ude0d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0a", 
+            "name": "?"
         }
     ], 
     "cry": [
         {
+            "emoji": "\ud83d\ude2d", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude02", 
-            "name": "FACE WITH TEARS OF JOY"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude22", 
-            "name": "CRYING FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude2d", 
-            "name": "LOUDLY CRYING FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude3f", 
@@ -6043,22 +8741,26 @@ var EMOJI_MAP = {
             "name": "FACE WITH TEARS OF JOY"
         }, 
         {
+            "emoji": "\ud83d\ude3f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude22", 
             "name": "CRYING FACE"
         }, 
         {
             "emoji": "\ud83d\ude2d", 
             "name": "LOUDLY CRYING FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude3f", 
-            "name": "CRYING CAT FACE"
         }
     ], 
     "crystal": [
         {
             "emoji": "\ud83d\udd2e", 
-            "name": "CRYSTAL BALL"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca0", 
+            "name": "?"
         }
     ], 
     "cuba": [
@@ -6086,7 +8788,7 @@ var EMOJI_MAP = {
     "cupid": [
         {
             "emoji": "\ud83d\udc98", 
-            "name": "HEART WITH ARROW"
+            "name": "?"
         }
     ], 
     "curacao": [
@@ -6104,7 +8806,7 @@ var EMOJI_MAP = {
     "curl": [
         {
             "emoji": "\ud83d\udcc3", 
-            "name": "PAGE WITH CURL"
+            "name": "?"
         }, 
         {
             "emoji": "\u27b0", 
@@ -6118,7 +8820,7 @@ var EMOJI_MAP = {
     "curly": [
         {
             "emoji": "\u27b0", 
-            "name": "CURLY LOOP"
+            "name": "?"
         }, 
         {
             "emoji": "\u27bf", 
@@ -6127,38 +8829,38 @@ var EMOJI_MAP = {
     ], 
     "currency": [
         {
-            "emoji": "\ud83d\udcb4", 
-            "name": "BANKNOTE WITH YEN SIGN yen banknote"
-        }, 
-        {
-            "emoji": "\ud83d\udcb5", 
-            "name": "BANKNOTE WITH DOLLAR SIGN dollar banknote"
+            "emoji": "\ud83d\udcb2", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcb6", 
-            "name": "BANKNOTE WITH EURO SIGN euro banknote"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcb7", 
-            "name": "BANKNOTE WITH POUND SIGN pound banknote"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb5", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcb9", 
             "name": "CHART WITH UPWARDS TREND AND YEN SIGN chart increasing with yen"
-        }, 
-        {
-            "emoji": "\ud83d\udcb1", 
-            "name": "CURRENCY EXCHANGE"
-        }, 
-        {
-            "emoji": "\ud83d\udcb2", 
-            "name": "HEAVY DOLLAR SIGN"
         }
     ], 
     "curry": [
         {
             "emoji": "\ud83c\udf5b", 
-            "name": "CURRY AND RICE curry rice"
+            "name": "?"
         }
     ], 
     "curving": [
@@ -6182,16 +8884,56 @@ var EMOJI_MAP = {
     "custard": [
         {
             "emoji": "\ud83c\udf6e", 
-            "name": "CUSTARD"
+            "name": "?"
+        }
+    ], 
+    "custom": [
+        {
+            "emoji": "\ud83d\udec2", 
+            "name": "?"
         }
     ], 
     "customs": [
         {
             "emoji": "\ud83d\udec3", 
-            "name": "CUSTOMS"
+            "name": "?"
+        }
+    ], 
+    "cut": [
+        {
+            "emoji": "\ud83c\ude39", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2702\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "cutlery": [
+        {
+            "emoji": "\ud83c\udf74", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd2a", 
+            "name": "?"
+        }
+    ], 
+    "cycle": [
+        {
+            "emoji": "\ud83d\udd04", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd03", 
+            "name": "?"
         }
     ], 
     "cyclist": [
+        {
+            "emoji": "\ud83d\udeb3", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udeb4", 
             "name": "BICYCLIST"
@@ -6204,7 +8946,7 @@ var EMOJI_MAP = {
     "cyclone": [
         {
             "emoji": "\ud83c\udf00", 
-            "name": "CYCLONE"
+            "name": "?"
         }
     ], 
     "cyprus": [
@@ -6231,6 +8973,16 @@ var EMOJI_MAP = {
             "name": "Flag for Tristan da Cunha"
         }
     ], 
+    "dad": [
+        {
+            "emoji": "\ud83d\udc68", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6a", 
+            "name": "?"
+        }
+    ], 
     "dagger": [
         {
             "emoji": "\ud83d\udde1\ufe0f", 
@@ -6239,15 +8991,37 @@ var EMOJI_MAP = {
     ], 
     "dancer": [
         {
-            "emoji": "\ud83d\udc6f", 
-            "name": "WOMAN WITH BUNNY EARS women partying"
+            "emoji": "\ud83d\udc83", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc83", 
-            "name": "DANCER"
+            "emoji": "\ud83d\udc6f", 
+            "name": "WOMAN WITH BUNNY EARS women partying"
+        }
+    ], 
+    "dancers": [
+        {
+            "emoji": "\ud83d\udc6f", 
+            "name": "?"
         }
     ], 
     "danger": [
+        {
+            "emoji": "\ud83d\udd34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2757", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb8", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u26a1\ufe0f", 
             "name": "HIGH VOLTAGE SIGN high voltage"
@@ -6256,10 +9030,14 @@ var EMOJI_MAP = {
     "dango": [
         {
             "emoji": "\ud83c\udf61", 
-            "name": "DANGO"
+            "name": "?"
         }
     ], 
     "dark": [
+        {
+            "emoji": "\ud83d\udd26", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd76\ufe0f", 
             "name": "DARK SUNGLASSES sunglasses"
@@ -6272,7 +9050,7 @@ var EMOJI_MAP = {
     "dart": [
         {
             "emoji": "\ud83c\udfaf", 
-            "name": "DIRECT HIT"
+            "name": "?"
         }
     ], 
     "darussalam": [
@@ -6283,12 +9061,12 @@ var EMOJI_MAP = {
     ], 
     "dash": [
         {
-            "emoji": "\ud83d\udca8", 
-            "name": "DASH SYMBOL dashing"
+            "emoji": "\u3030\ufe0f", 
+            "name": "?"
         }, 
         {
-            "emoji": "\u3030\ufe0f", 
-            "name": "WAVY DASH"
+            "emoji": "\ud83d\udca8", 
+            "name": "?"
         }
     ], 
     "dashing": [
@@ -6297,10 +9075,42 @@ var EMOJI_MAP = {
             "name": "DASH SYMBOL dashing"
         }
     ], 
+    "data": [
+        {
+            "emoji": "\ud83d\udcbd", 
+            "name": "?"
+        }
+    ], 
     "date": [
         {
+            "emoji": "\ud83d\udc6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc6", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udcc5", 
-            "name": "CALENDAR"
+            "name": "?"
+        }
+    ], 
+    "dating": [
+        {
+            "emoji": "\ud83d\udc6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8f", 
+            "name": "?"
         }
     ], 
     "david": [
@@ -6309,10 +9119,32 @@ var EMOJI_MAP = {
             "name": "STAR OF DAVID"
         }
     ], 
+    "dawn": [
+        {
+            "emoji": "\ud83c\udf07", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd55", 
+            "name": "?"
+        }
+    ], 
     "dazed": [
         {
             "emoji": "\ud83d\ude33", 
             "name": "FLUSHED FACE"
+        }
+    ], 
+    "de": [
+        {
+            "emoji": "\ud83c\udde9\ud83c\uddea", 
+            "name": "?"
+        }
+    ], 
+    "dead": [
+        {
+            "emoji": "\ud83d\udc80", 
+            "name": "?"
         }
     ], 
     "deadpan": [
@@ -6339,10 +9171,16 @@ var EMOJI_MAP = {
             "name": "FUNERAL URN"
         }
     ], 
+    "december": [
+        {
+            "emoji": "\ud83c\udf84", 
+            "name": "?"
+        }
+    ], 
     "deciduous": [
         {
             "emoji": "\ud83c\udf33", 
-            "name": "DECIDUOUS TREE"
+            "name": "?"
         }
     ], 
     "decorated": [
@@ -6354,7 +9192,11 @@ var EMOJI_MAP = {
     "decoration": [
         {
             "emoji": "\ud83d\udc9f", 
-            "name": "HEART DECORATION"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf80", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf8d", 
@@ -6364,7 +9206,7 @@ var EMOJI_MAP = {
     "decorative": [
         {
             "emoji": "\ud83d\udcd4", 
-            "name": "NOTEBOOK WITH DECORATIVE COVER"
+            "name": "?"
         }
     ], 
     "decreasing": [
@@ -6379,10 +9221,22 @@ var EMOJI_MAP = {
             "name": "PERSON BOWING DEEPLY person bowing"
         }
     ], 
+    "degree": [
+        {
+            "emoji": "\ud83c\udf93", 
+            "name": "?"
+        }
+    ], 
     "dejected": [
         {
             "emoji": "\ud83d\ude14", 
             "name": "PENSIVE FACE"
+        }
+    ], 
+    "delete": [
+        {
+            "emoji": "\u274c", 
+            "name": "?"
         }
     ], 
     "delicious": [
@@ -6405,8 +9259,22 @@ var EMOJI_MAP = {
     ], 
     "demon": [
         {
+            "emoji": "\ud83d\udc79", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc7f", 
             "name": "IMP"
+        }
+    ], 
+    "denied": [
+        {
+            "emoji": "\ud83d\udeab", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26d4", 
+            "name": "?"
         }
     ], 
     "denmark": [
@@ -6415,10 +9283,16 @@ var EMOJI_MAP = {
             "name": "Flag for Denmark"
         }
     ], 
+    "deny": [
+        {
+            "emoji": "\u274e", 
+            "name": "?"
+        }
+    ], 
     "department": [
         {
             "emoji": "\ud83c\udfec", 
-            "name": "DEPARTMENT STORE"
+            "name": "?"
         }
     ], 
     "departure": [
@@ -6433,6 +9307,34 @@ var EMOJI_MAP = {
             "name": "AIRPLANE DEPARTURE"
         }
     ], 
+    "deploy": [
+        {
+            "emoji": "\ud83d\udea2", 
+            "name": "?"
+        }
+    ], 
+    "depressed": [
+        {
+            "emoji": "\ud83d\ude14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude22", 
+            "name": "?"
+        }
+    ], 
     "derelict": [
         {
             "emoji": "\ud83c\udfda\ufe0f", 
@@ -6440,6 +9342,14 @@ var EMOJI_MAP = {
         }
     ], 
     "desert": [
+        {
+            "emoji": "\ud83d\udc2a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2b", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udfdc\ufe0f", 
             "name": "DESERT"
@@ -6451,6 +9361,10 @@ var EMOJI_MAP = {
     ], 
     "design": [
         {
+            "emoji": "\ud83c\udfa8", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf65", 
             "name": "FISH CAKE WITH SWIRL DESIGN fish cake with swirl"
         }
@@ -6458,7 +9372,7 @@ var EMOJI_MAP = {
     "desk": [
         {
             "emoji": "\ud83d\udc81", 
-            "name": "INFORMATION DESK PERSON"
+            "name": "?"
         }
     ], 
     "desktop": [
@@ -6467,54 +9381,66 @@ var EMOJI_MAP = {
             "name": "DESKTOP COMPUTER"
         }
     ], 
+    "despise": [
+        {
+            "emoji": "\ud83d\ude21", 
+            "name": "?"
+        }
+    ], 
     "dessert": [
         {
-            "emoji": "\ud83c\udf61", 
-            "name": "DANGO"
+            "emoji": "\ud83c\udf70", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf66", 
-            "name": "SOFT ICE CREAM"
+            "emoji": "\ud83c\udf6e", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf67", 
-            "name": "SHAVED ICE"
-        }, 
-        {
-            "emoji": "\ud83c\udf68", 
-            "name": "ICE CREAM"
+            "emoji": "\ud83c\udf6c", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf69", 
-            "name": "DOUGHNUT"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf68", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf66", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf67", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf6a", 
-            "name": "COOKIE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf61", 
+            "name": "DANGO"
         }, 
         {
             "emoji": "\ud83c\udf82", 
             "name": "BIRTHDAY CAKE"
         }, 
         {
-            "emoji": "\ud83c\udf70", 
-            "name": "SHORTCAKE"
-        }, 
-        {
-            "emoji": "\ud83c\udf6b", 
-            "name": "CHOCOLATE BAR"
-        }, 
-        {
-            "emoji": "\ud83c\udf6c", 
-            "name": "CANDY"
-        }, 
-        {
             "emoji": "\ud83c\udf6d", 
             "name": "LOLLIPOP"
-        }, 
+        }
+    ], 
+    "destination": [
         {
-            "emoji": "\ud83c\udf6e", 
-            "name": "CUSTARD"
+            "emoji": "\ud83c\ude01", 
+            "name": "?"
         }
     ], 
     "detective": [
@@ -6524,20 +9450,37 @@ var EMOJI_MAP = {
         }
     ], 
     "devil": [
-
         {
-            "emoji": "\ud83d\ude08", 
-            "name": "SMILING FACE WITH HORNS"
+            "emoji": "\ud83d\udc79", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc7f", 
-            "name": "IMP"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude08", 
+            "name": "?"
         }
     ], 
     "dharma": [
         {
             "emoji": "\u2638\ufe0f", 
             "name": "WHEEL OF DHARMA"
+        }
+    ], 
+    "dial": [
+        {
+            "emoji": "\ud83d\udcde", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u260e\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf1", 
+            "name": "?"
         }
     ], 
     "dialog": [
@@ -6552,54 +9495,54 @@ var EMOJI_MAP = {
     ], 
     "diamond": [
         {
-            "emoji": "\ud83d\udc8d", 
-            "name": "RING"
+            "emoji": "\ud83d\udd36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd37", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc8e", 
-            "name": "GEM STONE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd39", 
+            "name": "?"
         }, 
         {
             "emoji": "\u2666\ufe0f", 
             "name": "BLACK DIAMOND SUIT diamond suit"
-        }, 
-        {
-            "emoji": "\ud83d\udd36", 
-            "name": "LARGE ORANGE DIAMOND"
-        }, 
-        {
-            "emoji": "\ud83d\udd37", 
-            "name": "LARGE BLUE DIAMOND"
-        }, 
-        {
-            "emoji": "\ud83d\udd38", 
-            "name": "SMALL ORANGE DIAMOND"
-        }, 
-        {
-            "emoji": "\ud83d\udd39", 
-            "name": "SMALL BLUE DIAMOND"
-        }, 
-        {
-            "emoji": "\ud83d\udca0", 
-            "name": "DIAMOND SHAPE WITH A DOT INSIDE diamond with a dot"
         }
     ], 
     "diamonds": [
         {
             "emoji": "\u2666\ufe0f", 
-            "name": "BLACK DIAMOND SUIT diamond suit"
+            "name": "?"
         }
     ], 
     "dice": [
         {
             "emoji": "\ud83c\udfb2", 
-            "name": "GAME DIE"
+            "name": "?"
         }
     ], 
     "die": [
         {
             "emoji": "\ud83c\udfb2", 
-            "name": "GAME DIE"
+            "name": "?"
         }
     ], 
     "diego": [
@@ -6656,6 +9599,12 @@ var EMOJI_MAP = {
             "name": "LOW BRIGHTNESS SYMBOL dim button"
         }
     ], 
+    "ding": [
+        {
+            "emoji": "\ud83c\udf90", 
+            "name": "?"
+        }
+    ], 
     "direct": [
         {
             "emoji": "\ud83c\udfaf", 
@@ -6664,52 +9613,168 @@ var EMOJI_MAP = {
     ], 
     "direction": [
         {
+            "emoji": "\u23eb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25c0\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u261d\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2194\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u23ec", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2934\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25b6\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u21aa\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2196\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b07\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3c", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u2b06\ufe0f", 
-            "name": "UPWARDS BLACK ARROW up arrow"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2935\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc47", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3b", 
+            "name": "?"
         }, 
         {
             "emoji": "\u2197\ufe0f", 
-            "name": "NORTH EAST ARROW upright arrow"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2195\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc49", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc48", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc46", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2198\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2199\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\u27a1\ufe0f", 
             "name": "BLACK RIGHTWARDS ARROW right arrow"
         }, 
         {
-            "emoji": "\u2198\ufe0f", 
-            "name": "SOUTH EAST ARROW downright arrow"
-        }, 
-        {
-            "emoji": "\u2b07\ufe0f", 
-            "name": "DOWNWARDS BLACK ARROW down arrow"
-        }, 
-        {
-            "emoji": "\u2199\ufe0f", 
-            "name": "SOUTH WEST ARROW downleft arrow"
-        }, 
-        {
             "emoji": "\u2b05\ufe0f", 
             "name": "LEFTWARDS BLACK ARROW left arrow"
-        }, 
+        }
+    ], 
+    "disabled": [
         {
-            "emoji": "\u2196\ufe0f", 
-            "name": "NORTH WEST ARROW upleft arrow"
+            "emoji": "\u267f", 
+            "name": "?"
+        }
+    ], 
+    "disallow": [
+        {
+            "emoji": "\ud83d\udeab", 
+            "name": "?"
         }
     ], 
     "disappointed": [
         {
-            "emoji": "\ud83d\ude25", 
-            "name": "DISAPPOINTED BUT RELIEVED FACE"
+            "emoji": "\ud83d\ude1e", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude1e", 
-            "name": "DISAPPOINTED FACE"
+            "emoji": "\ud83d\ude25", 
+            "name": "?"
+        }
+    ], 
+    "disaster": [
+        {
+            "emoji": "\ud83c\udf0a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf0b", 
+            "name": "?"
         }
     ], 
     "disc": [
         {
+            "emoji": "\ud83d\udcc0", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udcbf", 
-            "name": "OPTICAL DISC"
+            "name": "?"
+        }
+    ], 
+    "disco": [
+        {
+            "emoji": "\ud83d\udd2e", 
+            "name": "?"
+        }
+    ], 
+    "discouraged": [
+        {
+            "emoji": "\ud83d\ude4d", 
+            "name": "?"
+        }
+    ], 
+    "disease": [
+        {
+            "emoji": "\ud83d\ude37", 
+            "name": "?"
         }
     ], 
     "dish": [
@@ -6720,26 +9785,42 @@ var EMOJI_MAP = {
     ], 
     "disk": [
         {
-            "emoji": "\ud83d\udcbd", 
-            "name": "MINIDISC"
+            "emoji": "\ud83d\udcc0", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcbe", 
-            "name": "FLOPPY DISK"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcbf", 
-            "name": "OPTICAL DISC"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcc0", 
-            "name": "DVD"
+            "emoji": "\ud83d\udcbd", 
+            "name": "?"
+        }
+    ], 
+    "dislike": [
+        {
+            "emoji": "\ud83d\udc4e", 
+            "name": "?"
+        }
+    ], 
+    "display": [
+        {
+            "emoji": "\ud83d\udcbb", 
+            "name": "?"
         }
     ], 
     "divide": [
         {
             "emoji": "\ud83c\ude39", 
-            "name": "SQUARED CJK UNIFIED IDEOGRAPH5272 squared divide ideograph"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2797", 
+            "name": "?"
         }
     ], 
     "dividers": [
@@ -6751,17 +9832,23 @@ var EMOJI_MAP = {
     "division": [
         {
             "emoji": "\u2797", 
-            "name": "HEAVY DIVISION SIGN"
+            "name": "?"
+        }
+    ], 
+    "diy": [
+        {
+            "emoji": "\ud83d\udd27", 
+            "name": "?"
         }
     ], 
     "dizzy": [
         {
-            "emoji": "\ud83d\ude35", 
-            "name": "DIZZY FACE"
+            "emoji": "\ud83d\udcab", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcab", 
-            "name": "DIZZY SYMBOL dizzy"
+            "emoji": "\ud83d\ude35", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf00", 
@@ -6774,22 +9861,28 @@ var EMOJI_MAP = {
             "name": "Flag for Djibouti"
         }
     ], 
+    "do": [
+        {
+            "emoji": "\ud83d\udeaf", 
+            "name": "?"
+        }
+    ], 
     "doctor": [
         {
-            "emoji": "\ud83d\ude37", 
-            "name": "FACE WITH MEDICAL MASK"
+            "emoji": "\ud83d\udc89", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfe5", 
-            "name": "HOSPITAL"
-        }, 
-        {
-            "emoji": "\ud83d\udc89", 
-            "name": "SYRINGE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc8a", 
-            "name": "PILL"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude37", 
+            "name": "FACE WITH MEDICAL MASK"
         }
     ], 
     "document": [
@@ -6802,22 +9895,80 @@ var EMOJI_MAP = {
             "name": "PAGE FACING UP"
         }
     ], 
+    "documents": [
+        {
+            "emoji": "\ud83d\udcdc", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcdd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcce", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcbc", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udccb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc1", 
+            "name": "?"
+        }
+    ], 
     "dog": [
         {
             "emoji": "\ud83d\udc36", 
-            "name": "DOG FACE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc29", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc15", 
             "name": "DOG"
         }, 
         {
-            "emoji": "\ud83d\udc29", 
-            "name": "POODLE"
-        }, 
-        {
             "emoji": "\ud83c\udf2d", 
             "name": "HOT DOG"
+        }
+    ], 
+    "dog2": [
+        {
+            "emoji": "\ud83d\udc15", 
+            "name": "?"
+        }
+    ], 
+    "doge": [
+        {
+            "emoji": "\ud83d\udc15", 
+            "name": "?"
         }
     ], 
     "doll": [
@@ -6828,32 +9979,48 @@ var EMOJI_MAP = {
     ], 
     "dollar": [
         {
-            "emoji": "\ud83d\udcb0", 
-            "name": "MONEY BAG"
+            "emoji": "\ud83d\udcb2", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcb5", 
-            "name": "BANKNOTE WITH DOLLAR SIGN dollar banknote"
+            "emoji": "\ud83d\udcb6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb1", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcb8", 
-            "name": "MONEY WITH WINGS"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcb2", 
-            "name": "HEAVY DOLLAR SIGN"
+            "emoji": "\ud83d\udcb5", 
+            "name": "?"
         }
     ], 
     "dolls": [
         {
             "emoji": "\ud83c\udf8e", 
-            "name": "JAPANESE DOLLS"
+            "name": "?"
         }
     ], 
     "dolphin": [
         {
             "emoji": "\ud83d\udc2c", 
-            "name": "DOLPHIN"
+            "name": "?"
         }
     ], 
     "dominica": [
@@ -6868,26 +10035,42 @@ var EMOJI_MAP = {
             "name": "Flag for Dominican Republic"
         }
     ], 
+    "done": [
+        {
+            "emoji": "\ud83d\udd28", 
+            "name": "?"
+        }
+    ], 
     "donut": [
         {
             "emoji": "\ud83c\udf69", 
-            "name": "DOUGHNUT"
+            "name": "?"
         }
     ], 
     "door": [
         {
+            "emoji": "\ud83d\udd11", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udeaa", 
-            "name": "DOOR"
+            "name": "?"
+        }
+    ], 
+    "dork": [
+        {
+            "emoji": "\ud83d\udc53", 
+            "name": "?"
         }
     ], 
     "dot": [
         {
-            "emoji": "\ud83d\udd2f", 
-            "name": "SIX POINTED STAR WITH MIDDLE DOT dotted sixpointed star"
+            "emoji": "\ud83d\udca0", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udca0", 
-            "name": "DIAMOND SHAPE WITH A DOT INSIDE diamond with a dot"
+            "emoji": "\ud83d\udd2f", 
+            "name": "SIX POINTED STAR WITH MIDDLE DOT dotted sixpointed star"
         }
     ], 
     "dotted": [
@@ -6897,6 +10080,14 @@ var EMOJI_MAP = {
         }
     ], 
     "double": [
+        {
+            "emoji": "\u23eb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u23ec", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u27bf", 
             "name": "DOUBLE CURLY LOOP"
@@ -6926,22 +10117,26 @@ var EMOJI_MAP = {
             "name": "BLACK LEFTPOINTING DOUBLE TRIANGLE WITH VERTICAL BAR last track button"
         }, 
         {
-            "emoji": "\u23eb", 
-            "name": "BLACK UPPOINTING DOUBLE TRIANGLE fast up button"
-        }, 
-        {
-            "emoji": "\u23ec", 
-            "name": "BLACK DOWNPOINTING DOUBLE TRIANGLE fast down button"
-        }, 
-        {
             "emoji": "\u23f8\ufe0f", 
             "name": "DOUBLE VERTICAL BAR pause button"
+        }
+    ], 
+    "doubt": [
+        {
+            "emoji": "\u2753", 
+            "name": "?"
+        }
+    ], 
+    "doubts": [
+        {
+            "emoji": "\u2754", 
+            "name": "?"
         }
     ], 
     "doughnut": [
         {
             "emoji": "\ud83c\udf69", 
-            "name": "DOUGHNUT"
+            "name": "?"
         }
     ], 
     "dove": [
@@ -6952,8 +10147,32 @@ var EMOJI_MAP = {
     ], 
     "down": [
         {
+            "emoji": "\u23ec", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b07\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2935\ufe0f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc47", 
-            "name": "WHITE DOWN POINTING BACKHAND INDEX backhand index pointing down"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2195\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3d", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc4e", 
@@ -6966,26 +10185,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udcc9", 
             "name": "CHART WITH DOWNWARDS TREND chart decreasing"
-        }, 
-        {
-            "emoji": "\u2b07\ufe0f", 
-            "name": "DOWNWARDS BLACK ARROW down arrow"
-        }, 
-        {
-            "emoji": "\u2935\ufe0f", 
-            "name": "ARROW POINTING RIGHTWARDS THEN CURVING DOWNWARDS right arrow curving down"
-        }, 
-        {
-            "emoji": "\ud83d\udd3d", 
-            "name": "DOWNPOINTING SMALL RED TRIANGLE down button"
-        }, 
-        {
-            "emoji": "\u23ec", 
-            "name": "BLACK DOWNPOINTING DOUBLE TRIANGLE fast down button"
-        }, 
-        {
-            "emoji": "\ud83d\udd3b", 
-            "name": "DOWNPOINTING RED TRIANGLE red triangle pointed down"
         }
     ], 
     "downleft": [
@@ -7014,14 +10213,20 @@ var EMOJI_MAP = {
             "name": "SOUTH EAST ARROW downright arrow"
         }
     ], 
+    "downtown": [
+        {
+            "emoji": "\ud83c\udf03", 
+            "name": "?"
+        }
+    ], 
     "downwards": [
+        {
+            "emoji": "\ud83d\udcc9", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udce9", 
             "name": "ENVELOPE WITH DOWNWARDS ARROW ABOVE envelope with arrow"
-        }, 
-        {
-            "emoji": "\ud83d\udcc9", 
-            "name": "CHART WITH DOWNWARDS TREND chart decreasing"
         }, 
         {
             "emoji": "\u2b07\ufe0f", 
@@ -7042,16 +10247,42 @@ var EMOJI_MAP = {
     ], 
     "dragon": [
         {
-            "emoji": "\ud83d\udc32", 
-            "name": "DRAGON FACE"
+            "emoji": "\ud83d\udc09", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc09", 
-            "name": "DRAGON"
+            "emoji": "\ud83d\udc32", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udc04\ufe0f", 
             "name": "MAHJONG TILE RED DRAGON mahjong red dragon"
+        }
+    ], 
+    "drama": [
+        {
+            "emoji": "\ud83c\udfad", 
+            "name": "?"
+        }
+    ], 
+    "draw": [
+        {
+            "emoji": "\u3030\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u27b0", 
+            "name": "?"
+        }
+    ], 
+    "drawing": [
+        {
+            "emoji": "\ud83d\udccf", 
+            "name": "?"
         }
     ], 
     "drc": [
@@ -7062,11 +10293,55 @@ var EMOJI_MAP = {
     ], 
     "dress": [
         {
+            "emoji": "\ud83d\udc58", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc57", 
-            "name": "DRESS"
+            "name": "?"
         }
     ], 
     "drink": [
+        {
+            "emoji": "\u2615", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf79", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf78", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf76", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf75", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf77", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udf7c", 
             "name": "BABY BOTTLE"
@@ -7076,36 +10351,8 @@ var EMOJI_MAP = {
             "name": "HOT BEVERAGE"
         }, 
         {
-            "emoji": "\ud83c\udf75", 
-            "name": "TEACUP WITHOUT HANDLE"
-        }, 
-        {
-            "emoji": "\ud83c\udf76", 
-            "name": "SAKE BOTTLE AND CUP sake"
-        }, 
-        {
             "emoji": "\ud83c\udf7e", 
             "name": "BOTTLE WITH POPPING CORK"
-        }, 
-        {
-            "emoji": "\ud83c\udf77", 
-            "name": "WINE GLASS"
-        }, 
-        {
-            "emoji": "\ud83c\udf78", 
-            "name": "COCKTAIL GLASS"
-        }, 
-        {
-            "emoji": "\ud83c\udf79", 
-            "name": "TROPICAL DRINK"
-        }, 
-        {
-            "emoji": "\ud83c\udf7a", 
-            "name": "BEER MUG"
-        }, 
-        {
-            "emoji": "\ud83c\udf7b", 
-            "name": "CLINKING BEER MUGS"
         }, 
         {
             "emoji": "\ud83c\udffa", 
@@ -7114,16 +10361,38 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udeb0", 
             "name": "POTABLE WATER SYMBOL potable water"
+        }
+    ], 
+    "drip": [
+        {
+            "emoji": "\ud83d\udca7", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udeb1", 
-            "name": "NONPOTABLE WATER SYMBOL nonpotable water"
+            "emoji": "\ud83d\udca6", 
+            "name": "?"
+        }
+    ], 
+    "driving": [
+        {
+            "emoji": "\ud83d\udea6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb8", 
+            "name": "?"
+        }
+    ], 
+    "drizzle": [
+        {
+            "emoji": "\ud83c\udf02", 
+            "name": "?"
         }
     ], 
     "dromedary": [
         {
             "emoji": "\ud83d\udc2a", 
-            "name": "DROMEDARY CAMEL camel"
+            "name": "?"
         }
     ], 
     "drop": [
@@ -7139,7 +10408,7 @@ var EMOJI_MAP = {
     "droplet": [
         {
             "emoji": "\ud83d\udca7", 
-            "name": "DROPLET"
+            "name": "?"
         }
     ], 
     "droplets": [
@@ -7150,14 +10419,56 @@ var EMOJI_MAP = {
     ], 
     "drops": [
         {
+            "emoji": "\ud83d\udca6", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u2614\ufe0f", 
             "name": "UMBRELLA WITH RAIN DROPS"
+        }
+    ], 
+    "drugs": [
+        {
+            "emoji": "\ud83d\udc89", 
+            "name": "?"
         }
     ], 
     "drum": [
         {
             "emoji": "\ud83d\udee2\ufe0f", 
             "name": "OIL DRUM"
+        }
+    ], 
+    "drumstick": [
+        {
+            "emoji": "\ud83c\udf56", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf57", 
+            "name": "?"
+        }
+    ], 
+    "drunk": [
+        {
+            "emoji": "\ud83c\udf7a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf78", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf76", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf77", 
+            "name": "?"
         }
     ], 
     "dung": [
@@ -7167,6 +10478,10 @@ var EMOJI_MAP = {
         }
     ], 
     "dusk": [
+        {
+            "emoji": "\ud83d\udd55", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udf06", 
             "name": "CITYSCAPE AT DUSK"
@@ -7178,12 +10493,12 @@ var EMOJI_MAP = {
     ], 
     "dvd": [
         {
-            "emoji": "\ud83d\udcbf", 
-            "name": "OPTICAL DISC"
+            "emoji": "\ud83d\udcc0", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcc0", 
-            "name": "DVD"
+            "emoji": "\ud83d\udcbf", 
+            "name": "?"
         }
     ], 
     "d\u2019ivoire": [
@@ -7192,18 +10507,24 @@ var EMOJI_MAP = {
             "name": "Flag for C\u00f4te d\u2019Ivoire"
         }
     ], 
+    "e-mail": [
+        {
+            "emoji": "\ud83d\udce7", 
+            "name": "?"
+        }
+    ], 
     "ear": [
         {
-            "emoji": "\ud83d\udc6f", 
-            "name": "WOMAN WITH BUNNY EARS women partying"
-        }, 
-        {
             "emoji": "\ud83d\udc42", 
-            "name": "EAR"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf3e", 
-            "name": "EAR OF RICE sheaf of rice"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6f", 
+            "name": "WOMAN WITH BUNNY EARS women partying"
         }, 
         {
             "emoji": "\ud83c\udf3d", 
@@ -7216,6 +10537,104 @@ var EMOJI_MAP = {
             "name": "HEADPHONE"
         }
     ], 
+    "early": [
+        {
+            "emoji": "\ud83d\udd65", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd66", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd60", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd59", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd58", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd57", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd56", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd55", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd54", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd52", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd51", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd50", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd67", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd62", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd61", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd64", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd53", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd63", 
+            "name": "?"
+        }
+    ], 
     "ears": [
         {
             "emoji": "\ud83d\udc6f", 
@@ -7224,23 +10643,27 @@ var EMOJI_MAP = {
     ], 
     "earth": [
         {
-            "emoji": "\ud83c\udf0d", 
-            "name": "EARTH GLOBE EUROPEAFRICA globe showing europeafrica"
-        }, 
-        {
-            "emoji": "\ud83c\udf0e", 
-            "name": "EARTH GLOBE AMERICAS globe showing americas"
+            "emoji": "\ud83c\udf10", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf0f", 
-            "name": "EARTH GLOBE ASIAAUSTRALIA globe showing asiaaustralia"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf10", 
-            "name": "GLOBE WITH MERIDIANS"
+            "emoji": "\ud83c\udf0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf0d", 
+            "name": "?"
         }
     ], 
     "east": [
+        {
+            "emoji": "\ud83c\udf0f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u2197\ufe0f", 
             "name": "NORTH EAST ARROW upright arrow"
@@ -7258,6 +10681,26 @@ var EMOJI_MAP = {
             "name": "Flag for TimorLeste"
         }
     ], 
+    "easter island": [
+        {
+            "emoji": "\ud83d\uddff", 
+            "name": "?"
+        }
+    ], 
+    "economics": [
+        {
+            "emoji": "\ud83d\udcc9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u303d\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "ecuador": [
         {
             "emoji": "\ud83c\uddea\ud83c\udde8", 
@@ -7272,20 +10715,20 @@ var EMOJI_MAP = {
     ], 
     "education": [
         {
-            "emoji": "\u270d\ufe0f", 
-            "name": "WRITING HAND"
+            "emoji": "\ud83c\udf93", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf92", 
-            "name": "SCHOOL SATCHEL school backpack"
-        }, 
-        {
-            "emoji": "\ud83c\udf93", 
-            "name": "GRADUATION CAP"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfeb", 
-            "name": "SCHOOL"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270d\ufe0f", 
+            "name": "WRITING HAND"
         }, 
         {
             "emoji": "\ud83d\udcd4", 
@@ -7318,14 +10761,18 @@ var EMOJI_MAP = {
     ], 
     "egg": [
         {
+            "emoji": "\ud83d\udc23", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf73", 
-            "name": "COOKING"
+            "name": "?"
         }
     ], 
     "eggplant": [
         {
             "emoji": "\ud83c\udf46", 
-            "name": "AUBERGINE eggplant"
+            "name": "?"
         }
     ], 
     "egypt": [
@@ -7335,6 +10782,18 @@ var EMOJI_MAP = {
         }
     ], 
     "eight": [
+        {
+            "emoji": "8\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2733\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2734\ufe0f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd57", 
             "name": "CLOCK FACE EIGHT OCLOCK eight o\u2019clock"
@@ -7346,18 +10805,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udfb1", 
             "name": "BILLIARDS"
-        }, 
-        {
-            "emoji": "\u2733\ufe0f", 
-            "name": "EIGHT SPOKED ASTERISK eightspoked asterisk"
-        }, 
-        {
-            "emoji": "\u2734\ufe0f", 
-            "name": "EIGHT POINTED BLACK STAR eightpointed star"
-        }, 
-        {
-            "emoji": "8\ufe0f\u20e3", 
-            "name": "Keycap DIGIT EIGHT"
         }
     ], 
     "eighteen": [
@@ -7396,7 +10843,21 @@ var EMOJI_MAP = {
             "name": "Flag for El Salvador"
         }
     ], 
+    "election": [
+        {
+            "emoji": "\u2705", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2611\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "electric": [
+        {
+            "emoji": "\ud83d\udd0c", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude83", 
             "name": "RAILWAY CAR"
@@ -7404,10 +10865,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\u26a1\ufe0f", 
             "name": "HIGH VOLTAGE SIGN high voltage"
-        }, 
-        {
-            "emoji": "\ud83d\udd0c", 
-            "name": "ELECTRIC PLUG"
         }, 
         {
             "emoji": "\ud83d\udca1", 
@@ -7420,6 +10877,10 @@ var EMOJI_MAP = {
     ], 
     "electricity": [
         {
+            "emoji": "\ud83d\udca1", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u26a1\ufe0f", 
             "name": "HIGH VOLTAGE SIGN high voltage"
         }, 
@@ -7431,7 +10892,7 @@ var EMOJI_MAP = {
     "elephant": [
         {
             "emoji": "\ud83d\udc18", 
-            "name": "ELEPHANT"
+            "name": "?"
         }
     ], 
     "eleven": [
@@ -7452,26 +10913,82 @@ var EMOJI_MAP = {
     ], 
     "email": [
         {
-            "emoji": "\u2709\ufe0f", 
-            "name": "ENVELOPE"
-        }, 
-        {
-            "emoji": "\ud83d\udce7", 
-            "name": "EMAIL SYMBOL email"
-        }, 
-        {
-            "emoji": "\ud83d\udce8", 
-            "name": "INCOMING ENVELOPE"
+            "emoji": "\ud83d\udce4", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udce9", 
-            "name": "ENVELOPE WITH DOWNWARDS ARROW ABOVE envelope with arrow"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2709\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcee", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcec", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udceb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udced", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcea", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe4", 
+            "name": "?"
+        }
+    ], 
+    "embarrassed": [
+        {
+            "emoji": "\ud83d\ude0a", 
+            "name": "?"
         }
     ], 
     "emblem": [
         {
             "emoji": "\ud83d\udd31", 
             "name": "TRIDENT EMBLEM"
+        }
+    ], 
+    "emergency": [
+        {
+            "emoji": "\ud83c\udd98", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea8", 
+            "name": "?"
         }
     ], 
     "emirates": [
@@ -7613,29 +11130,65 @@ var EMOJI_MAP = {
     "empty": [
         {
             "emoji": "\ud83c\ude33", 
-            "name": "SQUARED CJK UNIFIED IDEOGRAPH7A7A squared empty ideograph"
+            "name": "?"
         }
     ], 
     "end": [
         {
             "emoji": "\ud83d\udd1a", 
-            "name": "END WITH LEFTWARDS ARROW ABOVE end arrow"
+            "name": "?"
+        }
+    ], 
+    "energy": [
+        {
+            "emoji": "\ud83d\udd0b", 
+            "name": "?"
+        }
+    ], 
+    "enforcement": [
+        {
+            "emoji": "\ud83d\ude93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude94", 
+            "name": "?"
         }
     ], 
     "engine": [
         {
-            "emoji": "\ud83d\ude82", 
-            "name": "STEAM LOCOMOTIVE locomotive"
+            "emoji": "\ud83d\ude92", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude92", 
-            "name": "FIRE ENGINE"
+            "emoji": "\ud83d\ude82", 
+            "name": "STEAM LOCOMOTIVE locomotive"
         }
     ], 
     "england": [
         {
+            "emoji": "\ud83d\udcb7", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\uddec\ud83c\udde7", 
-            "name": "Flag for United Kingdom"
+            "name": "?"
+        }
+    ], 
+    "english": [
+        {
+            "emoji": "\ud83c\uddec\ud83c\udde7", 
+            "name": "?"
+        }
+    ], 
+    "enterprise": [
+        {
+            "emoji": "\ud83c\udfe6", 
+            "name": "?"
         }
     ], 
     "entertainment": [
@@ -7858,26 +11411,48 @@ var EMOJI_MAP = {
     ], 
     "entry": [
         {
-            "emoji": "\u26d4\ufe0f", 
-            "name": "NO ENTRY"
+            "emoji": "\ud83d\udeab", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udeab", 
-            "name": "NO ENTRY SIGN prohibited"
+            "emoji": "\ud83d\udeaa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26d4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26d4\ufe0f", 
+            "name": "NO ENTRY"
         }
     ], 
     "envelope": [
         {
+            "emoji": "\ud83d\udce9", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u2709\ufe0f", 
-            "name": "ENVELOPE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcee", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udce8", 
-            "name": "INCOMING ENVELOPE"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udce9", 
-            "name": "ENVELOPE WITH DOWNWARDS ARROW ABOVE envelope with arrow"
+            "emoji": "\ud83d\udc8c", 
+            "name": "?"
+        }
+    ], 
+    "environment": [
+        {
+            "emoji": "\u267b\ufe0f", 
+            "name": "?"
         }
     ], 
     "equatorial": [
@@ -7892,10 +11467,36 @@ var EMOJI_MAP = {
             "name": "Flag for Eritrea"
         }
     ], 
+    "error": [
+        {
+            "emoji": "\ud83d\udd34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26a0\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea8", 
+            "name": "?"
+        }
+    ], 
     "eruption": [
         {
             "emoji": "\ud83c\udf0b", 
             "name": "VOLCANO"
+        }
+    ], 
+    "es": [
+        {
+            "emoji": "\ud83c\uddea\ud83c\uddf8", 
+            "name": "?"
+        }
+    ], 
+    "espresso": [
+        {
+            "emoji": "\u2615", 
+            "name": "?"
         }
     ], 
     "estonia": [
@@ -7913,7 +11514,7 @@ var EMOJI_MAP = {
     "euro": [
         {
             "emoji": "\ud83d\udcb6", 
-            "name": "BANKNOTE WITH EURO SIGN euro banknote"
+            "name": "?"
         }
     ], 
     "europe": [
@@ -7930,12 +11531,12 @@ var EMOJI_MAP = {
     ], 
     "european": [
         {
-            "emoji": "\ud83c\udfe4", 
-            "name": "EUROPEAN POST OFFICE post office"
+            "emoji": "\ud83c\udff0", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udff0", 
-            "name": "EUROPEAN CASTLE castle"
+            "emoji": "\ud83c\udfe4", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\uddea\ud83c\uddfa", 
@@ -7950,28 +11551,98 @@ var EMOJI_MAP = {
     ], 
     "evening": [
         {
+            "emoji": "\ud83c\udf17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf12", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf16", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf18", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf06", 
-            "name": "CITYSCAPE AT DUSK"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf03", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf11", 
+            "name": "?"
+        }
+    ], 
+    "event": [
+        {
+            "emoji": "\ud83c\udfab", 
+            "name": "?"
         }
     ], 
     "evergreen": [
         {
             "emoji": "\ud83c\udf32", 
-            "name": "EVERGREEN TREE evergreen"
+            "name": "?"
         }
     ], 
     "evil": [
         {
-            "emoji": "\ud83d\ude48", 
-            "name": "SEENOEVIL MONKEY seenoevil"
-        }, 
-        {
-            "emoji": "\ud83d\ude49", 
-            "name": "HEARNOEVIL MONKEY hearnoevil"
+            "emoji": "\ud83d\udc7a", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude4a", 
-            "name": "SPEAKNOEVIL MONKEY speaknoevil"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude49", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc0d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude48", 
+            "name": "?"
         }
     ], 
     "ewe": [
@@ -7980,10 +11651,24 @@ var EMOJI_MAP = {
             "name": "SHEEP"
         }
     ], 
+    "exam": [
+        {
+            "emoji": "\u231b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcdd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcaf", 
+            "name": "?"
+        }
+    ], 
     "exchange": [
         {
             "emoji": "\ud83d\udcb1", 
-            "name": "CURRENCY EXCHANGE"
+            "name": "?"
         }
     ], 
     "excited": [
@@ -7998,6 +11683,22 @@ var EMOJI_MAP = {
     ], 
     "exclamation": [
         {
+            "emoji": "\u2755", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26a0\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2757", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u203c\ufe0f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u2763\ufe0f", 
             "name": "HEAVY HEART EXCLAMATION MARK ORNAMENT"
         }, 
@@ -8006,16 +11707,8 @@ var EMOJI_MAP = {
             "name": "ON WITH EXCLAMATION MARK WITH LEFT RIGHT ARROW ABOVE on! arrow"
         }, 
         {
-            "emoji": "\u203c\ufe0f", 
-            "name": "DOUBLE EXCLAMATION MARK"
-        }, 
-        {
             "emoji": "\u2049\ufe0f", 
             "name": "EXCLAMATION QUESTION MARK"
-        }, 
-        {
-            "emoji": "\u2755", 
-            "name": "WHITE EXCLAMATION MARK ORNAMENT white exclamation mark"
         }, 
         {
             "emoji": "\u2757\ufe0f", 
@@ -8026,16 +11719,76 @@ var EMOJI_MAP = {
             "name": "SQUARED UP WITH EXCLAMATION MARK up! button"
         }
     ], 
+    "exercise": [
+        {
+            "emoji": "\ud83d\ude13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfca", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb2", 
+            "name": "?"
+        }
+    ], 
     "exist": [
         {
             "emoji": "\ud83c\ude36", 
             "name": "SQUARED CJK UNIFIED IDEOGRAPH6709 squared exist ideograph"
         }
     ], 
+    "exit": [
+        {
+            "emoji": "\ud83d\udeaa", 
+            "name": "?"
+        }
+    ], 
+    "experiment": [
+        {
+            "emoji": "\ud83d\udd2c", 
+            "name": "?"
+        }
+    ], 
+    "explode": [
+        {
+            "emoji": "\ud83d\udca5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca3", 
+            "name": "?"
+        }
+    ], 
+    "explosion": [
+        {
+            "emoji": "\ud83d\udca5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca3", 
+            "name": "?"
+        }
+    ], 
+    "express": [
+        {
+            "emoji": "\ud83d\ude9b", 
+            "name": "?"
+        }
+    ], 
     "expressionless": [
         {
             "emoji": "\ud83d\ude11", 
-            "name": "EXPRESSIONLESS FACE"
+            "name": "?"
         }
     ], 
     "extended": [
@@ -8055,6 +11808,10 @@ var EMOJI_MAP = {
         }
     ], 
     "eye": [
+        {
+            "emoji": "\ud83d\ude1c", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude01", 
             "name": "GRINNING FACE WITH SMILING EYES"
@@ -8082,10 +11839,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\ude1a", 
             "name": "KISSING FACE WITH CLOSED EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude1c", 
-            "name": "FACE WITH STUCKOUT TONGUE AND WINKING EYE"
         }, 
         {
             "emoji": "\ud83d\ude1d", 
@@ -8137,10 +11890,34 @@ var EMOJI_MAP = {
     "eyeglasses": [
         {
             "emoji": "\ud83d\udc53", 
-            "name": "EYEGLASSES glasses"
+            "name": "?"
         }
     ], 
     "eyes": [
+        {
+            "emoji": "\ud83d\ude3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc40", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1a", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude01", 
             "name": "GRINNING FACE WITH SMILING EYES"
@@ -8158,40 +11935,22 @@ var EMOJI_MAP = {
             "name": "SMILING FACE WITH SMILING EYES"
         }, 
         {
-            "emoji": "\ud83d\ude0d", 
-            "name": "SMILING FACE WITH HEARTSHAPED EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude19", 
-            "name": "KISSING FACE WITH SMILING EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude1a", 
-            "name": "KISSING FACE WITH CLOSED EYES"
-        }, 
-        {
             "emoji": "\ud83d\ude44", 
             "name": "FACE WITH ROLLING EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude1d", 
-            "name": "FACE WITH STUCKOUT TONGUE AND TIGHTLYCLOSED EYES"
         }, 
         {
             "emoji": "\ud83d\ude38", 
             "name": "GRINNING CAT FACE WITH SMILING EYES"
         }, 
         {
-            "emoji": "\ud83d\ude3b", 
-            "name": "SMILING CAT FACE WITH HEARTSHAPED EYES"
-        }, 
-        {
             "emoji": "\ud83d\ude3d", 
             "name": "KISSING CAT FACE WITH CLOSED EYES"
-        }, 
+        }
+    ], 
+    "eyesight": [
         {
-            "emoji": "\ud83d\udc40", 
-            "name": "EYES"
+            "emoji": "\ud83d\udc53", 
+            "name": "?"
         }
     ], 
     "eyewear": [
@@ -8210,72 +11969,268 @@ var EMOJI_MAP = {
     ], 
     "face": [
         {
-            "emoji": "\ud83d\ude00", 
-            "name": "GRINNING FACE"
+            "emoji": "\ud83d\ude2f", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude01", 
-            "name": "GRINNING FACE WITH SMILING EYES"
+            "emoji": "\ud83d\ude37", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude02", 
-            "name": "FACE WITH TEARS OF JOY"
+            "emoji": "\ud83d\ude11", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude33", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude03", 
-            "name": "SMILING FACE WITH OPEN MOUTH"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude04", 
-            "name": "SMILING FACE WITH OPEN MOUTH AND SMILING EYES"
+            "emoji": "\ud83d\ude14", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude05", 
-            "name": "SMILING FACE WITH OPEN MOUTH AND COLD SWEAT"
+            "emoji": "\ud83d\udc42", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude06", 
-            "name": "SMILING FACE WITH OPEN MOUTH AND TIGHTLYCLOSED EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude09", 
-            "name": "WINKING FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude0a", 
-            "name": "SMILING FACE WITH SMILING EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude0b", 
-            "name": "FACE SAVOURING DELICIOUS FOOD"
-        }, 
-        {
-            "emoji": "\ud83d\ude0e", 
-            "name": "SMILING FACE WITH SUNGLASSES"
-        }, 
-        {
-            "emoji": "\ud83d\ude0d", 
-            "name": "SMILING FACE WITH HEARTSHAPED EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude18", 
-            "name": "FACE THROWING A KISS"
-        }, 
-        {
-            "emoji": "\ud83d\ude17", 
-            "name": "KISSING FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude19", 
-            "name": "KISSING FACE WITH SMILING EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude1a", 
-            "name": "KISSING FACE WITH CLOSED EYES"
+            "emoji": "\ud83d\ude32", 
+            "name": "?"
         }, 
         {
             "emoji": "\u263a\ufe0f", 
-            "name": "WHITE SMILING FACE smiling face"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude27", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude06", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude01", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude07", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude00", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude28", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude30", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude29", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude02", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude22", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude26", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude31", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude09", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude25", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude10", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude05", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude20", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude16", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude24", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude23", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude04", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude42", 
@@ -8286,10 +12241,6 @@ var EMOJI_MAP = {
             "name": "HUGGING FACE"
         }, 
         {
-            "emoji": "\ud83d\ude07", 
-            "name": "SMILING FACE WITH HALO"
-        }, 
-        {
             "emoji": "\ud83e\udd13", 
             "name": "NERD FACE"
         }, 
@@ -8298,88 +12249,16 @@ var EMOJI_MAP = {
             "name": "THINKING FACE"
         }, 
         {
-            "emoji": "\ud83d\ude10", 
-            "name": "NEUTRAL FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude11", 
-            "name": "EXPRESSIONLESS FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude36", 
-            "name": "FACE WITHOUT MOUTH"
-        }, 
-        {
             "emoji": "\ud83d\ude44", 
             "name": "FACE WITH ROLLING EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude0f", 
-            "name": "SMIRKING FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude23", 
-            "name": "PERSEVERING FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude25", 
-            "name": "DISAPPOINTED BUT RELIEVED FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude2e", 
-            "name": "FACE WITH OPEN MOUTH"
         }, 
         {
             "emoji": "\ud83e\udd10", 
             "name": "ZIPPERMOUTH FACE"
         }, 
         {
-            "emoji": "\ud83d\ude2f", 
-            "name": "HUSHED FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude2a", 
-            "name": "SLEEPY FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude2b", 
-            "name": "TIRED FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude34", 
-            "name": "SLEEPING FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude0c", 
-            "name": "RELIEVED FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude1b", 
-            "name": "FACE WITH STUCKOUT TONGUE"
-        }, 
-        {
-            "emoji": "\ud83d\ude1c", 
-            "name": "FACE WITH STUCKOUT TONGUE AND WINKING EYE"
-        }, 
-        {
-            "emoji": "\ud83d\ude1d", 
-            "name": "FACE WITH STUCKOUT TONGUE AND TIGHTLYCLOSED EYES"
-        }, 
-        {
             "emoji": "\ud83d\ude12", 
             "name": "UNAMUSED FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude13", 
-            "name": "FACE WITH COLD SWEAT"
-        }, 
-        {
-            "emoji": "\ud83d\ude14", 
-            "name": "PENSIVE FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude15", 
-            "name": "CONFUSED FACE"
         }, 
         {
             "emoji": "\ud83d\ude43", 
@@ -8388,14 +12267,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83e\udd11", 
             "name": "MONEYMOUTH FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude32", 
-            "name": "ASTONISHED FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude37", 
-            "name": "FACE WITH MEDICAL MASK"
         }, 
         {
             "emoji": "\ud83e\udd12", 
@@ -8414,72 +12285,8 @@ var EMOJI_MAP = {
             "name": "SLIGHTLY FROWNING FACE"
         }, 
         {
-            "emoji": "\ud83d\ude16", 
-            "name": "CONFOUNDED FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude1e", 
-            "name": "DISAPPOINTED FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude1f", 
-            "name": "WORRIED FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude24", 
-            "name": "FACE WITH LOOK OF TRIUMPH face with steam from nose"
-        }, 
-        {
-            "emoji": "\ud83d\ude22", 
-            "name": "CRYING FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude2d", 
-            "name": "LOUDLY CRYING FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude26", 
-            "name": "FROWNING FACE WITH OPEN MOUTH"
-        }, 
-        {
-            "emoji": "\ud83d\ude27", 
-            "name": "ANGUISHED FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude28", 
-            "name": "FEARFUL FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude29", 
-            "name": "WEARY FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude2c", 
-            "name": "GRIMACING FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude30", 
-            "name": "FACE WITH OPEN MOUTH AND COLD SWEAT"
-        }, 
-        {
-            "emoji": "\ud83d\ude31", 
-            "name": "FACE SCREAMING IN FEAR"
-        }, 
-        {
-            "emoji": "\ud83d\ude33", 
-            "name": "FLUSHED FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude35", 
-            "name": "DIZZY FACE"
-        }, 
-        {
             "emoji": "\ud83d\ude21", 
             "name": "POUTING FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude20", 
-            "name": "ANGRY FACE"
         }, 
         {
             "emoji": "\ud83d\ude08", 
@@ -8554,10 +12361,6 @@ var EMOJI_MAP = {
             "name": "WEARY CAT FACE"
         }, 
         {
-            "emoji": "\ud83d\ude3f", 
-            "name": "CRYING CAT FACE"
-        }, 
-        {
             "emoji": "\ud83d\ude3e", 
             "name": "POUTING CAT FACE"
         }, 
@@ -8586,10 +12389,6 @@ var EMOJI_MAP = {
             "name": "FACE MASSAGE"
         }, 
         {
-            "emoji": "\ud83d\ude4e", 
-            "name": "PERSON WITH POUTING FACE person pouting"
-        }, 
-        {
             "emoji": "\ud83d\ude45", 
             "name": "FACE WITH NO GOOD GESTURE gesturing no"
         }, 
@@ -8604,10 +12403,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udc40", 
             "name": "EYES"
-        }, 
-        {
-            "emoji": "\ud83d\udc35", 
-            "name": "MONKEY FACE"
         }, 
         {
             "emoji": "\ud83d\udc36", 
@@ -8666,16 +12461,8 @@ var EMOJI_MAP = {
             "name": "BEAR FACE"
         }, 
         {
-            "emoji": "\ud83d\udc3c", 
-            "name": "PANDA FACE"
-        }, 
-        {
             "emoji": "\ud83d\udc38", 
             "name": "FROG FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc32", 
-            "name": "DRAGON FACE"
         }, 
         {
             "emoji": "\ud83d\udc33", 
@@ -8778,26 +12565,6 @@ var EMOJI_MAP = {
             "name": "CLOCK FACE ELEVENTHIRTY eleventhirty"
         }, 
         {
-            "emoji": "\ud83c\udf1a", 
-            "name": "NEW MOON WITH FACE new moon face"
-        }, 
-        {
-            "emoji": "\ud83c\udf1b", 
-            "name": "FIRST QUARTER MOON WITH FACE"
-        }, 
-        {
-            "emoji": "\ud83c\udf1c", 
-            "name": "LAST QUARTER MOON WITH FACE"
-        }, 
-        {
-            "emoji": "\ud83c\udf1d", 
-            "name": "FULL MOON WITH FACE"
-        }, 
-        {
-            "emoji": "\ud83c\udf1e", 
-            "name": "SUN WITH FACE"
-        }, 
-        {
             "emoji": "\ud83c\udf2c\ufe0f", 
             "name": "WIND BLOWING FACE wind face"
         }, 
@@ -8806,16 +12573,34 @@ var EMOJI_MAP = {
             "name": "MOYAI moai"
         }
     ], 
+    "facepunch": [
+        {
+            "emoji": "\ud83d\udc4a", 
+            "name": "?"
+        }
+    ], 
     "facing": [
         {
             "emoji": "\ud83d\udcc4", 
-            "name": "PAGE FACING UP"
+            "name": "?"
         }
     ], 
     "factory": [
         {
             "emoji": "\ud83c\udfed", 
-            "name": "FACTORY"
+            "name": "?"
+        }
+    ], 
+    "fail": [
+        {
+            "emoji": "\ud83d\udca9", 
+            "name": "?"
+        }
+    ], 
+    "failure": [
+        {
+            "emoji": "\ud83d\udcc9", 
+            "name": "?"
         }
     ], 
     "fairy": [
@@ -8880,6 +12665,16 @@ var EMOJI_MAP = {
             "name": "CRYSTAL BALL"
         }
     ], 
+    "faithful": [
+        {
+            "emoji": "\ud83d\udc36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc15", 
+            "name": "?"
+        }
+    ], 
     "falkland": [
         {
             "emoji": "\ud83c\uddeb\ud83c\uddf0", 
@@ -8892,10 +12687,28 @@ var EMOJI_MAP = {
             "name": "Flag for Falkland Islands"
         }
     ], 
+    "fall": [
+        {
+            "emoji": "\u26c5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf83", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf41", 
+            "name": "?"
+        }
+    ], 
     "fallen": [
         {
             "emoji": "\ud83c\udf42", 
-            "name": "FALLEN LEAF"
+            "name": "?"
         }
     ], 
     "falling": [
@@ -8915,7 +12728,7 @@ var EMOJI_MAP = {
     "family": [
         {
             "emoji": "\ud83d\udc6a", 
-            "name": "FAMILY"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc66", 
@@ -9040,6 +12853,12 @@ var EMOJI_MAP = {
             "name": "Family: WOMAN,WOMAN,GIRL,GIRL"
         }
     ], 
+    "fancy": [
+        {
+            "emoji": "\ud83d\udca0", 
+            "name": "?"
+        }
+    ], 
     "fantasy": [
         {
             "emoji": "\ud83d\ude07", 
@@ -9090,10 +12909,102 @@ var EMOJI_MAP = {
             "name": "CRYSTAL BALL"
         }
     ], 
+    "farewell": [
+        {
+            "emoji": "\ud83d\udc4b", 
+            "name": "?"
+        }
+    ], 
+    "farming": [
+        {
+            "emoji": "\ud83d\ude9c", 
+            "name": "?"
+        }
+    ], 
     "faroe": [
         {
             "emoji": "\ud83c\uddeb\ud83c\uddf4", 
             "name": "Flag for Faroe Islands"
+        }
+    ], 
+    "fart": [
+        {
+            "emoji": "\ud83d\udca8", 
+            "name": "?"
+        }
+    ], 
+    "fashion": [
+        {
+            "emoji": "\ud83d\udc84", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc62", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc61", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc52", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc53", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc58", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc55", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc59", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc56", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc54", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc85", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc60", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc57", 
+            "name": "?"
         }
     ], 
     "faso": [
@@ -9104,8 +13015,20 @@ var EMOJI_MAP = {
     ], 
     "fast": [
         {
+            "emoji": "\ud83d\ude85", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26a1", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u23e9", 
-            "name": "BLACK RIGHTPOINTING DOUBLE TRIANGLE fastforword button"
+            "name": "?"
         }, 
         {
             "emoji": "\u23ea", 
@@ -9120,6 +13043,16 @@ var EMOJI_MAP = {
             "name": "BLACK DOWNPOINTING DOUBLE TRIANGLE fast down button"
         }
     ], 
+    "fast food": [
+        {
+            "emoji": "\ud83c\udf5f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf54", 
+            "name": "?"
+        }
+    ], 
     "fastforword": [
         {
             "emoji": "\u23e9", 
@@ -9128,18 +13061,52 @@ var EMOJI_MAP = {
     ], 
     "father": [
         {
-            "emoji": "\ud83c\udf85", 
-            "name": "FATHER CHRISTMAS santa claus"
+            "emoji": "\ud83d\udc68", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc6a", 
-            "name": "FAMILY"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf85", 
+            "name": "FATHER CHRISTMAS santa claus"
+        }
+    ], 
+    "father christmas": [
+        {
+            "emoji": "\ud83c\udf85", 
+            "name": "?"
+        }
+    ], 
+    "faucet": [
+        {
+            "emoji": "\ud83d\udca7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb1", 
+            "name": "?"
+        }
+    ], 
+    "favorite": [
+        {
+            "emoji": "\ud83d\udcd1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd16", 
+            "name": "?"
         }
     ], 
     "fax": [
         {
             "emoji": "\ud83d\udce0", 
-            "name": "FAX MACHINE"
+            "name": "?"
         }
     ], 
     "fear": [
@@ -9155,7 +13122,7 @@ var EMOJI_MAP = {
     "fearful": [
         {
             "emoji": "\ud83d\ude28", 
-            "name": "FEARFUL FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude31", 
@@ -9164,23 +13131,145 @@ var EMOJI_MAP = {
     ], 
     "feet": [
         {
+            "emoji": "\ud83d\udc63", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb6", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc3e", 
-            "name": "PAW PRINTS"
+            "name": "?"
+        }
+    ], 
+    "female": [
+        {
+            "emoji": "\ud83d\udc84", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeba", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc52", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc58", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc59", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc83", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude46", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc81", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc60", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc78", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc67", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc75", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc87", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc86", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude45", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc69", 
+            "name": "?"
         }
     ], 
     "ferris": [
         {
             "emoji": "\ud83c\udfa1", 
-            "name": "FERRIS WHEEL"
+            "name": "?"
         }
     ], 
     "ferry": [
+        {
+            "emoji": "\u2693", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u26f4\ufe0f", 
             "name": "FERRY"
         }
     ], 
     "festival": [
+        {
+            "emoji": "\ud83c\udf86", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf85", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf84", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfaa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8a", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udf8e", 
             "name": "JAPANESE DOLLS"
@@ -9192,6 +13281,12 @@ var EMOJI_MAP = {
             "name": "FIELD HOCKEY STICK AND BALL field hockey"
         }
     ], 
+    "fifa": [
+        {
+            "emoji": "\u26bd", 
+            "name": "?"
+        }
+    ], 
     "fiji": [
         {
             "emoji": "\ud83c\uddeb\ud83c\uddef", 
@@ -9200,12 +13295,12 @@ var EMOJI_MAP = {
     ], 
     "file": [
         {
-            "emoji": "\ud83d\udcc1", 
-            "name": "FILE FOLDER"
+            "emoji": "\ud83d\udcc2", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcc2", 
-            "name": "OPEN FILE FOLDER"
+            "emoji": "\ud83d\udcc1", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\uddc3\ufe0f", 
@@ -9218,16 +13313,28 @@ var EMOJI_MAP = {
     ], 
     "film": [
         {
+            "emoji": "\ud83c\udfa5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfac", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf9", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf9e\ufe0f", 
             "name": "FILM FRAMES"
         }, 
         {
             "emoji": "\ud83d\udcfd\ufe0f", 
             "name": "FILM PROJECTOR"
-        }, 
-        {
-            "emoji": "\ud83c\udfa6", 
-            "name": "CINEMA"
         }
     ], 
     "finger": [
@@ -9274,6 +13381,46 @@ var EMOJI_MAP = {
     ], 
     "fingers": [
         {
+            "emoji": "\ud83d\udc4c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u261d\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc47", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc49", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc48", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc46", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270c\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc50", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd96", 
             "name": "RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS vulcan salute"
         }, 
@@ -9282,20 +13429,36 @@ var EMOJI_MAP = {
             "name": "RAISED HAND WITH FINGERS SPLAYED"
         }
     ], 
+    "finishline": [
+        {
+            "emoji": "\ud83c\udfc1", 
+            "name": "?"
+        }
+    ], 
     "finland": [
         {
             "emoji": "\ud83c\uddeb\ud83c\uddee", 
             "name": "Flag for Finland"
         }
     ], 
+    "fins": [
+        {
+            "emoji": "\ud83d\udc2c", 
+            "name": "?"
+        }
+    ], 
     "fire": [
         {
-            "emoji": "\ud83d\ude92", 
-            "name": "FIRE ENGINE"
+            "emoji": "\ud83d\udd25", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd25", 
-            "name": "FIRE"
+            "emoji": "\ud83d\udcdb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude92", 
+            "name": "?"
         }
     ], 
     "firework": [
@@ -9307,7 +13470,11 @@ var EMOJI_MAP = {
     "fireworks": [
         {
             "emoji": "\ud83c\udf86", 
-            "name": "FIREWORKS"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2747\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf87", 
@@ -9317,33 +13484,45 @@ var EMOJI_MAP = {
     "first": [
         {
             "emoji": "\ud83c\udf13", 
-            "name": "FIRST QUARTER MOON SYMBOL first quarter moon"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf1b", 
-            "name": "FIRST QUARTER MOON WITH FACE"
+            "name": "?"
         }
     ], 
     "fish": [
         {
-            "emoji": "\ud83d\udc1f", 
-            "name": "FISH"
+            "emoji": "\ud83d\udc20", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc20", 
-            "name": "TROPICAL FISH"
+            "emoji": "\ud83c\udf65", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf63", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2c", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc21", 
             "name": "BLOWFISH"
-        }, 
-        {
-            "emoji": "\ud83c\udf65", 
-            "name": "FISH CAKE WITH SWIRL DESIGN fish cake with swirl"
-        }, 
-        {
-            "emoji": "\ud83c\udfa3", 
-            "name": "FISHING POLE AND FISH fishing pole"
         }, 
         {
             "emoji": "\u2653\ufe0f", 
@@ -9353,17 +13532,17 @@ var EMOJI_MAP = {
     "fishing": [
         {
             "emoji": "\ud83c\udfa3", 
-            "name": "FISHING POLE AND FISH fishing pole"
+            "name": "?"
         }
     ], 
     "fist": [
         {
-            "emoji": "\u270a", 
-            "name": "RAISED FIST"
+            "emoji": "\ud83d\udc4a", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc4a", 
-            "name": "FISTED HAND SIGN oncoming fist"
+            "emoji": "\u270a", 
+            "name": "?"
         }
     ], 
     "fisted": [
@@ -9374,16 +13553,16 @@ var EMOJI_MAP = {
     ], 
     "five": [
         {
+            "emoji": "5\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd54", 
             "name": "CLOCK FACE FIVE OCLOCK five o\u2019clock"
         }, 
         {
             "emoji": "\ud83d\udd60", 
             "name": "CLOCK FACE FIVETHIRTY fivethirty"
-        }, 
-        {
-            "emoji": "5\ufe0f\u20e3", 
-            "name": "Keycap DIGIT FIVE"
         }
     ], 
     "fivethirty": [
@@ -9392,7 +13571,69 @@ var EMOJI_MAP = {
             "name": "CLOCK FACE FIVETHIRTY fivethirty"
         }
     ], 
+    "fix": [
+        {
+            "emoji": "\ud83d\udd29", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd27", 
+            "name": "?"
+        }
+    ], 
     "flag": [
+        {
+            "emoji": "\ud83c\uddf7\ud83c\uddfa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddf0\ud83c\uddf7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddfa\ud83c\uddf8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udde8\ud83c\uddf3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddef\ud83c\uddf5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udde9\ud83c\uddea", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26f3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddea\ud83c\uddf8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddeb\ud83c\uddf7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddee\ud83c\uddf9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddec\ud83c\udde7", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udf8f", 
             "name": "CARP STREAMER"
@@ -9418,20 +13659,12 @@ var EMOJI_MAP = {
             "name": "OPEN MAILBOX WITH LOWERED FLAG"
         }, 
         {
-            "emoji": "\ud83c\udfc1", 
-            "name": "CHEQUERED FLAG"
-        }, 
-        {
             "emoji": "\ud83c\udff3\ufe0f", 
             "name": "WAVING WHITE FLAG"
         }, 
         {
             "emoji": "\ud83c\udff4", 
             "name": "WAVING BLACK FLAG"
-        }, 
-        {
-            "emoji": "\ud83d\udea9", 
-            "name": "TRIANGULAR FLAG ON POST triangular flag"
         }, 
         {
             "emoji": "\ud83c\udf8c", 
@@ -9630,10 +13863,6 @@ var EMOJI_MAP = {
             "name": "Flag for Cameroon"
         }, 
         {
-            "emoji": "\ud83c\udde8\ud83c\uddf3", 
-            "name": "Flag for China"
-        }, 
-        {
             "emoji": "\ud83c\udde8\ud83c\uddf4", 
             "name": "Flag for Colombia"
         }, 
@@ -9668,10 +13897,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udde8\ud83c\uddff", 
             "name": "Flag for Czech Republic"
-        }, 
-        {
-            "emoji": "\ud83c\udde9\ud83c\uddea", 
-            "name": "Flag for Germany"
         }, 
         {
             "emoji": "\ud83c\udde9\ud83c\uddec", 
@@ -9722,10 +13947,6 @@ var EMOJI_MAP = {
             "name": "Flag for Eritrea"
         }, 
         {
-            "emoji": "\ud83c\uddea\ud83c\uddf8", 
-            "name": "Flag for Spain"
-        }, 
-        {
             "emoji": "\ud83c\uddea\ud83c\uddf9", 
             "name": "Flag for Ethiopia"
         }, 
@@ -9754,16 +13975,8 @@ var EMOJI_MAP = {
             "name": "Flag for Faroe Islands"
         }, 
         {
-            "emoji": "\ud83c\uddeb\ud83c\uddf7", 
-            "name": "Flag for France"
-        }, 
-        {
             "emoji": "\ud83c\uddec\ud83c\udde6", 
             "name": "Flag for Gabon"
-        }, 
-        {
-            "emoji": "\ud83c\uddec\ud83c\udde7", 
-            "name": "Flag for United Kingdom"
         }, 
         {
             "emoji": "\ud83c\uddec\ud83c\udde9", 
@@ -9898,10 +14111,6 @@ var EMOJI_MAP = {
             "name": "Flag for Iceland"
         }, 
         {
-            "emoji": "\ud83c\uddee\ud83c\uddf9", 
-            "name": "Flag for Italy"
-        }, 
-        {
             "emoji": "\ud83c\uddef\ud83c\uddea", 
             "name": "Flag for Jersey"
         }, 
@@ -9912,10 +14121,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\uddef\ud83c\uddf4", 
             "name": "Flag for Jordan"
-        }, 
-        {
-            "emoji": "\ud83c\uddef\ud83c\uddf5", 
-            "name": "Flag for Japan"
         }, 
         {
             "emoji": "\ud83c\uddf0\ud83c\uddea", 
@@ -9944,10 +14149,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\uddf0\ud83c\uddf5", 
             "name": "Flag for North Korea"
-        }, 
-        {
-            "emoji": "\ud83c\uddf0\ud83c\uddf7", 
-            "name": "Flag for South Korea"
         }, 
         {
             "emoji": "\ud83c\uddf0\ud83c\uddfc", 
@@ -10222,10 +14423,6 @@ var EMOJI_MAP = {
             "name": "Flag for Serbia"
         }, 
         {
-            "emoji": "\ud83c\uddf7\ud83c\uddfa", 
-            "name": "Flag for Russia"
-        }, 
-        {
             "emoji": "\ud83c\uddf7\ud83c\uddfc", 
             "name": "Flag for Rwanda"
         }, 
@@ -10394,10 +14591,6 @@ var EMOJI_MAP = {
             "name": "Flag for U.S. Outlying Islands"
         }, 
         {
-            "emoji": "\ud83c\uddfa\ud83c\uddf8", 
-            "name": "Flag for United States"
-        }, 
-        {
             "emoji": "\ud83c\uddfa\ud83c\uddfe", 
             "name": "Flag for Uruguay"
         }, 
@@ -10468,14 +14661,18 @@ var EMOJI_MAP = {
     ], 
     "flags": [
         {
+            "emoji": "\ud83c\udf8f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf8c", 
-            "name": "CROSSED FLAGS"
+            "name": "?"
         }
     ], 
     "flame": [
         {
             "emoji": "\ud83d\udd25", 
-            "name": "FIRE"
+            "name": "?"
         }
     ], 
     "flash": [
@@ -10487,7 +14684,13 @@ var EMOJI_MAP = {
     "flashlight": [
         {
             "emoji": "\ud83d\udd26", 
-            "name": "ELECTRIC TORCH flashlight"
+            "name": "?"
+        }
+    ], 
+    "flattered": [
+        {
+            "emoji": "\ud83d\ude33", 
+            "name": "?"
         }
     ], 
     "fleurdelis": [
@@ -10499,7 +14702,7 @@ var EMOJI_MAP = {
     "flex": [
         {
             "emoji": "\ud83d\udcaa", 
-            "name": "FLEXED BICEPS"
+            "name": "?"
         }
     ], 
     "flexed": [
@@ -10508,30 +14711,44 @@ var EMOJI_MAP = {
             "name": "FLEXED BICEPS"
         }
     ], 
+    "flight": [
+        {
+            "emoji": "\ud83d\udcba", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2708\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "flipper": [
         {
             "emoji": "\ud83d\udc2c", 
-            "name": "DOLPHIN"
+            "name": "?"
         }
     ], 
     "floppy": [
         {
             "emoji": "\ud83d\udcbe", 
-            "name": "FLOPPY DISK"
+            "name": "?"
         }
     ], 
     "flower": [
         {
-            "emoji": "\ud83d\udc90", 
-            "name": "BOUQUET"
+            "emoji": "\ud83c\udfb4", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf38", 
-            "name": "CHERRY BLOSSOM"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcae", 
-            "name": "WHITE FLOWER"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc90", 
+            "name": "BOUQUET"
         }, 
         {
             "emoji": "\ud83c\udf39", 
@@ -10552,22 +14769,44 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udf37", 
             "name": "TULIP"
+        }
+    ], 
+    "flowers": [
+        {
+            "emoji": "\ud83c\udf39", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udfb4", 
-            "name": "FLOWER PLAYING CARDS"
+            "emoji": "\ud83c\udf3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc90", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf37", 
+            "name": "?"
         }
     ], 
     "flowing": [
         {
             "emoji": "\u23f3", 
-            "name": "HOURGLASS WITH FLOWING SAND"
+            "name": "?"
         }
     ], 
     "flushed": [
         {
             "emoji": "\ud83d\ude33", 
-            "name": "FLUSHED FACE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0a", 
+            "name": "?"
         }
     ], 
     "flutter": [
@@ -10583,6 +14822,26 @@ var EMOJI_MAP = {
         }
     ], 
     "fly": [
+        {
+            "emoji": "\ud83d\ude80", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude81", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcba", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2708\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc26", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd4a\ufe0f", 
             "name": "DOVE OF PEACE dove"
@@ -10605,7 +14864,7 @@ var EMOJI_MAP = {
     "foggy": [
         {
             "emoji": "\ud83c\udf01", 
-            "name": "FOGGY"
+            "name": "?"
         }
     ], 
     "folded": [
@@ -10616,46 +14875,202 @@ var EMOJI_MAP = {
     ], 
     "folder": [
         {
-            "emoji": "\ud83d\udcc1", 
-            "name": "FILE FOLDER"
+            "emoji": "\ud83d\udcc2", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcc2", 
-            "name": "OPEN FILE FOLDER"
+            "emoji": "\ud83d\udcc1", 
+            "name": "?"
         }
     ], 
     "food": [
+        {
+            "emoji": "\ud83c\udf50", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf51", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf60", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf70", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf53", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf5b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf72", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf65", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf71", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf69", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf52", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf68", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf56", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf63", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc21", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf62", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf46", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf66", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf49", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf5a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf64", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf47", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf57", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf59", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf5e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf73", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf45", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf55", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf30", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf61", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf58", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf5d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf5c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf48", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude0b", 
             "name": "FACE SAVOURING DELICIOUS FOOD"
         }, 
         {
-            "emoji": "\ud83c\udf47", 
-            "name": "GRAPES"
-        }, 
-        {
-            "emoji": "\ud83c\udf48", 
-            "name": "MELON"
-        }, 
-        {
-            "emoji": "\ud83c\udf49", 
-            "name": "WATERMELON"
-        }, 
-        {
-            "emoji": "\ud83c\udf4a", 
-            "name": "TANGERINE"
-        }, 
-        {
             "emoji": "\ud83c\udf4b", 
             "name": "LEMON"
-        }, 
-        {
-            "emoji": "\ud83c\udf4c", 
-            "name": "BANANA"
-        }, 
-        {
-            "emoji": "\ud83c\udf4d", 
-            "name": "PINEAPPLE"
         }, 
         {
             "emoji": "\ud83c\udf4e", 
@@ -10666,48 +15081,12 @@ var EMOJI_MAP = {
             "name": "GREEN APPLE"
         }, 
         {
-            "emoji": "\ud83c\udf50", 
-            "name": "PEAR"
-        }, 
-        {
-            "emoji": "\ud83c\udf51", 
-            "name": "PEACH"
-        }, 
-        {
-            "emoji": "\ud83c\udf52", 
-            "name": "CHERRIES"
-        }, 
-        {
-            "emoji": "\ud83c\udf53", 
-            "name": "STRAWBERRY"
-        }, 
-        {
-            "emoji": "\ud83c\udf45", 
-            "name": "TOMATO"
-        }, 
-        {
-            "emoji": "\ud83c\udf46", 
-            "name": "AUBERGINE eggplant"
-        }, 
-        {
             "emoji": "\ud83c\udf36\ufe0f", 
             "name": "HOT PEPPER"
         }, 
         {
-            "emoji": "\ud83c\udf5e", 
-            "name": "BREAD"
-        }, 
-        {
             "emoji": "\ud83e\uddc0", 
             "name": "CHEESE WEDGE"
-        }, 
-        {
-            "emoji": "\ud83c\udf56", 
-            "name": "MEAT ON BONE"
-        }, 
-        {
-            "emoji": "\ud83c\udf57", 
-            "name": "POULTRY LEG"
         }, 
         {
             "emoji": "\ud83c\udf54", 
@@ -10716,10 +15095,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udf5f", 
             "name": "FRENCH FRIES"
-        }, 
-        {
-            "emoji": "\ud83c\udf55", 
-            "name": "SLICE OF PIZZA pizza"
         }, 
         {
             "emoji": "\ud83c\udf2d", 
@@ -10734,112 +15109,20 @@ var EMOJI_MAP = {
             "name": "BURRITO"
         }, 
         {
-            "emoji": "\ud83c\udf73", 
-            "name": "COOKING"
-        }, 
-        {
-            "emoji": "\ud83c\udf72", 
-            "name": "POT OF FOOD"
-        }, 
-        {
             "emoji": "\ud83c\udf7f", 
             "name": "POPCORN"
-        }, 
-        {
-            "emoji": "\ud83c\udf71", 
-            "name": "BENTO BOX"
-        }, 
-        {
-            "emoji": "\ud83c\udf58", 
-            "name": "RICE CRACKER"
-        }, 
-        {
-            "emoji": "\ud83c\udf59", 
-            "name": "RICE BALL"
-        }, 
-        {
-            "emoji": "\ud83c\udf5a", 
-            "name": "COOKED RICE"
-        }, 
-        {
-            "emoji": "\ud83c\udf5b", 
-            "name": "CURRY AND RICE curry rice"
-        }, 
-        {
-            "emoji": "\ud83c\udf5c", 
-            "name": "STEAMING BOWL"
-        }, 
-        {
-            "emoji": "\ud83c\udf5d", 
-            "name": "SPAGHETTI"
-        }, 
-        {
-            "emoji": "\ud83c\udf60", 
-            "name": "ROASTED SWEET POTATO"
-        }, 
-        {
-            "emoji": "\ud83c\udf62", 
-            "name": "ODEN"
-        }, 
-        {
-            "emoji": "\ud83c\udf63", 
-            "name": "SUSHI"
-        }, 
-        {
-            "emoji": "\ud83c\udf64", 
-            "name": "FRIED SHRIMP"
-        }, 
-        {
-            "emoji": "\ud83c\udf65", 
-            "name": "FISH CAKE WITH SWIRL DESIGN fish cake with swirl"
-        }, 
-        {
-            "emoji": "\ud83c\udf61", 
-            "name": "DANGO"
-        }, 
-        {
-            "emoji": "\ud83c\udf66", 
-            "name": "SOFT ICE CREAM"
         }, 
         {
             "emoji": "\ud83c\udf67", 
             "name": "SHAVED ICE"
         }, 
         {
-            "emoji": "\ud83c\udf68", 
-            "name": "ICE CREAM"
-        }, 
-        {
-            "emoji": "\ud83c\udf69", 
-            "name": "DOUGHNUT"
-        }, 
-        {
-            "emoji": "\ud83c\udf6a", 
-            "name": "COOKIE"
-        }, 
-        {
             "emoji": "\ud83c\udf82", 
             "name": "BIRTHDAY CAKE"
         }, 
         {
-            "emoji": "\ud83c\udf70", 
-            "name": "SHORTCAKE"
-        }, 
-        {
-            "emoji": "\ud83c\udf6b", 
-            "name": "CHOCOLATE BAR"
-        }, 
-        {
             "emoji": "\ud83c\udf6c", 
             "name": "CANDY"
-        }, 
-        {
-            "emoji": "\ud83c\udf6d", 
-            "name": "LOLLIPOP"
-        }, 
-        {
-            "emoji": "\ud83c\udf6e", 
-            "name": "CUSTARD"
         }, 
         {
             "emoji": "\ud83c\udf6f", 
@@ -10857,11 +15140,15 @@ var EMOJI_MAP = {
     "football": [
         {
             "emoji": "\ud83c\udfc8", 
-            "name": "AMERICAN FOOTBALL"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26bd", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfc9", 
-            "name": "RUGBY FOOTBALL"
+            "name": "?"
         }
     ], 
     "footprint": [
@@ -10873,10 +15160,28 @@ var EMOJI_MAP = {
     "footprints": [
         {
             "emoji": "\ud83d\udc63", 
-            "name": "FOOTPRINTS"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3e", 
+            "name": "?"
+        }
+    ], 
+    "forbid": [
+        {
+            "emoji": "\ud83d\udeab", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcdb", 
+            "name": "?"
         }
     ], 
     "forbidden": [
+        {
+            "emoji": "\ud83c\ude32", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude48", 
             "name": "SEENOEVIL MONKEY seenoevil"
@@ -10936,12 +15241,18 @@ var EMOJI_MAP = {
     ], 
     "fork": [
         {
-            "emoji": "\ud83c\udf7d\ufe0f", 
-            "name": "FORK AND KNIFE WITH PLATE"
+            "emoji": "\ud83c\udf74", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf74", 
-            "name": "FORK AND KNIFE"
+            "emoji": "\ud83c\udf7d\ufe0f", 
+            "name": "FORK AND KNIFE WITH PLATE"
+        }
+    ], 
+    "formal": [
+        {
+            "emoji": "\ud83d\udc54", 
+            "name": "?"
         }
     ], 
     "fortune": [
@@ -10954,13 +15265,31 @@ var EMOJI_MAP = {
             "name": "SIX POINTED STAR WITH MIDDLE DOT dotted sixpointed star"
         }
     ], 
+    "fortune_teller": [
+        {
+            "emoji": "\ud83d\udd2e", 
+            "name": "?"
+        }
+    ], 
     "forward": [
         {
+            "emoji": "\u25b6\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3c", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u23e9", 
-            "name": "BLACK RIGHTPOINTING DOUBLE TRIANGLE fastforword button"
+            "name": "?"
         }
     ], 
     "fountain": [
+        {
+            "emoji": "\u26f2", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u26f2\ufe0f", 
             "name": "FOUNTAIN"
@@ -10973,7 +15302,11 @@ var EMOJI_MAP = {
     "four": [
         {
             "emoji": "\ud83c\udf40", 
-            "name": "FOUR LEAF CLOVER"
+            "name": "?"
+        }, 
+        {
+            "emoji": "4\ufe0f\u20e3", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd53", 
@@ -10982,10 +15315,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd5f", 
             "name": "CLOCK FACE FOURTHIRTY fourthirty"
-        }, 
-        {
-            "emoji": "4\ufe0f\u20e3", 
-            "name": "Keycap DIGIT FOUR"
         }
     ], 
     "fourthirty": [
@@ -10994,7 +15323,17 @@ var EMOJI_MAP = {
             "name": "CLOCK FACE FOURTHIRTY fourthirty"
         }
     ], 
+    "fr": [
+        {
+            "emoji": "\ud83c\uddeb\ud83c\uddf7", 
+            "name": "?"
+        }
+    ], 
     "frame": [
+        {
+            "emoji": "\ud83d\udd32", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\uddbc\ufe0f", 
             "name": "FRAME WITH PICTURE"
@@ -11009,7 +15348,7 @@ var EMOJI_MAP = {
     "france": [
         {
             "emoji": "\ud83c\uddeb\ud83c\uddf7", 
-            "name": "Flag for France"
+            "name": "?"
         }
     ], 
     "frankfurter": [
@@ -11021,10 +15360,14 @@ var EMOJI_MAP = {
     "free": [
         {
             "emoji": "\ud83c\udd93", 
-            "name": "SQUARED FREE"
+            "name": "?"
         }
     ], 
     "french": [
+        {
+            "emoji": "\ud83c\uddeb\ud83c\uddf7", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udf5f", 
             "name": "FRENCH FRIES"
@@ -11046,22 +15389,54 @@ var EMOJI_MAP = {
             "name": "Flag for French Southern Territories"
         }
     ], 
+    "fresh": [
+        {
+            "emoji": "\u26f2", 
+            "name": "?"
+        }
+    ], 
     "fried": [
         {
             "emoji": "\ud83c\udf64", 
-            "name": "FRIED SHRIMP"
+            "name": "?"
+        }
+    ], 
+    "friend": [
+        {
+            "emoji": "\ud83d\udc36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc15", 
+            "name": "?"
+        }
+    ], 
+    "friendship": [
+        {
+            "emoji": "\ud83d\udc6c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6d", 
+            "name": "?"
         }
     ], 
     "fries": [
         {
             "emoji": "\ud83c\udf5f", 
-            "name": "FRENCH FRIES"
+            "name": "?"
         }
     ], 
     "frog": [
         {
             "emoji": "\ud83d\udc38", 
-            "name": "FROG FACE"
+            "name": "?"
+        }
+    ], 
+    "front": [
+        {
+            "emoji": "\ud83d\ude85", 
+            "name": "?"
         }
     ], 
     "frontfacing": [
@@ -11090,80 +15465,116 @@ var EMOJI_MAP = {
     ], 
     "frowning": [
         {
+            "emoji": "\ud83d\ude4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude26", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u2639\ufe0f", 
             "name": "WHITE FROWNING FACE frowning face"
         }, 
         {
             "emoji": "\ud83d\ude41", 
             "name": "SLIGHTLY FROWNING FACE"
-        }, 
+        }
+    ], 
+    "frozen": [
         {
-            "emoji": "\ud83d\ude26", 
-            "name": "FROWNING FACE WITH OPEN MOUTH"
-        }, 
-        {
-            "emoji": "\ud83d\ude4d", 
-            "name": "PERSON FROWNING"
+            "emoji": "\u26c4", 
+            "name": "?"
         }
     ], 
     "fruit": [
         {
-            "emoji": "\ud83c\udf47", 
-            "name": "GRAPES"
-        }, 
-        {
-            "emoji": "\ud83c\udf48", 
-            "name": "MELON"
-        }, 
-        {
-            "emoji": "\ud83c\udf49", 
-            "name": "WATERMELON"
-        }, 
-        {
-            "emoji": "\ud83c\udf4a", 
-            "name": "TANGERINE"
-        }, 
-        {
-            "emoji": "\ud83c\udf4b", 
-            "name": "LEMON"
-        }, 
-        {
-            "emoji": "\ud83c\udf4c", 
-            "name": "BANANA"
-        }, 
-        {
-            "emoji": "\ud83c\udf4d", 
-            "name": "PINEAPPLE"
-        }, 
-        {
-            "emoji": "\ud83c\udf4e", 
-            "name": "RED APPLE"
-        }, 
-        {
-            "emoji": "\ud83c\udf4f", 
-            "name": "GREEN APPLE"
-        }, 
-        {
             "emoji": "\ud83c\udf50", 
-            "name": "PEAR"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf51", 
-            "name": "PEACH"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf52", 
-            "name": "CHERRIES"
+            "emoji": "\ud83c\udf4b", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf53", 
-            "name": "STRAWBERRY"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf52", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf49", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf47", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf45", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf48", 
+            "name": "?"
+        }
+    ], 
+    "fruit machine": [
+        {
+            "emoji": "\ud83c\udfb0", 
+            "name": "?"
+        }
+    ], 
+    "frustrated": [
+        {
+            "emoji": "\ud83d\ude29", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude20", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2b", 
+            "name": "?"
         }
     ], 
     "frying": [
         {
             "emoji": "\ud83c\udf73", 
             "name": "COOKING"
+        }
+    ], 
+    "ftw": [
+        {
+            "emoji": "\ud83c\udfc6", 
+            "name": "?"
         }
     ], 
     "fuel": [
@@ -11174,6 +15585,10 @@ var EMOJI_MAP = {
     ], 
     "fuelpump": [
         {
+            "emoji": "\u26fd", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u26fd\ufe0f", 
             "name": "FUEL PUMP"
         }
@@ -11181,17 +15596,21 @@ var EMOJI_MAP = {
     "fuji": [
         {
             "emoji": "\ud83d\uddfb", 
-            "name": "MOUNT FUJI"
+            "name": "?"
         }
     ], 
     "full": [
         {
-            "emoji": "\ud83c\udf15", 
-            "name": "FULL MOON SYMBOL full moon"
+            "emoji": "\ud83c\udf1d", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf1d", 
-            "name": "FULL MOON WITH FACE"
+            "emoji": "\ud83c\ude35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf15", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcaf", 
@@ -11204,10 +15623,30 @@ var EMOJI_MAP = {
             "name": "SQUARED CJK UNIFIED IDEOGRAPH6E80 squared fullness ideograph"
         }
     ], 
+    "fun": [
+        {
+            "emoji": "\ud83d\udc83", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa2", 
+            "name": "?"
+        }
+    ], 
     "funeral": [
         {
             "emoji": "\u26b1\ufe0f", 
             "name": "FUNERAL URN"
+        }
+    ], 
+    "funny": [
+        {
+            "emoji": "\ud83d\ude04", 
+            "name": "?"
         }
     ], 
     "futuna": [
@@ -11216,10 +15655,30 @@ var EMOJI_MAP = {
             "name": "Flag for Wallis  Futuna"
         }
     ], 
+    "future": [
+        {
+            "emoji": "\ud83d\udce1", 
+            "name": "?"
+        }
+    ], 
     "gabon": [
         {
             "emoji": "\ud83c\uddec\ud83c\udde6", 
             "name": "Flag for Gabon"
+        }
+    ], 
+    "gadgets": [
+        {
+            "emoji": "\ud83c\udfa7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf7", 
+            "name": "?"
         }
     ], 
     "gambia": [
@@ -11228,7 +15687,55 @@ var EMOJI_MAP = {
             "name": "Flag for Gambia"
         }
     ], 
+    "gamble": [
+        {
+            "emoji": "\ud83d\udc0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb0", 
+            "name": "?"
+        }
+    ], 
+    "gambling": [
+        {
+            "emoji": "\ud83c\udfc7", 
+            "name": "?"
+        }
+    ], 
     "game": [
+        {
+            "emoji": "\ud83c\udfb1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfaf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc7e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udccf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfae", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udc04", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udfb0", 
             "name": "SLOT MACHINE"
@@ -11236,10 +15743,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udfd0", 
             "name": "VOLLEYBALL"
-        }, 
-        {
-            "emoji": "\ud83c\udfb1", 
-            "name": "BILLIARDS"
         }, 
         {
             "emoji": "\ud83c\udfb3", 
@@ -11266,20 +15769,8 @@ var EMOJI_MAP = {
             "name": "BADMINTON RACQUET AND SHUTTLECOCK badminton"
         }, 
         {
-            "emoji": "\ud83c\udfaf", 
-            "name": "DIRECT HIT"
-        }, 
-        {
-            "emoji": "\ud83c\udfae", 
-            "name": "VIDEO GAME"
-        }, 
-        {
             "emoji": "\ud83d\udd79\ufe0f", 
             "name": "JOYSTICK"
-        }, 
-        {
-            "emoji": "\ud83c\udfb2", 
-            "name": "GAME DIE"
         }, 
         {
             "emoji": "\u2660\ufe0f", 
@@ -11298,16 +15789,18 @@ var EMOJI_MAP = {
             "name": "BLACK CLUB SUIT club suit"
         }, 
         {
-            "emoji": "\ud83c\udccf", 
-            "name": "PLAYING CARD BLACK JOKER joker"
-        }, 
-        {
             "emoji": "\ud83c\udc04\ufe0f", 
             "name": "MAHJONG TILE RED DRAGON mahjong red dragon"
+        }
+    ], 
+    "garbage": [
+        {
+            "emoji": "\ud83d\udeaf", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udfb4", 
-            "name": "FLOWER PLAYING CARDS"
+            "emoji": "\u267b\ufe0f", 
+            "name": "?"
         }
     ], 
     "garcia": [
@@ -11319,13 +15812,39 @@ var EMOJI_MAP = {
     "garden": [
         {
             "emoji": "\ud83c\udfe1", 
-            "name": "HOUSE WITH GARDEN"
+            "name": "?"
         }
     ], 
     "gas": [
         {
+            "emoji": "\ud83d\ude24", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u26fd\ufe0f", 
             "name": "FUEL PUMP"
+        }
+    ], 
+    "gas station": [
+        {
+            "emoji": "\u26fd", 
+            "name": "?"
+        }
+    ], 
+    "gavel": [
+        {
+            "emoji": "\ud83d\udd28", 
+            "name": "?"
+        }
+    ], 
+    "gb": [
+        {
+            "emoji": "\ud83d\udc82", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddec\ud83c\udde7", 
+            "name": "?"
         }
     ], 
     "gear": [
@@ -11342,11 +15861,39 @@ var EMOJI_MAP = {
     ], 
     "gem": [
         {
+            "emoji": "\ud83d\udd36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd37", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc8e", 
-            "name": "GEM STONE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd39", 
+            "name": "?"
         }
     ], 
     "gemini": [
+        {
+            "emoji": "\u264a", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc6c", 
             "name": "TWO MEN HOLDING HANDS"
@@ -11354,6 +15901,26 @@ var EMOJI_MAP = {
         {
             "emoji": "\u264a\ufe0f", 
             "name": "GEMINI"
+        }
+    ], 
+    "gender": [
+        {
+            "emoji": "\ud83d\udeba", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udebb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb9", 
+            "name": "?"
+        }
+    ], 
+    "gentleman": [
+        {
+            "emoji": "\ud83c\udfa9", 
+            "name": "?"
         }
     ], 
     "geometric": [
@@ -11456,6 +16023,12 @@ var EMOJI_MAP = {
             "name": "Flag for South Georgia  South Sandwich Islands"
         }
     ], 
+    "german": [
+        {
+            "emoji": "\ud83c\udde9\ud83c\uddea", 
+            "name": "?"
+        }
+    ], 
     "germany": [
         {
             "emoji": "\ud83c\udde9\ud83c\uddea", 
@@ -11463,6 +16036,14 @@ var EMOJI_MAP = {
         }
     ], 
     "gesture": [
+        {
+            "emoji": "\ud83d\ude4c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4b", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude48", 
             "name": "SEENOEVIL MONKEY seenoevil"
@@ -11500,10 +16081,6 @@ var EMOJI_MAP = {
             "name": "PERSON BOWING DEEPLY person bowing"
         }, 
         {
-            "emoji": "\ud83d\ude4c", 
-            "name": "PERSON RAISING BOTH HANDS IN CELEBRATION person raising hands"
-        }, 
-        {
             "emoji": "\ud83d\ude4f", 
             "name": "PERSON WITH FOLDED HANDS folded hands"
         }
@@ -11518,6 +16095,12 @@ var EMOJI_MAP = {
             "name": "FACE WITH OK GESTURE gesturing ok"
         }
     ], 
+    "get": [
+        {
+            "emoji": "\ud83c\ude50", 
+            "name": "?"
+        }
+    ], 
     "ghana": [
         {
             "emoji": "\ud83c\uddec\ud83c\udded", 
@@ -11527,17 +16110,17 @@ var EMOJI_MAP = {
     "ghost": [
         {
             "emoji": "\ud83d\udc7b", 
-            "name": "GHOST"
+            "name": "?"
         }
     ], 
     "gibbous": [
         {
-            "emoji": "\ud83c\udf14", 
-            "name": "WAXING GIBBOUS MOON SYMBOL waxing gibbous moon"
+            "emoji": "\ud83c\udf16", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf16", 
-            "name": "WANING GIBBOUS MOON SYMBOL waning gibbous moon"
+            "emoji": "\ud83c\udf14", 
+            "name": "WAXING GIBBOUS MOON SYMBOL waxing gibbous moon"
         }
     ], 
     "gibraltar": [
@@ -11548,14 +16131,82 @@ var EMOJI_MAP = {
     ], 
     "gift": [
         {
+            "emoji": "\ud83d\udce6", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf81", 
-            "name": "WRAPPED PRESENT"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9d", 
+            "name": "?"
         }
     ], 
     "girl": [
         {
+            "emoji": "\ud83d\udc84", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc59", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc83", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude46", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc81", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc78", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc67", 
-            "name": "GIRL"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc75", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc87", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc76", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc86", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf80", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude45", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc6f", 
@@ -11598,10 +16249,26 @@ var EMOJI_MAP = {
             "name": "Family: WOMAN,WOMAN,GIRL,GIRL"
         }
     ], 
+    "girls": [
+        {
+            "emoji": "\ud83d\udc6f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc69", 
+            "name": "?"
+        }
+    ], 
+    "glad": [
+        {
+            "emoji": "\ud83d\ude06", 
+            "name": "?"
+        }
+    ], 
     "glass": [
         {
             "emoji": "\ud83c\udf77", 
-            "name": "WINE GLASS"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf78", 
@@ -11638,20 +16305,20 @@ var EMOJI_MAP = {
     ], 
     "globe": [
         {
-            "emoji": "\ud83c\udf0d", 
-            "name": "EARTH GLOBE EUROPEAFRICA globe showing europeafrica"
-        }, 
-        {
-            "emoji": "\ud83c\udf0e", 
-            "name": "EARTH GLOBE AMERICAS globe showing americas"
+            "emoji": "\ud83c\udf10", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf0f", 
-            "name": "EARTH GLOBE ASIAAUSTRALIA globe showing asiaaustralia"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf10", 
-            "name": "GLOBE WITH MERIDIANS"
+            "emoji": "\ud83c\udf0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf0d", 
+            "name": "?"
         }
     ], 
     "glow": [
@@ -11666,10 +16333,16 @@ var EMOJI_MAP = {
             "name": "GLOWING STAR"
         }
     ], 
+    "glyphs": [
+        {
+            "emoji": "\ud83d\udd23", 
+            "name": "?"
+        }
+    ], 
     "goat": [
         {
             "emoji": "\ud83d\udc10", 
-            "name": "GOAT"
+            "name": "?"
         }, 
         {
             "emoji": "\u2651\ufe0f", 
@@ -11679,10 +16352,20 @@ var EMOJI_MAP = {
     "goblin": [
         {
             "emoji": "\ud83d\udc7a", 
-            "name": "JAPANESE GOBLIN goblin"
+            "name": "?"
+        }
+    ], 
+    "gokart": [
+        {
+            "emoji": "\ud83c\udfc1", 
+            "name": "?"
         }
     ], 
     "golf": [
+        {
+            "emoji": "\u26f3", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u26f3\ufe0f", 
             "name": "FLAG IN HOLE"
@@ -11710,14 +16393,58 @@ var EMOJI_MAP = {
     ], 
     "good": [
         {
+            "emoji": "\ud83c\udf1f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd97", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf56", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2747\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2728", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude51", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc8", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude45", 
-            "name": "FACE WITH NO GOOD GESTURE gesturing no"
+            "name": "?"
+        }
+    ], 
+    "good morning": [
+        {
+            "emoji": "\ud83c\udf07", 
+            "name": "?"
+        }
+    ], 
+    "goodbye": [
+        {
+            "emoji": "\ud83d\udc4b", 
+            "name": "?"
         }
     ], 
     "graduation": [
         {
             "emoji": "\ud83c\udf93", 
-            "name": "GRADUATION CAP"
+            "name": "?"
         }
     ], 
     "grape": [
@@ -11729,25 +16456,63 @@ var EMOJI_MAP = {
     "grapes": [
         {
             "emoji": "\ud83c\udf47", 
-            "name": "GRAPES"
+            "name": "?"
         }
     ], 
     "graph": [
         {
-            "emoji": "\ud83d\udcb9", 
-            "name": "CHART WITH UPWARDS TREND AND YEN SIGN chart increasing with yen"
-        }, 
-        {
-            "emoji": "\ud83d\udcc8", 
-            "name": "CHART WITH UPWARDS TREND chart increasing"
-        }, 
-        {
             "emoji": "\ud83d\udcc9", 
-            "name": "CHART WITH DOWNWARDS TREND chart decreasing"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb9", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcca", 
-            "name": "BAR CHART"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u303d\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "grasp": [
+        {
+            "emoji": "\u270a", 
+            "name": "?"
+        }
+    ], 
+    "grass": [
+        {
+            "emoji": "\ud83c\udf31", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf43", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3f", 
+            "name": "?"
+        }
+    ], 
+    "gray": [
+        {
+            "emoji": "\ud83c\udf14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2754", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2755", 
+            "name": "?"
         }
     ], 
     "great": [
@@ -11764,20 +16529,62 @@ var EMOJI_MAP = {
     ], 
     "green": [
         {
-            "emoji": "\ud83d\udc9a", 
-            "name": "GREEN HEART"
+            "emoji": "\ud83c\udfbe", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf4f", 
-            "name": "GREEN APPLE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcd7", 
-            "name": "GREEN BOOK"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc09", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf75", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd30", 
             "name": "JAPANESE SYMBOL FOR BEGINNER"
+        }
+    ], 
+    "green-square": [
+        {
+            "emoji": "\u2705", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude2f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u274e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2747\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2733\ufe0f", 
+            "name": "?"
         }
     ], 
     "greenland": [
@@ -11798,26 +16605,36 @@ var EMOJI_MAP = {
             "name": "Flag for St. Vincent  Grenadines"
         }
     ], 
+    "grey": [
+        {
+            "emoji": "\u2754", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2755", 
+            "name": "?"
+        }
+    ], 
     "grimace": [
         {
             "emoji": "\ud83d\ude2c", 
-            "name": "GRIMACING FACE"
+            "name": "?"
         }
     ], 
     "grimacing": [
         {
             "emoji": "\ud83d\ude2c", 
-            "name": "GRIMACING FACE"
+            "name": "?"
         }
     ], 
     "grin": [
         {
-            "emoji": "\ud83d\ude00", 
-            "name": "GRINNING FACE"
+            "emoji": "\ud83d\ude01", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude01", 
-            "name": "GRINNING FACE WITH SMILING EYES"
+            "emoji": "\ud83d\ude00", 
+            "name": "GRINNING FACE"
         }, 
         {
             "emoji": "\ud83d\ude38", 
@@ -11827,7 +16644,7 @@ var EMOJI_MAP = {
     "grinning": [
         {
             "emoji": "\ud83d\ude00", 
-            "name": "GRINNING FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude01", 
@@ -11838,10 +16655,28 @@ var EMOJI_MAP = {
             "name": "GRINNING CAT FACE WITH SMILING EYES"
         }
     ], 
+    "groceries": [
+        {
+            "emoji": "\ud83c\udfea", 
+            "name": "?"
+        }
+    ], 
+    "groom": [
+        {
+            "emoji": "\ud83d\udc92", 
+            "name": "?"
+        }
+    ], 
     "ground": [
         {
             "emoji": "\u26f1\ufe0f", 
             "name": "UMBRELLA ON GROUND"
+        }
+    ], 
+    "group": [
+        {
+            "emoji": "\ud83d\udc65", 
+            "name": "?"
         }
     ], 
     "growing": [
@@ -11863,7 +16698,7 @@ var EMOJI_MAP = {
     "gua": [
         {
             "emoji": "\ud83d\udc72", 
-            "name": "MAN WITH GUA PI MAO man with chinese cap"
+            "name": "?"
         }
     ], 
     "guadeloupe": [
@@ -11887,7 +16722,7 @@ var EMOJI_MAP = {
     "guardsman": [
         {
             "emoji": "\ud83d\udc82", 
-            "name": "GUARDSMAN"
+            "name": "?"
         }
     ], 
     "guatemala": [
@@ -11935,13 +16770,35 @@ var EMOJI_MAP = {
     "guitar": [
         {
             "emoji": "\ud83c\udfb8", 
-            "name": "GUITAR"
+            "name": "?"
         }
     ], 
     "gun": [
         {
             "emoji": "\ud83d\udd2b", 
-            "name": "PISTOL"
+            "name": "?"
+        }
+    ], 
+    "guy": [
+        {
+            "emoji": "\ud83d\udc71", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc77", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc68", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc82", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc66", 
+            "name": "?"
         }
     ], 
     "guyana": [
@@ -11950,16 +16807,46 @@ var EMOJI_MAP = {
             "name": "Flag for Guyana"
         }
     ], 
+    "haha": [
+        {
+            "emoji": "\ud83d\ude03", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude06", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude39", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude02", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude48", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude04", 
+            "name": "?"
+        }
+    ], 
     "hair": [
         {
+            "emoji": "\ud83d\udc88", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc71", 
-            "name": "PERSON WITH BLOND HAIR"
+            "name": "?"
         }
     ], 
     "haircut": [
         {
             "emoji": "\ud83d\udc87", 
-            "name": "HAIRCUT"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc88", 
@@ -11974,26 +16861,42 @@ var EMOJI_MAP = {
     ], 
     "halloween": [
         {
+            "emoji": "\ud83d\udc7b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc79", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfee", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf83", 
-            "name": "JACKOLANTERN"
+            "name": "?"
         }
     ], 
     "halo": [
         {
             "emoji": "\ud83d\ude07", 
-            "name": "SMILING FACE WITH HALO"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc7c", 
+            "name": "?"
         }
     ], 
     "hamburger": [
         {
             "emoji": "\ud83c\udf54", 
-            "name": "HAMBURGER"
+            "name": "?"
         }
     ], 
     "hammer": [
         {
             "emoji": "\ud83d\udd28", 
-            "name": "HAMMER"
+            "name": "?"
         }, 
         {
             "emoji": "\u2692\ufe0f", 
@@ -12007,16 +16910,66 @@ var EMOJI_MAP = {
     "hamster": [
         {
             "emoji": "\ud83d\udc39", 
-            "name": "HAMSTER FACE"
+            "name": "?"
         }
     ], 
-    "haha": [
-        {
-            "emoji": "\ud83d\ude02", 
-            "name": "FACE WITH TEARS OF JOY"
-        }
-    ],
     "hand": [
+        {
+            "emoji": "\ud83d\udc4c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u261d\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcaa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc47", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc49", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc48", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc46", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270c\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4e", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude45", 
             "name": "FACE WITH NO GOOD GESTURE gesturing no"
@@ -12028,10 +16981,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udc81", 
             "name": "INFORMATION DESK PERSON"
-        }, 
-        {
-            "emoji": "\ud83d\ude4b", 
-            "name": "HAPPY PERSON RAISING ONE HAND happy person raising hand"
         }, 
         {
             "emoji": "\ud83d\ude4c", 
@@ -12054,32 +17003,8 @@ var EMOJI_MAP = {
             "name": "TWO WOMEN HOLDING HANDS"
         }, 
         {
-            "emoji": "\ud83d\udc48", 
-            "name": "WHITE LEFT POINTING BACKHAND INDEX backhand index pointing left"
-        }, 
-        {
-            "emoji": "\ud83d\udc49", 
-            "name": "WHITE RIGHT POINTING BACKHAND INDEX backhand index pointing right"
-        }, 
-        {
-            "emoji": "\u261d\ufe0f", 
-            "name": "WHITE UP POINTING INDEX index pointing up"
-        }, 
-        {
-            "emoji": "\ud83d\udc46", 
-            "name": "WHITE UP POINTING BACKHAND INDEX backhand index pointing up"
-        }, 
-        {
             "emoji": "\ud83d\udd95", 
             "name": "REVERSED HAND WITH MIDDLE FINGER EXTENDED middle finger"
-        }, 
-        {
-            "emoji": "\ud83d\udc47", 
-            "name": "WHITE DOWN POINTING BACKHAND INDEX backhand index pointing down"
-        }, 
-        {
-            "emoji": "\u270c\ufe0f", 
-            "name": "VICTORY HAND"
         }, 
         {
             "emoji": "\ud83d\udd96", 
@@ -12092,30 +17017,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd90\ufe0f", 
             "name": "RAISED HAND WITH FINGERS SPLAYED"
-        }, 
-        {
-            "emoji": "\u270b", 
-            "name": "RAISED HAND"
-        }, 
-        {
-            "emoji": "\ud83d\udc4c", 
-            "name": "OK HAND SIGN ok hand"
-        }, 
-        {
-            "emoji": "\ud83d\udc4d", 
-            "name": "THUMBS UP SIGN thumbs up"
-        }, 
-        {
-            "emoji": "\ud83d\udc4e", 
-            "name": "THUMBS DOWN SIGN thumbs down"
-        }, 
-        {
-            "emoji": "\u270a", 
-            "name": "RAISED FIST"
-        }, 
-        {
-            "emoji": "\ud83d\udc4a", 
-            "name": "FISTED HAND SIGN oncoming fist"
         }, 
         {
             "emoji": "\ud83d\udc4b", 
@@ -12137,7 +17038,7 @@ var EMOJI_MAP = {
     "handbag": [
         {
             "emoji": "\ud83d\udc5c", 
-            "name": "HANDBAG"
+            "name": "?"
         }
     ], 
     "handgun": [
@@ -12154,8 +17055,28 @@ var EMOJI_MAP = {
     ], 
     "hands": [
         {
+            "emoji": "\ud83d\udc4f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6d", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude4c", 
-            "name": "PERSON RAISING BOTH HANDS IN CELEBRATION person raising hands"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc50", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude4f", 
@@ -12164,25 +17085,83 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udc6b", 
             "name": "MAN AND WOMAN HOLDING HANDS"
+        }
+    ], 
+    "handy": [
+        {
+            "emoji": "\ud83d\udd29", 
+            "name": "?"
+        }
+    ], 
+    "hankey": [
+        {
+            "emoji": "\ud83d\udca9", 
+            "name": "?"
+        }
+    ], 
+    "happiness": [
+        {
+            "emoji": "\u263a\ufe0f", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc6c", 
-            "name": "TWO MEN HOLDING HANDS"
-        }, 
-        {
-            "emoji": "\ud83d\udc6d", 
-            "name": "TWO WOMEN HOLDING HANDS"
-        }, 
-        {
-            "emoji": "\ud83d\udc4f", 
-            "name": "CLAPPING HANDS SIGN clapping hands"
-        }, 
-        {
-            "emoji": "\ud83d\udc50", 
-            "name": "OPEN HANDS SIGN open hands"
+            "emoji": "\ud83d\ude0c", 
+            "name": "?"
         }
     ], 
     "happy": [
+        {
+            "emoji": "\ud83d\ude03", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf08", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude06", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude01", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude39", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude00", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude02", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude09", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude05", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude04", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude4b", 
             "name": "HAPPY PERSON RAISING ONE HAND happy person raising hand"
@@ -12191,10 +17170,18 @@ var EMOJI_MAP = {
     "hash": [
         {
             "emoji": "#\ufe0f\u20e3", 
-            "name": "Keycap NUMBER SIGN keycap number"
+            "name": "?"
         }
     ], 
     "hat": [
+        {
+            "emoji": "\ud83c\udf93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc52", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc72", 
             "name": "MAN WITH GUA PI MAO man with chinese cap"
@@ -12208,25 +17195,39 @@ var EMOJI_MAP = {
             "name": "HELMET WITH WHITE CROSS"
         }, 
         {
-            "emoji": "\ud83d\udc52", 
-            "name": "WOMANS HAT woman\u2019s hat"
-        }, 
-        {
             "emoji": "\ud83c\udfa9", 
             "name": "TOP HAT"
-        }, 
+        }
+    ], 
+    "hatched": [
         {
-            "emoji": "\ud83c\udf93", 
-            "name": "GRADUATION CAP"
+            "emoji": "\ud83d\udc25", 
+            "name": "?"
         }
     ], 
     "hatching": [
         {
             "emoji": "\ud83d\udc23", 
-            "name": "HATCHING CHICK"
+            "name": "?"
+        }
+    ], 
+    "hate": [
+        {
+            "emoji": "\ud83d\ude21", 
+            "name": "?"
+        }
+    ], 
+    "have": [
+        {
+            "emoji": "\ud83c\ude36", 
+            "name": "?"
         }
     ], 
     "head": [
+        {
+            "emoji": "\ud83d\udc86", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udde3\ufe0f", 
             "name": "SPEAKING HEAD IN SILHOUETTE speaking head"
@@ -12238,16 +17239,60 @@ var EMOJI_MAP = {
             "name": "FACE WITH HEADBANDAGE"
         }
     ], 
+    "heading": [
+        {
+            "emoji": "\u2934\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2935\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "headline": [
+        {
+            "emoji": "\ud83d\udcf0", 
+            "name": "?"
+        }
+    ], 
     "headphone": [
         {
             "emoji": "\ud83c\udfa7", 
             "name": "HEADPHONE"
         }
     ], 
+    "headphones": [
+        {
+            "emoji": "\ud83c\udfa7", 
+            "name": "?"
+        }
+    ], 
+    "health": [
+        {
+            "emoji": "\ud83d\udc89", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude91", 
+            "name": "?"
+        }
+    ], 
     "hear": [
         {
+            "emoji": "\ud83d\udc42", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude49", 
-            "name": "HEARNOEVIL MONKEY hearnoevil"
+            "name": "?"
         }
     ], 
     "heard": [
@@ -12264,80 +17309,80 @@ var EMOJI_MAP = {
     ], 
     "heart": [
         {
-            "emoji": "\ud83d\ude0d", 
-            "name": "SMILING FACE WITH HEARTSHAPED EYES"
+            "emoji": "\ud83d\ude3b", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude18", 
-            "name": "FACE THROWING A KISS"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude3b", 
-            "name": "SMILING CAT FACE WITH HEARTSHAPED EYES"
+            "emoji": "\ud83d\udc96", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0d", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc91", 
-            "name": "COUPLE WITH HEART"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc98", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc94", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2764\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc99", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9c", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc8b", 
             "name": "KISS MARK"
         }, 
         {
-            "emoji": "\ud83d\udc98", 
-            "name": "HEART WITH ARROW"
-        }, 
-        {
-            "emoji": "\u2764\ufe0f", 
-            "name": "HEAVY BLACK HEART red heart"
-        }, 
-        {
             "emoji": "\ud83d\udc93", 
             "name": "BEATING HEART"
-        }, 
-        {
-            "emoji": "\ud83d\udc94", 
-            "name": "BROKEN HEART"
         }, 
         {
             "emoji": "\ud83d\udc95", 
             "name": "TWO HEARTS"
         }, 
         {
-            "emoji": "\ud83d\udc96", 
-            "name": "SPARKLING HEART"
-        }, 
-        {
             "emoji": "\ud83d\udc97", 
             "name": "GROWING HEART"
         }, 
         {
-            "emoji": "\ud83d\udc99", 
-            "name": "BLUE HEART"
-        }, 
-        {
-            "emoji": "\ud83d\udc9a", 
-            "name": "GREEN HEART"
-        }, 
-        {
-            "emoji": "\ud83d\udc9b", 
-            "name": "YELLOW HEART"
-        }, 
-        {
-            "emoji": "\ud83d\udc9c", 
-            "name": "PURPLE HEART"
-        }, 
-        {
-            "emoji": "\ud83d\udc9d", 
-            "name": "HEART WITH RIBBON"
-        }, 
-        {
             "emoji": "\ud83d\udc9e", 
             "name": "REVOLVING HEARTS"
-        }, 
-        {
-            "emoji": "\ud83d\udc9f", 
-            "name": "HEART DECORATION"
         }, 
         {
             "emoji": "\u2763\ufe0f", 
@@ -12369,27 +17414,27 @@ var EMOJI_MAP = {
     "heartbeat": [
         {
             "emoji": "\ud83d\udc93", 
-            "name": "BEATING HEART"
+            "name": "?"
         }
     ], 
     "heartpulse": [
         {
             "emoji": "\ud83d\udc97", 
-            "name": "GROWING HEART"
+            "name": "?"
         }
     ], 
     "hearts": [
         {
-            "emoji": "\ud83d\udc95", 
-            "name": "TWO HEARTS"
+            "emoji": "\u2665\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc9e", 
-            "name": "REVOLVING HEARTS"
+            "name": "?"
         }, 
         {
-            "emoji": "\u2665\ufe0f", 
-            "name": "BLACK HEART SUIT heart suit"
+            "emoji": "\ud83d\udc95", 
+            "name": "?"
         }
     ], 
     "heartshaped": [
@@ -12402,7 +17447,41 @@ var EMOJI_MAP = {
             "name": "SMILING CAT FACE WITH HEARTSHAPED EYES"
         }
     ], 
+    "heaven": [
+        {
+            "emoji": "\ud83d\ude07", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc7c", 
+            "name": "?"
+        }
+    ], 
     "heavy": [
+        {
+            "emoji": "\ud83d\udcb2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2716\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2796", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2797", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2795", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2714\ufe0f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u2764\ufe0f", 
             "name": "HEAVY BLACK HEART red heart"
@@ -12410,10 +17489,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\u2763\ufe0f", 
             "name": "HEAVY HEART EXCLAMATION MARK ORNAMENT"
-        }, 
-        {
-            "emoji": "\ud83d\udcb2", 
-            "name": "HEAVY DOLLAR SIGN"
         }, 
         {
             "emoji": "\u2b55\ufe0f", 
@@ -12424,34 +17499,20 @@ var EMOJI_MAP = {
             "name": "WHITE HEAVY CHECK MARK"
         }, 
         {
-            "emoji": "\u2714\ufe0f", 
-            "name": "HEAVY CHECK MARK"
-        }, 
-        {
-            "emoji": "\u2716\ufe0f", 
-            "name": "HEAVY MULTIPLICATION X"
-        }, 
-        {
-            "emoji": "\u2795", 
-            "name": "HEAVY PLUS SIGN"
-        }, 
-        {
-            "emoji": "\u2796", 
-            "name": "HEAVY MINUS SIGN"
-        }, 
-        {
-            "emoji": "\u2797", 
-            "name": "HEAVY DIVISION SIGN"
-        }, 
-        {
             "emoji": "\u2757\ufe0f", 
             "name": "HEAVY EXCLAMATION MARK SYMBOL exclamation mark"
+        }
+    ], 
+    "heavy_exclamation_mark": [
+        {
+            "emoji": "\u2757", 
+            "name": "?"
         }
     ], 
     "heel": [
         {
             "emoji": "\ud83d\udc60", 
-            "name": "HIGHHEELED SHOE"
+            "name": "?"
         }
     ], 
     "helena": [
@@ -12463,7 +17524,19 @@ var EMOJI_MAP = {
     "helicopter": [
         {
             "emoji": "\ud83d\ude81", 
-            "name": "HELICOPTER"
+            "name": "?"
+        }
+    ], 
+    "hello": [
+        {
+            "emoji": "\ud83d\udc4b", 
+            "name": "?"
+        }
+    ], 
+    "hellokitty": [
+        {
+            "emoji": "\ud83d\ude36", 
+            "name": "?"
         }
     ], 
     "helmet": [
@@ -12474,18 +17547,32 @@ var EMOJI_MAP = {
     ], 
     "help": [
         {
-            "emoji": "\ud83d\udc81", 
-            "name": "INFORMATION DESK PERSON"
+            "emoji": "\ud83c\udd98", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udd98", 
-            "name": "SQUARED SOS"
+            "emoji": "\ud83d\udc81", 
+            "name": "INFORMATION DESK PERSON"
         }
     ], 
     "herb": [
         {
             "emoji": "\ud83c\udf3f", 
-            "name": "HERB"
+            "name": "?"
+        }
+    ], 
+    "here": [
+        {
+            "emoji": "\ud83c\ude01", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udccd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udccc", 
+            "name": "?"
         }
     ], 
     "herzegovina": [
@@ -12494,13 +17581,31 @@ var EMOJI_MAP = {
             "name": "Flag for Bosnia  Herzegovina"
         }
     ], 
+    "hexagram": [
+        {
+            "emoji": "\ud83d\udd2f", 
+            "name": "?"
+        }
+    ], 
     "hibiscus": [
         {
             "emoji": "\ud83c\udf3a", 
-            "name": "HIBISCUS"
+            "name": "?"
         }
     ], 
     "high": [
+        {
+            "emoji": "\ud83c\udd99", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc60", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd06", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u26a1\ufe0f", 
             "name": "HIGH VOLTAGE SIGN high voltage"
@@ -12508,10 +17613,16 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd0a", 
             "name": "SPEAKER WITH THREE SOUND WAVES speaker loud"
+        }
+    ], 
+    "highfive": [
+        {
+            "emoji": "\u270b", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd06", 
-            "name": "HIGH BRIGHTNESS SYMBOL bright button"
+            "emoji": "\ud83d\ude4f", 
+            "name": "?"
         }
     ], 
     "highheeled": [
@@ -12548,16 +17659,72 @@ var EMOJI_MAP = {
             "name": "OM SYMBOL om"
         }
     ], 
+    "hinduism": [
+        {
+            "emoji": "\ud83d\udc73", 
+            "name": "?"
+        }
+    ], 
+    "hipster": [
+        {
+            "emoji": "\ud83d\udeb4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb2", 
+            "name": "?"
+        }
+    ], 
+    "hiss": [
+        {
+            "emoji": "\ud83d\udc0d", 
+            "name": "?"
+        }
+    ], 
+    "history": [
+        {
+            "emoji": "\ud83d\udcdc", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udff0", 
+            "name": "?"
+        }
+    ], 
     "hit": [
+        {
+            "emoji": "\ud83d\udc4a", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udfaf", 
             "name": "DIRECT HIT"
         }
     ], 
+    "hmmm": [
+        {
+            "emoji": "\ud83d\ude15", 
+            "name": "?"
+        }
+    ], 
+    "hobby": [
+        {
+            "emoji": "\ud83c\udfb1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa3", 
+            "name": "?"
+        }
+    ], 
     "hocho": [
         {
             "emoji": "\ud83d\udd2a", 
-            "name": "HOCHO kitchen knife"
+            "name": "?"
         }
     ], 
     "hockey": [
@@ -12586,19 +17753,23 @@ var EMOJI_MAP = {
     ], 
     "holding": [
         {
-            "emoji": "\ud83d\udc6b", 
-            "name": "MAN AND WOMAN HOLDING HANDS"
-        }, 
-        {
             "emoji": "\ud83d\udc6c", 
-            "name": "TWO MEN HOLDING HANDS"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc6d", 
-            "name": "TWO WOMEN HOLDING HANDS"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6b", 
+            "name": "MAN AND WOMAN HOLDING HANDS"
         }
     ], 
     "hole": [
+        {
+            "emoji": "\u26f3", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd73\ufe0f", 
             "name": "HOLE"
@@ -12611,11 +17782,15 @@ var EMOJI_MAP = {
     "home": [
         {
             "emoji": "\ud83c\udfe0", 
-            "name": "HOUSE BUILDING"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6a", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfe1", 
-            "name": "HOUSE WITH GARDEN"
+            "name": "?"
         }
     ], 
     "honduras": [
@@ -12627,7 +17802,7 @@ var EMOJI_MAP = {
     "honey": [
         {
             "emoji": "\ud83c\udf6f", 
-            "name": "HONEY POT"
+            "name": "?"
         }
     ], 
     "honeybee": [
@@ -12650,12 +17825,12 @@ var EMOJI_MAP = {
     ], 
     "hook": [
         {
-            "emoji": "\u21a9\ufe0f", 
-            "name": "LEFTWARDS ARROW WITH HOOK right arrow curving left"
+            "emoji": "\u21aa\ufe0f", 
+            "name": "?"
         }, 
         {
-            "emoji": "\u21aa\ufe0f", 
-            "name": "RIGHTWARDS ARROW WITH HOOK left arrow curving right"
+            "emoji": "\u21a9\ufe0f", 
+            "name": "?"
         }
     ], 
     "hoop": [
@@ -12667,7 +17842,13 @@ var EMOJI_MAP = {
     "hooray": [
         {
             "emoji": "\ud83d\ude4c", 
-            "name": "PERSON RAISING BOTH HANDS IN CELEBRATION person raising hands"
+            "name": "?"
+        }
+    ], 
+    "hope": [
+        {
+            "emoji": "\ud83d\ude4f", 
+            "name": "?"
         }
     ], 
     "horizontal": [
@@ -12679,13 +17860,17 @@ var EMOJI_MAP = {
     "horn": [
         {
             "emoji": "\ud83d\udcef", 
-            "name": "POSTAL HORN"
+            "name": "?"
         }
     ], 
     "horns": [
         {
+            "emoji": "\ud83d\udc7f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude08", 
-            "name": "SMILING FACE WITH HORNS"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83e\udd18", 
@@ -12700,29 +17885,73 @@ var EMOJI_MAP = {
     ], 
     "horse": [
         {
+            "emoji": "\ud83c\udfa0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc7", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc34", 
-            "name": "HORSE FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc0e", 
             "name": "HORSE"
-        }, 
-        {
-            "emoji": "\ud83c\udfa0", 
-            "name": "CAROUSEL HORSE"
-        }, 
-        {
-            "emoji": "\ud83c\udfc7", 
-            "name": "HORSE RACING"
         }
     ], 
     "hospital": [
         {
+            "emoji": "\ud83d\udc89", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udfe5", 
-            "name": "HOSPITAL"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude91", 
+            "name": "?"
         }
     ], 
     "hot": [
+        {
+            "emoji": "\ud83c\udf5b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf68", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd25", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf66", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf67", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude05", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udf36\ufe0f", 
             "name": "HOT PEPPER"
@@ -12748,16 +17977,16 @@ var EMOJI_MAP = {
     ], 
     "hotel": [
         {
-            "emoji": "\ud83d\udecd\ufe0f", 
-            "name": "SHOPPING BAGS"
+            "emoji": "\ud83c\udfe9", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfe8", 
-            "name": "HOTEL"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udfe9", 
-            "name": "LOVE HOTEL"
+            "emoji": "\ud83d\udecd\ufe0f", 
+            "name": "SHOPPING BAGS"
         }, 
         {
             "emoji": "\ud83d\udece\ufe0f", 
@@ -12779,20 +18008,36 @@ var EMOJI_MAP = {
     "hotsprings": [
         {
             "emoji": "\u2668\ufe0f", 
-            "name": "HOT SPRINGS"
+            "name": "?"
         }
     ], 
     "hourglass": [
         {
-            "emoji": "\u231b\ufe0f", 
-            "name": "HOURGLASS"
+            "emoji": "\u231b", 
+            "name": "?"
         }, 
         {
             "emoji": "\u23f3", 
-            "name": "HOURGLASS WITH FLOWING SAND"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u231b\ufe0f", 
+            "name": "HOURGLASS"
         }
     ], 
     "house": [
+        {
+            "emoji": "\ud83c\udfe0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeaa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe1", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udfd8\ufe0f", 
             "name": "HOUSE BUILDINGS"
@@ -12800,14 +18045,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udfda\ufe0f", 
             "name": "DERELICT HOUSE BUILDING"
-        }, 
-        {
-            "emoji": "\ud83c\udfe0", 
-            "name": "HOUSE BUILDING"
-        }, 
-        {
-            "emoji": "\ud83c\udfe1", 
-            "name": "HOUSE WITH GARDEN"
         }
     ], 
     "hug": [
@@ -12822,20 +18059,96 @@ var EMOJI_MAP = {
             "name": "HUGGING FACE"
         }
     ], 
+    "huh": [
+        {
+            "emoji": "\u2754", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude28", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude15", 
+            "name": "?"
+        }
+    ], 
+    "human": [
+        {
+            "emoji": "\ud83d\udc64", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfca", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude46", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc74", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc65", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc81", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc77", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeae", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6a", 
+            "name": "?"
+        }
+    ], 
     "hump": [
         {
             "emoji": "\ud83d\udc2a", 
-            "name": "DROMEDARY CAMEL camel"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc2b", 
-            "name": "BACTRIAN CAMEL twohump camel"
+            "name": "?"
         }
     ], 
     "hundred": [
         {
             "emoji": "\ud83d\udcaf", 
-            "name": "HUNDRED POINTS SYMBOL hundred points"
+            "name": "?"
         }
     ], 
     "hungary": [
@@ -12853,7 +18166,7 @@ var EMOJI_MAP = {
     "hushed": [
         {
             "emoji": "\ud83d\ude2f", 
-            "name": "HUSHED FACE"
+            "name": "?"
         }
     ], 
     "i": [
@@ -12864,16 +18177,16 @@ var EMOJI_MAP = {
     ], 
     "ice": [
         {
-            "emoji": "\ud83c\udf66", 
-            "name": "SOFT ICE CREAM"
+            "emoji": "\ud83c\udf68", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf67", 
-            "name": "SHAVED ICE"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf68", 
-            "name": "ICE CREAM"
+            "emoji": "\ud83c\udf66", 
+            "name": "SOFT ICE CREAM"
         }, 
         {
             "emoji": "\ud83c\udfd2", 
@@ -12887,7 +18200,7 @@ var EMOJI_MAP = {
     "icecream": [
         {
             "emoji": "\ud83c\udf66", 
-            "name": "SOFT ICE CREAM"
+            "name": "?"
         }
     ], 
     "iceland": [
@@ -12896,16 +18209,58 @@ var EMOJI_MAP = {
             "name": "Flag for Iceland"
         }
     ], 
+    "icon": [
+        {
+            "emoji": "\ud83c\udd96", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fc\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fb\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25aa\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25ab\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd35", 
+            "name": "?"
+        }
+    ], 
     "id": [
         {
             "emoji": "\ud83c\udd94", 
-            "name": "SQUARED ID"
+            "name": "?"
         }
     ], 
     "idea": [
         {
             "emoji": "\ud83d\udca1", 
-            "name": "ELECTRIC LIGHT BULB light bulb"
+            "name": "?"
         }
     ], 
     "identity": [
@@ -12915,6 +18270,10 @@ var EMOJI_MAP = {
         }
     ], 
     "ideograph": [
+        {
+            "emoji": "\ud83c\ude50", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\ude37\ufe0f", 
             "name": "SQUARED CJK UNIFIED IDEOGRAPH6708 squared moon ideograph"
@@ -12926,10 +18285,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\ude2f\ufe0f", 
             "name": "SQUARED CJK UNIFIED IDEOGRAPH6307 squared finger ideograph"
-        }, 
-        {
-            "emoji": "\ud83c\ude50", 
-            "name": "CIRCLED IDEOGRAPH ADVANTAGE circled advantage ideograph"
         }, 
         {
             "emoji": "\ud83c\ude39", 
@@ -13042,7 +18397,17 @@ var EMOJI_MAP = {
             "name": "SQUARED CJK UNIFIED IDEOGRAPH7A7A squared empty ideograph"
         }
     ], 
+    "ikea": [
+        {
+            "emoji": "\ud83d\udd27", 
+            "name": "?"
+        }
+    ], 
     "ill": [
+        {
+            "emoji": "\ud83d\ude37", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83e\udd12", 
             "name": "FACE WITH THERMOMETER"
@@ -13051,19 +18416,85 @@ var EMOJI_MAP = {
     "imp": [
         {
             "emoji": "\ud83d\udc7f", 
-            "name": "IMP"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude08", 
+            "name": "?"
+        }
+    ], 
+    "impressed": [
+        {
+            "emoji": "\ud83d\ude2e", 
+            "name": "?"
+        }
+    ], 
+    "in": [
+        {
+            "emoji": "\ud83d\udc64", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc65", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeae", 
+            "name": "?"
         }
     ], 
     "inbox": [
         {
+            "emoji": "\ud83d\udce4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2709\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcec", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udceb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udced", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcea", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udce5", 
-            "name": "INBOX TRAY"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce7", 
+            "name": "?"
         }
     ], 
     "incoming": [
         {
             "emoji": "\ud83d\udce8", 
-            "name": "INCOMING ENVELOPE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf2", 
+            "name": "?"
+        }
+    ], 
+    "increase": [
+        {
+            "emoji": "\u2795", 
+            "name": "?"
         }
     ], 
     "increasing": [
@@ -13077,6 +18508,10 @@ var EMOJI_MAP = {
         }
     ], 
     "index": [
+        {
+            "emoji": "\ud83d\udcc7", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc48", 
             "name": "WHITE LEFT POINTING BACKHAND INDEX backhand index pointing left"
@@ -13100,10 +18535,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\uddc2\ufe0f", 
             "name": "CARD INDEX DIVIDERS"
-        }, 
-        {
-            "emoji": "\ud83d\udcc7", 
-            "name": "CARD INDEX"
         }
     ], 
     "india": [
@@ -13114,8 +18545,36 @@ var EMOJI_MAP = {
     ], 
     "indian": [
         {
+            "emoji": "\ud83c\udf5b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc73", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\uddee\ud83c\uddf4", 
             "name": "Flag for British Indian Ocean Territory"
+        }
+    ], 
+    "indifference": [
+        {
+            "emoji": "\ud83d\ude12", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude10", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude15", 
+            "name": "?"
+        }
+    ], 
+    "indifferent": [
+        {
+            "emoji": "\ud83d\ude11", 
+            "name": "?"
         }
     ], 
     "indonesia": [
@@ -13124,20 +18583,58 @@ var EMOJI_MAP = {
             "name": "Flag for Indonesia"
         }
     ], 
+    "industry": [
+        {
+            "emoji": "\ud83c\udfed", 
+            "name": "?"
+        }
+    ], 
     "inexpressive": [
         {
             "emoji": "\ud83d\ude11", 
             "name": "EXPRESSIONLESS FACE"
         }
     ], 
+    "infatuation": [
+        {
+            "emoji": "\ud83d\ude18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1a", 
+            "name": "?"
+        }
+    ], 
+    "info": [
+        {
+            "emoji": "\ud83d\udeae", 
+            "name": "?"
+        }
+    ], 
     "information": [
         {
+            "emoji": "\ud83d\udcc4", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc81", 
-            "name": "INFORMATION DESK PERSON"
+            "name": "?"
         }, 
         {
             "emoji": "\u2139\ufe0f", 
-            "name": "INFORMATION SOURCE"
+            "name": "?"
         }
     ], 
     "injury": [
@@ -13149,16 +18646,28 @@ var EMOJI_MAP = {
     "ink": [
         {
             "emoji": "\ud83d\udd0f", 
-            "name": "LOCK WITH INK PEN lock with pen"
+            "name": "?"
         }
     ], 
     "innocent": [
         {
             "emoji": "\ud83d\ude07", 
-            "name": "SMILING FACE WITH HALO"
+            "name": "?"
         }
     ], 
     "input": [
+        {
+            "emoji": "\ud83d\udd18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd33", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd32", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd20", 
             "name": "INPUT SYMBOL FOR LATIN CAPITAL LETTERS input latin uppercase"
@@ -13183,19 +18692,19 @@ var EMOJI_MAP = {
     "insect": [
         {
             "emoji": "\ud83d\udc1b", 
-            "name": "BUG"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc1c", 
-            "name": "ANT"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc1d", 
-            "name": "HONEYBEE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc1e", 
-            "name": "LADY BEETLE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd77\ufe0f", 
@@ -13205,29 +18714,33 @@ var EMOJI_MAP = {
     "inside": [
         {
             "emoji": "\ud83d\udca0", 
-            "name": "DIAMOND SHAPE WITH A DOT INSIDE diamond with a dot"
+            "name": "?"
         }
     ], 
     "instrument": [
         {
-            "emoji": "\ud83c\udfb7", 
-            "name": "SAXOPHONE"
+            "emoji": "\ud83c\udfb9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfbb", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfb8", 
-            "name": "GUITAR"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udfb9", 
-            "name": "MUSICAL KEYBOARD"
+            "emoji": "\ud83c\udfb7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcef", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfba", 
             "name": "TRUMPET"
-        }, 
-        {
-            "emoji": "\ud83c\udfbb", 
-            "name": "VIOLIN"
         }
     ], 
     "intercardinal": [
@@ -13248,10 +18761,70 @@ var EMOJI_MAP = {
             "name": "NORTH WEST ARROW upleft arrow"
         }
     ], 
+    "international": [
+        {
+            "emoji": "\ud83c\udf10", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf0d", 
+            "name": "?"
+        }
+    ], 
+    "internet": [
+        {
+            "emoji": "\ud83d\udcf6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf10", 
+            "name": "?"
+        }
+    ], 
     "interrobang": [
         {
             "emoji": "\u2049\ufe0f", 
-            "name": "EXCLAMATION QUESTION MARK"
+            "name": "?"
+        }
+    ], 
+    "interweb": [
+        {
+            "emoji": "\ud83c\udf10", 
+            "name": "?"
+        }
+    ], 
+    "invader": [
+        {
+            "emoji": "\ud83d\udc7e", 
+            "name": "?"
+        }
+    ], 
+    "ip": [
+        {
+            "emoji": "\u00a9\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "iphone": [
+        {
+            "emoji": "\ud83d\udcf5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf1", 
+            "name": "?"
         }
     ], 
     "iran": [
@@ -13478,10 +19051,34 @@ var EMOJI_MAP = {
             "name": "Flag for Israel"
         }
     ], 
+    "issue": [
+        {
+            "emoji": "\u26a0\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "it": [
+        {
+            "emoji": "\ud83c\uddee\ud83c\uddf9", 
+            "name": "?"
+        }
+    ], 
+    "italian": [
+        {
+            "emoji": "\ud83c\udf5d", 
+            "name": "?"
+        }
+    ], 
     "italy": [
         {
             "emoji": "\ud83c\uddee\ud83c\uddf9", 
-            "name": "Flag for Italy"
+            "name": "?"
+        }
+    ], 
+    "its": [
+        {
+            "emoji": "\ud83d\udeae", 
+            "name": "?"
         }
     ], 
     "ivoire": [
@@ -13499,13 +19096,13 @@ var EMOJI_MAP = {
     "izakaya": [
         {
             "emoji": "\ud83c\udfee", 
-            "name": "IZAKAYA LANTERN red paper lantern"
+            "name": "?"
         }
     ], 
     "jack": [
         {
             "emoji": "\ud83c\udf83", 
-            "name": "JACKOLANTERN"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\uddec\ud83c\udde7", 
@@ -13532,8 +19129,16 @@ var EMOJI_MAP = {
     ], 
     "japan": [
         {
+            "emoji": "\ud83c\udf65", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf91", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\uddfe", 
-            "name": "SILHOUETTE OF JAPAN map of japan"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\uddef\ud83c\uddf5", 
@@ -13542,16 +19147,128 @@ var EMOJI_MAP = {
     ], 
     "japanese": [
         {
-            "emoji": "\ud83d\udc79", 
-            "name": "JAPANESE OGRE ogre"
+            "emoji": "\ud83c\ude32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u3297\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf71", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfef", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc7a", 
-            "name": "JAPANESE GOBLIN goblin"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc58", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf63", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf62", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddef\ud83c\uddf5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc79", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude01", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude37\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\uddfc", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf59", 
-            "name": "RICE BALL"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\uddfe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude02\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf76", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\uddfb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf58", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcae", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf5c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude33", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf61", 
@@ -13562,20 +19279,12 @@ var EMOJI_MAP = {
             "name": "JAPANESE POST OFFICE"
         }, 
         {
-            "emoji": "\ud83c\udfef", 
-            "name": "JAPANESE CASTLE"
-        }, 
-        {
             "emoji": "\ud83c\udf8b", 
             "name": "TANABATA TREE"
         }, 
         {
             "emoji": "\ud83c\udf8d", 
             "name": "PINE DECORATION"
-        }, 
-        {
-            "emoji": "\ud83c\udf8e", 
-            "name": "JAPANESE DOLLS"
         }, 
         {
             "emoji": "\ud83c\udfb4", 
@@ -13586,24 +19295,8 @@ var EMOJI_MAP = {
             "name": "IZAKAYA LANTERN red paper lantern"
         }, 
         {
-            "emoji": "\ud83c\udf8c", 
-            "name": "CROSSED FLAGS"
-        }, 
-        {
             "emoji": "\ud83d\udd30", 
             "name": "JAPANESE SYMBOL FOR BEGINNER"
-        }, 
-        {
-            "emoji": "\ud83c\ude01", 
-            "name": "SQUARED KATAKANA KOKO"
-        }, 
-        {
-            "emoji": "\ud83c\ude02\ufe0f", 
-            "name": "SQUARED KATAKANA SA"
-        }, 
-        {
-            "emoji": "\ud83c\ude37\ufe0f", 
-            "name": "SQUARED CJK UNIFIED IDEOGRAPH6708 squared moon ideograph"
         }, 
         {
             "emoji": "\ud83c\ude36", 
@@ -13624,16 +19317,18 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\ude1a\ufe0f", 
             "name": "SQUARED CJK UNIFIED IDEOGRAPH7121 squared negation ideograph"
-        }, 
+        }
+    ], 
+    "jazz": [
         {
-            "emoji": "\ud83c\ude32", 
-            "name": "SQUARED CJK UNIFIED IDEOGRAPH7981 squared prohibit ideograph"
+            "emoji": "\ud83c\udfb7", 
+            "name": "?"
         }
     ], 
     "jeans": [
         {
             "emoji": "\ud83d\udc56", 
-            "name": "JEANS"
+            "name": "?"
         }
     ], 
     "jersey": [
@@ -13654,11 +19349,45 @@ var EMOJI_MAP = {
     ], 
     "jewel": [
         {
+            "emoji": "\ud83d\udd36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd37", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd39", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc8e", 
             "name": "GEM STONE"
         }
     ], 
+    "jewelry": [
+        {
+            "emoji": "\ud83d\udc8e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8d", 
+            "name": "?"
+        }
+    ], 
     "jewish": [
+        {
+            "emoji": "\ud83d\udd2f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd4d", 
             "name": "SYNAGOGUE"
@@ -13674,6 +19403,12 @@ var EMOJI_MAP = {
             "name": "HORSE RACING"
         }
     ], 
+    "join": [
+        {
+            "emoji": "\ud83c\ude34", 
+            "name": "?"
+        }
+    ], 
     "joke": [
         {
             "emoji": "\ud83d\ude1c", 
@@ -13683,7 +19418,7 @@ var EMOJI_MAP = {
     "joker": [
         {
             "emoji": "\ud83c\udccf", 
-            "name": "PLAYING CARD BLACK JOKER joker"
+            "name": "?"
         }
     ], 
     "jordan": [
@@ -13695,17 +19430,57 @@ var EMOJI_MAP = {
     "joy": [
         {
             "emoji": "\ud83d\ude02", 
-            "name": "FACE WITH TEARS OF JOY"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude03", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude06", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude01", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude39", 
-            "name": "CAT FACE WITH TEARS OF JOY"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude00", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude04", 
+            "name": "?"
         }
     ], 
     "joystick": [
         {
             "emoji": "\ud83d\udd79\ufe0f", 
             "name": "JOYSTICK"
+        }
+    ], 
+    "jp": [
+        {
+            "emoji": "\ud83c\uddef\ud83c\uddf5", 
+            "name": "?"
+        }
+    ], 
+    "judge": [
+        {
+            "emoji": "\ud83d\udd28", 
+            "name": "?"
         }
     ], 
     "jug": [
@@ -13730,6 +19505,68 @@ var EMOJI_MAP = {
             "name": "KAABA"
         }
     ], 
+    "kanji": [
+        {
+            "emoji": "\ud83c\ude32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u3297\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u3299\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude2f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude39", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude50", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude37\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude51", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udc04", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude33", 
+            "name": "?"
+        }
+    ], 
     "karaoke": [
         {
             "emoji": "\ud83c\udfa4", 
@@ -13739,11 +19576,11 @@ var EMOJI_MAP = {
     "katakana": [
         {
             "emoji": "\ud83c\ude01", 
-            "name": "SQUARED KATAKANA KOKO"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\ude02\ufe0f", 
-            "name": "SQUARED KATAKANA SA"
+            "name": "?"
         }
     ], 
     "kazakhstan": [
@@ -13772,12 +19609,12 @@ var EMOJI_MAP = {
     ], 
     "key": [
         {
-            "emoji": "\ud83d\udd10", 
-            "name": "CLOSED LOCK WITH KEY"
+            "emoji": "\ud83d\udd11", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd11", 
-            "name": "KEY"
+            "emoji": "\ud83d\udd10", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udddd\ufe0f", 
@@ -13787,7 +19624,7 @@ var EMOJI_MAP = {
     "keyboard": [
         {
             "emoji": "\ud83c\udfb9", 
-            "name": "MUSICAL KEYBOARD"
+            "name": "?"
         }, 
         {
             "emoji": "\u2328\ufe0f", 
@@ -13795,6 +19632,10 @@ var EMOJI_MAP = {
         }
     ], 
     "keycap": [
+        {
+            "emoji": "\ud83d\udd1f", 
+            "name": "?"
+        }, 
         {
             "emoji": "#\ufe0f\u20e3", 
             "name": "Keycap NUMBER SIGN keycap number"
@@ -13842,22 +19683,28 @@ var EMOJI_MAP = {
         {
             "emoji": "9\ufe0f\u20e3", 
             "name": "Keycap DIGIT NINE"
-        }, 
+        }
+    ], 
+    "kills": [
         {
-            "emoji": "\ud83d\udd1f", 
-            "name": "KEYCAP TEN"
+            "emoji": "\ud83d\udeac", 
+            "name": "?"
         }
     ], 
     "kimono": [
         {
             "emoji": "\ud83d\udc58", 
-            "name": "KIMONO"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8e", 
+            "name": "?"
         }
     ], 
     "king": [
         {
             "emoji": "\ud83d\udc51", 
-            "name": "CROWN"
+            "name": "?"
         }
     ], 
     "kingdom": [
@@ -13879,6 +19726,14 @@ var EMOJI_MAP = {
         }
     ], 
     "kiss": [
+        {
+            "emoji": "\ud83d\udc44", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8b", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude18", 
             "name": "FACE THROWING A KISS"
@@ -13914,10 +19769,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udc69\u200d\u2764\ufe0f\u200d\ud83d\udc8b\u200d\ud83d\udc69", 
             "name": "Kiss: WOMAN,WOMAN"
-        }, 
-        {
-            "emoji": "\ud83d\udc8b", 
-            "name": "KISS MARK"
         }
     ], 
     "kiss:": [
@@ -13936,26 +19787,42 @@ var EMOJI_MAP = {
     ], 
     "kissing": [
         {
-            "emoji": "\ud83d\ude17", 
-            "name": "KISSING FACE"
+            "emoji": "\ud83d\ude18", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude19", 
-            "name": "KISSING FACE WITH SMILING EYES"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude1a", 
-            "name": "KISSING FACE WITH CLOSED EYES"
+            "emoji": "\ud83d\ude17", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude3d", 
-            "name": "KISSING CAT FACE WITH CLOSED EYES"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1a", 
+            "name": "?"
         }
     ], 
     "kitchen": [
         {
+            "emoji": "\ud83c\udf6f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf73", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf74", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd2a", 
-            "name": "HOCHO kitchen knife"
+            "name": "?"
         }
     ], 
     "kitts": [
@@ -13966,16 +19833,16 @@ var EMOJI_MAP = {
     ], 
     "knife": [
         {
-            "emoji": "\ud83c\udf7d\ufe0f", 
-            "name": "FORK AND KNIFE WITH PLATE"
-        }, 
-        {
             "emoji": "\ud83c\udf74", 
-            "name": "FORK AND KNIFE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd2a", 
-            "name": "HOCHO kitchen knife"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7d\ufe0f", 
+            "name": "FORK AND KNIFE WITH PLATE"
         }, 
         {
             "emoji": "\ud83d\udde1\ufe0f", 
@@ -13988,16 +19855,50 @@ var EMOJI_MAP = {
             "name": "CONTROL KNOBS"
         }
     ], 
+    "knowledge": [
+        {
+            "emoji": "\ud83d\udcd5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd8", 
+            "name": "?"
+        }
+    ], 
     "koala": [
         {
             "emoji": "\ud83d\udc28", 
-            "name": "KOALA"
+            "name": "?"
+        }
+    ], 
+    "kod": [
+        {
+            "emoji": "\ud83d\udc51", 
+            "name": "?"
+        }
+    ], 
+    "koinobori": [
+        {
+            "emoji": "\ud83c\udf8f", 
+            "name": "?"
         }
     ], 
     "koko": [
         {
             "emoji": "\ud83c\ude01", 
-            "name": "SQUARED KATAKANA KOKO"
+            "name": "?"
         }
     ], 
     "kong": [
@@ -14008,18 +19909,24 @@ var EMOJI_MAP = {
     ], 
     "korea": [
         {
-            "emoji": "\ud83c\uddf0\ud83c\uddf5", 
-            "name": "Flag for North Korea"
+            "emoji": "\ud83c\uddf0\ud83c\uddf7", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\uddf0\ud83c\uddf7", 
-            "name": "Flag for South Korea"
+            "emoji": "\ud83c\uddf0\ud83c\uddf5", 
+            "name": "Flag for North Korea"
         }
     ], 
     "kosovo": [
         {
             "emoji": "\ud83c\uddfd\ud83c\uddf0", 
             "name": "Flag for Kosovo"
+        }
+    ], 
+    "kr": [
+        {
+            "emoji": "\ud83c\uddf0\ud83c\uddf7", 
+            "name": "?"
         }
     ], 
     "kuwait": [
@@ -14036,11 +19943,33 @@ var EMOJI_MAP = {
     ], 
     "label": [
         {
+            "emoji": "\ud83d\udd16", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udff7\ufe0f", 
             "name": "LABEL"
         }
     ], 
+    "laboratory": [
+        {
+            "emoji": "\ud83d\udd2c", 
+            "name": "?"
+        }
+    ], 
     "lady": [
+        {
+            "emoji": "\ud83d\udc52", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc75", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc69", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc1e", 
             "name": "LADY BEETLE"
@@ -14084,12 +20013,12 @@ var EMOJI_MAP = {
     ], 
     "lantern": [
         {
-            "emoji": "\ud83c\udf83", 
-            "name": "JACKOLANTERN"
+            "emoji": "\ud83c\udfee", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udfee", 
-            "name": "IZAKAYA LANTERN red paper lantern"
+            "emoji": "\ud83c\udf83", 
+            "name": "?"
         }
     ], 
     "laos": [
@@ -14101,10 +20030,30 @@ var EMOJI_MAP = {
     "laptop": [
         {
             "emoji": "\ud83d\udcbb", 
-            "name": "PERSONAL COMPUTER laptop computer"
+            "name": "?"
         }
     ], 
     "large": [
+        {
+            "emoji": "\ud83d\udd36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd37", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd35", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udf25\ufe0f", 
             "name": "WHITE SUN BEHIND CLOUD sun behind large cloud"
@@ -14122,34 +20071,120 @@ var EMOJI_MAP = {
             "name": "WHITE LARGE SQUARE"
         }, 
         {
-            "emoji": "\ud83d\udd36", 
-            "name": "LARGE ORANGE DIAMOND"
-        }, 
-        {
-            "emoji": "\ud83d\udd37", 
-            "name": "LARGE BLUE DIAMOND"
-        }, 
-        {
             "emoji": "\ud83d\udd34", 
             "name": "LARGE RED CIRCLE red circle"
-        }, 
-        {
-            "emoji": "\ud83d\udd35", 
-            "name": "LARGE BLUE CIRCLE blue circle"
         }
     ], 
     "last": [
         {
             "emoji": "\ud83c\udf17", 
-            "name": "LAST QUARTER MOON SYMBOL last quarter moon"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf1c", 
-            "name": "LAST QUARTER MOON WITH FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\u23ee\ufe0f", 
             "name": "BLACK LEFTPOINTING DOUBLE TRIANGLE WITH VERTICAL BAR last track button"
+        }
+    ], 
+    "late": [
+        {
+            "emoji": "\ud83d\udd65", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd66", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd60", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd59", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd58", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd57", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd56", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd55", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd54", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd52", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd51", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd50", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd67", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd62", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd61", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd64", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd53", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd63", 
+            "name": "?"
         }
     ], 
     "latin": [
@@ -14202,6 +20237,14 @@ var EMOJI_MAP = {
             "name": "FACE WITH TEARS OF JOY"
         }, 
         {
+            "emoji": "\ud83d\ude05", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude04", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude06", 
             "name": "SMILING FACE WITH OPEN MOUTH AND TIGHTLYCLOSED EYES"
         }
@@ -14210,10 +20253,16 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\ude02", 
             "name": "FACE WITH TEARS OF JOY"
-        }, 
+        },
         {
             "emoji": "\ud83d\ude06", 
-            "name": "SMILING FACE WITH OPEN MOUTH AND TIGHTLYCLOSED EYES"
+            "name": "?"
+        }, 
+    ], 
+    "launch": [
+        {
+            "emoji": "\ud83d\ude80", 
+            "name": "?"
         }
     ], 
     "lavatory": [
@@ -14234,22 +20283,76 @@ var EMOJI_MAP = {
             "name": "WATER CLOSET"
         }
     ], 
-    "leaf": [
+    "law": [
+        {
+            "emoji": "\ud83d\ude93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2122\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd28", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u00a9\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude94", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcbc", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea8", 
+            "name": "?"
+        }
+    ], 
+    "lawn": [
+        {
+            "emoji": "\ud83c\udf31", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf43", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udf3f", 
-            "name": "HERB"
+            "name": "?"
+        }
+    ], 
+    "leader": [
+        {
+            "emoji": "\ud83d\udc51", 
+            "name": "?"
+        }
+    ], 
+    "leaf": [
+        {
+            "emoji": "\ud83c\udf42", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf40", 
-            "name": "FOUR LEAF CLOVER"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf41", 
-            "name": "MAPLE LEAF"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf42", 
-            "name": "FALLEN LEAF"
+            "emoji": "\ud83c\udf3f", 
+            "name": "HERB"
         }, 
         {
             "emoji": "\ud83c\udf43", 
@@ -14258,6 +20361,38 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd30", 
             "name": "JAPANESE SYMBOL FOR BEGINNER"
+        }
+    ], 
+    "learn": [
+        {
+            "emoji": "\ud83d\udcd5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfeb", 
+            "name": "?"
+        }
+    ], 
+    "leaves": [
+        {
+            "emoji": "\ud83c\udf42", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf43", 
+            "name": "?"
         }
     ], 
     "lebanon": [
@@ -14269,13 +20404,37 @@ var EMOJI_MAP = {
     "ledger": [
         {
             "emoji": "\ud83d\udcd2", 
-            "name": "LEDGER"
+            "name": "?"
         }
     ], 
     "left": [
         {
+            "emoji": "\u25c0\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2194\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udec5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2196\ufe0f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc48", 
-            "name": "WHITE LEFT POINTING BACKHAND INDEX backhand index pointing left"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2199\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b05\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udde8\ufe0f", 
@@ -14302,18 +20461,6 @@ var EMOJI_MAP = {
             "name": "LOWER LEFT CRAYON crayon"
         }, 
         {
-            "emoji": "\ud83d\udec5", 
-            "name": "LEFT LUGGAGE"
-        }, 
-        {
-            "emoji": "\u2b05\ufe0f", 
-            "name": "LEFTWARDS BLACK ARROW left arrow"
-        }, 
-        {
-            "emoji": "\u2194\ufe0f", 
-            "name": "LEFT RIGHT ARROW leftright arrow"
-        }, 
-        {
             "emoji": "\u21a9\ufe0f", 
             "name": "LEFTWARDS ARROW WITH HOOK right arrow curving left"
         }, 
@@ -14324,10 +20471,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd1b", 
             "name": "ON WITH EXCLAMATION MARK WITH LEFT RIGHT ARROW ABOVE on! arrow"
-        }, 
-        {
-            "emoji": "\u25c0\ufe0f", 
-            "name": "BLACK LEFTPOINTING TRIANGLE reverse button"
         }
     ], 
     "leftpointing": [
@@ -14356,12 +20499,12 @@ var EMOJI_MAP = {
     ], 
     "leftwards": [
         {
-            "emoji": "\u2b05\ufe0f", 
-            "name": "LEFTWARDS BLACK ARROW left arrow"
+            "emoji": "\u21a9\ufe0f", 
+            "name": "?"
         }, 
         {
-            "emoji": "\u21a9\ufe0f", 
-            "name": "LEFTWARDS ARROW WITH HOOK right arrow curving left"
+            "emoji": "\u2b05\ufe0f", 
+            "name": "LEFTWARDS BLACK ARROW left arrow"
         }, 
         {
             "emoji": "\ud83d\udd19", 
@@ -14383,16 +20526,68 @@ var EMOJI_MAP = {
     "leg": [
         {
             "emoji": "\ud83c\udf57", 
-            "name": "POULTRY LEG"
+            "name": "?"
+        }
+    ], 
+    "legal": [
+        {
+            "emoji": "\ud83d\ude93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2122\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd28", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u00a9\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcdd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude94", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcbc", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea8", 
+            "name": "?"
         }
     ], 
     "lemon": [
         {
             "emoji": "\ud83c\udf4b", 
-            "name": "LEMON"
+            "name": "?"
+        }
+    ], 
+    "length": [
+        {
+            "emoji": "\ud83d\udccf", 
+            "name": "?"
         }
     ], 
     "leo": [
+        {
+            "emoji": "\u264c", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83e\udd81", 
             "name": "LION FACE"
@@ -14411,7 +20606,7 @@ var EMOJI_MAP = {
     "leopard": [
         {
             "emoji": "\ud83d\udc06", 
-            "name": "LEOPARD"
+            "name": "?"
         }
     ], 
     "lesotho": [
@@ -14420,10 +20615,48 @@ var EMOJI_MAP = {
             "name": "Flag for Lesotho"
         }
     ], 
+    "less": [
+        {
+            "emoji": "\u2796", 
+            "name": "?"
+        }
+    ], 
     "letter": [
         {
+            "emoji": "\ud83c\udd7e\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2709\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcee", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u24c2\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd71\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2139\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd7f\ufe0f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc8c", 
-            "name": "LOVE LETTER"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd70\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udce7", 
@@ -14444,26 +20677,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udce5", 
             "name": "INBOX TRAY"
-        }, 
-        {
-            "emoji": "\ud83c\udd70\ufe0f", 
-            "name": "NEGATIVE SQUARED LATIN CAPITAL LETTER A a button"
-        }, 
-        {
-            "emoji": "\ud83c\udd71\ufe0f", 
-            "name": "NEGATIVE SQUARED LATIN CAPITAL LETTER B b button"
-        }, 
-        {
-            "emoji": "\u24c2\ufe0f", 
-            "name": "CIRCLED LATIN CAPITAL LETTER M circled letter m"
-        }, 
-        {
-            "emoji": "\ud83c\udd7e\ufe0f", 
-            "name": "NEGATIVE SQUARED LATIN CAPITAL LETTER O o button"
-        }, 
-        {
-            "emoji": "\ud83c\udd7f\ufe0f", 
-            "name": "NEGATIVE SQUARED LATIN CAPITAL LETTER P p button"
         }
     ], 
     "letters": [
@@ -14501,10 +20714,14 @@ var EMOJI_MAP = {
     "liberty": [
         {
             "emoji": "\ud83d\uddfd", 
-            "name": "STATUE OF LIBERTY"
+            "name": "?"
         }
     ], 
     "libra": [
+        {
+            "emoji": "\u264e", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u2696\ufe0f", 
             "name": "SCALES balance scale"
@@ -14514,10 +20731,42 @@ var EMOJI_MAP = {
             "name": "LIBRA"
         }
     ], 
+    "library": [
+        {
+            "emoji": "\ud83d\udcd5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcda", 
+            "name": "?"
+        }
+    ], 
     "libya": [
         {
             "emoji": "\ud83c\uddf1\ud83c\uddfe", 
             "name": "Flag for Libya"
+        }
+    ], 
+    "license": [
+        {
+            "emoji": "\u00a9\ufe0f", 
+            "name": "?"
         }
     ], 
     "liechtenstein": [
@@ -14535,35 +20784,43 @@ var EMOJI_MAP = {
     "light": [
         {
             "emoji": "\ud83d\ude88", 
-            "name": "LIGHT RAIL"
-        }, 
-        {
-            "emoji": "\ud83d\udea8", 
-            "name": "POLICE CARS REVOLVING LIGHT police car\u2019s light"
-        }, 
-        {
-            "emoji": "\ud83d\udea5", 
-            "name": "HORIZONTAL TRAFFIC LIGHT"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udea6", 
-            "name": "VERTICAL TRAFFIC LIGHT"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfee", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf83", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd06", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca1", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd6f\ufe0f", 
             "name": "CANDLE"
         }, 
         {
-            "emoji": "\ud83d\udca1", 
-            "name": "ELECTRIC LIGHT BULB light bulb"
-        }, 
-        {
             "emoji": "\ud83d\udd26", 
             "name": "ELECTRIC TORCH flashlight"
-        }, 
-        {
-            "emoji": "\ud83c\udfee", 
-            "name": "IZAKAYA LANTERN red paper lantern"
         }
     ], 
     "lightning": [
@@ -14580,14 +20837,164 @@ var EMOJI_MAP = {
             "name": "HIGH VOLTAGE SIGN high voltage"
         }
     ], 
+    "lightning bolt": [
+        {
+            "emoji": "\u26a1", 
+            "name": "?"
+        }
+    ], 
+    "like": [
+        {
+            "emoji": "\ud83d\ude3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc96", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc95", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc92", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc98", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc97", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2764\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc99", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude04", 
+            "name": "?"
+        }
+    ], 
+    "limbs": [
+        {
+            "emoji": "\ud83d\udc4c", 
+            "name": "?"
+        }
+    ], 
+    "limit": [
+        {
+            "emoji": "\ud83d\udeab", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u231b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26d4", 
+            "name": "?"
+        }
+    ], 
+    "line": [
+        {
+            "emoji": "\u3030\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "link": [
+        {
+            "emoji": "\ud83d\udd17", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd87\ufe0f", 
             "name": "LINKED PAPERCLIPS"
-        }, 
-        {
-            "emoji": "\ud83d\udd17", 
-            "name": "LINK SYMBOL link"
         }
     ], 
     "linked": [
@@ -14609,17 +21016,39 @@ var EMOJI_MAP = {
     "lips": [
         {
             "emoji": "\ud83d\udc44", 
-            "name": "MOUTH"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc8b", 
-            "name": "KISS MARK"
+            "name": "?"
         }
     ], 
     "lipstick": [
         {
             "emoji": "\ud83d\udc84", 
-            "name": "LIPSTICK"
+            "name": "?"
+        }
+    ], 
+    "liquid": [
+        {
+            "emoji": "\ud83d\udeb0", 
+            "name": "?"
+        }
+    ], 
+    "listen": [
+        {
+            "emoji": "\ud83d\udc42", 
+            "name": "?"
+        }
+    ], 
+    "literature": [
+        {
+            "emoji": "\ud83d\udcd6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcda", 
+            "name": "?"
         }
     ], 
     "lithuania": [
@@ -14630,12 +21059,12 @@ var EMOJI_MAP = {
     ], 
     "litter": [
         {
-            "emoji": "\ud83d\udeae", 
-            "name": "PUT LITTER IN ITS PLACE SYMBOL litter in bin sign"
+            "emoji": "\ud83d\udeaf", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udeaf", 
-            "name": "DO NOT LITTER SYMBOL no littering"
+            "emoji": "\ud83d\udeae", 
+            "name": "?"
         }
     ], 
     "litterbox": [
@@ -14650,32 +21079,44 @@ var EMOJI_MAP = {
             "name": "DO NOT LITTER SYMBOL no littering"
         }
     ], 
+    "load": [
+        {
+            "emoji": "\ud83d\udcc2", 
+            "name": "?"
+        }
+    ], 
     "loaf": [
         {
             "emoji": "\ud83c\udf5e", 
             "name": "BREAD"
         }
     ], 
+    "location": [
+        {
+            "emoji": "\ud83d\udccd", 
+            "name": "?"
+        }
+    ], 
     "lock": [
         {
+            "emoji": "\ud83d\udd11", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd10", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd0f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd12", 
-            "name": "LOCK"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd13", 
             "name": "OPEN LOCK"
-        }, 
-        {
-            "emoji": "\ud83d\udd0f", 
-            "name": "LOCK WITH INK PEN lock with pen"
-        }, 
-        {
-            "emoji": "\ud83d\udd10", 
-            "name": "CLOSED LOCK WITH KEY"
-        }, 
-        {
-            "emoji": "\ud83d\udd11", 
-            "name": "KEY"
         }, 
         {
             "emoji": "\ud83d\udddd\ufe0f", 
@@ -14691,16 +21132,38 @@ var EMOJI_MAP = {
     "locomotive": [
         {
             "emoji": "\ud83d\ude82", 
-            "name": "STEAM LOCOMOTIVE locomotive"
+            "name": "?"
+        }
+    ], 
+    "lol": [
+        {
+            "emoji": "\ud83d\ude06", 
+            "name": "?"
         }
     ], 
     "lollipop": [
         {
             "emoji": "\ud83c\udf6d", 
-            "name": "LOLLIPOP"
+            "name": "?"
+        }
+    ], 
+    "londoneye": [
+        {
+            "emoji": "\ud83c\udfa1", 
+            "name": "?"
+        }
+    ], 
+    "loo": [
+        {
+            "emoji": "\ud83d\udeba", 
+            "name": "?"
         }
     ], 
     "look": [
+        {
+            "emoji": "\ud83d\udc40", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude24", 
             "name": "FACE WITH LOOK OF TRIUMPH face with steam from nose"
@@ -14708,24 +21171,38 @@ var EMOJI_MAP = {
     ], 
     "loop": [
         {
-            "emoji": "\u27b0", 
-            "name": "CURLY LOOP"
+            "emoji": "\ud83d\udd01", 
+            "name": "?"
         }, 
         {
             "emoji": "\u27bf", 
-            "name": "DOUBLE CURLY LOOP"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd02", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u27b0", 
+            "name": "?"
+        }
+    ], 
+    "lord": [
+        {
+            "emoji": "\ud83d\udc51", 
+            "name": "?"
         }
     ], 
     "lorry": [
         {
             "emoji": "\ud83d\ude9b", 
-            "name": "ARTICULATED LORRY"
+            "name": "?"
         }
     ], 
     "loud": [
         {
             "emoji": "\ud83d\udd0a", 
-            "name": "SPEAKER WITH THREE SOUND WAVES speaker loud"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udce2", 
@@ -14741,46 +21218,142 @@ var EMOJI_MAP = {
     "loudspeaker": [
         {
             "emoji": "\ud83d\udce2", 
-            "name": "PUBLIC ADDRESS LOUDSPEAKER loudspeaker"
+            "name": "?"
         }
     ], 
     "love": [
         {
-            "emoji": "\ud83d\ude0d", 
-            "name": "SMILING FACE WITH HEARTSHAPED EYES"
-        }, 
-        {
             "emoji": "\ud83d\ude3b", 
-            "name": "SMILING CAT FACE WITH HEARTSHAPED EYES"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc91", 
-            "name": "COUPLE WITH HEART"
+            "emoji": "\ud83d\ude18", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc95", 
-            "name": "TWO HEARTS"
+            "emoji": "\ud83d\udc96", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc8c", 
-            "name": "LOVE LETTER"
+            "emoji": "\ud83d\udc6c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf39", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfe9", 
-            "name": "LOVE HOTEL"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc95", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc92", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc98", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc97", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2764\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc99", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9c", 
+            "name": "?"
         }
     ], 
     "low": [
         {
-            "emoji": "\ud83d\udd09", 
-            "name": "SPEAKER WITH ONE SOUND WAVE speaker on"
+            "emoji": "\ud83d\udd05", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd05", 
-            "name": "LOW BRIGHTNESS SYMBOL dim button"
+            "emoji": "\ud83d\udd09", 
+            "name": "SPEAKER WITH ONE SOUND WAVE speaker on"
         }
     ], 
     "lower": [
+        {
+            "emoji": "\u2198\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2199\ufe0f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd8b\ufe0f", 
             "name": "LOWER LEFT FOUNTAIN PEN fountain pen"
@@ -14820,20 +21393,42 @@ var EMOJI_MAP = {
             "name": "Flag for St. Lucia"
         }
     ], 
+    "luck": [
+        {
+            "emoji": "\ud83c\udfb1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb2", 
+            "name": "?"
+        }
+    ], 
     "lucky": [
         {
             "emoji": "\ud83c\udf40", 
-            "name": "FOUR LEAF CLOVER"
+            "name": "?"
         }, 
         {
             "emoji": "\u2618\ufe0f", 
             "name": "SHAMROCK"
         }
-    ],
+    ], 
     "luggage": [
         {
             "emoji": "\ud83d\udec5", 
-            "name": "LEFT LUGGAGE"
+            "name": "?"
         }
     ], 
     "luxembourg": [
@@ -14845,13 +21440,19 @@ var EMOJI_MAP = {
     "m": [
         {
             "emoji": "\u24c2\ufe0f", 
-            "name": "CIRCLED LATIN CAPITAL LETTER M circled letter m"
+            "name": "?"
         }
     ], 
     "maarten": [
         {
             "emoji": "\ud83c\uddf8\ud83c\uddfd", 
             "name": "Flag for Sint Maarten"
+        }
+    ], 
+    "mac": [
+        {
+            "emoji": "\ud83c\udf4e", 
+            "name": "?"
         }
     ], 
     "macao": [
@@ -14875,7 +21476,7 @@ var EMOJI_MAP = {
     "machine": [
         {
             "emoji": "\ud83c\udfb0", 
-            "name": "SLOT MACHINE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udce0", 
@@ -14889,15 +21490,15 @@ var EMOJI_MAP = {
     "mad": [
         {
             "emoji": "\ud83d\ude21", 
-            "name": "POUTING FACE"
-        }, 
-        {
-            "emoji": "\ud83d\ude20", 
-            "name": "ANGRY FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udca2", 
-            "name": "ANGER SYMBOL"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude20", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\uddef\ufe0f", 
@@ -14908,6 +21509,78 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\uddf2\ud83c\uddec", 
             "name": "Flag for Madagascar"
+        }
+    ], 
+    "mag": [
+        {
+            "emoji": "\ud83d\udd0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd0d", 
+            "name": "?"
+        }
+    ], 
+    "magic": [
+        {
+            "emoji": "\u2660\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2666\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc07", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf89", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2665\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcab", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udccf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2663\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd2e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2728", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc30", 
+            "name": "?"
         }
     ], 
     "magnifying": [
@@ -14921,6 +21594,10 @@ var EMOJI_MAP = {
         }
     ], 
     "mahjong": [
+        {
+            "emoji": "\ud83c\udc04", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udc04\ufe0f", 
             "name": "MAHJONG TILE RED DRAGON mahjong red dragon"
@@ -14937,6 +21614,18 @@ var EMOJI_MAP = {
         }
     ], 
     "mail": [
+        {
+            "emoji": "\ud83d\udce6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcec", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udced", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc8c", 
             "name": "LOVE LETTER"
@@ -14970,38 +21659,36 @@ var EMOJI_MAP = {
             "name": "CLOSED MAILBOX WITH LOWERED FLAG"
         }, 
         {
-            "emoji": "\ud83d\udcec", 
-            "name": "OPEN MAILBOX WITH RAISED FLAG"
-        }, 
-        {
-            "emoji": "\ud83d\udced", 
-            "name": "OPEN MAILBOX WITH LOWERED FLAG"
-        }, 
-        {
             "emoji": "\ud83d\udcee", 
             "name": "POSTBOX"
         }
     ], 
     "mailbox": [
         {
-            "emoji": "\ud83d\udceb", 
-            "name": "CLOSED MAILBOX WITH RAISED FLAG"
-        }, 
-        {
-            "emoji": "\ud83d\udcea", 
-            "name": "CLOSED MAILBOX WITH LOWERED FLAG"
-        }, 
-        {
             "emoji": "\ud83d\udcec", 
-            "name": "OPEN MAILBOX WITH RAISED FLAG"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udceb", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udced", 
-            "name": "OPEN MAILBOX WITH LOWERED FLAG"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcea", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcee", 
             "name": "POSTBOX"
+        }
+    ], 
+    "maintainer": [
+        {
+            "emoji": "\ud83d\udd27", 
+            "name": "?"
         }
     ], 
     "maize": [
@@ -15034,10 +21721,62 @@ var EMOJI_MAP = {
             "name": "Flag for Maldives"
         }
     ], 
+    "male": [
+        {
+            "emoji": "\ud83c\udf85", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc71", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc74", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc73", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc77", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc82", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude47", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc66", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc72", 
+            "name": "?"
+        }
+    ], 
     "mali": [
         {
             "emoji": "\ud83c\uddf2\ud83c\uddf1", 
             "name": "Flag for Mali"
+        }
+    ], 
+    "mall": [
+        {
+            "emoji": "\ud83c\udfec", 
+            "name": "?"
         }
     ], 
     "malta": [
@@ -15054,20 +21793,44 @@ var EMOJI_MAP = {
     ], 
     "man": [
         {
-            "emoji": "\ud83d\udc68", 
-            "name": "MAN"
+            "emoji": "\ud83c\udf85", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc71", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6e", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc74", 
-            "name": "OLDER MAN old man"
-        }, 
-        {
-            "emoji": "\ud83d\udc72", 
-            "name": "MAN WITH GUA PI MAO man with chinese cap"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc73", 
-            "name": "MAN WITH TURBAN"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc68", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude47", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc66", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc72", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd74\ufe0f", 
@@ -15223,13 +21986,13 @@ var EMOJI_MAP = {
     "manicure": [
         {
             "emoji": "\ud83d\udc85", 
-            "name": "NAIL POLISH"
+            "name": "?"
         }
     ], 
     "mans": [
         {
             "emoji": "\ud83d\udc5e", 
-            "name": "MANS SHOE man\u2019s shoe"
+            "name": "?"
         }
     ], 
     "mantelpiece": [
@@ -15247,10 +22010,14 @@ var EMOJI_MAP = {
     "mao": [
         {
             "emoji": "\ud83d\udc72", 
-            "name": "MAN WITH GUA PI MAO man with chinese cap"
+            "name": "?"
         }
     ], 
     "map": [
+        {
+            "emoji": "\ud83d\udccd", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\uddfa\ufe0f", 
             "name": "WORLD MAP"
@@ -15263,7 +22030,7 @@ var EMOJI_MAP = {
     "maple": [
         {
             "emoji": "\ud83c\udf41", 
-            "name": "MAPLE LEAF"
+            "name": "?"
         }
     ], 
     "marathon": [
@@ -15286,6 +22053,30 @@ var EMOJI_MAP = {
     ], 
     "mark": [
         {
+            "emoji": "\ud83d\udea9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2705", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u274e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2714\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udccc", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u303d\ufe0f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc8b", 
             "name": "KISS MARK"
         }, 
@@ -15306,24 +22097,8 @@ var EMOJI_MAP = {
             "name": "ON WITH EXCLAMATION MARK WITH LEFT RIGHT ARROW ABOVE on! arrow"
         }, 
         {
-            "emoji": "\u2705", 
-            "name": "WHITE HEAVY CHECK MARK"
-        }, 
-        {
-            "emoji": "\u2714\ufe0f", 
-            "name": "HEAVY CHECK MARK"
-        }, 
-        {
             "emoji": "\u274c", 
             "name": "CROSS MARK"
-        }, 
-        {
-            "emoji": "\u274e", 
-            "name": "NEGATIVE SQUARED CROSS MARK cross mark button"
-        }, 
-        {
-            "emoji": "\u303d\ufe0f", 
-            "name": "PART ALTERNATION MARK"
         }, 
         {
             "emoji": "\u203c\ufe0f", 
@@ -15370,6 +22145,32 @@ var EMOJI_MAP = {
             "name": "CHART WITH UPWARDS TREND AND YEN SIGN chart increasing with yen"
         }
     ], 
+    "marriage": [
+        {
+            "emoji": "\ud83d\udc6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc92", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc70", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8f", 
+            "name": "?"
+        }
+    ], 
     "marshall": [
         {
             "emoji": "\ud83c\uddf2\ud83c\udded", 
@@ -15391,7 +22192,15 @@ var EMOJI_MAP = {
     "mask": [
         {
             "emoji": "\ud83d\ude37", 
-            "name": "FACE WITH MEDICAL MASK"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc7a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc79", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfad", 
@@ -15400,22 +22209,42 @@ var EMOJI_MAP = {
     ], 
     "massage": [
         {
+            "emoji": "\u263a\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0c", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc86", 
-            "name": "FACE MASSAGE"
+            "name": "?"
         }
     ], 
     "math": [
         {
-            "emoji": "\u2795", 
-            "name": "HEAVY PLUS SIGN"
+            "emoji": "\u2716\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\u2796", 
-            "name": "HEAVY MINUS SIGN"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udccf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd0", 
+            "name": "?"
         }, 
         {
             "emoji": "\u2797", 
-            "name": "HEAVY DIVISION SIGN"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2795", 
+            "name": "?"
         }
     ], 
     "mauritania": [
@@ -15454,10 +22283,38 @@ var EMOJI_MAP = {
             "name": "Flag for Heard  McDonald Islands"
         }
     ], 
+    "mcdonalds": [
+        {
+            "emoji": "\ud83c\udf54", 
+            "name": "?"
+        }
+    ], 
+    "mean": [
+        {
+            "emoji": "\ud83d\ude0f", 
+            "name": "?"
+        }
+    ], 
     "meat": [
         {
+            "emoji": "\ud83c\udf72", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf56", 
-            "name": "MEAT ON BONE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf57", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf54", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf61", 
+            "name": "?"
         }
     ], 
     "medal": [
@@ -15478,34 +22335,46 @@ var EMOJI_MAP = {
     ], 
     "medicine": [
         {
+            "emoji": "\ud83d\udc89", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude37", 
             "name": "FACE WITH MEDICAL MASK"
         }, 
         {
             "emoji": "\ud83c\udfe5", 
             "name": "HOSPITAL"
-        }, 
-        {
-            "emoji": "\ud83d\udc89", 
-            "name": "SYRINGE"
-        }, 
-        {
-            "emoji": "\ud83d\udc8a", 
-            "name": "PILL"
         }
     ], 
     "medium": [
         {
-            "emoji": "\u2b50\ufe0f", 
-            "name": "WHITE MEDIUM STAR"
+            "emoji": "\u25fc\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\u25fb\ufe0f", 
-            "name": "WHITE MEDIUM SQUARE"
+            "name": "?"
         }, 
         {
-            "emoji": "\u25fc\ufe0f", 
-            "name": "BLACK MEDIUM SQUARE"
+            "emoji": "\u25fe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b50\ufe0f", 
+            "name": "WHITE MEDIUM STAR"
         }, 
         {
             "emoji": "\u25fd\ufe0f", 
@@ -15534,10 +22403,26 @@ var EMOJI_MAP = {
             "name": "BLACK MEDIUM SMALL SQUARE black mediumsmall square"
         }
     ], 
+    "mega": [
+        {
+            "emoji": "\ud83d\udce3", 
+            "name": "?"
+        }
+    ], 
     "megaphone": [
         {
             "emoji": "\ud83d\udce3", 
             "name": "CHEERING MEGAPHONE megaphone"
+        }
+    ], 
+    "meh": [
+        {
+            "emoji": "\ud83d\ude11", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude10", 
+            "name": "?"
         }
     ], 
     "melilla": [
@@ -15549,19 +22434,23 @@ var EMOJI_MAP = {
     "melon": [
         {
             "emoji": "\ud83c\udf48", 
-            "name": "MELON"
+            "name": "?"
         }
     ], 
     "memo": [
         {
             "emoji": "\ud83d\udcdd", 
-            "name": "MEMO"
+            "name": "?"
         }
     ], 
     "men": [
         {
             "emoji": "\ud83d\udc6c", 
-            "name": "TWO MEN HOLDING HANDS"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc74", 
+            "name": "?"
         }
     ], 
     "menorah": [
@@ -15573,7 +22462,7 @@ var EMOJI_MAP = {
     "mens": [
         {
             "emoji": "\ud83d\udeb9", 
-            "name": "MENS SYMBOL men\u2019s room"
+            "name": "?"
         }
     ], 
     "men\u2019s": [
@@ -15582,16 +22471,32 @@ var EMOJI_MAP = {
             "name": "MENS SYMBOL men\u2019s room"
         }
     ], 
+    "meow": [
+        {
+            "emoji": "\ud83d\udc08", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc31", 
+            "name": "?"
+        }
+    ], 
     "meridians": [
         {
             "emoji": "\ud83c\udf10", 
-            "name": "GLOBE WITH MERIDIANS"
+            "name": "?"
+        }
+    ], 
+    "message": [
+        {
+            "emoji": "\ud83d\udcac", 
+            "name": "?"
         }
     ], 
     "metro": [
         {
             "emoji": "\ud83d\ude87", 
-            "name": "METRO"
+            "name": "?"
         }
     ], 
     "mexican": [
@@ -15628,18 +22533,18 @@ var EMOJI_MAP = {
     ], 
     "microphone": [
         {
-            "emoji": "\ud83c\udf99\ufe0f", 
-            "name": "STUDIO MICROPHONE"
+            "emoji": "\ud83c\udfa4", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udfa4", 
-            "name": "MICROPHONE"
+            "emoji": "\ud83c\udf99\ufe0f", 
+            "name": "STUDIO MICROPHONE"
         }
     ], 
     "microscope": [
         {
             "emoji": "\ud83d\udd2c", 
-            "name": "MICROSCOPE"
+            "name": "?"
         }
     ], 
     "middle": [
@@ -15656,6 +22561,18 @@ var EMOJI_MAP = {
             "name": "SIX POINTED STAR WITH MIDDLE DOT dotted sixpointed star"
         }
     ], 
+    "midnight": [
+        {
+            "emoji": "\ud83d\udd5b", 
+            "name": "?"
+        }
+    ], 
+    "milestone": [
+        {
+            "emoji": "\ud83d\udea9", 
+            "name": "?"
+        }
+    ], 
     "military": [
         {
             "emoji": "\ud83c\udf96\ufe0f", 
@@ -15664,26 +22581,34 @@ var EMOJI_MAP = {
     ], 
     "milk": [
         {
+            "emoji": "\ud83d\udc2e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc04", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf7c", 
-            "name": "BABY BOTTLE"
+            "name": "?"
         }
     ], 
     "milky": [
         {
             "emoji": "\ud83c\udf0c", 
-            "name": "MILKY WAY"
+            "name": "?"
         }
     ], 
     "minibus": [
         {
             "emoji": "\ud83d\ude90", 
-            "name": "MINIBUS"
+            "name": "?"
         }
     ], 
     "minidisc": [
         {
             "emoji": "\ud83d\udcbd", 
-            "name": "MINIDISC"
+            "name": "?"
         }
     ], 
     "minidisk": [
@@ -15700,6 +22625,10 @@ var EMOJI_MAP = {
     ], 
     "minor": [
         {
+            "emoji": "\ud83d\udd1e", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\uddfa\ud83c\uddf2", 
             "name": "Flag for U.S. Outlying Islands"
         }
@@ -15707,13 +22636,31 @@ var EMOJI_MAP = {
     "minus": [
         {
             "emoji": "\u2796", 
-            "name": "HEAVY MINUS SIGN"
+            "name": "?"
         }
     ], 
     "miquelon": [
         {
             "emoji": "\ud83c\uddf5\ud83c\uddf2", 
             "name": "Flag for St. Pierre  Miquelon"
+        }
+    ], 
+    "mischievous": [
+        {
+            "emoji": "\ud83d\ude1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude09", 
+            "name": "?"
         }
     ], 
     "moai": [
@@ -15723,6 +22670,14 @@ var EMOJI_MAP = {
         }
     ], 
     "mobile": [
+        {
+            "emoji": "\ud83d\udcf5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf4", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udcf1", 
             "name": "MOBILE PHONE"
@@ -15736,28 +22691,26 @@ var EMOJI_MAP = {
             "name": "ANTENNA WITH BARS antenna bars"
         }, 
         {
-            "emoji": "\ud83d\udcf5", 
-            "name": "NO MOBILE PHONES"
-        }, 
-        {
             "emoji": "\ud83d\udcf3", 
             "name": "VIBRATION MODE"
-        }, 
-        {
-            "emoji": "\ud83d\udcf4", 
-            "name": "MOBILE PHONE OFF"
         }
     ], 
     "mode": [
         {
             "emoji": "\ud83d\udcf3", 
-            "name": "VIBRATION MODE"
+            "name": "?"
         }
     ], 
     "moldova": [
         {
             "emoji": "\ud83c\uddf2\ud83c\udde9", 
             "name": "Flag for Moldova"
+        }
+    ], 
+    "mom": [
+        {
+            "emoji": "\ud83d\udc6a", 
+            "name": "?"
         }
     ], 
     "monaco": [
@@ -15768,6 +22721,58 @@ var EMOJI_MAP = {
     ], 
     "money": [
         {
+            "emoji": "\ud83d\udcb2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb5", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83e\udd11", 
             "name": "MONEYMOUTH FACE"
         }, 
@@ -15776,46 +22781,14 @@ var EMOJI_MAP = {
             "name": "MONEY BAG"
         }, 
         {
-            "emoji": "\ud83d\udcb4", 
-            "name": "BANKNOTE WITH YEN SIGN yen banknote"
-        }, 
-        {
-            "emoji": "\ud83d\udcb5", 
-            "name": "BANKNOTE WITH DOLLAR SIGN dollar banknote"
-        }, 
-        {
-            "emoji": "\ud83d\udcb6", 
-            "name": "BANKNOTE WITH EURO SIGN euro banknote"
-        }, 
-        {
-            "emoji": "\ud83d\udcb7", 
-            "name": "BANKNOTE WITH POUND SIGN pound banknote"
-        }, 
-        {
-            "emoji": "\ud83d\udcb8", 
-            "name": "MONEY WITH WINGS"
-        }, 
-        {
-            "emoji": "\ud83d\udcb3", 
-            "name": "CREDIT CARD"
-        }, 
-        {
             "emoji": "\ud83d\udcb9", 
             "name": "CHART WITH UPWARDS TREND AND YEN SIGN chart increasing with yen"
-        }, 
-        {
-            "emoji": "\ud83d\udcb1", 
-            "name": "CURRENCY EXCHANGE"
-        }, 
-        {
-            "emoji": "\ud83d\udcb2", 
-            "name": "HEAVY DOLLAR SIGN"
         }
     ], 
     "moneybag": [
         {
             "emoji": "\ud83d\udcb0", 
-            "name": "MONEY BAG"
+            "name": "?"
         }
     ], 
     "moneymouth": [
@@ -15830,42 +22803,52 @@ var EMOJI_MAP = {
             "name": "Flag for Mongolia"
         }
     ], 
+    "monitor": [
+        {
+            "emoji": "\ud83d\udcbb", 
+            "name": "?"
+        }
+    ], 
     "monkey": [
         {
-            "emoji": "\ud83d\ude48", 
-            "name": "SEENOEVIL MONKEY seenoevil"
+            "emoji": "\ud83d\ude4a", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude49", 
-            "name": "HEARNOEVIL MONKEY hearnoevil"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude4a", 
-            "name": "SPEAKNOEVIL MONKEY speaknoevil"
-        }, 
-        {
-            "emoji": "\ud83d\udc35", 
-            "name": "MONKEY FACE"
+            "emoji": "\ud83c\udf4c", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc12", 
-            "name": "MONKEY"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude48", 
+            "name": "?"
         }
     ], 
     "monorail": [
         {
             "emoji": "\ud83d\ude9d", 
-            "name": "MONORAIL"
+            "name": "?"
         }
     ], 
     "monster": [
         {
-            "emoji": "\ud83d\udc79", 
-            "name": "JAPANESE OGRE ogre"
+            "emoji": "\ud83d\udc7a", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc7a", 
-            "name": "JAPANESE GOBLIN goblin"
+            "emoji": "\ud83d\udc79", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc80", 
@@ -15902,88 +22885,124 @@ var EMOJI_MAP = {
             "name": "Flag for Montenegro"
         }
     ], 
+    "month": [
+        {
+            "emoji": "\ud83c\ude37\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "montserrat": [
         {
             "emoji": "\ud83c\uddf2\ud83c\uddf8", 
             "name": "Flag for Montserrat"
         }
     ], 
+    "moo": [
+        {
+            "emoji": "\ud83d\udc2e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc04", 
+            "name": "?"
+        }
+    ], 
     "moon": [
         {
-            "emoji": "\ud83c\udf11", 
-            "name": "NEW MOON SYMBOL new moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf12", 
-            "name": "WAXING CRESCENT MOON SYMBOL waxing crescent moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf13", 
-            "name": "FIRST QUARTER MOON SYMBOL first quarter moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf14", 
-            "name": "WAXING GIBBOUS MOON SYMBOL waxing gibbous moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf15", 
-            "name": "FULL MOON SYMBOL full moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf16", 
-            "name": "WANING GIBBOUS MOON SYMBOL waning gibbous moon"
-        }, 
-        {
             "emoji": "\ud83c\udf17", 
-            "name": "LAST QUARTER MOON SYMBOL last quarter moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf18", 
-            "name": "WANING CRESCENT MOON SYMBOL waning crescent moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf19", 
-            "name": "CRESCENT MOON"
-        }, 
-        {
-            "emoji": "\ud83c\udf1a", 
-            "name": "NEW MOON WITH FACE new moon face"
-        }, 
-        {
-            "emoji": "\ud83c\udf1b", 
-            "name": "FIRST QUARTER MOON WITH FACE"
-        }, 
-        {
-            "emoji": "\ud83c\udf1c", 
-            "name": "LAST QUARTER MOON WITH FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf1d", 
-            "name": "FULL MOON WITH FACE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf12", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf16", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude37\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf11", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf91", 
             "name": "MOON VIEWING CEREMONY moon ceremony"
-        }, 
+        }
+    ], 
+    "more": [
         {
-            "emoji": "\ud83c\ude37\ufe0f", 
-            "name": "SQUARED CJK UNIFIED IDEOGRAPH6708 squared moon ideograph"
+            "emoji": "\u2795", 
+            "name": "?"
         }
     ], 
     "morning": [
         {
-            "emoji": "\ud83c\udf04", 
-            "name": "SUNRISE OVER MOUNTAINS"
+            "emoji": "\u26c5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1e", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf05", 
-            "name": "SUNRISE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf04", 
+            "name": "SUNRISE OVER MOUNTAINS"
         }
     ], 
     "morocco": [
         {
             "emoji": "\ud83c\uddf2\ud83c\udde6", 
             "name": "Flag for Morocco"
+        }
+    ], 
+    "mortar": [
+        {
+            "emoji": "\ud83c\udf93", 
+            "name": "?"
         }
     ], 
     "mosque": [
@@ -15995,7 +23014,7 @@ var EMOJI_MAP = {
     "mother": [
         {
             "emoji": "\ud83d\udc6a", 
-            "name": "FAMILY"
+            "name": "?"
         }
     ], 
     "motor": [
@@ -16025,10 +23044,30 @@ var EMOJI_MAP = {
     "mount": [
         {
             "emoji": "\ud83d\uddfb", 
-            "name": "MOUNT FUJI"
+            "name": "?"
         }
     ], 
     "mountain": [
+        {
+            "emoji": "\ud83d\ude9e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf01", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\uddfb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea0", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udfd4\ufe0f", 
             "name": "SNOW CAPPED MOUNTAIN snowcapped mountain"
@@ -16042,36 +23081,24 @@ var EMOJI_MAP = {
             "name": "VOLCANO"
         }, 
         {
-            "emoji": "\ud83d\uddfb", 
-            "name": "MOUNT FUJI"
-        }, 
-        {
             "emoji": "\ud83c\udf04", 
             "name": "SUNRISE OVER MOUNTAINS"
-        }, 
-        {
-            "emoji": "\ud83d\ude9e", 
-            "name": "MOUNTAIN RAILWAY"
-        }, 
-        {
-            "emoji": "\ud83d\udea0", 
-            "name": "MOUNTAIN CABLEWAY"
-        }, 
-        {
-            "emoji": "\ud83d\udeb5", 
-            "name": "MOUNTAIN BICYCLIST mountain biker"
         }
     ], 
     "mountains": [
         {
             "emoji": "\ud83c\udf04", 
-            "name": "SUNRISE OVER MOUNTAINS"
+            "name": "?"
         }
     ], 
     "mouse": [
         {
             "emoji": "\ud83d\udc2d", 
-            "name": "MOUSE FACE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc00", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc01", 
@@ -16082,7 +23109,39 @@ var EMOJI_MAP = {
             "name": "THREE BUTTON MOUSE computer mouse"
         }
     ], 
+    "mouse2": [
+        {
+            "emoji": "\ud83d\udc01", 
+            "name": "?"
+        }
+    ], 
+    "moustache": [
+        {
+            "emoji": "\u3030\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc68", 
+            "name": "?"
+        }
+    ], 
     "mouth": [
+        {
+            "emoji": "\ud83d\udc45", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc44", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2e", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude03", 
             "name": "SMILING FACE WITH OPEN MOUTH"
@@ -16098,14 +23157,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\ude06", 
             "name": "SMILING FACE WITH OPEN MOUTH AND TIGHTLYCLOSED EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude36", 
-            "name": "FACE WITHOUT MOUTH"
-        }, 
-        {
-            "emoji": "\ud83d\ude2e", 
-            "name": "FACE WITH OPEN MOUTH"
         }, 
         {
             "emoji": "\ud83e\udd10", 
@@ -16126,16 +23177,20 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\ude3a", 
             "name": "SMILING CAT FACE WITH OPEN MOUTH"
-        }, 
-        {
-            "emoji": "\ud83d\udc44", 
-            "name": "MOUTH"
         }
     ], 
     "movie": [
         {
             "emoji": "\ud83c\udfa5", 
-            "name": "MOVIE CAMERA"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfac", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf9e\ufe0f", 
@@ -16144,26 +23199,30 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udcfd\ufe0f", 
             "name": "FILM PROJECTOR"
-        }, 
+        }
+    ], 
+    "moving": [
         {
-            "emoji": "\ud83c\udfac", 
-            "name": "CLAPPER BOARD"
-        }, 
-        {
-            "emoji": "\ud83c\udfa6", 
-            "name": "CINEMA"
+            "emoji": "\ud83d\udce6", 
+            "name": "?"
         }
     ], 
     "moyai": [
         {
             "emoji": "\ud83d\uddff", 
-            "name": "MOYAI moai"
+            "name": "?"
         }
     ], 
     "mozambique": [
         {
             "emoji": "\ud83c\uddf2\ud83c\uddff", 
             "name": "Flag for Mozambique"
+        }
+    ], 
+    "mrt": [
+        {
+            "emoji": "\ud83d\ude87", 
+            "name": "?"
         }
     ], 
     "mug": [
@@ -16191,7 +23250,7 @@ var EMOJI_MAP = {
     "multiplication": [
         {
             "emoji": "\u2716\ufe0f", 
-            "name": "HEAVY MULTIPLICATION X"
+            "name": "?"
         }, 
         {
             "emoji": "\u274c", 
@@ -16211,13 +23270,17 @@ var EMOJI_MAP = {
     "munch": [
         {
             "emoji": "\ud83d\ude31", 
-            "name": "FACE SCREAMING IN FEAR"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude40", 
+            "name": "?"
         }
     ], 
     "muscle": [
         {
             "emoji": "\ud83d\udcaa", 
-            "name": "FLEXED BICEPS"
+            "name": "?"
         }
     ], 
     "museum": [
@@ -16233,10 +23296,58 @@ var EMOJI_MAP = {
     "mushroom": [
         {
             "emoji": "\ud83c\udf44", 
-            "name": "MUSHROOM"
+            "name": "?"
         }
     ], 
     "music": [
+        {
+            "emoji": "\ud83d\udd18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfbb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcfb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcef", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd23", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfba", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd00", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udfbc", 
             "name": "MUSICAL SCORE"
@@ -16244,10 +23355,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udfb5", 
             "name": "MUSICAL NOTE"
-        }, 
-        {
-            "emoji": "\ud83c\udfb6", 
-            "name": "MULTIPLE MUSICAL NOTES musical notes"
         }, 
         {
             "emoji": "\ud83c\udf99\ufe0f", 
@@ -16262,42 +23369,26 @@ var EMOJI_MAP = {
             "name": "CONTROL KNOBS"
         }, 
         {
-            "emoji": "\ud83c\udfb7", 
-            "name": "SAXOPHONE"
-        }, 
-        {
-            "emoji": "\ud83c\udfb8", 
-            "name": "GUITAR"
-        }, 
-        {
             "emoji": "\ud83c\udfb9", 
             "name": "MUSICAL KEYBOARD"
-        }, 
-        {
-            "emoji": "\ud83c\udfba", 
-            "name": "TRUMPET"
-        }, 
-        {
-            "emoji": "\ud83c\udfbb", 
-            "name": "VIOLIN"
         }
     ], 
     "musical": [
         {
-            "emoji": "\ud83c\udfbc", 
-            "name": "MUSICAL SCORE"
+            "emoji": "\ud83c\udfb9", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfb5", 
-            "name": "MUSICAL NOTE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfbc", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfb6", 
             "name": "MULTIPLE MUSICAL NOTES musical notes"
-        }, 
-        {
-            "emoji": "\ud83c\udfb9", 
-            "name": "MUSICAL KEYBOARD"
         }
     ], 
     "muslim": [
@@ -16314,14 +23405,32 @@ var EMOJI_MAP = {
             "name": "STAR AND CRESCENT"
         }
     ], 
+    "mustache": [
+        {
+            "emoji": "\u3030\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc68", 
+            "name": "?"
+        }
+    ], 
     "mute": [
         {
+            "emoji": "\ud83d\udcf5", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd07", 
-            "name": "SPEAKER WITH CANCELLATION STROKE speaker off"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd15", 
-            "name": "BELL WITH CANCELLATION STROKE bell with slash"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf4", 
+            "name": "?"
         }
     ], 
     "myanmar": [
@@ -16330,10 +23439,20 @@ var EMOJI_MAP = {
             "name": "Flag for Myanmar"
         }
     ], 
+    "myth": [
+        {
+            "emoji": "\ud83d\udc09", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc32", 
+            "name": "?"
+        }
+    ], 
     "nail": [
         {
             "emoji": "\ud83d\udc85", 
-            "name": "NAIL POLISH"
+            "name": "?"
         }
     ], 
     "nam": [
@@ -16342,16 +23461,78 @@ var EMOJI_MAP = {
             "name": "Flag for Vietnam"
         }
     ], 
+    "namaste": [
+        {
+            "emoji": "\ud83d\ude4f", 
+            "name": "?"
+        }
+    ], 
     "name": [
         {
             "emoji": "\ud83d\udcdb", 
-            "name": "NAME BADGE"
+            "name": "?"
         }
     ], 
     "namibia": [
         {
             "emoji": "\ud83c\uddf3\ud83c\udde6", 
             "name": "Flag for Namibia"
+        }
+    ], 
+    "nap": [
+        {
+            "emoji": "\ud83d\ude2a", 
+            "name": "?"
+        }
+    ], 
+    "nation": [
+        {
+            "emoji": "\ud83c\uddf7\ud83c\uddfa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddf0\ud83c\uddf7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddfa\ud83c\uddf8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udde8\ud83c\uddf3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddef\ud83c\uddf5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udde9\ud83c\uddea", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddea\ud83c\uddf8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\uddfe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddeb\ud83c\uddf7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddee\ud83c\uddf9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\uddec\ud83c\udde7", 
+            "name": "?"
         }
     ], 
     "national": [
@@ -16361,6 +23542,418 @@ var EMOJI_MAP = {
         }
     ], 
     "nature": [
+        {
+            "emoji": "\u26c5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf50", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc07", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf51", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf08", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc37", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf60", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf53", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc0b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc27", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf42", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf12", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf33", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf16", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf0a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc33", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc06", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf31", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf90", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc21", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf40", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf46", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude49", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2600\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc28", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc12", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc11", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc04", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc90", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc22", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf0b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc0d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc05", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf37", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc09", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf45", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc10", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc16", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc31", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc03", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc01", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc29", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\uddfb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc39", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf43", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude48", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf11", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc26", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf48", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf41", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc0a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc30", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc7d", 
             "name": "EXTRATERRESTRIAL ALIEN alien"
@@ -16410,68 +24003,12 @@ var EMOJI_MAP = {
             "name": "POUTING CAT FACE"
         }, 
         {
-            "emoji": "\ud83d\ude48", 
-            "name": "SEENOEVIL MONKEY seenoevil"
-        }, 
-        {
-            "emoji": "\ud83d\ude49", 
-            "name": "HEARNOEVIL MONKEY hearnoevil"
-        }, 
-        {
-            "emoji": "\ud83d\ude4a", 
-            "name": "SPEAKNOEVIL MONKEY speaknoevil"
-        }, 
-        {
-            "emoji": "\ud83d\udc35", 
-            "name": "MONKEY FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc12", 
-            "name": "MONKEY"
-        }, 
-        {
-            "emoji": "\ud83d\udc36", 
-            "name": "DOG FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc15", 
-            "name": "DOG"
-        }, 
-        {
-            "emoji": "\ud83d\udc29", 
-            "name": "POODLE"
-        }, 
-        {
-            "emoji": "\ud83d\udc3a", 
-            "name": "WOLF FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc31", 
-            "name": "CAT FACE"
-        }, 
-        {
             "emoji": "\ud83d\udc08", 
             "name": "CAT"
         }, 
         {
             "emoji": "\ud83e\udd81", 
             "name": "LION FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc2f", 
-            "name": "TIGER FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc05", 
-            "name": "TIGER"
-        }, 
-        {
-            "emoji": "\ud83d\udc06", 
-            "name": "LEOPARD"
-        }, 
-        {
-            "emoji": "\ud83d\udc34", 
-            "name": "HORSE FACE"
         }, 
         {
             "emoji": "\ud83d\udc0e", 
@@ -16482,100 +24019,24 @@ var EMOJI_MAP = {
             "name": "UNICORN FACE"
         }, 
         {
-            "emoji": "\ud83d\udc2e", 
-            "name": "COW FACE"
-        }, 
-        {
             "emoji": "\ud83d\udc02", 
             "name": "OX"
-        }, 
-        {
-            "emoji": "\ud83d\udc03", 
-            "name": "WATER BUFFALO"
-        }, 
-        {
-            "emoji": "\ud83d\udc04", 
-            "name": "COW"
-        }, 
-        {
-            "emoji": "\ud83d\udc37", 
-            "name": "PIG FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc16", 
-            "name": "PIG"
-        }, 
-        {
-            "emoji": "\ud83d\udc17", 
-            "name": "BOAR"
         }, 
         {
             "emoji": "\ud83d\udc3d", 
             "name": "PIG NOSE"
         }, 
         {
-            "emoji": "\ud83d\udc0f", 
-            "name": "RAM"
-        }, 
-        {
-            "emoji": "\ud83d\udc11", 
-            "name": "SHEEP"
-        }, 
-        {
-            "emoji": "\ud83d\udc10", 
-            "name": "GOAT"
-        }, 
-        {
             "emoji": "\ud83d\udc2a", 
             "name": "DROMEDARY CAMEL camel"
-        }, 
-        {
-            "emoji": "\ud83d\udc2b", 
-            "name": "BACTRIAN CAMEL twohump camel"
-        }, 
-        {
-            "emoji": "\ud83d\udc18", 
-            "name": "ELEPHANT"
-        }, 
-        {
-            "emoji": "\ud83d\udc2d", 
-            "name": "MOUSE FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc01", 
-            "name": "MOUSE"
         }, 
         {
             "emoji": "\ud83d\udc00", 
             "name": "RAT"
         }, 
         {
-            "emoji": "\ud83d\udc39", 
-            "name": "HAMSTER FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc30", 
-            "name": "RABBIT FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc07", 
-            "name": "RABBIT"
-        }, 
-        {
             "emoji": "\ud83d\udc3f\ufe0f", 
             "name": "CHIPMUNK"
-        }, 
-        {
-            "emoji": "\ud83d\udc3b", 
-            "name": "BEAR FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc28", 
-            "name": "KOALA"
-        }, 
-        {
-            "emoji": "\ud83d\udc3c", 
-            "name": "PANDA FACE"
         }, 
         {
             "emoji": "\ud83d\udc3e", 
@@ -16584,14 +24045,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83e\udd83", 
             "name": "TURKEY"
-        }, 
-        {
-            "emoji": "\ud83d\udc14", 
-            "name": "CHICKEN"
-        }, 
-        {
-            "emoji": "\ud83d\udc13", 
-            "name": "ROOSTER"
         }, 
         {
             "emoji": "\ud83d\udc23", 
@@ -16606,72 +24059,12 @@ var EMOJI_MAP = {
             "name": "FRONTFACING BABY CHICK"
         }, 
         {
-            "emoji": "\ud83d\udc26", 
-            "name": "BIRD"
-        }, 
-        {
-            "emoji": "\ud83d\udc27", 
-            "name": "PENGUIN"
-        }, 
-        {
             "emoji": "\ud83d\udd4a\ufe0f", 
             "name": "DOVE OF PEACE dove"
         }, 
         {
-            "emoji": "\ud83d\udc38", 
-            "name": "FROG FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc0a", 
-            "name": "CROCODILE"
-        }, 
-        {
-            "emoji": "\ud83d\udc22", 
-            "name": "TURTLE"
-        }, 
-        {
-            "emoji": "\ud83d\udc0d", 
-            "name": "SNAKE"
-        }, 
-        {
-            "emoji": "\ud83d\udc32", 
-            "name": "DRAGON FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc09", 
-            "name": "DRAGON"
-        }, 
-        {
-            "emoji": "\ud83d\udc33", 
-            "name": "SPOUTING WHALE"
-        }, 
-        {
-            "emoji": "\ud83d\udc0b", 
-            "name": "WHALE"
-        }, 
-        {
-            "emoji": "\ud83d\udc2c", 
-            "name": "DOLPHIN"
-        }, 
-        {
-            "emoji": "\ud83d\udc1f", 
-            "name": "FISH"
-        }, 
-        {
             "emoji": "\ud83d\udc20", 
             "name": "TROPICAL FISH"
-        }, 
-        {
-            "emoji": "\ud83d\udc21", 
-            "name": "BLOWFISH"
-        }, 
-        {
-            "emoji": "\ud83d\udc19", 
-            "name": "OCTOPUS"
-        }, 
-        {
-            "emoji": "\ud83d\udc1a", 
-            "name": "SPIRAL SHELL"
         }, 
         {
             "emoji": "\ud83e\udd80", 
@@ -16682,32 +24075,8 @@ var EMOJI_MAP = {
             "name": "SNAIL"
         }, 
         {
-            "emoji": "\ud83d\udc1b", 
-            "name": "BUG"
-        }, 
-        {
-            "emoji": "\ud83d\udc1c", 
-            "name": "ANT"
-        }, 
-        {
-            "emoji": "\ud83d\udc1d", 
-            "name": "HONEYBEE"
-        }, 
-        {
-            "emoji": "\ud83d\udc1e", 
-            "name": "LADY BEETLE"
-        }, 
-        {
             "emoji": "\ud83e\udd82", 
             "name": "SCORPION"
-        }, 
-        {
-            "emoji": "\ud83d\udc90", 
-            "name": "BOUQUET"
-        }, 
-        {
-            "emoji": "\ud83c\udf38", 
-            "name": "CHERRY BLOSSOM"
         }, 
         {
             "emoji": "\ud83c\udff5\ufe0f", 
@@ -16722,42 +24091,6 @@ var EMOJI_MAP = {
             "name": "HIBISCUS"
         }, 
         {
-            "emoji": "\ud83c\udf3b", 
-            "name": "SUNFLOWER"
-        }, 
-        {
-            "emoji": "\ud83c\udf3c", 
-            "name": "BLOSSOM"
-        }, 
-        {
-            "emoji": "\ud83c\udf37", 
-            "name": "TULIP"
-        }, 
-        {
-            "emoji": "\ud83c\udf31", 
-            "name": "SEEDLING"
-        }, 
-        {
-            "emoji": "\ud83c\udf32", 
-            "name": "EVERGREEN TREE evergreen"
-        }, 
-        {
-            "emoji": "\ud83c\udf33", 
-            "name": "DECIDUOUS TREE"
-        }, 
-        {
-            "emoji": "\ud83c\udf34", 
-            "name": "PALM TREE"
-        }, 
-        {
-            "emoji": "\ud83c\udf35", 
-            "name": "CACTUS"
-        }, 
-        {
-            "emoji": "\ud83c\udf3e", 
-            "name": "EAR OF RICE sheaf of rice"
-        }, 
-        {
             "emoji": "\ud83c\udf3f", 
             "name": "HERB"
         }, 
@@ -16766,80 +24099,24 @@ var EMOJI_MAP = {
             "name": "SHAMROCK"
         }, 
         {
-            "emoji": "\ud83c\udf40", 
-            "name": "FOUR LEAF CLOVER"
-        }, 
-        {
-            "emoji": "\ud83c\udf41", 
-            "name": "MAPLE LEAF"
-        }, 
-        {
-            "emoji": "\ud83c\udf42", 
-            "name": "FALLEN LEAF"
-        }, 
-        {
-            "emoji": "\ud83c\udf43", 
-            "name": "LEAF FLUTTERING IN WIND"
-        }, 
-        {
             "emoji": "\ud83c\udf47", 
             "name": "GRAPES"
-        }, 
-        {
-            "emoji": "\ud83c\udf48", 
-            "name": "MELON"
         }, 
         {
             "emoji": "\ud83c\udf49", 
             "name": "WATERMELON"
         }, 
         {
-            "emoji": "\ud83c\udf4a", 
-            "name": "TANGERINE"
-        }, 
-        {
-            "emoji": "\ud83c\udf4b", 
-            "name": "LEMON"
-        }, 
-        {
             "emoji": "\ud83c\udf4c", 
             "name": "BANANA"
-        }, 
-        {
-            "emoji": "\ud83c\udf4d", 
-            "name": "PINEAPPLE"
         }, 
         {
             "emoji": "\ud83c\udf4e", 
             "name": "RED APPLE"
         }, 
         {
-            "emoji": "\ud83c\udf4f", 
-            "name": "GREEN APPLE"
-        }, 
-        {
-            "emoji": "\ud83c\udf50", 
-            "name": "PEAR"
-        }, 
-        {
-            "emoji": "\ud83c\udf51", 
-            "name": "PEACH"
-        }, 
-        {
             "emoji": "\ud83c\udf52", 
             "name": "CHERRIES"
-        }, 
-        {
-            "emoji": "\ud83c\udf53", 
-            "name": "STRAWBERRY"
-        }, 
-        {
-            "emoji": "\ud83c\udf45", 
-            "name": "TOMATO"
-        }, 
-        {
-            "emoji": "\ud83c\udf46", 
-            "name": "AUBERGINE eggplant"
         }, 
         {
             "emoji": "\ud83c\udf3d", 
@@ -16936,10 +24213,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udf5d", 
             "name": "SPAGHETTI"
-        }, 
-        {
-            "emoji": "\ud83c\udf60", 
-            "name": "ROASTED SWEET POTATO"
         }, 
         {
             "emoji": "\ud83c\udf62", 
@@ -17074,14 +24347,6 @@ var EMOJI_MAP = {
             "name": "SNOW CAPPED MOUNTAIN snowcapped mountain"
         }, 
         {
-            "emoji": "\ud83c\udf0b", 
-            "name": "VOLCANO"
-        }, 
-        {
-            "emoji": "\ud83d\uddfb", 
-            "name": "MOUNT FUJI"
-        }, 
-        {
             "emoji": "\ud83c\udfd5\ufe0f", 
             "name": "CAMPING"
         }, 
@@ -17134,68 +24399,12 @@ var EMOJI_MAP = {
             "name": "MILKY WAY"
         }, 
         {
-            "emoji": "\ud83c\udf11", 
-            "name": "NEW MOON SYMBOL new moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf12", 
-            "name": "WAXING CRESCENT MOON SYMBOL waxing crescent moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf13", 
-            "name": "FIRST QUARTER MOON SYMBOL first quarter moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf14", 
-            "name": "WAXING GIBBOUS MOON SYMBOL waxing gibbous moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf15", 
-            "name": "FULL MOON SYMBOL full moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf16", 
-            "name": "WANING GIBBOUS MOON SYMBOL waning gibbous moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf17", 
-            "name": "LAST QUARTER MOON SYMBOL last quarter moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf18", 
-            "name": "WANING CRESCENT MOON SYMBOL waning crescent moon"
-        }, 
-        {
             "emoji": "\ud83c\udf19", 
             "name": "CRESCENT MOON"
         }, 
         {
-            "emoji": "\ud83c\udf1a", 
-            "name": "NEW MOON WITH FACE new moon face"
-        }, 
-        {
-            "emoji": "\ud83c\udf1b", 
-            "name": "FIRST QUARTER MOON WITH FACE"
-        }, 
-        {
-            "emoji": "\ud83c\udf1c", 
-            "name": "LAST QUARTER MOON WITH FACE"
-        }, 
-        {
             "emoji": "\ud83c\udf21\ufe0f", 
             "name": "THERMOMETER"
-        }, 
-        {
-            "emoji": "\u2600\ufe0f", 
-            "name": "BLACK SUN WITH RAYS sun"
-        }, 
-        {
-            "emoji": "\ud83c\udf1d", 
-            "name": "FULL MOON WITH FACE"
-        }, 
-        {
-            "emoji": "\ud83c\udf1e", 
-            "name": "SUN WITH FACE"
         }, 
         {
             "emoji": "\u2b50\ufe0f", 
@@ -17258,10 +24467,6 @@ var EMOJI_MAP = {
             "name": "CYCLONE"
         }, 
         {
-            "emoji": "\ud83c\udf08", 
-            "name": "RAINBOW"
-        }, 
-        {
             "emoji": "\ud83c\udf02", 
             "name": "CLOSED UMBRELLA"
         }, 
@@ -17298,10 +24503,6 @@ var EMOJI_MAP = {
             "name": "DROPLET"
         }, 
         {
-            "emoji": "\ud83c\udf0a", 
-            "name": "WATER WAVE"
-        }, 
-        {
             "emoji": "\ud83c\udf91", 
             "name": "MOON VIEWING CEREMONY moon ceremony"
         }
@@ -17321,13 +24522,13 @@ var EMOJI_MAP = {
     "necktie": [
         {
             "emoji": "\ud83d\udc54", 
-            "name": "NECKTIE"
+            "name": "?"
         }
     ], 
     "needle": [
         {
             "emoji": "\ud83d\udc89", 
-            "name": "SYRINGE"
+            "name": "?"
         }
     ], 
     "negation": [
@@ -17339,7 +24540,7 @@ var EMOJI_MAP = {
     "negative": [
         {
             "emoji": "\u274e", 
-            "name": "NEGATIVE SQUARED CROSS MARK cross mark button"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udd70\ufe0f", 
@@ -17370,11 +24571,35 @@ var EMOJI_MAP = {
     ], 
     "nerd": [
         {
+            "emoji": "\ud83d\udc53", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83e\udd13", 
             "name": "NERD FACE"
         }
     ], 
     "nervous": [
+        {
+            "emoji": "\ud83d\ude27", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude28", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude30", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude25", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc97", 
             "name": "GROWING HEART"
@@ -17393,7 +24618,7 @@ var EMOJI_MAP = {
     "neutral": [
         {
             "emoji": "\ud83d\ude10", 
-            "name": "NEUTRAL FACE"
+            "name": "?"
         }
     ], 
     "nevis": [
@@ -17404,16 +24629,16 @@ var EMOJI_MAP = {
     ], 
     "new": [
         {
-            "emoji": "\ud83c\udf11", 
-            "name": "NEW MOON SYMBOL new moon"
+            "emoji": "\ud83c\udf1a", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf1a", 
-            "name": "NEW MOON WITH FACE new moon face"
+            "emoji": "\ud83c\udf11", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udd95", 
-            "name": "SQUARED NEW"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\uddf3\ud83c\udde8", 
@@ -17441,14 +24666,24 @@ var EMOJI_MAP = {
     "newspaper": [
         {
             "emoji": "\ud83d\udcf0", 
-            "name": "NEWSPAPER"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\uddde\ufe0f", 
             "name": "ROLLEDUP NEWSPAPER"
         }
     ], 
+    "newyork": [
+        {
+            "emoji": "\ud83d\uddfd", 
+            "name": "?"
+        }
+    ], 
     "next": [
+        {
+            "emoji": "\u27a1\ufe0f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u23ed\ufe0f", 
             "name": "BLACK RIGHTPOINTING DOUBLE TRIANGLE WITH VERTICAL BAR next track button"
@@ -17457,13 +24692,13 @@ var EMOJI_MAP = {
     "ng": [
         {
             "emoji": "\ud83c\udd96", 
-            "name": "SQUARED NG"
+            "name": "?"
         }
     ], 
     "nib": [
         {
             "emoji": "\u2712\ufe0f", 
-            "name": "BLACK NIB"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd0f", 
@@ -17490,15 +24725,105 @@ var EMOJI_MAP = {
     ], 
     "night": [
         {
-            "emoji": "\ud83c\udf03", 
-            "name": "NIGHT WITH STARS"
+            "emoji": "\u2b50", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf20", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf12", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf16", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd26", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1e", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf09", 
-            "name": "BRIDGE AT NIGHT"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf87", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf03", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf11", 
+            "name": "?"
+        }
+    ], 
+    "nike": [
+        {
+            "emoji": "\u2714\ufe0f", 
+            "name": "?"
         }
     ], 
     "nine": [
+        {
+            "emoji": "9\ufe0f\u20e3", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd58", 
             "name": "CLOCK FACE NINE OCLOCK nine o\u2019clock"
@@ -17510,10 +24835,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd4e", 
             "name": "MENORAH WITH NINE BRANCHES menorah"
-        }, 
-        {
-            "emoji": "9\ufe0f\u20e3", 
-            "name": "Keycap DIGIT NINE"
         }
     ], 
     "ninethirty": [
@@ -17530,40 +24851,76 @@ var EMOJI_MAP = {
     ], 
     "no": [
         {
-            "emoji": "\ud83d\ude48", 
-            "name": "SEENOEVIL MONKEY seenoevil"
-        }, 
-        {
-            "emoji": "\ud83d\ude49", 
-            "name": "HEARNOEVIL MONKEY hearnoevil"
+            "emoji": "\ud83d\udeab", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude4a", 
-            "name": "SPEAKNOEVIL MONKEY speaknoevil"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude45", 
-            "name": "FACE WITH NO GOOD GESTURE gesturing no"
+            "emoji": "\ud83d\ude36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude49", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u274c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u274e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udead", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udced", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd15", 
-            "name": "BELL WITH CANCELLATION STROKE bell with slash"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude48", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26d4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude45", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude23", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb3", 
+            "name": "?"
         }, 
         {
             "emoji": "\u26d4\ufe0f", 
             "name": "NO ENTRY"
-        }, 
-        {
-            "emoji": "\ud83d\udeab", 
-            "name": "NO ENTRY SIGN prohibited"
-        }, 
-        {
-            "emoji": "\ud83d\udeb3", 
-            "name": "NO BICYCLES"
-        }, 
-        {
-            "emoji": "\ud83d\udead", 
-            "name": "NO SMOKING SYMBOL no smoking"
         }, 
         {
             "emoji": "\ud83d\udeaf", 
@@ -17574,16 +24931,26 @@ var EMOJI_MAP = {
             "name": "NONPOTABLE WATER SYMBOL nonpotable water"
         }, 
         {
-            "emoji": "\ud83d\udeb7", 
-            "name": "NO PEDESTRIANS"
-        }, 
-        {
-            "emoji": "\ud83d\udcf5", 
-            "name": "NO MOBILE PHONES"
-        }, 
-        {
             "emoji": "\ud83d\udd1e", 
             "name": "NO ONE UNDER EIGHTEEN SYMBOL no one under eighteen"
+        }
+    ], 
+    "noise": [
+        {
+            "emoji": "\ud83d\udd0a", 
+            "name": "?"
+        }
+    ], 
+    "noisy": [
+        {
+            "emoji": "\ud83d\udd0a", 
+            "name": "?"
+        }
+    ], 
+    "non-potable": [
+        {
+            "emoji": "\ud83d\udeb1", 
+            "name": "?"
         }
     ], 
     "nonpotable": [
@@ -17594,8 +24961,24 @@ var EMOJI_MAP = {
     ], 
     "noodle": [
         {
+            "emoji": "\ud83c\udf5d", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf5c", 
-            "name": "STEAMING BOWL"
+            "name": "?"
+        }
+    ], 
+    "noon": [
+        {
+            "emoji": "\ud83d\udd5b", 
+            "name": "?"
+        }
+    ], 
+    "nope": [
+        {
+            "emoji": "\ud83d\ude45", 
+            "name": "?"
         }
     ], 
     "norfolk": [
@@ -17656,16 +25039,20 @@ var EMOJI_MAP = {
     ], 
     "nose": [
         {
-            "emoji": "\ud83d\ude24", 
-            "name": "FACE WITH LOOK OF TRIUMPH face with steam from nose"
-        }, 
-        {
             "emoji": "\ud83d\udc43", 
-            "name": "NOSE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc3d", 
-            "name": "PIG NOSE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude24", 
+            "name": "FACE WITH LOOK OF TRIUMPH face with steam from nose"
         }, 
         {
             "emoji": "\ud83d\ude85", 
@@ -17673,6 +25060,10 @@ var EMOJI_MAP = {
         }
     ], 
     "not": [
+        {
+            "emoji": "\ud83d\udeaf", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude48", 
             "name": "SEENOEVIL MONKEY seenoevil"
@@ -17710,10 +25101,6 @@ var EMOJI_MAP = {
             "name": "NO SMOKING SYMBOL no smoking"
         }, 
         {
-            "emoji": "\ud83d\udeaf", 
-            "name": "DO NOT LITTER SYMBOL no littering"
-        }, 
-        {
             "emoji": "\ud83d\udeb1", 
             "name": "NONPOTABLE WATER SYMBOL nonpotable water"
         }, 
@@ -17733,7 +25120,11 @@ var EMOJI_MAP = {
     "note": [
         {
             "emoji": "\ud83c\udfb5", 
-            "name": "MUSICAL NOTE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd23", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfb6", 
@@ -17766,12 +25157,12 @@ var EMOJI_MAP = {
     ], 
     "notebook": [
         {
-            "emoji": "\ud83d\udcd4", 
-            "name": "NOTEBOOK WITH DECORATIVE COVER"
+            "emoji": "\ud83d\udcd3", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcd3", 
-            "name": "NOTEBOOK"
+            "emoji": "\ud83d\udcd4", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcd2", 
@@ -17786,8 +25177,38 @@ var EMOJI_MAP = {
     ], 
     "notes": [
         {
+            "emoji": "\ud83d\udcd3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd4", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udfb6", 
-            "name": "MULTIPLE MUSICAL NOTES musical notes"
+            "name": "?"
+        }
+    ], 
+    "nothing": [
+        {
+            "emoji": "\ud83c\ude1a", 
+            "name": "?"
+        }
+    ], 
+    "notification": [
+        {
+            "emoji": "\ud83d\udd14", 
+            "name": "?"
+        }
+    ], 
+    "null": [
+        {
+            "emoji": "0\ufe0f\u20e3", 
+            "name": "?"
         }
     ], 
     "number": [
@@ -17798,17 +25219,79 @@ var EMOJI_MAP = {
     ], 
     "numbers": [
         {
+            "emoji": "2\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "5\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "7\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "3\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "8\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "1\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "6\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "9\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcaf", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd22", 
-            "name": "INPUT SYMBOL FOR NUMBERS input numbers"
+            "name": "?"
+        }, 
+        {
+            "emoji": "0\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "4\ufe0f\u20e3", 
+            "name": "?"
+        }
+    ], 
+    "nurse": [
+        {
+            "emoji": "\ud83d\udc89", 
+            "name": "?"
         }
     ], 
     "nut": [
         {
             "emoji": "\ud83d\udd29", 
-            "name": "NUT AND BOLT"
+            "name": "?"
         }
     ], 
     "o": [
+        {
+            "emoji": "\u2b55", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf83", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u2b55\ufe0f", 
             "name": "HEAVY LARGE CIRCLE"
@@ -17816,6 +25299,12 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udd7e\ufe0f", 
             "name": "NEGATIVE SQUARED LATIN CAPITAL LETTER O o button"
+        }
+    ], 
+    "o2": [
+        {
+            "emoji": "\ud83c\udd7e\ufe0f", 
+            "name": "?"
         }
     ], 
     "object": [
@@ -19200,10 +26689,44 @@ var EMOJI_MAP = {
             "name": "MOBILE PHONE OFF"
         }
     ], 
+    "obtain": [
+        {
+            "emoji": "\ud83c\ude50", 
+            "name": "?"
+        }
+    ], 
     "ocean": [
         {
+            "emoji": "\ud83d\udc0b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc20", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc4", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf0a", 
-            "name": "WATER WAVE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc33", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc21", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2c", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\uddee\ud83c\uddf4", 
@@ -19263,16 +26786,24 @@ var EMOJI_MAP = {
     "octopus": [
         {
             "emoji": "\ud83d\udc19", 
-            "name": "OCTOPUS"
+            "name": "?"
         }
     ], 
     "oden": [
         {
             "emoji": "\ud83c\udf62", 
-            "name": "ODEN"
+            "name": "?"
         }
     ], 
     "of": [
+        {
+            "emoji": "\ud83d\uddfd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3e", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udde8\ud83c\udde9", 
             "name": "Flag for Congo  Kinshasa"
@@ -19289,21 +26820,33 @@ var EMOJI_MAP = {
     "off": [
         {
             "emoji": "\ud83d\udcf4", 
-            "name": "MOBILE PHONE OFF"
+            "name": "?"
         }
     ], 
     "office": [
         {
-            "emoji": "\ud83c\udfe2", 
-            "name": "OFFICE BUILDING"
+            "emoji": "\ud83d\udcc4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc3", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfe3", 
-            "name": "JAPANESE POST OFFICE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc1", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfe4", 
-            "name": "EUROPEAN POST OFFICE post office"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\uddbc\ufe0f", 
@@ -19402,16 +26945,8 @@ var EMOJI_MAP = {
             "name": "LEDGER"
         }, 
         {
-            "emoji": "\ud83d\udcc3", 
-            "name": "PAGE WITH CURL"
-        }, 
-        {
             "emoji": "\ud83d\udcdc", 
             "name": "SCROLL"
-        }, 
-        {
-            "emoji": "\ud83d\udcc4", 
-            "name": "PAGE FACING UP"
         }, 
         {
             "emoji": "\ud83d\udcd1", 
@@ -19538,10 +27073,6 @@ var EMOJI_MAP = {
             "name": "BRIEFCASE"
         }, 
         {
-            "emoji": "\ud83d\udcc1", 
-            "name": "FILE FOLDER"
-        }, 
-        {
             "emoji": "\ud83d\udcc2", 
             "name": "OPEN FILE FOLDER"
         }, 
@@ -19643,7 +27174,7 @@ var EMOJI_MAP = {
     "ogre": [
         {
             "emoji": "\ud83d\udc79", 
-            "name": "JAPANESE OGRE ogre"
+            "name": "?"
         }
     ], 
     "oh": [
@@ -19652,30 +27183,66 @@ var EMOJI_MAP = {
             "name": "WEARY CAT FACE"
         }
     ], 
+    "ohyeah": [
+        {
+            "emoji": "\u270c\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "oil": [
         {
             "emoji": "\ud83d\udee2\ufe0f", 
             "name": "OIL DRUM"
         }
     ], 
-    "ok": [
+    "oink": [
         {
-            "emoji": "\ud83d\udc4c", 
-            "name": "OK HAND SIGN ok hand"
+            "emoji": "\ud83d\udc37", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude46", 
-            "name": "FACE WITH OK GESTURE gesturing ok"
+            "emoji": "\ud83d\udc3d", 
+            "name": "?"
+        }
+    ], 
+    "ok": [
+        {
+            "emoji": "\u2705", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4c", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udd97", 
-            "name": "SQUARED OK"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude46", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2611\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2714\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude51", 
+            "name": "?"
         }
     ], 
     "okay": [
         {
             "emoji": "\ud83d\udc4c", 
             "name": "OK HAND SIGN ok hand"
+        }, 
+        {
+            "emoji": "\ud83d\ude14", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude46", 
@@ -19687,6 +27254,10 @@ var EMOJI_MAP = {
         }
     ], 
     "old": [
+        {
+            "emoji": "\ud83d\udd18", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc74", 
             "name": "OLDER MAN old man"
@@ -19703,11 +27274,37 @@ var EMOJI_MAP = {
     "older": [
         {
             "emoji": "\ud83d\udc74", 
-            "name": "OLDER MAN old man"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc75", 
-            "name": "OLDER WOMAN old woman"
+            "name": "?"
+        }
+    ], 
+    "oldschool": [
+        {
+            "emoji": "\ud83d\udcbe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u231b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcfc", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcdf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u23f3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcfa", 
+            "name": "?"
         }
     ], 
     "om": [
@@ -19722,10 +27319,28 @@ var EMOJI_MAP = {
             "name": "Flag for Oman"
         }
     ], 
+    "omg": [
+        {
+            "emoji": "\ud83d\ude4a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude31", 
+            "name": "?"
+        }
+    ], 
     "on": [
         {
+            "emoji": "\ud83d\udea9", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd1b", 
-            "name": "ON WITH EXCLAMATION MARK WITH LEFT RIGHT ARROW ABOVE on! arrow"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf56", 
+            "name": "?"
         }
     ], 
     "on!": [
@@ -19742,27 +27357,35 @@ var EMOJI_MAP = {
     ], 
     "oncoming": [
         {
-            "emoji": "\ud83d\udc4a", 
-            "name": "FISTED HAND SIGN oncoming fist"
-        }, 
-        {
             "emoji": "\ud83d\ude8d", 
-            "name": "ONCOMING BUS"
-        }, 
-        {
-            "emoji": "\ud83d\ude94", 
-            "name": "ONCOMING POLICE CAR"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude96", 
-            "name": "ONCOMING TAXI"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude94", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude98", 
-            "name": "ONCOMING AUTOMOBILE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4a", 
+            "name": "FISTED HAND SIGN oncoming fist"
         }
     ], 
     "one": [
+        {
+            "emoji": "1\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd02", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude4b", 
             "name": "HAPPY PERSON RAISING ONE HAND happy person raising hand"
@@ -19780,14 +27403,6 @@ var EMOJI_MAP = {
             "name": "SPEAKER WITH ONE SOUND WAVE speaker on"
         }, 
         {
-            "emoji": "\ud83d\udd02", 
-            "name": "CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS WITH CIRCLED ONE OVERLAY repeat single button"
-        }, 
-        {
-            "emoji": "1\ufe0f\u20e3", 
-            "name": "Keycap DIGIT ONE"
-        }, 
-        {
             "emoji": "\ud83d\udd1e", 
             "name": "NO ONE UNDER EIGHTEEN SYMBOL no one under eighteen"
         }
@@ -19798,7 +27413,37 @@ var EMOJI_MAP = {
             "name": "CLOCK FACE ONETHIRTY onethirty"
         }
     ], 
+    "oops": [
+        {
+            "emoji": "\ud83d\ude28", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude16", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude23", 
+            "name": "?"
+        }
+    ], 
     "open": [
+        {
+            "emoji": "\ud83d\udcc2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc50", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude03", 
             "name": "SMILING FACE WITH OPEN MOUTH"
@@ -19816,10 +27461,6 @@ var EMOJI_MAP = {
             "name": "SMILING FACE WITH OPEN MOUTH AND TIGHTLYCLOSED EYES"
         }, 
         {
-            "emoji": "\ud83d\ude2e", 
-            "name": "FACE WITH OPEN MOUTH"
-        }, 
-        {
             "emoji": "\ud83d\ude26", 
             "name": "FROWNING FACE WITH OPEN MOUTH"
         }, 
@@ -19832,10 +27473,6 @@ var EMOJI_MAP = {
             "name": "SMILING CAT FACE WITH OPEN MOUTH"
         }, 
         {
-            "emoji": "\ud83d\udc50", 
-            "name": "OPEN HANDS SIGN open hands"
-        }, 
-        {
             "emoji": "\ud83d\udcd6", 
             "name": "OPEN BOOK"
         }, 
@@ -19846,10 +27483,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udced", 
             "name": "OPEN MAILBOX WITH LOWERED FLAG"
-        }, 
-        {
-            "emoji": "\ud83d\udcc2", 
-            "name": "OPEN FILE FOLDER"
         }, 
         {
             "emoji": "\ud83d\udd13", 
@@ -19872,6 +27505,18 @@ var EMOJI_MAP = {
             "name": "CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS WITH CIRCLED ONE OVERLAY repeat single button"
         }
     ], 
+    "open_book": [
+        {
+            "emoji": "\ud83d\udcd6", 
+            "name": "?"
+        }
+    ], 
+    "opening hours": [
+        {
+            "emoji": "\ud83c\ude3a", 
+            "name": "?"
+        }
+    ], 
     "operating": [
         {
             "emoji": "\ud83c\ude3a", 
@@ -19880,12 +27525,12 @@ var EMOJI_MAP = {
     ], 
     "ophiuchus": [
         {
-            "emoji": "\ud83d\udc0d", 
-            "name": "SNAKE"
+            "emoji": "\u26ce", 
+            "name": "?"
         }, 
         {
-            "emoji": "\u26ce", 
-            "name": "OPHIUCHUS"
+            "emoji": "\ud83d\udc0d", 
+            "name": "SNAKE"
         }
     ], 
     "optical": [
@@ -19904,20 +27549,86 @@ var EMOJI_MAP = {
     ], 
     "orange": [
         {
-            "emoji": "\ud83c\udf4a", 
-            "name": "TANGERINE"
+            "emoji": "\ud83d\udd36", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcd9", 
-            "name": "ORANGE BOOK"
-        }, 
-        {
-            "emoji": "\ud83d\udd36", 
-            "name": "LARGE ORANGE DIAMOND"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd38", 
-            "name": "SMALL ORANGE DIAMOND"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4a", 
+            "name": "TANGERINE"
+        }
+    ], 
+    "orange-circle": [
+        {
+            "emoji": "\ud83c\ude51", 
+            "name": "?"
+        }
+    ], 
+    "orange-square": [
+        {
+            "emoji": "\ud83d\udcf3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude37\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd9a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udebc", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2734\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "orchestra": [
+        {
+            "emoji": "\ud83c\udfbb", 
+            "name": "?"
+        }
+    ], 
+    "order": [
+        {
+            "emoji": "\ud83d\udcd1", 
+            "name": "?"
+        }
+    ], 
+    "oreo": [
+        {
+            "emoji": "\ud83c\udf6a", 
+            "name": "?"
         }
     ], 
     "ornament": [
@@ -20978,10 +28689,46 @@ var EMOJI_MAP = {
             "name": "Flag for Zimbabwe"
         }
     ], 
+    "out": [
+        {
+            "emoji": "\ud83d\ude1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1d", 
+            "name": "?"
+        }
+    ], 
     "outbox": [
         {
             "emoji": "\ud83d\udce4", 
-            "name": "OUTBOX TRAY"
+            "name": "?"
+        }
+    ], 
+    "outdoors": [
+        {
+            "emoji": "\u26fa", 
+            "name": "?"
+        }
+    ], 
+    "outer space": [
+        {
+            "emoji": "\ud83d\ude80", 
+            "name": "?"
+        }
+    ], 
+    "outer_space": [
+        {
+            "emoji": "\ud83d\ude80", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc7d", 
+            "name": "?"
         }
     ], 
     "outgoing": [
@@ -21014,6 +28761,12 @@ var EMOJI_MAP = {
             "name": "Flag for U.S. Outlying Islands"
         }
     ], 
+    "over": [
+        {
+            "emoji": "\ud83c\udf04", 
+            "name": "?"
+        }
+    ], 
     "overlay": [
         {
             "emoji": "\ud83d\udd02", 
@@ -21023,7 +28776,19 @@ var EMOJI_MAP = {
     "ox": [
         {
             "emoji": "\ud83d\udc02", 
-            "name": "OX"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc04", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc03", 
+            "name": "?"
         }, 
         {
             "emoji": "\u2649\ufe0f", 
@@ -21089,7 +28854,7 @@ var EMOJI_MAP = {
     "package": [
         {
             "emoji": "\ud83d\udce6", 
-            "name": "PACKAGE"
+            "name": "?"
         }
     ], 
     "pad": [
@@ -21108,20 +28873,38 @@ var EMOJI_MAP = {
             "name": "TABLE TENNIS PADDLE AND BALL ping pong"
         }
     ], 
+    "padlock": [
+        {
+            "emoji": "\ud83d\udd12", 
+            "name": "?"
+        }
+    ], 
     "page": [
         {
-            "emoji": "\ud83d\udcc3", 
-            "name": "PAGE WITH CURL"
+            "emoji": "\ud83d\udcc4", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcc4", 
-            "name": "PAGE FACING UP"
+            "emoji": "\ud83d\udcc3", 
+            "name": "?"
+        }
+    ], 
+    "pageant": [
+        {
+            "emoji": "\ud83c\udfbd", 
+            "name": "?"
         }
     ], 
     "pager": [
         {
             "emoji": "\ud83d\udcdf", 
-            "name": "PAGER"
+            "name": "?"
+        }
+    ], 
+    "paint": [
+        {
+            "emoji": "\ud83c\udfa8", 
+            "name": "?"
         }
     ], 
     "paintbrush": [
@@ -21142,6 +28925,28 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd8c\ufe0f", 
             "name": "LOWER LEFT PAINTBRUSH paintbrush"
+        }
+    ], 
+    "pair": [
+        {
+            "emoji": "\ud83d\udc6c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8f", 
+            "name": "?"
         }
     ], 
     "pakistan": [
@@ -21176,8 +28981,16 @@ var EMOJI_MAP = {
     ], 
     "palm": [
         {
+            "emoji": "\u270b", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf34", 
-            "name": "PALM TREE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4b", 
+            "name": "?"
         }
     ], 
     "pan": [
@@ -21194,8 +29007,12 @@ var EMOJI_MAP = {
     ], 
     "panda": [
         {
+            "emoji": "\ud83c\udf8d", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc3c", 
-            "name": "PANDA FACE"
+            "name": "?"
         }
     ], 
     "pants": [
@@ -21206,12 +29023,40 @@ var EMOJI_MAP = {
     ], 
     "paper": [
         {
-            "emoji": "\ud83c\udfee", 
-            "name": "IZAKAYA LANTERN red paper lantern"
+            "emoji": "\ud83d\udcdc", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcdc", 
-            "name": "SCROLL"
+            "emoji": "\ud83d\udcc4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270f\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcdd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfee", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd4", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcf0", 
@@ -21225,7 +29070,7 @@ var EMOJI_MAP = {
     "paperclip": [
         {
             "emoji": "\ud83d\udcce", 
-            "name": "PAPERCLIP"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd87\ufe0f", 
@@ -21256,6 +29101,12 @@ var EMOJI_MAP = {
             "name": "PACKAGE"
         }
     ], 
+    "parents": [
+        {
+            "emoji": "\ud83d\udc6a", 
+            "name": "?"
+        }
+    ], 
     "park": [
         {
             "emoji": "\ud83c\udfde\ufe0f", 
@@ -21273,7 +29124,7 @@ var EMOJI_MAP = {
     "parking": [
         {
             "emoji": "\ud83c\udd7f\ufe0f", 
-            "name": "NEGATIVE SQUARED LATIN CAPITAL LETTER P p button"
+            "name": "?"
         }
     ], 
     "parlor": [
@@ -21284,24 +29135,72 @@ var EMOJI_MAP = {
     ], 
     "part": [
         {
-            "emoji": "\ud83d\udd96", 
-            "name": "RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS vulcan salute"
+            "emoji": "\u303d\ufe0f", 
+            "name": "?"
         }, 
         {
-            "emoji": "\u303d\ufe0f", 
-            "name": "PART ALTERNATION MARK"
+            "emoji": "\ud83d\udd96", 
+            "name": "RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS vulcan salute"
+        }
+    ], 
+    "partly": [
+        {
+            "emoji": "\u26c5", 
+            "name": "?"
         }
     ], 
     "party": [
         {
             "emoji": "\ud83c\udf89", 
-            "name": "PARTY POPPER"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf88", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfaa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd2e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf82", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf55", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7b", 
+            "name": "?"
         }
     ], 
     "partying": [
         {
             "emoji": "\ud83d\udc6f", 
             "name": "WOMAN WITH BUNNY EARS women partying"
+        }
+    ], 
+    "pass": [
+        {
+            "emoji": "\ud83d\udcaf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfab", 
+            "name": "?"
         }
     ], 
     "passenger": [
@@ -21313,13 +29212,21 @@ var EMOJI_MAP = {
     "passport": [
         {
             "emoji": "\ud83d\udec2", 
-            "name": "PASSPORT CONTROL"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udec3", 
+            "name": "?"
         }
     ], 
     "password": [
         {
             "emoji": "\ud83d\udd11", 
-            "name": "KEY"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd12", 
+            "name": "?"
         }
     ], 
     "pasta": [
@@ -21348,6 +29255,12 @@ var EMOJI_MAP = {
             "name": "POLICE CAR"
         }
     ], 
+    "paul": [
+        {
+            "emoji": "\ud83d\udc7d", 
+            "name": "?"
+        }
+    ], 
     "pause": [
         {
             "emoji": "\u23ef\ufe0f", 
@@ -21364,6 +29277,34 @@ var EMOJI_MAP = {
             "name": "PAW PRINTS"
         }
     ], 
+    "paw_prints": [
+        {
+            "emoji": "\ud83d\udc3e", 
+            "name": "?"
+        }
+    ], 
+    "payment": [
+        {
+            "emoji": "\ud83d\udcb2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb8", 
+            "name": "?"
+        }
+    ], 
     "pc": [
         {
             "emoji": "\ud83d\udcbb", 
@@ -21371,6 +29312,10 @@ var EMOJI_MAP = {
         }
     ], 
     "peace": [
+        {
+            "emoji": "\u270c\ufe0f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd4a\ufe0f", 
             "name": "DOVE OF PEACE dove"
@@ -21383,13 +29328,13 @@ var EMOJI_MAP = {
     "peach": [
         {
             "emoji": "\ud83c\udf51", 
-            "name": "PEACH"
+            "name": "?"
         }
     ], 
     "pear": [
         {
             "emoji": "\ud83c\udf50", 
-            "name": "PEAR"
+            "name": "?"
         }
     ], 
     "pedestrian": [
@@ -21409,13 +29354,23 @@ var EMOJI_MAP = {
     "pedestrians": [
         {
             "emoji": "\ud83d\udeb7", 
-            "name": "NO PEDESTRIANS"
+            "name": "?"
+        }
+    ], 
+    "peek": [
+        {
+            "emoji": "\ud83d\udc40", 
+            "name": "?"
         }
     ], 
     "pen": [
         {
             "emoji": "\u2712\ufe0f", 
-            "name": "BLACK NIB"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd8b\ufe0f", 
@@ -21424,32 +29379,52 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd8a\ufe0f", 
             "name": "LOWER LEFT BALLPOINT PEN pen"
-        }, 
-        {
-            "emoji": "\ud83d\udd0f", 
-            "name": "LOCK WITH INK PEN lock with pen"
         }
     ], 
     "pencil": [
         {
-            "emoji": "\u270f\ufe0f", 
-            "name": "PENCIL"
+            "emoji": "\ud83d\udcdd", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcdd", 
-            "name": "MEMO"
+            "emoji": "\u270f\ufe0f", 
+            "name": "PENCIL"
+        }
+    ], 
+    "pencil2": [
+        {
+            "emoji": "\u270f\ufe0f", 
+            "name": "?"
         }
     ], 
     "penguin": [
         {
             "emoji": "\ud83d\udc27", 
-            "name": "PENGUIN"
+            "name": "?"
         }
     ], 
     "pensive": [
         {
             "emoji": "\ud83d\ude14", 
-            "name": "PENSIVE FACE"
+            "name": "?"
+        }
+    ], 
+    "people": [
+        {
+            "emoji": "\ud83d\udc6c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6a", 
+            "name": "?"
         }
     ], 
     "pepper": [
@@ -21458,16 +29433,32 @@ var EMOJI_MAP = {
             "name": "HOT PEPPER"
         }
     ], 
+    "percent": [
+        {
+            "emoji": "\ud83d\udd23", 
+            "name": "?"
+        }
+    ], 
+    "perfect": [
+        {
+            "emoji": "\ud83d\udc4c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcaf", 
+            "name": "?"
+        }
+    ], 
     "performing": [
         {
             "emoji": "\ud83c\udfad", 
-            "name": "PERFORMING ARTS"
+            "name": "?"
         }
     ], 
     "persevere": [
         {
             "emoji": "\ud83d\ude23", 
-            "name": "PERSEVERING FACE"
+            "name": "?"
         }
     ], 
     "persevering": [
@@ -21477,6 +29468,30 @@ var EMOJI_MAP = {
         }
     ], 
     "person": [
+        {
+            "emoji": "\ud83d\udc64", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc71", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc65", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc81", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude00", 
             "name": "GRINNING FACE"
@@ -21818,10 +29833,6 @@ var EMOJI_MAP = {
             "name": "BABY"
         }, 
         {
-            "emoji": "\ud83d\udc71", 
-            "name": "PERSON WITH BLOND HAIR"
-        }, 
-        {
             "emoji": "\ud83d\udc6e", 
             "name": "POLICE OFFICER"
         }, 
@@ -21874,24 +29885,12 @@ var EMOJI_MAP = {
             "name": "HAIRCUT"
         }, 
         {
-            "emoji": "\ud83d\ude4d", 
-            "name": "PERSON FROWNING"
-        }, 
-        {
-            "emoji": "\ud83d\ude4e", 
-            "name": "PERSON WITH POUTING FACE person pouting"
-        }, 
-        {
             "emoji": "\ud83d\ude45", 
             "name": "FACE WITH NO GOOD GESTURE gesturing no"
         }, 
         {
             "emoji": "\ud83d\ude46", 
             "name": "FACE WITH OK GESTURE gesturing ok"
-        }, 
-        {
-            "emoji": "\ud83d\udc81", 
-            "name": "INFORMATION DESK PERSON"
         }, 
         {
             "emoji": "\ud83d\ude4b", 
@@ -21912,14 +29911,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udde3\ufe0f", 
             "name": "SPEAKING HEAD IN SILHOUETTE speaking head"
-        }, 
-        {
-            "emoji": "\ud83d\udc64", 
-            "name": "BUST IN SILHOUETTE"
-        }, 
-        {
-            "emoji": "\ud83d\udc65", 
-            "name": "BUSTS IN SILHOUETTE"
         }, 
         {
             "emoji": "\ud83d\udeb6", 
@@ -22356,32 +30347,66 @@ var EMOJI_MAP = {
     ], 
     "pet": [
         {
-            "emoji": "\ud83d\udc36", 
-            "name": "DOG FACE"
-        }, 
-        {
-            "emoji": "\ud83d\udc15", 
-            "name": "DOG"
-        }, 
-        {
-            "emoji": "\ud83d\udc31", 
-            "name": "CAT FACE"
+            "emoji": "\ud83d\udc07", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc08", 
-            "name": "CAT"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc31", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc29", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc30", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc39", 
             "name": "HAMSTER FACE"
+        }
+    ], 
+    "petroleum": [
+        {
+            "emoji": "\u26fd", 
+            "name": "?"
+        }
+    ], 
+    "pharmacy": [
+        {
+            "emoji": "\ud83d\udc8a", 
+            "name": "?"
+        }
+    ], 
+    "phew": [
+        {
+            "emoji": "\ud83d\ude0c", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc30", 
-            "name": "RABBIT FACE"
+            "emoji": "\ud83d\ude25", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc07", 
-            "name": "RABBIT"
+            "emoji": "\ud83d\ude24", 
+            "name": "?"
         }
     ], 
     "philippines": [
@@ -22392,6 +30417,22 @@ var EMOJI_MAP = {
     ], 
     "phone": [
         {
+            "emoji": "\ud83d\udcf3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u260e\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf4", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udcf1", 
             "name": "MOBILE PHONE"
         }, 
@@ -22400,46 +30441,116 @@ var EMOJI_MAP = {
             "name": "MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT mobile phone with arrow"
         }, 
         {
-            "emoji": "\u260e\ufe0f", 
-            "name": "BLACK TELEPHONE telephone"
-        }, 
-        {
             "emoji": "\ud83d\udcde", 
             "name": "TELEPHONE RECEIVER"
         }, 
         {
-            "emoji": "\ud83d\udcf6", 
-            "name": "ANTENNA WITH BARS antenna bars"
-        }, 
-        {
             "emoji": "\ud83d\udcf5", 
             "name": "NO MOBILE PHONES"
-        }, 
-        {
-            "emoji": "\ud83d\udcf3", 
-            "name": "VIBRATION MODE"
-        }, 
-        {
-            "emoji": "\ud83d\udcf4", 
-            "name": "MOBILE PHONE OFF"
         }
     ], 
     "phones": [
         {
             "emoji": "\ud83d\udcf5", 
-            "name": "NO MOBILE PHONES"
+            "name": "?"
+        }
+    ], 
+    "photo": [
+        {
+            "emoji": "\ud83c\udf04", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf08", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf86", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf20", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf07", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfef", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf01", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26fa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf09", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf06", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf0c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26f2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf05", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf0b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\uddfc", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\uddfb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa2", 
+            "name": "?"
         }
     ], 
     "pi": [
         {
             "emoji": "\ud83d\udc72", 
-            "name": "MAN WITH GUA PI MAO man with chinese cap"
+            "name": "?"
         }
     ], 
     "piano": [
         {
             "emoji": "\ud83c\udfb9", 
-            "name": "MUSICAL KEYBOARD"
+            "name": "?"
         }
     ], 
     "pick": [
@@ -22450,6 +30561,12 @@ var EMOJI_MAP = {
         {
             "emoji": "\u2692\ufe0f", 
             "name": "HAMMER AND PICK"
+        }
+    ], 
+    "picnic": [
+        {
+            "emoji": "\ud83c\udf49", 
+            "name": "?"
         }
     ], 
     "picture": [
@@ -22467,7 +30584,11 @@ var EMOJI_MAP = {
     "pig": [
         {
             "emoji": "\ud83d\udc37", 
-            "name": "PIG FACE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3d", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc16", 
@@ -22476,10 +30597,12 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udc17", 
             "name": "BOAR"
-        }, 
+        }
+    ], 
+    "pig2": [
         {
-            "emoji": "\ud83d\udc3d", 
-            "name": "PIG NOSE"
+            "emoji": "\ud83d\udc16", 
+            "name": "?"
         }
     ], 
     "pile": [
@@ -22491,7 +30614,7 @@ var EMOJI_MAP = {
     "pill": [
         {
             "emoji": "\ud83d\udc8a", 
-            "name": "PILL"
+            "name": "?"
         }
     ], 
     "pin": [
@@ -22513,7 +30636,7 @@ var EMOJI_MAP = {
     "pineapple": [
         {
             "emoji": "\ud83c\udf4d", 
-            "name": "PINEAPPLE"
+            "name": "?"
         }
     ], 
     "ping": [
@@ -22522,7 +30645,41 @@ var EMOJI_MAP = {
             "name": "TABLE TENNIS PADDLE AND BALL ping pong"
         }
     ], 
+    "pinged": [
+        {
+            "emoji": "\ud83d\udea8", 
+            "name": "?"
+        }
+    ], 
+    "pink": [
+        {
+            "emoji": "\ud83d\ude46", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc97", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf80", 
+            "name": "?"
+        }
+    ], 
+    "pink-square": [
+        {
+            "emoji": "\ud83c\ude39", 
+            "name": "?"
+        }
+    ], 
     "pisces": [
+        {
+            "emoji": "\u2653", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc1f", 
             "name": "FISH"
@@ -22535,7 +30692,7 @@ var EMOJI_MAP = {
     "pistol": [
         {
             "emoji": "\ud83d\udd2b", 
-            "name": "PISTOL"
+            "name": "?"
         }
     ], 
     "pitcairn": [
@@ -22547,10 +30704,22 @@ var EMOJI_MAP = {
     "pizza": [
         {
             "emoji": "\ud83c\udf55", 
-            "name": "SLICE OF PIZZA pizza"
+            "name": "?"
         }
     ], 
     "place": [
+        {
+            "emoji": "\ud83d\udea9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeae", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc0e", 
             "name": "HORSE"
@@ -23124,10 +31293,6 @@ var EMOJI_MAP = {
             "name": "TICKET"
         }, 
         {
-            "emoji": "\ud83c\udfc6", 
-            "name": "TROPHY"
-        }, 
-        {
             "emoji": "\u26bd\ufe0f", 
             "name": "SOCCER BALL"
         }, 
@@ -23200,20 +31365,12 @@ var EMOJI_MAP = {
             "name": "CHEQUERED FLAG"
         }, 
         {
-            "emoji": "\ud83d\udea9", 
-            "name": "TRIANGULAR FLAG ON POST triangular flag"
-        }, 
-        {
             "emoji": "\ud83d\uddff", 
             "name": "MOYAI moai"
         }, 
         {
             "emoji": "\ud83c\udfe7", 
             "name": "AUTOMATED TELLER MACHINE ATM sign"
-        }, 
-        {
-            "emoji": "\ud83d\udeae", 
-            "name": "PUT LITTER IN ITS PLACE SYMBOL litter in bin sign"
         }, 
         {
             "emoji": "\ud83d\udebe", 
@@ -23268,18 +31425,146 @@ var EMOJI_MAP = {
             "name": "NEGATIVE SQUARED LATIN CAPITAL LETTER P p button"
         }
     ], 
+    "planet": [
+        {
+            "emoji": "\ud83c\udf17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf12", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf16", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf11", 
+            "name": "?"
+        }
+    ], 
+    "planning": [
+        {
+            "emoji": "\ud83d\udcc6", 
+            "name": "?"
+        }
+    ], 
     "plant": [
         {
+            "emoji": "\ud83c\udf42", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf33", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3b", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf31", 
-            "name": "SEEDLING"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf44", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf40", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf37", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf43", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf41", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc90", 
             "name": "BOUQUET"
-        }, 
-        {
-            "emoji": "\ud83c\udf38", 
-            "name": "CHERRY BLOSSOM"
         }, 
         {
             "emoji": "\ud83c\udff5\ufe0f", 
@@ -23290,64 +31575,12 @@ var EMOJI_MAP = {
             "name": "ROSE"
         }, 
         {
-            "emoji": "\ud83c\udf3a", 
-            "name": "HIBISCUS"
-        }, 
-        {
-            "emoji": "\ud83c\udf3b", 
-            "name": "SUNFLOWER"
-        }, 
-        {
             "emoji": "\ud83c\udf3c", 
             "name": "BLOSSOM"
         }, 
         {
-            "emoji": "\ud83c\udf37", 
-            "name": "TULIP"
-        }, 
-        {
-            "emoji": "\ud83c\udf32", 
-            "name": "EVERGREEN TREE evergreen"
-        }, 
-        {
-            "emoji": "\ud83c\udf33", 
-            "name": "DECIDUOUS TREE"
-        }, 
-        {
-            "emoji": "\ud83c\udf34", 
-            "name": "PALM TREE"
-        }, 
-        {
-            "emoji": "\ud83c\udf35", 
-            "name": "CACTUS"
-        }, 
-        {
-            "emoji": "\ud83c\udf3e", 
-            "name": "EAR OF RICE sheaf of rice"
-        }, 
-        {
-            "emoji": "\ud83c\udf3f", 
-            "name": "HERB"
-        }, 
-        {
             "emoji": "\u2618\ufe0f", 
             "name": "SHAMROCK"
-        }, 
-        {
-            "emoji": "\ud83c\udf40", 
-            "name": "FOUR LEAF CLOVER"
-        }, 
-        {
-            "emoji": "\ud83c\udf41", 
-            "name": "MAPLE LEAF"
-        }, 
-        {
-            "emoji": "\ud83c\udf42", 
-            "name": "FALLEN LEAF"
-        }, 
-        {
-            "emoji": "\ud83c\udf43", 
-            "name": "LEAF FLUTTERING IN WIND"
         }, 
         {
             "emoji": "\ud83c\udf47", 
@@ -23410,24 +31643,12 @@ var EMOJI_MAP = {
             "name": "AUBERGINE eggplant"
         }, 
         {
-            "emoji": "\ud83c\udf3d", 
-            "name": "EAR OF MAIZE ear of corn"
-        }, 
-        {
             "emoji": "\ud83c\udf36\ufe0f", 
             "name": "HOT PEPPER"
         }, 
         {
-            "emoji": "\ud83c\udf44", 
-            "name": "MUSHROOM"
-        }, 
-        {
             "emoji": "\ud83c\udf30", 
             "name": "CHESTNUT"
-        }, 
-        {
-            "emoji": "\ud83c\udf8d", 
-            "name": "PINE DECORATION"
         }
     ], 
     "plate": [
@@ -23438,6 +31659,46 @@ var EMOJI_MAP = {
     ], 
     "play": [
         {
+            "emoji": "\ud83c\udfaf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc7e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udccf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfae", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u23ea", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u23e9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfbd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udc04", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u25b6\ufe0f", 
             "name": "BLACK RIGHTPOINTING TRIANGLE play button"
         }, 
@@ -23446,64 +31707,110 @@ var EMOJI_MAP = {
             "name": "BLACK RIGHTPOINTING TRIANGLE WITH DOUBLE VERTICAL BAR play or pause button"
         }
     ], 
+    "playful": [
+        {
+            "emoji": "\ud83d\udc45", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1d", 
+            "name": "?"
+        }
+    ], 
+    "playground": [
+        {
+            "emoji": "\ud83c\udfa2", 
+            "name": "?"
+        }
+    ], 
     "playing": [
+        {
+            "emoji": "\ud83c\udfb4", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udccf", 
             "name": "PLAYING CARD BLACK JOKER joker"
-        }, 
-        {
-            "emoji": "\ud83c\udfb4", 
-            "name": "FLOWER PLAYING CARDS"
         }
     ], 
     "please": [
         {
             "emoji": "\ud83d\ude4f", 
-            "name": "PERSON WITH FOLDED HANDS folded hands"
+            "name": "?"
         }
     ], 
     "plug": [
         {
             "emoji": "\ud83d\udd0c", 
-            "name": "ELECTRIC PLUG"
+            "name": "?"
         }
     ], 
     "plus": [
         {
             "emoji": "\u2795", 
-            "name": "HEAVY PLUS SIGN"
+            "name": "?"
+        }
+    ], 
+    "podcast": [
+        {
+            "emoji": "\ud83d\udcfb", 
+            "name": "?"
         }
     ], 
     "point": [
         {
-            "emoji": "\ud83d\udc48", 
-            "name": "WHITE LEFT POINTING BACKHAND INDEX backhand index pointing left"
-        }, 
-        {
-            "emoji": "\ud83d\udc49", 
-            "name": "WHITE RIGHT POINTING BACKHAND INDEX backhand index pointing right"
-        }, 
-        {
             "emoji": "\u261d\ufe0f", 
-            "name": "WHITE UP POINTING INDEX index pointing up"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc46", 
-            "name": "WHITE UP POINTING BACKHAND INDEX backhand index pointing up"
+            "emoji": "\ud83c\ude2f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2196\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3c", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc47", 
-            "name": "WHITE DOWN POINTING BACKHAND INDEX backhand index pointing down"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2197\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc49", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc48", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc46", 
+            "name": "?"
         }
     ], 
     "pointed": [
         {
             "emoji": "\ud83d\udd2f", 
-            "name": "SIX POINTED STAR WITH MIDDLE DOT dotted sixpointed star"
+            "name": "?"
         }, 
         {
             "emoji": "\u2734\ufe0f", 
-            "name": "EIGHT POINTED BLACK STAR eightpointed star"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd3a", 
@@ -23550,6 +31857,34 @@ var EMOJI_MAP = {
             "name": "HUNDRED POINTS SYMBOL hundred points"
         }
     ], 
+    "poisoned": [
+        {
+            "emoji": "\ud83d\ude32", 
+            "name": "?"
+        }
+    ], 
+    "poker": [
+        {
+            "emoji": "\u2660\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2666\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2665\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udccf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2663\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "poland": [
         {
             "emoji": "\ud83c\uddf5\ud83c\uddf1", 
@@ -23558,36 +31893,48 @@ var EMOJI_MAP = {
     ], 
     "pole": [
         {
-            "emoji": "\ud83d\udc88", 
-            "name": "BARBER POLE"
+            "emoji": "\ud83c\udfa3", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udfa3", 
-            "name": "FISHING POLE AND FISH fishing pole"
+            "emoji": "\ud83d\udc88", 
+            "name": "BARBER POLE"
         }
     ], 
     "police": [
         {
-            "emoji": "\ud83d\udc6e", 
-            "name": "POLICE OFFICER"
+            "emoji": "\ud83d\ude93", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude93", 
-            "name": "POLICE CAR"
+            "emoji": "\ud83d\udc6e", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude94", 
-            "name": "ONCOMING POLICE CAR"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udea8", 
-            "name": "POLICE CARS REVOLVING LIGHT police car\u2019s light"
+            "name": "?"
         }
     ], 
     "polish": [
         {
             "emoji": "\ud83d\udc85", 
             "name": "NAIL POLISH"
+        }
+    ], 
+    "pollution": [
+        {
+            "emoji": "\ud83c\udfed", 
+            "name": "?"
+        }
+    ], 
+    "polygon": [
+        {
+            "emoji": "\u2734\ufe0f", 
+            "name": "?"
         }
     ], 
     "polynesia": [
@@ -23611,13 +31958,19 @@ var EMOJI_MAP = {
     "poodle": [
         {
             "emoji": "\ud83d\udc29", 
-            "name": "POODLE"
+            "name": "?"
+        }
+    ], 
+    "pool": [
+        {
+            "emoji": "\ud83c\udfb1", 
+            "name": "?"
         }
     ], 
     "poop": [
         {
             "emoji": "\ud83d\udca9", 
-            "name": "PILE OF POO"
+            "name": "?"
         }
     ], 
     "popcorn": [
@@ -23646,29 +31999,37 @@ var EMOJI_MAP = {
     ], 
     "post": [
         {
+            "emoji": "\ud83d\udea9", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udfe3", 
-            "name": "JAPANESE POST OFFICE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfe4", 
-            "name": "EUROPEAN POST OFFICE post office"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcef", 
             "name": "POSTAL HORN"
-        }, 
-        {
-            "emoji": "\ud83d\udea9", 
-            "name": "TRIANGULAR FLAG ON POST triangular flag"
         }
     ], 
     "postal": [
         {
+            "emoji": "\u2709\ufe0f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udcef", 
-            "name": "POSTAL HORN"
+            "name": "?"
         }
     ], 
     "postbox": [
+        {
+            "emoji": "\ud83d\udcee", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udceb", 
             "name": "CLOSED MAILBOX WITH RAISED FLAG"
@@ -23684,26 +32045,22 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udced", 
             "name": "OPEN MAILBOX WITH LOWERED FLAG"
-        }, 
-        {
-            "emoji": "\ud83d\udcee", 
-            "name": "POSTBOX"
         }
     ], 
     "pot": [
         {
-            "emoji": "\ud83c\udf72", 
-            "name": "POT OF FOOD"
+            "emoji": "\ud83c\udf6f", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf6f", 
-            "name": "HONEY POT"
+            "emoji": "\ud83c\udf72", 
+            "name": "POT OF FOOD"
         }
     ], 
     "potable": [
         {
             "emoji": "\ud83d\udeb0", 
-            "name": "POTABLE WATER SYMBOL potable water"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udeb1", 
@@ -23713,25 +32070,25 @@ var EMOJI_MAP = {
     "potato": [
         {
             "emoji": "\ud83c\udf60", 
-            "name": "ROASTED SWEET POTATO"
+            "name": "?"
         }
     ], 
     "pouch": [
         {
             "emoji": "\ud83d\udc5d", 
-            "name": "POUCH"
+            "name": "?"
         }
     ], 
     "poultry": [
         {
             "emoji": "\ud83c\udf57", 
-            "name": "POULTRY LEG"
+            "name": "?"
         }
     ], 
     "pound": [
         {
             "emoji": "\ud83d\udcb7", 
-            "name": "BANKNOTE WITH POUND SIGN pound banknote"
+            "name": "?"
         }, 
         {
             "emoji": "#\ufe0f\u20e3", 
@@ -23740,16 +32097,50 @@ var EMOJI_MAP = {
     ], 
     "pouting": [
         {
-            "emoji": "\ud83d\ude21", 
-            "name": "POUTING FACE"
+            "emoji": "\ud83d\ude4e", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude3e", 
-            "name": "POUTING CAT FACE"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude4e", 
-            "name": "PERSON WITH POUTING FACE person pouting"
+            "emoji": "\ud83d\ude21", 
+            "name": "POUTING FACE"
+        }
+    ], 
+    "power": [
+        {
+            "emoji": "\ud83d\udd0c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd0b", 
+            "name": "?"
+        }
+    ], 
+    "praise": [
+        {
+            "emoji": "\ud83d\udc4f", 
+            "name": "?"
+        }
+    ], 
+    "prank": [
+        {
+            "emoji": "\ud83d\ude1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0f", 
+            "name": "?"
         }
     ], 
     "prawn": [
@@ -23761,7 +32152,7 @@ var EMOJI_MAP = {
     "pray": [
         {
             "emoji": "\ud83d\ude4f", 
-            "name": "PERSON WITH FOLDED HANDS folded hands"
+            "name": "?"
         }
     ], 
     "prayer": [
@@ -23770,22 +32161,86 @@ var EMOJI_MAP = {
             "name": "PRAYER BEADS"
         }
     ], 
+    "prc": [
+        {
+            "emoji": "\ud83c\udde8\ud83c\uddf3", 
+            "name": "?"
+        }
+    ], 
+    "presenetation": [
+        {
+            "emoji": "\ud83d\udcc8", 
+            "name": "?"
+        }
+    ], 
     "present": [
         {
             "emoji": "\ud83c\udf81", 
-            "name": "WRAPPED PRESENT"
+            "name": "?"
+        }
+    ], 
+    "presentation": [
+        {
+            "emoji": "\ud83d\udcc9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcca", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u303d\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "press": [
+        {
+            "emoji": "\ud83d\udcf0", 
+            "name": "?"
         }
     ], 
     "previous": [
+        {
+            "emoji": "\u2b05\ufe0f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u23ee\ufe0f", 
             "name": "BLACK LEFTPOINTING DOUBLE TRIANGLE WITH VERTICAL BAR last track button"
         }
     ], 
+    "pride": [
+        {
+            "emoji": "\ud83d\ude24", 
+            "name": "?"
+        }
+    ], 
+    "prime": [
+        {
+            "emoji": "2\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "5\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "7\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "3\ufe0f\u20e3", 
+            "name": "?"
+        }
+    ], 
     "princess": [
         {
             "emoji": "\ud83d\udc78", 
-            "name": "PRINCESS"
+            "name": "?"
         }
     ], 
     "principe": [
@@ -23818,6 +32273,22 @@ var EMOJI_MAP = {
     ], 
     "privacy": [
         {
+            "emoji": "\u3299\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd10", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26d4", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd0f", 
             "name": "LOCK WITH INK PEN lock with pen"
         }
@@ -23828,6 +32299,28 @@ var EMOJI_MAP = {
             "name": "TROPHY"
         }
     ], 
+    "problem": [
+        {
+            "emoji": "\u26a0\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "program": [
+        {
+            "emoji": "\ud83d\udcfb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcfa", 
+            "name": "?"
+        }
+    ], 
+    "progress": [
+        {
+            "emoji": "\ud83d\udea7", 
+            "name": "?"
+        }
+    ], 
     "prohibit": [
         {
             "emoji": "\ud83c\ude32", 
@@ -23835,6 +32328,10 @@ var EMOJI_MAP = {
         }
     ], 
     "prohibited": [
+        {
+            "emoji": "\ud83d\udeb3", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude48", 
             "name": "SEENOEVIL MONKEY seenoevil"
@@ -23862,10 +32359,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udeab", 
             "name": "NO ENTRY SIGN prohibited"
-        }, 
-        {
-            "emoji": "\ud83d\udeb3", 
-            "name": "NO BICYCLES"
         }, 
         {
             "emoji": "\ud83d\udead", 
@@ -23898,13 +32391,51 @@ var EMOJI_MAP = {
             "name": "FILM PROJECTOR"
         }
     ], 
+    "propose": [
+        {
+            "emoji": "\ud83d\udc8d", 
+            "name": "?"
+        }
+    ], 
+    "proud": [
+        {
+            "emoji": "\ud83d\ude24", 
+            "name": "?"
+        }
+    ], 
     "pr\u00edncipe": [
         {
             "emoji": "\ud83c\uddf8\ud83c\uddf9", 
             "name": "Flag for S\u00e3o Tom\u00e9  Pr\u00edncipe"
         }
     ], 
+    "pub": [
+        {
+            "emoji": "\ud83c\udf7a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7b", 
+            "name": "?"
+        }
+    ], 
     "public": [
+        {
+            "emoji": "\ud83d\ude85", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude89", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude8b", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udce2", 
             "name": "PUBLIC ADDRESS LOUDSPEAKER loudspeaker"
@@ -23928,6 +32459,12 @@ var EMOJI_MAP = {
             "name": "Flag for Puerto Rico"
         }
     ], 
+    "puff": [
+        {
+            "emoji": "\ud83d\udca8", 
+            "name": "?"
+        }
+    ], 
     "pulsating": [
         {
             "emoji": "\ud83d\udc93", 
@@ -23938,6 +32475,18 @@ var EMOJI_MAP = {
         {
             "emoji": "\u26fd\ufe0f", 
             "name": "FUEL PUMP"
+        }
+    ], 
+    "pumpkin": [
+        {
+            "emoji": "\ud83c\udf83", 
+            "name": "?"
+        }
+    ], 
+    "pumps": [
+        {
+            "emoji": "\ud83d\udc60", 
+            "name": "?"
         }
     ], 
     "punch": [
@@ -23952,6 +32501,18 @@ var EMOJI_MAP = {
     ], 
     "punctuation": [
         {
+            "emoji": "\u2755", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2049\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2757", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u2763\ufe0f", 
             "name": "HEAVY HEART EXCLAMATION MARK ORNAMENT"
         }, 
@@ -23960,20 +32521,12 @@ var EMOJI_MAP = {
             "name": "DOUBLE EXCLAMATION MARK"
         }, 
         {
-            "emoji": "\u2049\ufe0f", 
-            "name": "EXCLAMATION QUESTION MARK"
-        }, 
-        {
             "emoji": "\u2753", 
             "name": "BLACK QUESTION MARK ORNAMENT question mark"
         }, 
         {
             "emoji": "\u2754", 
             "name": "WHITE QUESTION MARK ORNAMENT white question mark"
-        }, 
-        {
-            "emoji": "\u2755", 
-            "name": "WHITE EXCLAMATION MARK ORNAMENT white exclamation mark"
         }, 
         {
             "emoji": "\u2757\ufe0f", 
@@ -23984,32 +32537,108 @@ var EMOJI_MAP = {
             "name": "WAVY DASH"
         }
     ], 
+    "puppy": [
+        {
+            "emoji": "\ud83d\udc36", 
+            "name": "?"
+        }
+    ], 
     "purple": [
         {
             "emoji": "\ud83d\udc9c", 
-            "name": "PURPLE HEART"
+            "name": "?"
+        }
+    ], 
+    "purple-square": [
+        {
+            "emoji": "\u2649", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeba", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2652", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2653", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2651", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2650", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd2f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26ce", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd94", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2648", 
+            "name": "?"
         }
     ], 
     "purse": [
         {
             "emoji": "\ud83d\udc5b", 
-            "name": "PURSE"
+            "name": "?"
         }
     ], 
     "pushpin": [
         {
-            "emoji": "\ud83d\udccc", 
-            "name": "PUSHPIN"
+            "emoji": "\ud83d\udccd", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udccd", 
-            "name": "ROUND PUSHPIN"
+            "emoji": "\ud83d\udccc", 
+            "name": "?"
         }
     ], 
     "put": [
         {
             "emoji": "\ud83d\udeae", 
-            "name": "PUT LITTER IN ITS PLACE SYMBOL litter in bin sign"
+            "name": "?"
         }
     ], 
     "qatar": [
@@ -24020,23 +32649,27 @@ var EMOJI_MAP = {
     ], 
     "quarter": [
         {
-            "emoji": "\ud83c\udf13", 
-            "name": "FIRST QUARTER MOON SYMBOL first quarter moon"
-        }, 
-        {
             "emoji": "\ud83c\udf17", 
-            "name": "LAST QUARTER MOON SYMBOL last quarter moon"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf1b", 
-            "name": "FIRST QUARTER MOON WITH FACE"
+            "emoji": "\ud83c\udf13", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf1c", 
-            "name": "LAST QUARTER MOON WITH FACE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1b", 
+            "name": "?"
         }
     ], 
     "queen": [
+        {
+            "emoji": "\ud83d\udc78", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc51", 
             "name": "CROWN"
@@ -24044,46 +32677,80 @@ var EMOJI_MAP = {
     ], 
     "question": [
         {
-            "emoji": "\u2049\ufe0f", 
-            "name": "EXCLAMATION QUESTION MARK"
-        }, 
-        {
             "emoji": "\u2753", 
-            "name": "BLACK QUESTION MARK ORNAMENT question mark"
+            "name": "?"
         }, 
         {
             "emoji": "\u2754", 
-            "name": "WHITE QUESTION MARK ORNAMENT white question mark"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2049\ufe0f", 
+            "name": "EXCLAMATION QUESTION MARK"
         }
     ], 
     "quiet": [
         {
-            "emoji": "\ud83d\ude36", 
-            "name": "FACE WITHOUT MOUTH"
-        }, 
-        {
             "emoji": "\ud83d\udd07", 
-            "name": "SPEAKER WITH CANCELLATION STROKE speaker off"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd15", 
-            "name": "BELL WITH CANCELLATION STROKE bell with slash"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude36", 
+            "name": "FACE WITHOUT MOUTH"
+        }
+    ], 
+    "quiz": [
+        {
+            "emoji": "\u231b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcdd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcaf", 
+            "name": "?"
         }
     ], 
     "rabbit": [
         {
             "emoji": "\ud83d\udc30", 
-            "name": "RABBIT FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc07", 
             "name": "RABBIT"
         }
     ], 
+    "rabbit2": [
+        {
+            "emoji": "\ud83d\udc07", 
+            "name": "?"
+        }
+    ], 
+    "race": [
+        {
+            "emoji": "\ud83c\udfc3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb5", 
+            "name": "?"
+        }
+    ], 
     "racehorse": [
         {
             "emoji": "\ud83d\udc0e", 
-            "name": "HORSE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfc7", 
@@ -24092,12 +32759,12 @@ var EMOJI_MAP = {
     ], 
     "racing": [
         {
-            "emoji": "\ud83d\udc0e", 
-            "name": "HORSE"
+            "emoji": "\ud83c\udfc7", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udfc7", 
-            "name": "HORSE RACING"
+            "emoji": "\ud83d\udc0e", 
+            "name": "HORSE"
         }, 
         {
             "emoji": "\ud83c\udfce\ufe0f", 
@@ -24124,12 +32791,16 @@ var EMOJI_MAP = {
     ], 
     "radio": [
         {
-            "emoji": "\ud83d\udcfb", 
-            "name": "RADIO"
+            "emoji": "\ud83d\udd18", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd18", 
-            "name": "RADIO BUTTON"
+            "emoji": "\ud83d\udce1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcfb", 
+            "name": "?"
         }
     ], 
     "radioactive": [
@@ -24141,23 +32812,31 @@ var EMOJI_MAP = {
     "rage": [
         {
             "emoji": "\ud83d\ude21", 
-            "name": "POUTING FACE"
+            "name": "?"
         }
     ], 
     "rail": [
         {
             "emoji": "\ud83d\ude88", 
-            "name": "LIGHT RAIL"
+            "name": "?"
         }
     ], 
     "railway": [
         {
-            "emoji": "\ud83d\ude82", 
-            "name": "STEAM LOCOMOTIVE locomotive"
+            "emoji": "\ud83d\ude9e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude9f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude83", 
-            "name": "RAILWAY CAR"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude82", 
+            "name": "STEAM LOCOMOTIVE locomotive"
         }, 
         {
             "emoji": "\ud83d\ude84", 
@@ -24180,19 +32859,15 @@ var EMOJI_MAP = {
             "name": "STATION"
         }, 
         {
-            "emoji": "\ud83d\ude9e", 
-            "name": "MOUNTAIN RAILWAY"
-        }, 
-        {
             "emoji": "\ud83d\udee4\ufe0f", 
             "name": "RAILWAY TRACK"
-        }, 
-        {
-            "emoji": "\ud83d\ude9f", 
-            "name": "SUSPENSION RAILWAY"
         }
     ], 
     "rain": [
+        {
+            "emoji": "\ud83c\udf02", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u26c8\ufe0f", 
             "name": "THUNDER CLOUD AND RAIN cloud with lightning and rain"
@@ -24210,10 +32885,6 @@ var EMOJI_MAP = {
             "name": "RAINBOW"
         }, 
         {
-            "emoji": "\ud83c\udf02", 
-            "name": "CLOSED UMBRELLA"
-        }, 
-        {
             "emoji": "\u2602\ufe0f", 
             "name": "UMBRELLA"
         }, 
@@ -24229,17 +32900,23 @@ var EMOJI_MAP = {
     "rainbow": [
         {
             "emoji": "\ud83c\udf08", 
-            "name": "RAINBOW"
+            "name": "?"
+        }
+    ], 
+    "rainy": [
+        {
+            "emoji": "\u2614", 
+            "name": "?"
         }
     ], 
     "raised": [
         {
-            "emoji": "\ud83d\ude4b", 
-            "name": "HAPPY PERSON RAISING ONE HAND happy person raising hand"
+            "emoji": "\ud83d\ude4c", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude4c", 
-            "name": "PERSON RAISING BOTH HANDS IN CELEBRATION person raising hands"
+            "emoji": "\ud83d\ude4b", 
+            "name": "HAPPY PERSON RAISING ONE HAND happy person raising hand"
         }, 
         {
             "emoji": "\ud83d\udd96", 
@@ -24266,10 +32943,16 @@ var EMOJI_MAP = {
             "name": "OPEN MAILBOX WITH RAISED FLAG"
         }
     ], 
+    "raised_hand": [
+        {
+            "emoji": "\u270b", 
+            "name": "?"
+        }
+    ], 
     "raising": [
         {
             "emoji": "\ud83d\ude4b", 
-            "name": "HAPPY PERSON RAISING ONE HAND happy person raising hand"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude4c", 
@@ -24279,7 +32962,7 @@ var EMOJI_MAP = {
     "ram": [
         {
             "emoji": "\ud83d\udc0f", 
-            "name": "RAM"
+            "name": "?"
         }, 
         {
             "emoji": "\u2648\ufe0f", 
@@ -24289,19 +32972,57 @@ var EMOJI_MAP = {
     "ramen": [
         {
             "emoji": "\ud83c\udf5c", 
-            "name": "STEAMING BOWL"
+            "name": "?"
+        }
+    ], 
+    "random": [
+        {
+            "emoji": "\ud83c\udfb2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd00", 
+            "name": "?"
+        }
+    ], 
+    "rase": [
+        {
+            "emoji": "\ud83c\udfc1", 
+            "name": "?"
         }
     ], 
     "rat": [
         {
             "emoji": "\ud83d\udc00", 
-            "name": "RAT"
+            "name": "?"
         }
     ], 
     "rays": [
         {
             "emoji": "\u2600\ufe0f", 
             "name": "BLACK SUN WITH RAYS sun"
+        }
+    ], 
+    "read": [
+        {
+            "emoji": "\ud83d\udcd5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd8", 
+            "name": "?"
         }
     ], 
     "receive": [
@@ -24321,13 +33042,67 @@ var EMOJI_MAP = {
     "receiver": [
         {
             "emoji": "\ud83d\udcde", 
-            "name": "TELEPHONE RECEIVER"
+            "name": "?"
+        }
+    ], 
+    "reception": [
+        {
+            "emoji": "\ud83d\udcf6", 
+            "name": "?"
+        }
+    ], 
+    "recession": [
+        {
+            "emoji": "\ud83d\udcc9", 
+            "name": "?"
         }
     ], 
     "record": [
         {
+            "emoji": "\ud83c\udfa5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd01", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcfc", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcbd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfac", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd4", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u23fa\ufe0f", 
             "name": "BLACK CIRCLE FOR RECORD record button"
+        }
+    ], 
+    "recovery": [
+        {
+            "emoji": "\ud83d\udcc8", 
+            "name": "?"
         }
     ], 
     "recreational": [
@@ -24339,7 +33114,7 @@ var EMOJI_MAP = {
     "recycle": [
         {
             "emoji": "\u267b\ufe0f", 
-            "name": "BLACK UNIVERSAL RECYCLING SYMBOL recycling symbol"
+            "name": "?"
         }
     ], 
     "recycling": [
@@ -24349,6 +33124,34 @@ var EMOJI_MAP = {
         }
     ], 
     "red": [
+        {
+            "emoji": "\ud83d\udd34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc7a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc79", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude97", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude21", 
             "name": "POUTING FACE"
@@ -24376,43 +33179,111 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd3d", 
             "name": "DOWNPOINTING SMALL RED TRIANGLE down button"
+        }
+    ], 
+    "red-circle": [
+        {
+            "emoji": "\u3297\ufe0f", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd3a", 
-            "name": "UPPOINTING RED TRIANGLE red triangle pointed up"
+            "emoji": "\u3299\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "red-square": [
+        {
+            "emoji": "\ud83c\ude32", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd3b", 
-            "name": "DOWNPOINTING RED TRIANGLE red triangle pointed down"
+            "emoji": "\ud83c\udd8e", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd34", 
-            "name": "LARGE RED CIRCLE red circle"
+            "emoji": "\ud83c\udd98", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd7e\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd71\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd70\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "refresh": [
+        {
+            "emoji": "\ud83d\udebb", 
+            "name": "?"
         }
     ], 
     "registered": [
         {
             "emoji": "\u00ae\ufe0f", 
-            "name": "REGISTERED SIGN registered"
+            "name": "?"
+        }
+    ], 
+    "relax": [
+        {
+            "emoji": "\u2668\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7b", 
+            "name": "?"
         }
     ], 
     "relaxed": [
         {
             "emoji": "\u263a\ufe0f", 
-            "name": "WHITE SMILING FACE smiling face"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0c", 
+            "name": "?"
         }
     ], 
     "relieved": [
         {
-            "emoji": "\ud83d\ude25", 
-            "name": "DISAPPOINTED BUT RELIEVED FACE"
+            "emoji": "\ud83d\ude0c", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude0c", 
-            "name": "RELIEVED FACE"
+            "emoji": "\ud83d\ude25", 
+            "name": "?"
         }
     ], 
     "religion": [
+        {
+            "emoji": "\u26ea", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd2f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udcff", 
             "name": "PRAYER BEADS"
@@ -24486,14 +33357,30 @@ var EMOJI_MAP = {
             "name": "REMINDER RIBBON"
         }
     ], 
+    "remove": [
+        {
+            "emoji": "\u274c", 
+            "name": "?"
+        }
+    ], 
     "repeat": [
         {
             "emoji": "\ud83d\udd01", 
-            "name": "CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS repeat button"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd03", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd02", 
-            "name": "CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS WITH CIRCLED ONE OVERLAY repeat single button"
+            "name": "?"
+        }
+    ], 
+    "reptile": [
+        {
+            "emoji": "\ud83d\udc0a", 
+            "name": "?"
         }
     ], 
     "republic": [
@@ -24524,6 +33411,18 @@ var EMOJI_MAP = {
             "name": "SAILBOAT"
         }
     ], 
+    "rest": [
+        {
+            "emoji": "\ud83d\ude2a", 
+            "name": "?"
+        }
+    ], 
+    "restricted": [
+        {
+            "emoji": "\ud83c\ude32", 
+            "name": "?"
+        }
+    ], 
     "restriction": [
         {
             "emoji": "\ud83d\udd1e", 
@@ -24532,20 +33431,42 @@ var EMOJI_MAP = {
     ], 
     "restroom": [
         {
-            "emoji": "\ud83d\udeb9", 
-            "name": "MENS SYMBOL men\u2019s room"
+            "emoji": "\ud83d\udebd", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udeba", 
-            "name": "WOMENS SYMBOL women\u2019s room"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb0", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udebb", 
-            "name": "RESTROOM"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udebe", 
-            "name": "WATER CLOSET"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb9", 
+            "name": "?"
+        }
+    ], 
+    "return": [
+        {
+            "emoji": "\ud83d\udd19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u21aa\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u21a9\ufe0f", 
+            "name": "?"
         }
     ], 
     "reunion": [
@@ -24573,13 +33494,13 @@ var EMOJI_MAP = {
     "revolver": [
         {
             "emoji": "\ud83d\udd2b", 
-            "name": "PISTOL"
+            "name": "?"
         }
     ], 
     "revolving": [
         {
             "emoji": "\ud83d\udc9e", 
-            "name": "REVOLVING HEARTS"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udea8", 
@@ -24589,17 +33510,17 @@ var EMOJI_MAP = {
     "rewind": [
         {
             "emoji": "\u23ea", 
-            "name": "BLACK LEFTPOINTING DOUBLE TRIANGLE fast reverse button"
+            "name": "?"
         }
     ], 
     "ribbon": [
         {
-            "emoji": "\ud83d\udc9d", 
-            "name": "HEART WITH RIBBON"
+            "emoji": "\ud83c\udf80", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf80", 
-            "name": "RIBBON"
+            "emoji": "\ud83d\udc9d", 
+            "name": "HEART WITH RIBBON"
         }, 
         {
             "emoji": "\ud83c\udf97\ufe0f", 
@@ -24614,20 +33535,28 @@ var EMOJI_MAP = {
     ], 
     "rice": [
         {
-            "emoji": "\ud83c\udf3e", 
-            "name": "EAR OF RICE sheaf of rice"
-        }, 
-        {
-            "emoji": "\ud83c\udf58", 
-            "name": "RICE CRACKER"
-        }, 
-        {
-            "emoji": "\ud83c\udf59", 
-            "name": "RICE BALL"
+            "emoji": "\ud83c\udf63", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf5a", 
-            "name": "COOKED RICE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf59", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf58", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf5b", 
@@ -24642,28 +33571,44 @@ var EMOJI_MAP = {
     ], 
     "right": [
         {
+            "emoji": "\ud83d\udd0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2194\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25b6\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u21aa\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u27a1\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2197\ufe0f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc49", 
-            "name": "WHITE RIGHT POINTING BACKHAND INDEX backhand index pointing right"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2198\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\uddef\ufe0f", 
             "name": "RIGHT ANGER BUBBLE"
         }, 
         {
-            "emoji": "\u27a1\ufe0f", 
-            "name": "BLACK RIGHTWARDS ARROW right arrow"
-        }, 
-        {
-            "emoji": "\u2194\ufe0f", 
-            "name": "LEFT RIGHT ARROW leftright arrow"
-        }, 
-        {
             "emoji": "\u21a9\ufe0f", 
             "name": "LEFTWARDS ARROW WITH HOOK right arrow curving left"
-        }, 
-        {
-            "emoji": "\u21aa\ufe0f", 
-            "name": "RIGHTWARDS ARROW WITH HOOK left arrow curving right"
         }, 
         {
             "emoji": "\u2934\ufe0f", 
@@ -24676,10 +33621,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd1b", 
             "name": "ON WITH EXCLAMATION MARK WITH LEFT RIGHT ARROW ABOVE on! arrow"
-        }, 
-        {
-            "emoji": "\u25b6\ufe0f", 
-            "name": "BLACK RIGHTPOINTING TRIANGLE play button"
         }, 
         {
             "emoji": "\u23ef\ufe0f", 
@@ -24710,6 +33651,10 @@ var EMOJI_MAP = {
     ], 
     "rightwards": [
         {
+            "emoji": "\ud83d\udd00", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udcf2", 
             "name": "MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT mobile phone with arrow"
         }, 
@@ -24734,10 +33679,6 @@ var EMOJI_MAP = {
             "name": "SOON WITH RIGHTWARDS ARROW ABOVE soon arrow"
         }, 
         {
-            "emoji": "\ud83d\udd00", 
-            "name": "TWISTED RIGHTWARDS ARROWS shuffle tracks button"
-        }, 
-        {
             "emoji": "\ud83d\udd01", 
             "name": "CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS repeat button"
         }, 
@@ -24748,12 +33689,18 @@ var EMOJI_MAP = {
     ], 
     "ring": [
         {
-            "emoji": "\ud83d\udd96", 
-            "name": "RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS vulcan salute"
+            "emoji": "\ud83d\udc8d", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc8d", 
-            "name": "RING"
+            "emoji": "\ud83d\udd96", 
+            "name": "RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS vulcan salute"
+        }
+    ], 
+    "rings": [
+        {
+            "emoji": "\ud83d\udd17", 
+            "name": "?"
         }
     ], 
     "rise": [
@@ -24766,6 +33713,16 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udee3\ufe0f", 
             "name": "MOTORWAY"
+        }
+    ], 
+    "roar": [
+        {
+            "emoji": "\ud83d\udc2f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc05", 
+            "name": "?"
         }
     ], 
     "roasted": [
@@ -24783,13 +33740,23 @@ var EMOJI_MAP = {
     "rocket": [
         {
             "emoji": "\ud83d\ude80", 
-            "name": "ROCKET"
+            "name": "?"
         }
     ], 
     "rockon": [
         {
             "emoji": "\ud83e\udd18", 
             "name": "SIGN OF THE HORNS"
+        }
+    ], 
+    "rodent": [
+        {
+            "emoji": "\ud83d\udc00", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc01", 
+            "name": "?"
         }
     ], 
     "rolled": [
@@ -24807,7 +33774,7 @@ var EMOJI_MAP = {
     "roller": [
         {
             "emoji": "\ud83c\udfa2", 
-            "name": "ROLLER COASTER"
+            "name": "?"
         }
     ], 
     "rolling": [
@@ -24879,7 +33846,7 @@ var EMOJI_MAP = {
     "rooster": [
         {
             "emoji": "\ud83d\udc13", 
-            "name": "ROOSTER"
+            "name": "?"
         }
     ], 
     "ropeway": [
@@ -24891,7 +33858,7 @@ var EMOJI_MAP = {
     "rose": [
         {
             "emoji": "\ud83c\udf39", 
-            "name": "ROSE"
+            "name": "?"
         }
     ], 
     "rosette": [
@@ -24900,44 +33867,120 @@ var EMOJI_MAP = {
             "name": "ROSETTE"
         }
     ], 
+    "rotade": [
+        {
+            "emoji": "\u21aa\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "rotating": [
+        {
+            "emoji": "\ud83d\udea8", 
+            "name": "?"
+        }
+    ], 
     "round": [
         {
+            "emoji": "\u2b55", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26aa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26ab", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd03", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udccd", 
-            "name": "ROUND PUSHPIN"
+            "name": "?"
         }
     ], 
     "rowboat": [
         {
             "emoji": "\ud83d\udea3", 
-            "name": "ROWBOAT"
+            "name": "?"
+        }
+    ], 
+    "royal": [
+        {
+            "emoji": "\ud83d\udc78", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc82", 
+            "name": "?"
+        }
+    ], 
+    "royalty": [
+        {
+            "emoji": "\ud83d\udc51", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udff0", 
+            "name": "?"
+        }
+    ], 
+    "ru": [
+        {
+            "emoji": "\ud83c\uddf7\ud83c\uddfa", 
+            "name": "?"
+        }
+    ], 
+    "ruby": [
+        {
+            "emoji": "\ud83d\udc8e", 
+            "name": "?"
         }
     ], 
     "rugby": [
         {
             "emoji": "\ud83c\udfc9", 
-            "name": "RUGBY FOOTBALL"
+            "name": "?"
         }
     ], 
     "ruler": [
         {
             "emoji": "\ud83d\udccf", 
-            "name": "STRAIGHT RULER"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcd0", 
-            "name": "TRIANGULAR RULER"
+            "name": "?"
+        }
+    ], 
+    "rules": [
+        {
+            "emoji": "\ud83d\udeb7", 
+            "name": "?"
+        }
+    ], 
+    "ruling": [
+        {
+            "emoji": "\ud83d\udd28", 
+            "name": "?"
         }
     ], 
     "runner": [
         {
             "emoji": "\ud83c\udfc3", 
-            "name": "RUNNER"
+            "name": "?"
         }
     ], 
     "running": [
         {
             "emoji": "\ud83c\udfc3", 
-            "name": "RUNNER"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfbd", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udca8", 
@@ -24946,10 +33989,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udc5f", 
             "name": "ATHLETIC SHOE running shoe"
-        }, 
-        {
-            "emoji": "\ud83c\udfbd", 
-            "name": "RUNNING SHIRT WITH SASH running shirt"
         }
     ], 
     "rushed": [
@@ -24962,6 +34001,12 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\uddf7\ud83c\uddfa", 
             "name": "Flag for Russia"
+        }
+    ], 
+    "russian": [
+        {
+            "emoji": "\ud83c\uddf7\ud83c\uddfa", 
+            "name": "?"
         }
     ], 
     "rv": [
@@ -24985,7 +34030,7 @@ var EMOJI_MAP = {
     "sa": [
         {
             "emoji": "\ud83c\ude02\ufe0f", 
-            "name": "SQUARED KATAKANA SA"
+            "name": "?"
         }
     ], 
     "saba": [
@@ -24996,19 +34041,47 @@ var EMOJI_MAP = {
     ], 
     "sad": [
         {
-            "emoji": "\ud83d\ude22", 
-            "name": "CRYING FACE"
+            "emoji": "\ud83d\ude14", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude2d", 
-            "name": "LOUDLY CRYING FACE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude29", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude22", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude3f", 
-            "name": "CRYING CAT FACE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc94", 
+            "name": "?"
         }
     ], 
     "sagittarius": [
+        {
+            "emoji": "\u2650", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udff9", 
             "name": "BOW AND ARROW"
@@ -25026,8 +34099,18 @@ var EMOJI_MAP = {
     ], 
     "sailboat": [
         {
+            "emoji": "\u26f5", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u26f5\ufe0f", 
             "name": "SAILBOAT"
+        }
+    ], 
+    "sailing": [
+        {
+            "emoji": "\u26f5", 
+            "name": "?"
         }
     ], 
     "saint": [
@@ -25063,10 +34146,74 @@ var EMOJI_MAP = {
     "sake": [
         {
             "emoji": "\ud83c\udf76", 
-            "name": "SAKE BOTTLE AND CUP sake"
+            "name": "?"
+        }
+    ], 
+    "sale": [
+        {
+            "emoji": "\ud83d\udcb0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb8", 
+            "name": "?"
+        }
+    ], 
+    "sales": [
+        {
+            "emoji": "\ud83d\udcb2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb5", 
+            "name": "?"
         }
     ], 
     "salon": [
+        {
+            "emoji": "\ud83d\udc88", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc86", 
             "name": "FACE MASSAGE"
@@ -25102,18 +34249,18 @@ var EMOJI_MAP = {
     ], 
     "sand": [
         {
-            "emoji": "\u231b\ufe0f", 
-            "name": "HOURGLASS"
+            "emoji": "\u23f3", 
+            "name": "?"
         }, 
         {
-            "emoji": "\u23f3", 
-            "name": "HOURGLASS WITH FLOWING SAND"
+            "emoji": "\u231b\ufe0f", 
+            "name": "HOURGLASS"
         }
     ], 
     "sandal": [
         {
             "emoji": "\ud83d\udc61", 
-            "name": "WOMANS SANDAL woman\u2019s sandal"
+            "name": "?"
         }
     ], 
     "sandwich": [
@@ -25122,10 +34269,16 @@ var EMOJI_MAP = {
             "name": "Flag for South Georgia  South Sandwich Islands"
         }
     ], 
+    "sanfrancisco": [
+        {
+            "emoji": "\ud83c\udf09", 
+            "name": "?"
+        }
+    ], 
     "santa": [
         {
             "emoji": "\ud83c\udf85", 
-            "name": "FATHER CHRISTMAS santa claus"
+            "name": "?"
         }
     ], 
     "sao": [
@@ -25134,10 +34287,16 @@ var EMOJI_MAP = {
             "name": "Flag for S\u00e3o Tom\u00e9  Pr\u00edncipe"
         }
     ], 
+    "sarcasm": [
+        {
+            "emoji": "\ud83d\ude0f", 
+            "name": "?"
+        }
+    ], 
     "sash": [
         {
             "emoji": "\ud83c\udfbd", 
-            "name": "RUNNING SHIRT WITH SASH running shirt"
+            "name": "?"
         }
     ], 
     "sassy": [
@@ -25149,23 +34308,23 @@ var EMOJI_MAP = {
     "satchel": [
         {
             "emoji": "\ud83c\udf92", 
-            "name": "SCHOOL SATCHEL school backpack"
+            "name": "?"
         }
     ], 
     "satellite": [
         {
-            "emoji": "\ud83d\udef0\ufe0f", 
-            "name": "SATELLITE"
+            "emoji": "\ud83d\udce1", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udce1", 
-            "name": "SATELLITE ANTENNA"
+            "emoji": "\ud83d\udef0\ufe0f", 
+            "name": "SATELLITE"
         }
     ], 
     "satisfied": [
         {
             "emoji": "\ud83d\ude06", 
-            "name": "SMILING FACE WITH OPEN MOUTH AND TIGHTLYCLOSED EYES"
+            "name": "?"
         }
     ], 
     "saudi": [
@@ -25178,6 +34337,20 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udf2d", 
             "name": "HOT DOG"
+        }
+    ], 
+    "save": [
+        {
+            "emoji": "\ud83d\udcbe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd16", 
+            "name": "?"
         }
     ], 
     "savouring": [
@@ -25195,7 +34368,7 @@ var EMOJI_MAP = {
     "saxophone": [
         {
             "emoji": "\ud83c\udfb7", 
-            "name": "SAXOPHONE"
+            "name": "?"
         }
     ], 
     "scale": [
@@ -25217,14 +34390,36 @@ var EMOJI_MAP = {
     "scared": [
         {
             "emoji": "\ud83d\ude28", 
-            "name": "FEARFUL FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude31", 
-            "name": "FACE SCREAMING IN FEAR"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude40", 
+            "name": "?"
+        }
+    ], 
+    "scary": [
+        {
+            "emoji": "\ud83d\udc7b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc7a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc79", 
+            "name": "?"
         }
     ], 
     "scene": [
+        {
+            "emoji": "\ud83c\udf91", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u23ed\ufe0f", 
             "name": "BLACK RIGHTPOINTING DOUBLE TRIANGLE WITH VERTICAL BAR next track button"
@@ -25234,33 +34429,181 @@ var EMOJI_MAP = {
             "name": "BLACK LEFTPOINTING DOUBLE TRIANGLE WITH VERTICAL BAR last track button"
         }
     ], 
+    "schedule": [
+        {
+            "emoji": "\ud83d\udd65", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd66", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd60", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd59", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd58", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd57", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd56", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd55", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd54", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd52", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd51", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd50", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd67", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd62", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd61", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd64", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd53", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd63", 
+            "name": "?"
+        }
+    ], 
     "school": [
         {
+            "emoji": "\ud83c\udf93", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf92", 
-            "name": "SCHOOL SATCHEL school backpack"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udccf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270f\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf4e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb8", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfeb", 
-            "name": "SCHOOL"
+            "name": "?"
+        }
+    ], 
+    "science": [
+        {
+            "emoji": "\ud83d\udd2c", 
+            "name": "?"
         }
     ], 
     "scissors": [
         {
             "emoji": "\u2702\ufe0f", 
-            "name": "BLACK SCISSORS scissors"
+            "name": "?"
         }
     ], 
     "score": [
         {
+            "emoji": "\ud83c\udfb5", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udfbc", 
-            "name": "MUSICAL SCORE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa7", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcaf", 
-            "name": "HUNDRED POINTS SYMBOL hundred points"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb6", 
+            "name": "?"
         }
     ], 
     "scorpio": [
+        {
+            "emoji": "\u264f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83e\udd82", 
             "name": "SCORPION"
@@ -25282,6 +34625,10 @@ var EMOJI_MAP = {
     ], 
     "scorpius": [
         {
+            "emoji": "\u264f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83e\udd82", 
             "name": "SCORPION"
         }, 
@@ -25299,7 +34646,11 @@ var EMOJI_MAP = {
     "scream": [
         {
             "emoji": "\ud83d\ude31", 
-            "name": "FACE SCREAMING IN FEAR"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude40", 
+            "name": "?"
         }
     ], 
     "screaming": [
@@ -25308,13 +34659,69 @@ var EMOJI_MAP = {
             "name": "FACE SCREAMING IN FEAR"
         }
     ], 
+    "screen": [
+        {
+            "emoji": "\ud83d\udcbb", 
+            "name": "?"
+        }
+    ], 
+    "scribble": [
+        {
+            "emoji": "\u3030\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u27b0", 
+            "name": "?"
+        }
+    ], 
     "scroll": [
         {
             "emoji": "\ud83d\udcdc", 
-            "name": "SCROLL"
+            "name": "?"
         }
     ], 
     "sea": [
+        {
+            "emoji": "\ud83d\udc0b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf65", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf0a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc33", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2693", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc21", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2c", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u26f5\ufe0f", 
             "name": "SAILBOAT"
@@ -25328,24 +34735,42 @@ var EMOJI_MAP = {
     ], 
     "search": [
         {
-            "emoji": "\ud83d\udd0d", 
-            "name": "LEFTPOINTING MAGNIFYING GLASS"
+            "emoji": "\ud83d\udd0e", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd0e", 
-            "name": "RIGHTPOINTING MAGNIFYING GLASS"
+            "emoji": "\ud83d\udd0d", 
+            "name": "?"
+        }
+    ], 
+    "season": [
+        {
+            "emoji": "\u26c4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2744\ufe0f", 
+            "name": "?"
         }
     ], 
     "seat": [
         {
             "emoji": "\ud83d\udcba", 
-            "name": "SEAT"
+            "name": "?"
         }
     ], 
     "secret": [
         {
             "emoji": "\u3299\ufe0f", 
-            "name": "CIRCLED IDEOGRAPH SECRET circled secret ideograph"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude09", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd0f", 
+            "name": "?"
         }
     ], 
     "secure": [
@@ -25354,16 +34779,42 @@ var EMOJI_MAP = {
             "name": "CLOSED LOCK WITH KEY"
         }
     ], 
+    "security": [
+        {
+            "emoji": "\ud83d\udd10", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd12", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26d4", 
+            "name": "?"
+        }
+    ], 
     "see": [
         {
+            "emoji": "\ud83d\udc40", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude48", 
-            "name": "SEENOEVIL MONKEY seenoevil"
+            "name": "?"
         }
     ], 
     "seedling": [
         {
             "emoji": "\ud83c\udf31", 
-            "name": "SEEDLING"
+            "name": "?"
         }
     ], 
     "seenoevil": [
@@ -25400,6 +34851,12 @@ var EMOJI_MAP = {
             "name": "Flag for Serbia"
         }
     ], 
+    "serious": [
+        {
+            "emoji": "\ud83d\ude12", 
+            "name": "?"
+        }
+    ], 
     "serpent": [
         {
             "emoji": "\ud83d\udc0d", 
@@ -25418,16 +34875,16 @@ var EMOJI_MAP = {
     ], 
     "seven": [
         {
+            "emoji": "7\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd56", 
             "name": "CLOCK FACE SEVEN OCLOCK seven o\u2019clock"
         }, 
         {
             "emoji": "\ud83d\udd62", 
             "name": "CLOCK FACE SEVENTHIRTY seventhirty"
-        }, 
-        {
-            "emoji": "7\ufe0f\u20e3", 
-            "name": "Keycap DIGIT SEVEN"
         }
     ], 
     "seventhirty": [
@@ -25450,14 +34907,110 @@ var EMOJI_MAP = {
     ], 
     "shape": [
         {
+            "emoji": "\ud83c\udd96", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd36", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2194\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fc\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fb\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26aa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25aa\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd37", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26ab", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25ab\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd33", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fe", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udca0", 
-            "name": "DIAMOND SHAPE WITH A DOT INSIDE diamond with a dot"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd39", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u27b0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2734\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd35", 
+            "name": "?"
         }
     ], 
     "shaved": [
         {
             "emoji": "\ud83c\udf67", 
-            "name": "SHAVED ICE"
+            "name": "?"
         }
     ], 
     "sheaf": [
@@ -25475,23 +35028,47 @@ var EMOJI_MAP = {
     "sheep": [
         {
             "emoji": "\ud83d\udc0f", 
-            "name": "RAM"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc11", 
-            "name": "SHEEP"
+            "name": "?"
         }
     ], 
     "shell": [
         {
+            "emoji": "\ud83d\udc0c", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc1a", 
-            "name": "SPIRAL SHELL"
+            "name": "?"
+        }
+    ], 
+    "shh": [
+        {
+            "emoji": "\ud83d\ude2f", 
+            "name": "?"
         }
     ], 
     "shield": [
         {
+            "emoji": "\ud83d\udd30", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udee1\ufe0f", 
             "name": "SHIELD"
+        }
+    ], 
+    "shine": [
+        {
+            "emoji": "\u2728", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf87", 
+            "name": "?"
         }
     ], 
     "shining": [
@@ -25516,7 +35093,37 @@ var EMOJI_MAP = {
             "name": "SHINTO SHRINE"
         }
     ], 
+    "shiny": [
+        {
+            "emoji": "\u2728", 
+            "name": "?"
+        }
+    ], 
     "ship": [
+        {
+            "emoji": "\ud83d\udea2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude80", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2693", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26f5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea4", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u2693\ufe0f", 
             "name": "ANCHOR"
@@ -25526,22 +35133,34 @@ var EMOJI_MAP = {
             "name": "PASSENGER SHIP"
         }, 
         {
-            "emoji": "\ud83d\udea2", 
-            "name": "SHIP"
-        }, 
-        {
             "emoji": "\ud83d\udd31", 
             "name": "TRIDENT EMBLEM"
+        }
+    ], 
+    "shipit": [
+        {
+            "emoji": "\ud83d\udc11", 
+            "name": "?"
         }
     ], 
     "shirt": [
         {
             "emoji": "\ud83d\udc55", 
-            "name": "TSHIRT"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc54", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfbd", 
-            "name": "RUNNING SHIRT WITH SASH running shirt"
+            "name": "?"
+        }
+    ], 
+    "shitface": [
+        {
+            "emoji": "\ud83d\udca9", 
+            "name": "?"
         }
     ], 
     "shocked": [
@@ -25552,12 +35171,12 @@ var EMOJI_MAP = {
     ], 
     "shoe": [
         {
-            "emoji": "\ud83d\udc5e", 
-            "name": "MANS SHOE man\u2019s shoe"
+            "emoji": "\ud83d\udc5f", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc5f", 
-            "name": "ATHLETIC SHOE running shoe"
+            "emoji": "\ud83d\udc5e", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc60", 
@@ -25572,6 +35191,36 @@ var EMOJI_MAP = {
             "name": "WOMANS BOOTS woman\u2019s boot"
         }
     ], 
+    "shoes": [
+        {
+            "emoji": "\ud83d\udc62", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc61", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc60", 
+            "name": "?"
+        }
+    ], 
+    "shoo": [
+        {
+            "emoji": "\ud83d\udca8", 
+            "name": "?"
+        }
+    ], 
+    "shoot": [
+        {
+            "emoji": "\ud83d\udcab", 
+            "name": "?"
+        }
+    ], 
     "shooting": [
         {
             "emoji": "\ud83c\udf20", 
@@ -25579,6 +35228,42 @@ var EMOJI_MAP = {
         }
     ], 
     "shopping": [
+        {
+            "emoji": "\ud83d\udc5a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc56", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfea", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc57", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc5d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfec", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udecd\ufe0f", 
             "name": "SHOPPING BAGS"
@@ -25596,10 +35281,24 @@ var EMOJI_MAP = {
             "name": "SYRINGE"
         }
     ], 
+    "show": [
+        {
+            "emoji": "\ud83d\udcfa", 
+            "name": "?"
+        }
+    ], 
     "shower": [
         {
+            "emoji": "\ud83d\udec0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udec1", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udebf", 
-            "name": "SHOWER"
+            "name": "?"
         }
     ], 
     "showing": [
@@ -25619,7 +35318,7 @@ var EMOJI_MAP = {
     "shrimp": [
         {
             "emoji": "\ud83c\udf64", 
-            "name": "FRIED SHRIMP"
+            "name": "?"
         }
     ], 
     "shrine": [
@@ -25631,7 +35330,7 @@ var EMOJI_MAP = {
     "shuffle": [
         {
             "emoji": "\ud83d\udd00", 
-            "name": "TWISTED RIGHTWARDS ARROWS shuffle tracks button"
+            "name": "?"
         }
     ], 
     "shuttlecock": [
@@ -25640,10 +35339,32 @@ var EMOJI_MAP = {
             "name": "BADMINTON RACQUET AND SHUTTLECOCK badminton"
         }
     ], 
+    "shy": [
+        {
+            "emoji": "\ud83d\ude33", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0a", 
+            "name": "?"
+        }
+    ], 
     "sick": [
         {
             "emoji": "\ud83d\ude37", 
-            "name": "FACE WITH MEDICAL MASK"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude16", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude23", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83e\udd12", 
@@ -25658,13 +35379,105 @@ var EMOJI_MAP = {
             "name": "PILL"
         }
     ], 
+    "side": [
+        {
+            "emoji": "\ud83d\ude84", 
+            "name": "?"
+        }
+    ], 
     "sierra": [
         {
             "emoji": "\ud83c\uddf8\ud83c\uddf1", 
             "name": "Flag for Sierra Leone"
         }
     ], 
+    "sight": [
+        {
+            "emoji": "\ud83d\udd26", 
+            "name": "?"
+        }
+    ], 
     "sign": [
+        {
+            "emoji": "\ud83d\udcb2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeab", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2649", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2796", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2797", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2652", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2653", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2651", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2650", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2795", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26ce", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeae", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2648", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb8", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83e\udd18", 
             "name": "SIGN OF THE HORNS"
@@ -25730,16 +35543,8 @@ var EMOJI_MAP = {
             "name": "CHART WITH UPWARDS TREND AND YEN SIGN chart increasing with yen"
         }, 
         {
-            "emoji": "\ud83d\udcb2", 
-            "name": "HEAVY DOLLAR SIGN"
-        }, 
-        {
             "emoji": "\ud83c\udfe7", 
             "name": "AUTOMATED TELLER MACHINE ATM sign"
-        }, 
-        {
-            "emoji": "\ud83d\udeae", 
-            "name": "PUT LITTER IN ITS PLACE SYMBOL litter in bin sign"
         }, 
         {
             "emoji": "\ud83d\udeb0", 
@@ -25788,14 +35593,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\u26a0\ufe0f", 
             "name": "WARNING SIGN warning"
-        }, 
-        {
-            "emoji": "\ud83d\udeb8", 
-            "name": "CHILDREN CROSSING"
-        }, 
-        {
-            "emoji": "\ud83d\udeab", 
-            "name": "NO ENTRY SIGN prohibited"
         }, 
         {
             "emoji": "\ud83d\udeb3", 
@@ -25860,18 +35657,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\u274e", 
             "name": "NEGATIVE SQUARED CROSS MARK cross mark button"
-        }, 
-        {
-            "emoji": "\u2795", 
-            "name": "HEAVY PLUS SIGN"
-        }, 
-        {
-            "emoji": "\u2796", 
-            "name": "HEAVY MINUS SIGN"
-        }, 
-        {
-            "emoji": "\u2797", 
-            "name": "HEAVY DIVISION SIGN"
         }, 
         {
             "emoji": "\u27b0", 
@@ -26016,19 +35801,37 @@ var EMOJI_MAP = {
     ], 
     "signal": [
         {
+            "emoji": "\ud83d\udcf6", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udea5", 
-            "name": "HORIZONTAL TRAFFIC LIGHT"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udea6", 
             "name": "VERTICAL TRAFFIC LIGHT"
+        }
+    ], 
+    "silence": [
+        {
+            "emoji": "\ud83d\udd08", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcf6", 
-            "name": "ANTENNA WITH BARS antenna bars"
+            "emoji": "\ud83d\udd07", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf4", 
+            "name": "?"
         }
     ], 
     "silent": [
+        {
+            "emoji": "\ud83d\udd15", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude36", 
             "name": "FACE WITHOUT MOUTH"
@@ -26036,28 +35839,30 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd07", 
             "name": "SPEAKER WITH CANCELLATION STROKE speaker off"
-        }, 
-        {
-            "emoji": "\ud83d\udd15", 
-            "name": "BELL WITH CANCELLATION STROKE bell with slash"
         }
     ], 
     "silhouette": [
+        {
+            "emoji": "\ud83d\udc64", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc65", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udde3\ufe0f", 
             "name": "SPEAKING HEAD IN SILHOUETTE speaking head"
         }, 
         {
-            "emoji": "\ud83d\udc64", 
-            "name": "BUST IN SILHOUETTE"
-        }, 
-        {
-            "emoji": "\ud83d\udc65", 
-            "name": "BUSTS IN SILHOUETTE"
-        }, 
-        {
             "emoji": "\ud83d\uddfe", 
             "name": "SILHOUETTE OF JAPAN map of japan"
+        }
+    ], 
+    "silly": [
+        {
+            "emoji": "\ud83d\ude0b", 
+            "name": "?"
         }
     ], 
     "singapore": [
@@ -26082,7 +35887,27 @@ var EMOJI_MAP = {
             "name": "Flag for Sint Maarten"
         }
     ], 
+    "sir": [
+        {
+            "emoji": "\ud83d\udc68", 
+            "name": "?"
+        }
+    ], 
+    "sit": [
+        {
+            "emoji": "\ud83d\udcba", 
+            "name": "?"
+        }
+    ], 
     "six": [
+        {
+            "emoji": "\ud83d\udd2f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "6\ufe0f\u20e3", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd55", 
             "name": "CLOCK FACE SIX OCLOCK six o\u2019clock"
@@ -26090,14 +35915,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd61", 
             "name": "CLOCK FACE SIXTHIRTY sixthirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd2f", 
-            "name": "SIX POINTED STAR WITH MIDDLE DOT dotted sixpointed star"
-        }, 
-        {
-            "emoji": "6\ufe0f\u20e3", 
-            "name": "Keycap DIGIT SIX"
         }
     ], 
     "sixpointed": [
@@ -26118,6 +35935,22 @@ var EMOJI_MAP = {
             "name": "ICE SKATE"
         }
     ], 
+    "skeleton": [
+        {
+            "emoji": "\ud83d\udc80", 
+            "name": "?"
+        }
+    ], 
+    "sketch": [
+        {
+            "emoji": "\ud83d\udccf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd0", 
+            "name": "?"
+        }
+    ], 
     "skewer": [
         {
             "emoji": "\ud83c\udf62", 
@@ -26131,7 +35964,15 @@ var EMOJI_MAP = {
     "ski": [
         {
             "emoji": "\ud83c\udfbf", 
-            "name": "SKI AND SKI BOOT skis"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea0", 
+            "name": "?"
         }, 
         {
             "emoji": "\u26f7\ufe0f", 
@@ -26157,11 +35998,41 @@ var EMOJI_MAP = {
     "skull": [
         {
             "emoji": "\ud83d\udc80", 
-            "name": "SKULL"
+            "name": "?"
         }, 
         {
             "emoji": "\u2620\ufe0f", 
             "name": "SKULL AND CROSSBONES"
+        }
+    ], 
+    "sky": [
+        {
+            "emoji": "\ud83c\udf08", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2601\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf06", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude33", 
+            "name": "?"
         }
     ], 
     "slash": [
@@ -26171,6 +36042,58 @@ var EMOJI_MAP = {
         }
     ], 
     "sleep": [
+        {
+            "emoji": "\ud83c\udf17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf12", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf16", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf11", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude2a", 
             "name": "SLEEPY FACE"
@@ -26195,7 +36118,7 @@ var EMOJI_MAP = {
     "sleeping": [
         {
             "emoji": "\ud83d\ude34", 
-            "name": "SLEEPING FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udca4", 
@@ -26208,8 +36131,20 @@ var EMOJI_MAP = {
     ], 
     "sleepy": [
         {
+            "emoji": "\ud83d\udca4", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude2a", 
-            "name": "SLEEPY FACE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude29", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude34", 
+            "name": "?"
         }
     ], 
     "sleuth": [
@@ -26247,7 +36182,7 @@ var EMOJI_MAP = {
     "slot": [
         {
             "emoji": "\ud83c\udfb0", 
-            "name": "SLOT MACHINE"
+            "name": "?"
         }
     ], 
     "slovakia": [
@@ -26262,7 +36197,57 @@ var EMOJI_MAP = {
             "name": "Flag for Slovenia"
         }
     ], 
+    "slow": [
+        {
+            "emoji": "\ud83d\udc0c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc22", 
+            "name": "?"
+        }
+    ], 
     "small": [
+        {
+            "emoji": "\u25aa\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25ab\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd39", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fd", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udee9\ufe0f", 
             "name": "SMALL AIRPLANE"
@@ -26272,24 +36257,8 @@ var EMOJI_MAP = {
             "name": "WHITE SUN WITH SMALL CLOUD sun behind small cloud"
         }, 
         {
-            "emoji": "\ud83d\udd3c", 
-            "name": "UPPOINTING SMALL RED TRIANGLE up button"
-        }, 
-        {
-            "emoji": "\ud83d\udd3d", 
-            "name": "DOWNPOINTING SMALL RED TRIANGLE down button"
-        }, 
-        {
             "emoji": "\ud83d\udd21", 
             "name": "INPUT SYMBOL FOR LATIN SMALL LETTERS input latin lowercase"
-        }, 
-        {
-            "emoji": "\u25aa\ufe0f", 
-            "name": "BLACK SMALL SQUARE"
-        }, 
-        {
-            "emoji": "\u25ab\ufe0f", 
-            "name": "WHITE SMALL SQUARE"
         }, 
         {
             "emoji": "\u25fd\ufe0f", 
@@ -26298,48 +36267,74 @@ var EMOJI_MAP = {
         {
             "emoji": "\u25fe\ufe0f", 
             "name": "BLACK MEDIUM SMALL SQUARE black mediumsmall square"
+        }
+    ], 
+    "smell": [
+        {
+            "emoji": "\ud83d\udc43", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd38", 
-            "name": "SMALL ORANGE DIAMOND"
-        }, 
-        {
-            "emoji": "\ud83d\udd39", 
-            "name": "SMALL BLUE DIAMOND"
+            "emoji": "\ud83d\udead", 
+            "name": "?"
         }
     ], 
     "smile": [
         {
+            "emoji": "\ud83d\ude1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1b", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude01", 
-            "name": "GRINNING FACE WITH SMILING EYES"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude00", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude05", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude04", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude03", 
             "name": "SMILING FACE WITH OPEN MOUTH"
         }, 
         {
-            "emoji": "\ud83d\ude04", 
-            "name": "SMILING FACE WITH OPEN MOUTH AND SMILING EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude05", 
-            "name": "SMILING FACE WITH OPEN MOUTH AND COLD SWEAT"
-        }, 
-        {
             "emoji": "\ud83d\ude06", 
             "name": "SMILING FACE WITH OPEN MOUTH AND TIGHTLYCLOSED EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude0a", 
-            "name": "SMILING FACE WITH SMILING EYES"
-        }, 
-        {
-            "emoji": "\ud83d\ude0b", 
-            "name": "FACE SAVOURING DELICIOUS FOOD"
-        }, 
-        {
-            "emoji": "\ud83d\ude0e", 
-            "name": "SMILING FACE WITH SUNGLASSES"
         }, 
         {
             "emoji": "\ud83d\ude0d", 
@@ -26370,10 +36365,6 @@ var EMOJI_MAP = {
             "name": "SMILING CAT FACE WITH OPEN MOUTH"
         }, 
         {
-            "emoji": "\ud83d\ude38", 
-            "name": "GRINNING CAT FACE WITH SMILING EYES"
-        }, 
-        {
             "emoji": "\ud83d\ude3b", 
             "name": "SMILING CAT FACE WITH HEARTSHAPED EYES"
         }, 
@@ -26382,7 +36373,25 @@ var EMOJI_MAP = {
             "name": "CAT FACE WITH WRY SMILE"
         }
     ], 
+    "smiley": [
+        {
+            "emoji": "\ud83d\ude03", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3a", 
+            "name": "?"
+        }
+    ], 
     "smiling": [
+        {
+            "emoji": "\ud83d\ude19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude08", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude01", 
             "name": "GRINNING FACE WITH SMILING EYES"
@@ -26416,10 +36425,6 @@ var EMOJI_MAP = {
             "name": "SMILING FACE WITH HEARTSHAPED EYES"
         }, 
         {
-            "emoji": "\ud83d\ude19", 
-            "name": "KISSING FACE WITH SMILING EYES"
-        }, 
-        {
             "emoji": "\u263a\ufe0f", 
             "name": "WHITE SMILING FACE smiling face"
         }, 
@@ -26430,10 +36435,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\ude07", 
             "name": "SMILING FACE WITH HALO"
-        }, 
-        {
-            "emoji": "\ud83d\ude08", 
-            "name": "SMILING FACE WITH HORNS"
         }, 
         {
             "emoji": "\ud83d\ude3a", 
@@ -26450,8 +36451,12 @@ var EMOJI_MAP = {
     ], 
     "smirk": [
         {
+            "emoji": "\ud83d\ude3c", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude0f", 
-            "name": "SMIRKING FACE"
+            "name": "?"
         }
     ], 
     "smirking": [
@@ -26460,26 +36465,72 @@ var EMOJI_MAP = {
             "name": "SMIRKING FACE"
         }
     ], 
-    "smoking": [
+    "smoke": [
         {
-            "emoji": "\ud83d\udeac", 
-            "name": "SMOKING SYMBOL smoking"
+            "emoji": "\ud83d\udca8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfed", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udead", 
-            "name": "NO SMOKING SYMBOL no smoking"
+            "name": "?"
+        }
+    ], 
+    "smoking": [
+        {
+            "emoji": "\ud83d\udeac", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udead", 
+            "name": "?"
+        }
+    ], 
+    "smug": [
+        {
+            "emoji": "\ud83d\ude0f", 
+            "name": "?"
+        }
+    ], 
+    "snack": [
+        {
+            "emoji": "\ud83c\udf5f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf69", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6d", 
+            "name": "?"
         }
     ], 
     "snail": [
         {
             "emoji": "\ud83d\udc0c", 
-            "name": "SNAIL"
+            "name": "?"
         }
     ], 
     "snake": [
         {
             "emoji": "\ud83d\udc0d", 
-            "name": "SNAKE"
+            "name": "?"
         }, 
         {
             "emoji": "\u26ce", 
@@ -26492,7 +36543,17 @@ var EMOJI_MAP = {
             "name": "ATHLETIC SHOE running shoe"
         }
     ], 
+    "sniff": [
+        {
+            "emoji": "\ud83d\udc43", 
+            "name": "?"
+        }
+    ], 
     "snow": [
+        {
+            "emoji": "\ud83c\udfbf", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udfd4\ufe0f", 
             "name": "SNOW CAPPED MOUNTAIN snowcapped mountain"
@@ -26514,10 +36575,6 @@ var EMOJI_MAP = {
             "name": "SNOWMAN WITHOUT SNOW"
         }, 
         {
-            "emoji": "\ud83c\udfbf", 
-            "name": "SKI AND SKI BOOT skis"
-        }, 
-        {
             "emoji": "\u26f7\ufe0f", 
             "name": "SKIER"
         }, 
@@ -26535,7 +36592,7 @@ var EMOJI_MAP = {
     "snowboarder": [
         {
             "emoji": "\ud83c\udfc2", 
-            "name": "SNOWBOARDER"
+            "name": "?"
         }
     ], 
     "snowcapped": [
@@ -26547,10 +36604,14 @@ var EMOJI_MAP = {
     "snowflake": [
         {
             "emoji": "\u2744\ufe0f", 
-            "name": "SNOWFLAKE"
+            "name": "?"
         }
     ], 
     "snowman": [
+        {
+            "emoji": "\u26c4", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u2603\ufe0f", 
             "name": "SNOWMAN"
@@ -26563,10 +36624,14 @@ var EMOJI_MAP = {
     "sob": [
         {
             "emoji": "\ud83d\ude2d", 
-            "name": "LOUDLY CRYING FACE"
+            "name": "?"
         }
     ], 
     "soccer": [
+        {
+            "emoji": "\u26bd", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u26bd\ufe0f", 
             "name": "SOCCER BALL"
@@ -26584,6 +36649,12 @@ var EMOJI_MAP = {
             "name": "Flag for Solomon Islands"
         }
     ], 
+    "solong": [
+        {
+            "emoji": "\ud83d\udc4b", 
+            "name": "?"
+        }
+    ], 
     "somalia": [
         {
             "emoji": "\ud83c\uddf8\ud83c\uddf4", 
@@ -26593,10 +36664,14 @@ var EMOJI_MAP = {
     "soon": [
         {
             "emoji": "\ud83d\udd1c", 
-            "name": "SOON WITH RIGHTWARDS ARROW ABOVE soon arrow"
+            "name": "?"
         }
     ], 
     "sorry": [
+        {
+            "emoji": "\ud83d\udc94", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude47", 
             "name": "PERSON BOWING DEEPLY person bowing"
@@ -26605,53 +36680,61 @@ var EMOJI_MAP = {
     "sos": [
         {
             "emoji": "\ud83c\udd98", 
-            "name": "SQUARED SOS"
+            "name": "?"
         }
     ], 
     "sound": [
         {
-            "emoji": "\ud83d\udd07", 
-            "name": "SPEAKER WITH CANCELLATION STROKE speaker off"
-        }, 
-        {
-            "emoji": "\ud83d\udd08", 
-            "name": "SPEAKER"
-        }, 
-        {
-            "emoji": "\ud83d\udd09", 
-            "name": "SPEAKER WITH ONE SOUND WAVE speaker on"
+            "emoji": "\ud83d\udc42", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd0a", 
-            "name": "SPEAKER WITH THREE SOUND WAVES speaker loud"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd08", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd14", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udce2", 
-            "name": "PUBLIC ADDRESS LOUDSPEAKER loudspeaker"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd07", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd15", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udce3", 
-            "name": "CHEERING MEGAPHONE megaphone"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd09", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcef", 
             "name": "POSTAL HORN"
         }, 
         {
-            "emoji": "\ud83d\udd14", 
-            "name": "BELL"
-        }, 
-        {
-            "emoji": "\ud83d\udd15", 
-            "name": "BELL WITH CANCELLATION STROKE bell with slash"
-        }, 
-        {
             "emoji": "\ud83c\udfbc", 
             "name": "MUSICAL SCORE"
-        }, 
-        {
-            "emoji": "\ud83c\udfb5", 
-            "name": "MUSICAL NOTE"
         }, 
         {
             "emoji": "\ud83c\udfb6", 
@@ -26668,10 +36751,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udf9b\ufe0f", 
             "name": "CONTROL KNOBS"
-        }, 
-        {
-            "emoji": "\ud83c\udfa4", 
-            "name": "MICROPHONE"
         }, 
         {
             "emoji": "\ud83c\udfa7", 
@@ -26762,10 +36841,16 @@ var EMOJI_MAP = {
             "name": "EJECT SYMBOL eject button"
         }
     ], 
+    "soup": [
+        {
+            "emoji": "\ud83c\udf72", 
+            "name": "?"
+        }
+    ], 
     "source": [
         {
             "emoji": "\u2139\ufe0f", 
-            "name": "INFORMATION SOURCE"
+            "name": "?"
         }
     ], 
     "south": [
@@ -26824,16 +36909,72 @@ var EMOJI_MAP = {
     ], 
     "space": [
         {
-            "emoji": "\ud83d\udc7d", 
-            "name": "EXTRATERRESTRIAL ALIEN alien"
+            "emoji": "\ud83c\udf17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf12", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf16", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf13", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc7e", 
-            "name": "ALIEN MONSTER"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1a", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf0c", 
-            "name": "MILKY WAY"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd2d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf11", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc7d", 
+            "name": "EXTRATERRESTRIAL ALIEN alien"
         }, 
         {
             "emoji": "\ud83d\ude80", 
@@ -26844,60 +36985,12 @@ var EMOJI_MAP = {
             "name": "SATELLITE"
         }, 
         {
-            "emoji": "\ud83c\udf11", 
-            "name": "NEW MOON SYMBOL new moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf12", 
-            "name": "WAXING CRESCENT MOON SYMBOL waxing crescent moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf13", 
-            "name": "FIRST QUARTER MOON SYMBOL first quarter moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf14", 
-            "name": "WAXING GIBBOUS MOON SYMBOL waxing gibbous moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf15", 
-            "name": "FULL MOON SYMBOL full moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf16", 
-            "name": "WANING GIBBOUS MOON SYMBOL waning gibbous moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf17", 
-            "name": "LAST QUARTER MOON SYMBOL last quarter moon"
-        }, 
-        {
-            "emoji": "\ud83c\udf18", 
-            "name": "WANING CRESCENT MOON SYMBOL waning crescent moon"
-        }, 
-        {
             "emoji": "\ud83c\udf19", 
             "name": "CRESCENT MOON"
         }, 
         {
-            "emoji": "\ud83c\udf1a", 
-            "name": "NEW MOON WITH FACE new moon face"
-        }, 
-        {
-            "emoji": "\ud83c\udf1b", 
-            "name": "FIRST QUARTER MOON WITH FACE"
-        }, 
-        {
-            "emoji": "\ud83c\udf1c", 
-            "name": "LAST QUARTER MOON WITH FACE"
-        }, 
-        {
             "emoji": "\u2600\ufe0f", 
             "name": "BLACK SUN WITH RAYS sun"
-        }, 
-        {
-            "emoji": "\ud83c\udf1d", 
-            "name": "FULL MOON WITH FACE"
         }, 
         {
             "emoji": "\ud83c\udf1e", 
@@ -26918,26 +37011,44 @@ var EMOJI_MAP = {
             "name": "BLACK SPADE SUIT spade suit"
         }
     ], 
+    "spades": [
+        {
+            "emoji": "\u2660\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "spaghetti": [
         {
             "emoji": "\ud83c\udf5d", 
-            "name": "SPAGHETTI"
+            "name": "?"
         }
     ], 
     "spain": [
         {
             "emoji": "\ud83c\uddea\ud83c\uddf8", 
-            "name": "Flag for Spain"
+            "name": "?"
         }
     ], 
     "sparkle": [
         {
-            "emoji": "\ud83d\udc96", 
-            "name": "SPARKLING HEART"
+            "emoji": "\ud83c\udf1f", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf1f", 
-            "name": "GLOWING STAR"
+            "emoji": "\ud83d\udcab", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2747\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2733\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc96", 
+            "name": "SPARKLING HEART"
         }, 
         {
             "emoji": "\ud83c\udf87", 
@@ -26946,34 +37057,30 @@ var EMOJI_MAP = {
         {
             "emoji": "\u2728", 
             "name": "SPARKLES"
-        }, 
-        {
-            "emoji": "\u2747\ufe0f", 
-            "name": "SPARKLE"
         }
     ], 
     "sparkler": [
         {
             "emoji": "\ud83c\udf87", 
-            "name": "FIREWORK SPARKLER sparkler"
+            "name": "?"
         }
     ], 
     "sparkles": [
         {
             "emoji": "\u2728", 
-            "name": "SPARKLES"
+            "name": "?"
         }
     ], 
     "sparkling": [
         {
             "emoji": "\ud83d\udc96", 
-            "name": "SPARKLING HEART"
+            "name": "?"
         }
     ], 
     "speak": [
         {
             "emoji": "\ud83d\ude4a", 
-            "name": "SPEAKNOEVIL MONKEY speaknoevil"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udde3\ufe0f", 
@@ -26982,20 +37089,24 @@ var EMOJI_MAP = {
     ], 
     "speaker": [
         {
-            "emoji": "\ud83d\udd07", 
-            "name": "SPEAKER WITH CANCELLATION STROKE speaker off"
+            "emoji": "\ud83d\udd0a", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd08", 
-            "name": "SPEAKER"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce3", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd09", 
-            "name": "SPEAKER WITH ONE SOUND WAVE speaker on"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd0a", 
-            "name": "SPEAKER WITH THREE SOUND WAVES speaker loud"
+            "emoji": "\ud83d\udd07", 
+            "name": "SPEAKER WITH CANCELLATION STROKE speaker off"
         }
     ], 
     "speaking": [
@@ -27010,14 +37121,24 @@ var EMOJI_MAP = {
             "name": "SPEAKNOEVIL MONKEY speaknoevil"
         }
     ], 
+    "spear": [
+        {
+            "emoji": "\ud83d\udd31", 
+            "name": "?"
+        }
+    ], 
     "speech": [
+        {
+            "emoji": "\ud83d\udcac", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcad", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc41\ufe0f\u200d\ud83d\udde8", 
             "name": "EYE,LEFT SPEECH BUBBLE eye in speech bubble"
-        }, 
-        {
-            "emoji": "\ud83d\udcac", 
-            "name": "SPEECH BALLOON"
         }, 
         {
             "emoji": "\ud83d\udde8\ufe0f", 
@@ -27026,18 +37147,34 @@ var EMOJI_MAP = {
     ], 
     "speed": [
         {
-            "emoji": "\ud83d\ude84", 
-            "name": "HIGHSPEED TRAIN"
+            "emoji": "\ud83d\ude85", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude85", 
-            "name": "HIGHSPEED TRAIN WITH BULLET NOSE"
+            "emoji": "\u23e9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude84", 
+            "name": "HIGHSPEED TRAIN"
         }
     ], 
     "speedboat": [
         {
             "emoji": "\ud83d\udea4", 
-            "name": "SPEEDBOAT"
+            "name": "?"
+        }
+    ], 
+    "spent": [
+        {
+            "emoji": "\ud83d\ude35", 
+            "name": "?"
+        }
+    ], 
+    "spicy": [
+        {
+            "emoji": "\ud83c\udf5b", 
+            "name": "?"
         }
     ], 
     "spider": [
@@ -27085,7 +37222,17 @@ var EMOJI_MAP = {
     "spoked": [
         {
             "emoji": "\u2733\ufe0f", 
-            "name": "EIGHT SPOKED ASTERISK eightspoked asterisk"
+            "name": "?"
+        }
+    ], 
+    "spooky": [
+        {
+            "emoji": "\ud83d\udc7b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfee", 
+            "name": "?"
         }
     ], 
     "sport": [
@@ -27240,6 +37387,74 @@ var EMOJI_MAP = {
     ], 
     "sports": [
         {
+            "emoji": "\ud83d\udc5f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfbe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfbf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfca", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26f3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26bd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26be\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb2", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udfc5", 
             "name": "SPORTS MEDAL"
         }
@@ -27248,6 +37463,80 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udc33", 
             "name": "SPOUTING WHALE"
+        }
+    ], 
+    "spring": [
+        {
+            "emoji": "\u26c5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc07", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf08", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf39", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc52", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf31", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf90", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2600\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc90", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf38", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf37", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf43", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc26", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2614", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcae", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc30", 
+            "name": "?"
         }
     ], 
     "springs": [
@@ -27264,28 +37553,52 @@ var EMOJI_MAP = {
     ], 
     "square": [
         {
+            "emoji": "\u25fc\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fb\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25aa\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25ab\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd33", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b1b", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u274e", 
             "name": "NEGATIVE SQUARED CROSS MARK cross mark button"
         }, 
         {
             "emoji": "\u23f9\ufe0f", 
             "name": "BLACK SQUARE FOR STOP stop button"
-        }, 
-        {
-            "emoji": "\u25aa\ufe0f", 
-            "name": "BLACK SMALL SQUARE"
-        }, 
-        {
-            "emoji": "\u25ab\ufe0f", 
-            "name": "WHITE SMALL SQUARE"
-        }, 
-        {
-            "emoji": "\u25fb\ufe0f", 
-            "name": "WHITE MEDIUM SQUARE"
-        }, 
-        {
-            "emoji": "\u25fc\ufe0f", 
-            "name": "BLACK MEDIUM SQUARE"
         }, 
         {
             "emoji": "\u25fd\ufe0f", 
@@ -27302,20 +37615,12 @@ var EMOJI_MAP = {
         {
             "emoji": "\u2b1c\ufe0f", 
             "name": "WHITE LARGE SQUARE"
-        }, 
-        {
-            "emoji": "\ud83d\udd32", 
-            "name": "BLACK SQUARE BUTTON"
-        }, 
-        {
-            "emoji": "\ud83d\udd33", 
-            "name": "WHITE SQUARE BUTTON"
         }
     ], 
     "squared": [
         {
             "emoji": "\u274e", 
-            "name": "NEGATIVE SQUARED CROSS MARK cross mark button"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udd70\ufe0f", 
@@ -27430,10 +37735,32 @@ var EMOJI_MAP = {
             "name": "SQUARED CJK UNIFIED IDEOGRAPH6E80 squared fullness ideograph"
         }
     ], 
+    "squiggle": [
+        {
+            "emoji": "\u3030\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u27b0", 
+            "name": "?"
+        }
+    ], 
+    "squirrel": [
+        {
+            "emoji": "\ud83c\udf30", 
+            "name": "?"
+        }
+    ], 
     "sri": [
         {
             "emoji": "\ud83c\uddf1\ud83c\uddf0", 
             "name": "Flag for Sri Lanka"
+        }
+    ], 
+    "sshh": [
+        {
+            "emoji": "\u3299\ufe0f", 
+            "name": "?"
         }
     ], 
     "st.": [
@@ -27472,10 +37799,38 @@ var EMOJI_MAP = {
             "name": "STADIUM"
         }
     ], 
+    "staffmode": [
+        {
+            "emoji": "\ud83d\ude80", 
+            "name": "?"
+        }
+    ], 
+    "stalk": [
+        {
+            "emoji": "\ud83d\udc40", 
+            "name": "?"
+        }
+    ], 
     "star": [
         {
+            "emoji": "\u2b50", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udcab", 
-            "name": "DIZZY SYMBOL dizzy"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd2f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2733\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2734\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf03", 
@@ -27506,26 +37861,54 @@ var EMOJI_MAP = {
             "name": "STAR AND CRESCENT"
         }, 
         {
-            "emoji": "\ud83d\udd2f", 
-            "name": "SIX POINTED STAR WITH MIDDLE DOT dotted sixpointed star"
-        }, 
-        {
-            "emoji": "\u2734\ufe0f", 
-            "name": "EIGHT POINTED BLACK STAR eightpointed star"
-        }, 
-        {
             "emoji": "*\ufe0f\u20e3", 
             "name": "Keycap ASTERISK"
         }
     ], 
+    "star2": [
+        {
+            "emoji": "\ud83c\udf1f", 
+            "name": "?"
+        }
+    ], 
     "stars": [
         {
+            "emoji": "\ud83c\udf20", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf0c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2747\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd2d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2728", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf87", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf03", 
-            "name": "NIGHT WITH STARS"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\uddfa\ud83c\uddf8", 
             "name": "Flag for United States"
+        }
+    ], 
+    "start": [
+        {
+            "emoji": "\ud83c\udd95", 
+            "name": "?"
         }
     ], 
     "states": [
@@ -27545,31 +37928,103 @@ var EMOJI_MAP = {
     "station": [
         {
             "emoji": "\ud83d\ude89", 
-            "name": "STATION"
+            "name": "?"
         }, 
         {
             "emoji": "\u26fd\ufe0f", 
             "name": "FUEL PUMP"
         }
     ], 
+    "stationery": [
+        {
+            "emoji": "\u2712\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udccf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270f\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udccd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcdd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2702\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcce", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udccc", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udccb", 
+            "name": "?"
+        }
+    ], 
+    "stats": [
+        {
+            "emoji": "\ud83d\udcc9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcca", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u303d\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "statue": [
         {
             "emoji": "\ud83d\uddfd", 
-            "name": "STATUE OF LIBERTY"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\uddff", 
-            "name": "MOYAI moai"
+            "name": "?"
         }
     ], 
     "steam": [
         {
-            "emoji": "\ud83d\ude24", 
-            "name": "FACE WITH LOOK OF TRIUMPH face with steam from nose"
+            "emoji": "\ud83d\ude82", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude82", 
-            "name": "STEAM LOCOMOTIVE locomotive"
+            "emoji": "\ud83d\ude24", 
+            "name": "FACE WITH LOOK OF TRIUMPH face with steam from nose"
         }
     ], 
     "steaming": [
@@ -27586,10 +38041,22 @@ var EMOJI_MAP = {
             "name": "HOT SPRINGS"
         }
     ], 
+    "steps": [
+        {
+            "emoji": "\ud83d\udeb6", 
+            "name": "?"
+        }
+    ], 
+    "sterling": [
+        {
+            "emoji": "\ud83d\udcb7", 
+            "name": "?"
+        }
+    ], 
     "stew": [
         {
             "emoji": "\ud83c\udf72", 
-            "name": "POT OF FOOD"
+            "name": "?"
         }
     ], 
     "stick": [
@@ -27612,11 +38079,39 @@ var EMOJI_MAP = {
     ], 
     "stone": [
         {
+            "emoji": "\u25fb\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\uddff", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fd", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc8e", 
             "name": "GEM STONE"
         }
     ], 
     "stop": [
+        {
+            "emoji": "\ud83d\udeab", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26d4", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude8f", 
             "name": "BUS STOP"
@@ -27635,29 +38130,41 @@ var EMOJI_MAP = {
     "store": [
         {
             "emoji": "\ud83c\udfea", 
-            "name": "CONVENIENCE STORE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfec", 
-            "name": "DEPARTMENT STORE"
+            "name": "?"
         }
     ], 
     "straight": [
         {
             "emoji": "\ud83d\udccf", 
-            "name": "STRAIGHT RULER"
+            "name": "?"
+        }
+    ], 
+    "straight face": [
+        {
+            "emoji": "\ud83d\ude12", 
+            "name": "?"
         }
     ], 
     "strawberry": [
         {
             "emoji": "\ud83c\udf53", 
-            "name": "STRAWBERRY"
+            "name": "?"
         }
     ], 
     "streamer": [
         {
             "emoji": "\ud83c\udf8f", 
             "name": "CARP STREAMER"
+        }
+    ], 
+    "strength": [
+        {
+            "emoji": "\ud83d\udcf6", 
+            "name": "?"
         }
     ], 
     "stripes": [
@@ -27676,6 +38183,26 @@ var EMOJI_MAP = {
             "name": "BELL WITH CANCELLATION STROKE bell with slash"
         }
     ], 
+    "strong": [
+        {
+            "emoji": "\ud83d\udcaa", 
+            "name": "?"
+        }
+    ], 
+    "stuck": [
+        {
+            "emoji": "\ud83d\ude1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1d", 
+            "name": "?"
+        }
+    ], 
     "stuckout": [
         {
             "emoji": "\ud83d\ude1b", 
@@ -27690,22 +38217,96 @@ var EMOJI_MAP = {
             "name": "FACE WITH STUCKOUT TONGUE AND TIGHTLYCLOSED EYES"
         }
     ], 
+    "student": [
+        {
+            "emoji": "\ud83c\udf92", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfeb", 
+            "name": "?"
+        }
+    ], 
     "studio": [
         {
             "emoji": "\ud83c\udf99\ufe0f", 
             "name": "STUDIO MICROPHONE"
         }
     ], 
+    "study": [
+        {
+            "emoji": "\ud83d\udcd6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd2c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270f\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcdd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcda", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd4", 
+            "name": "?"
+        }
+    ], 
     "stunned": [
+        {
+            "emoji": "\ud83d\ude27", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude2f", 
             "name": "HUSHED FACE"
+        }
+    ], 
+    "style": [
+        {
+            "emoji": "\ud83d\udc88", 
+            "name": "?"
+        }
+    ], 
+    "subtract": [
+        {
+            "emoji": "\u2796", 
+            "name": "?"
         }
     ], 
     "subway": [
         {
             "emoji": "\ud83d\ude87", 
             "name": "METRO"
+        }
+    ], 
+    "success": [
+        {
+            "emoji": "\ud83d\udcc8", 
+            "name": "?"
         }
     ], 
     "sudan": [
@@ -27740,7 +38341,133 @@ var EMOJI_MAP = {
             "name": "BLACK CLUB SUIT club suit"
         }
     ], 
+    "suits": [
+        {
+            "emoji": "\u2660\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2666\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2665\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2663\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "suitup": [
+        {
+            "emoji": "\ud83d\udc54", 
+            "name": "?"
+        }
+    ], 
+    "summer": [
+        {
+            "emoji": "\ud83c\udfc4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcaa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc59", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfca", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26f5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd05", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf79", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf66", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf49", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2600\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26f3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf64", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf67", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26f2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf37", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf7b", 
+            "name": "?"
+        }
+    ], 
     "sun": [
+        {
+            "emoji": "\ud83d\udd05", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd06", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude0e", 
             "name": "SMILING FACE WITH SUNGLASSES"
@@ -27768,10 +38495,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\u2600\ufe0f", 
             "name": "BLACK SUN WITH RAYS sun"
-        }, 
-        {
-            "emoji": "\ud83c\udf1e", 
-            "name": "SUN WITH FACE"
         }, 
         {
             "emoji": "\u26c5\ufe0f", 
@@ -27797,13 +38520,13 @@ var EMOJI_MAP = {
     "sunflower": [
         {
             "emoji": "\ud83c\udf3b", 
-            "name": "SUNFLOWER"
+            "name": "?"
         }
     ], 
     "sunglasses": [
         {
             "emoji": "\ud83d\ude0e", 
-            "name": "SMILING FACE WITH SUNGLASSES"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd76\ufe0f", 
@@ -27812,24 +38535,36 @@ var EMOJI_MAP = {
     ], 
     "sunny": [
         {
+            "emoji": "\u26c5", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u2600\ufe0f", 
-            "name": "BLACK SUN WITH RAYS sun"
+            "name": "?"
         }
     ], 
     "sunrise": [
         {
             "emoji": "\ud83c\udf04", 
-            "name": "SUNRISE OVER MOUNTAINS"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf07", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf05", 
-            "name": "SUNRISE"
+            "name": "?"
         }
     ], 
     "sunset": [
         {
             "emoji": "\ud83c\udf06", 
-            "name": "CITYSCAPE AT DUSK"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfb4", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf07", 
@@ -27839,7 +38574,7 @@ var EMOJI_MAP = {
     "surfer": [
         {
             "emoji": "\ud83c\udfc4", 
-            "name": "SURFER"
+            "name": "?"
         }
     ], 
     "surfing": [
@@ -27848,13 +38583,45 @@ var EMOJI_MAP = {
             "name": "SURFER"
         }
     ], 
+    "surgery": [
+        {
+            "emoji": "\ud83c\udfe5", 
+            "name": "?"
+        }
+    ], 
     "suriname": [
         {
             "emoji": "\ud83c\uddf8\ud83c\uddf7", 
             "name": "Flag for Suriname"
         }
     ], 
+    "surprise": [
+        {
+            "emoji": "\u2755", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2049\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2757", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u203c\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "surprised": [
+        {
+            "emoji": "\ud83d\ude32", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude2f", 
             "name": "HUSHED FACE"
@@ -27867,13 +38634,19 @@ var EMOJI_MAP = {
     "sushi": [
         {
             "emoji": "\ud83c\udf63", 
-            "name": "SUSHI"
+            "name": "?"
         }
     ], 
     "suspension": [
         {
             "emoji": "\ud83d\ude9f", 
-            "name": "SUSPENSION RAILWAY"
+            "name": "?"
+        }
+    ], 
+    "sustain": [
+        {
+            "emoji": "\ud83d\udd0b", 
+            "name": "?"
         }
     ], 
     "svalbard": [
@@ -27890,20 +38663,24 @@ var EMOJI_MAP = {
     ], 
     "sweat": [
         {
-            "emoji": "\ud83d\ude05", 
-            "name": "SMILING FACE WITH OPEN MOUTH AND COLD SWEAT"
-        }, 
-        {
             "emoji": "\ud83d\ude13", 
-            "name": "FACE WITH COLD SWEAT"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude30", 
-            "name": "FACE WITH OPEN MOUTH AND COLD SWEAT"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udca6", 
-            "name": "SPLASHING SWEAT SYMBOL sweat droplets"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude25", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude05", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udca7", 
@@ -27919,7 +38696,31 @@ var EMOJI_MAP = {
     "sweet": [
         {
             "emoji": "\ud83c\udf60", 
-            "name": "ROASTED SWEET POTATO"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf69", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf6d", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf61", 
@@ -27938,14 +38739,6 @@ var EMOJI_MAP = {
             "name": "ICE CREAM"
         }, 
         {
-            "emoji": "\ud83c\udf69", 
-            "name": "DOUGHNUT"
-        }, 
-        {
-            "emoji": "\ud83c\udf6a", 
-            "name": "COOKIE"
-        }, 
-        {
             "emoji": "\ud83c\udf82", 
             "name": "BIRTHDAY CAKE"
         }, 
@@ -27954,27 +38747,15 @@ var EMOJI_MAP = {
             "name": "SHORTCAKE"
         }, 
         {
-            "emoji": "\ud83c\udf6b", 
-            "name": "CHOCOLATE BAR"
-        }, 
-        {
-            "emoji": "\ud83c\udf6c", 
-            "name": "CANDY"
-        }, 
-        {
-            "emoji": "\ud83c\udf6d", 
-            "name": "LOLLIPOP"
-        }, 
-        {
             "emoji": "\ud83c\udf6e", 
             "name": "CUSTARD"
-        }, 
-        {
-            "emoji": "\ud83c\udf6f", 
-            "name": "HONEY POT"
         }
     ], 
     "swim": [
+        {
+            "emoji": "\ud83d\udc20", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc59", 
             "name": "BIKINI"
@@ -27987,10 +38768,20 @@ var EMOJI_MAP = {
     "swimmer": [
         {
             "emoji": "\ud83c\udfca", 
-            "name": "SWIMMER"
+            "name": "?"
+        }
+    ], 
+    "swimming": [
+        {
+            "emoji": "\ud83d\udc59", 
+            "name": "?"
         }
     ], 
     "swirl": [
+        {
+            "emoji": "\ud83c\udf00", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udf65", 
             "name": "FISH CAKE WITH SWIRL DESIGN fish cake with swirl"
@@ -28009,6 +38800,14 @@ var EMOJI_MAP = {
         }
     ], 
     "symbol": [
+        {
+            "emoji": "#\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udebc", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc9f", 
             "name": "HEART DECORATION"
@@ -28256,10 +39055,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udebb", 
             "name": "RESTROOM"
-        }, 
-        {
-            "emoji": "\ud83d\udebc", 
-            "name": "BABY SYMBOL"
         }, 
         {
             "emoji": "\ud83d\udebe", 
@@ -28722,10 +39517,6 @@ var EMOJI_MAP = {
             "name": "MOBILE PHONE OFF"
         }, 
         {
-            "emoji": "#\ufe0f\u20e3", 
-            "name": "Keycap NUMBER SIGN keycap number"
-        }, 
-        {
             "emoji": "*\ufe0f\u20e3", 
             "name": "Keycap ASTERISK"
         }, 
@@ -29029,7 +39820,7 @@ var EMOJI_MAP = {
     "symbols": [
         {
             "emoji": "\ud83d\udd23", 
-            "name": "INPUT SYMBOL FOR SYMBOLS input symbols"
+            "name": "?"
         }
     ], 
     "sympathy": [
@@ -29038,10 +39829,26 @@ var EMOJI_MAP = {
             "name": "FACE WITH OPEN MOUTH"
         }
     ], 
+    "symphony": [
+        {
+            "emoji": "\ud83c\udfbb", 
+            "name": "?"
+        }
+    ], 
     "synagogue": [
         {
             "emoji": "\ud83d\udd4d", 
             "name": "SYNAGOGUE"
+        }
+    ], 
+    "sync": [
+        {
+            "emoji": "\ud83d\udd04", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd03", 
+            "name": "?"
         }
     ], 
     "syria": [
@@ -29053,13 +39860,19 @@ var EMOJI_MAP = {
     "syringe": [
         {
             "emoji": "\ud83d\udc89", 
-            "name": "SYRINGE"
+            "name": "?"
         }
     ], 
     "s\u00e3o": [
         {
             "emoji": "\ud83c\uddf8\ud83c\uddf9", 
             "name": "Flag for S\u00e3o Tom\u00e9  Pr\u00edncipe"
+        }
+    ], 
+    "tabbletop": [
+        {
+            "emoji": "\ud83c\udfb2", 
+            "name": "?"
         }
     ], 
     "table": [
@@ -29071,7 +39884,7 @@ var EMOJI_MAP = {
     "tabs": [
         {
             "emoji": "\ud83d\udcd1", 
-            "name": "BOOKMARK TABS"
+            "name": "?"
         }
     ], 
     "taco": [
@@ -29083,7 +39896,7 @@ var EMOJI_MAP = {
     "tada": [
         {
             "emoji": "\ud83c\udf89", 
-            "name": "PARTY POPPER"
+            "name": "?"
         }
     ], 
     "taiwan": [
@@ -29166,16 +39979,22 @@ var EMOJI_MAP = {
             "name": "CRYSTAL BALL"
         }
     ], 
+    "talk": [
+        {
+            "emoji": "\ud83d\udcac", 
+            "name": "?"
+        }
+    ], 
     "tanabata": [
         {
             "emoji": "\ud83c\udf8b", 
-            "name": "TANABATA TREE"
+            "name": "?"
         }
     ], 
     "tangerine": [
         {
             "emoji": "\ud83c\udf4a", 
-            "name": "TANGERINE"
+            "name": "?"
         }
     ], 
     "tanzania": [
@@ -29196,7 +40015,17 @@ var EMOJI_MAP = {
             "name": "YIN YANG"
         }
     ], 
+    "tap": [
+        {
+            "emoji": "\ud83d\udeb1", 
+            "name": "?"
+        }
+    ], 
     "tape": [
+        {
+            "emoji": "\u27bf", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udcfc", 
             "name": "VIDEOCASSETTE"
@@ -29216,6 +40045,10 @@ var EMOJI_MAP = {
     ], 
     "taurus": [
         {
+            "emoji": "\u2649", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc02", 
             "name": "OX"
         }, 
@@ -29227,27 +40060,43 @@ var EMOJI_MAP = {
     "taxi": [
         {
             "emoji": "\ud83d\ude95", 
-            "name": "TAXI"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude96", 
-            "name": "ONCOMING TAXI"
+            "name": "?"
         }
     ], 
     "tea": [
         {
-            "emoji": "\u2615\ufe0f", 
-            "name": "HOT BEVERAGE"
+            "emoji": "\ud83c\udf75", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf75", 
-            "name": "TEACUP WITHOUT HANDLE"
+            "emoji": "\u2615\ufe0f", 
+            "name": "HOT BEVERAGE"
+        }
+    ], 
+    "teach": [
+        {
+            "emoji": "\ud83c\udfeb", 
+            "name": "?"
         }
     ], 
     "teacup": [
         {
             "emoji": "\ud83c\udf75", 
             "name": "TEACUP WITHOUT HANDLE"
+        }
+    ], 
+    "team": [
+        {
+            "emoji": "\ud83d\udc65", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc9", 
+            "name": "?"
         }
     ], 
     "tear": [
@@ -29280,15 +40129,91 @@ var EMOJI_MAP = {
     ], 
     "tears": [
         {
-            "emoji": "\ud83d\ude02", 
-            "name": "FACE WITH TEARS OF JOY"
+            "emoji": "\ud83d\ude2d", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude39", 
-            "name": "CAT FACE WITH TEARS OF JOY"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude02", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude22", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3f", 
+            "name": "?"
+        }
+    ], 
+    "tech": [
+        {
+            "emoji": "\ud83d\udcbb", 
+            "name": "?"
+        }
+    ], 
+    "technology": [
+        {
+            "emoji": "\ud83d\udcde", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcbe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcbf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcbd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u260e\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcfa", 
+            "name": "?"
+        }
+    ], 
+    "teenager": [
+        {
+            "emoji": "\ud83d\udc67", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc66", 
+            "name": "?"
+        }
+    ], 
+    "teeth": [
+        {
+            "emoji": "\ud83d\ude2c", 
+            "name": "?"
         }
     ], 
     "telephone": [
+        {
+            "emoji": "\ud83d\udcde", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u260e\ufe0f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udcf1", 
             "name": "MOBILE PHONE"
@@ -29296,14 +40221,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udcf2", 
             "name": "MOBILE PHONE WITH RIGHTWARDS ARROW AT LEFT mobile phone with arrow"
-        }, 
-        {
-            "emoji": "\u260e\ufe0f", 
-            "name": "BLACK TELEPHONE telephone"
-        }, 
-        {
-            "emoji": "\ud83d\udcde", 
-            "name": "TELEPHONE RECEIVER"
         }, 
         {
             "emoji": "\ud83d\udcf6", 
@@ -29325,13 +40242,13 @@ var EMOJI_MAP = {
     "telescope": [
         {
             "emoji": "\ud83d\udd2d", 
-            "name": "TELESCOPE"
+            "name": "?"
         }
     ], 
     "television": [
         {
             "emoji": "\ud83d\udcfa", 
-            "name": "TELEVISION"
+            "name": "?"
         }
     ], 
     "teller": [
@@ -29354,22 +40271,22 @@ var EMOJI_MAP = {
     ], 
     "ten": [
         {
+            "emoji": "\ud83d\udd1f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd59", 
             "name": "CLOCK FACE TEN OCLOCK ten o\u2019clock"
         }, 
         {
             "emoji": "\ud83d\udd65", 
             "name": "CLOCK FACE TENTHIRTY tenthirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd1f", 
-            "name": "KEYCAP TEN"
         }
     ], 
     "tennis": [
         {
             "emoji": "\ud83c\udfbe", 
-            "name": "TENNIS RACQUET AND BALL tennis"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfd3", 
@@ -29378,18 +40295,28 @@ var EMOJI_MAP = {
     ], 
     "tent": [
         {
-            "emoji": "\u26fa\ufe0f", 
-            "name": "TENT"
+            "emoji": "\u26fa", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udfaa", 
-            "name": "CIRCUS TENT"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26fa\ufe0f", 
+            "name": "TENT"
         }
     ], 
     "tenthirty": [
         {
             "emoji": "\ud83d\udd65", 
             "name": "CLOCK FACE TENTHIRTY tenthirty"
+        }
+    ], 
+    "terrified": [
+        {
+            "emoji": "\ud83d\ude28", 
+            "name": "?"
         }
     ], 
     "territories": [
@@ -29408,7 +40335,35 @@ var EMOJI_MAP = {
             "name": "Flag for British Indian Ocean Territory"
         }
     ], 
+    "test": [
+        {
+            "emoji": "\u231b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcdd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcaf", 
+            "name": "?"
+        }
+    ], 
+    "textbook": [
+        {
+            "emoji": "\ud83d\udcd5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd9", 
+            "name": "?"
+        }
+    ], 
     "thailand": [
+        {
+            "emoji": "\ud83d\udc18", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\uddf9\ud83c\udded", 
             "name": "Flag for Thailand"
@@ -29429,7 +40384,7 @@ var EMOJI_MAP = {
     "theater": [
         {
             "emoji": "\ud83c\udfad", 
-            "name": "PERFORMING ARTS"
+            "name": "?"
         }
     ], 
     "theatre": [
@@ -29449,6 +40404,10 @@ var EMOJI_MAP = {
         }
     ], 
     "thinking": [
+        {
+            "emoji": "\ud83d\udcad", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83e\udd14", 
             "name": "THINKING FACE"
@@ -29507,10 +40466,14 @@ var EMOJI_MAP = {
     "thought": [
         {
             "emoji": "\ud83d\udcad", 
-            "name": "THOUGHT BALLOON"
+            "name": "?"
         }
     ], 
     "three": [
+        {
+            "emoji": "3\ufe0f\u20e3", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udd52", 
             "name": "CLOCK FACE THREE OCLOCK three o\u2019clock"
@@ -29526,10 +40489,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\uddb1\ufe0f", 
             "name": "THREE BUTTON MOUSE computer mouse"
-        }, 
-        {
-            "emoji": "3\ufe0f\u20e3", 
-            "name": "Keycap DIGIT THREE"
         }
     ], 
     "threethirty": [
@@ -29564,7 +40523,23 @@ var EMOJI_MAP = {
             "name": "THUMBS DOWN SIGN thumbs down"
         }
     ], 
+    "thumbsdown": [
+        {
+            "emoji": "\ud83d\udc4e", 
+            "name": "?"
+        }
+    ], 
+    "thumbsup": [
+        {
+            "emoji": "\ud83d\udc4d", 
+            "name": "?"
+        }
+    ], 
     "thunder": [
+        {
+            "emoji": "\u26a1", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u26c8\ufe0f", 
             "name": "THUNDER CLOUD AND RAIN cloud with lightning and rain"
@@ -29572,12 +40547,12 @@ var EMOJI_MAP = {
     ], 
     "ticket": [
         {
-            "emoji": "\ud83c\udf9f\ufe0f", 
-            "name": "ADMISSION TICKETS"
+            "emoji": "\ud83c\udfab", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udfab", 
-            "name": "TICKET"
+            "emoji": "\ud83c\udf9f\ufe0f", 
+            "name": "ADMISSION TICKETS"
         }
     ], 
     "tickets": [
@@ -29586,14 +40561,26 @@ var EMOJI_MAP = {
             "name": "ADMISSION TICKETS"
         }
     ], 
+    "tidy": [
+        {
+            "emoji": "\ud83d\udcd1", 
+            "name": "?"
+        }
+    ], 
     "tiger": [
         {
             "emoji": "\ud83d\udc2f", 
-            "name": "TIGER FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc05", 
             "name": "TIGER"
+        }
+    ], 
+    "tiger2": [
+        {
+            "emoji": "\ud83d\udc05", 
+            "name": "?"
         }
     ], 
     "tightlyclosed": [
@@ -29613,6 +40600,118 @@ var EMOJI_MAP = {
         }
     ], 
     "time": [
+        {
+            "emoji": "\ud83d\udd65", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd66", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd60", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd59", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd58", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd57", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd56", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd55", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd54", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd52", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd51", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd50", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd67", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u231b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u23f3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd62", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd61", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd64", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u231a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u23f0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd5e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd53", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd63", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udf04", 
             "name": "SUNRISE OVER MOUNTAINS"
@@ -29634,16 +40733,8 @@ var EMOJI_MAP = {
             "name": "HOURGLASS"
         }, 
         {
-            "emoji": "\u23f3", 
-            "name": "HOURGLASS WITH FLOWING SAND"
-        }, 
-        {
             "emoji": "\u231a\ufe0f", 
             "name": "WATCH"
-        }, 
-        {
-            "emoji": "\u23f0", 
-            "name": "ALARM CLOCK"
         }, 
         {
             "emoji": "\u23f1\ufe0f", 
@@ -29652,102 +40743,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\u23f2\ufe0f", 
             "name": "TIMER CLOCK"
-        }, 
-        {
-            "emoji": "\ud83d\udd5b", 
-            "name": "CLOCK FACE TWELVE OCLOCK twelve o\u2019clock"
-        }, 
-        {
-            "emoji": "\ud83d\udd67", 
-            "name": "CLOCK FACE TWELVETHIRTY twelvethirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd50", 
-            "name": "CLOCK FACE ONE OCLOCK one o\u2019clock"
-        }, 
-        {
-            "emoji": "\ud83d\udd5c", 
-            "name": "CLOCK FACE ONETHIRTY onethirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd51", 
-            "name": "CLOCK FACE TWO OCLOCK two o\u2019clock"
-        }, 
-        {
-            "emoji": "\ud83d\udd5d", 
-            "name": "CLOCK FACE TWOTHIRTY twothirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd52", 
-            "name": "CLOCK FACE THREE OCLOCK three o\u2019clock"
-        }, 
-        {
-            "emoji": "\ud83d\udd5e", 
-            "name": "CLOCK FACE THREETHIRTY threethirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd53", 
-            "name": "CLOCK FACE FOUR OCLOCK four o\u2019clock"
-        }, 
-        {
-            "emoji": "\ud83d\udd5f", 
-            "name": "CLOCK FACE FOURTHIRTY fourthirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd54", 
-            "name": "CLOCK FACE FIVE OCLOCK five o\u2019clock"
-        }, 
-        {
-            "emoji": "\ud83d\udd60", 
-            "name": "CLOCK FACE FIVETHIRTY fivethirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd55", 
-            "name": "CLOCK FACE SIX OCLOCK six o\u2019clock"
-        }, 
-        {
-            "emoji": "\ud83d\udd61", 
-            "name": "CLOCK FACE SIXTHIRTY sixthirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd56", 
-            "name": "CLOCK FACE SEVEN OCLOCK seven o\u2019clock"
-        }, 
-        {
-            "emoji": "\ud83d\udd62", 
-            "name": "CLOCK FACE SEVENTHIRTY seventhirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd57", 
-            "name": "CLOCK FACE EIGHT OCLOCK eight o\u2019clock"
-        }, 
-        {
-            "emoji": "\ud83d\udd63", 
-            "name": "CLOCK FACE EIGHTTHIRTY eightthirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd58", 
-            "name": "CLOCK FACE NINE OCLOCK nine o\u2019clock"
-        }, 
-        {
-            "emoji": "\ud83d\udd64", 
-            "name": "CLOCK FACE NINETHIRTY ninethirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd59", 
-            "name": "CLOCK FACE TEN OCLOCK ten o\u2019clock"
-        }, 
-        {
-            "emoji": "\ud83d\udd65", 
-            "name": "CLOCK FACE TENTHIRTY tenthirty"
-        }, 
-        {
-            "emoji": "\ud83d\udd5a", 
-            "name": "CLOCK FACE ELEVEN OCLOCK eleven o\u2019clock"
-        }, 
-        {
-            "emoji": "\ud83d\udd66", 
-            "name": "CLOCK FACE ELEVENTHIRTY eleventhirty"
         }, 
         {
             "emoji": "\ud83c\udf11", 
@@ -29866,24 +40861,64 @@ var EMOJI_MAP = {
     ], 
     "tired": [
         {
-            "emoji": "\ud83d\ude2b", 
-            "name": "TIRED FACE"
+            "emoji": "\ud83d\ude13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2a", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude29", 
-            "name": "WEARY FACE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2b", 
+            "name": "?"
+        }
+    ], 
+    "titanic": [
+        {
+            "emoji": "\ud83d\udea2", 
+            "name": "?"
         }
     ], 
     "tm": [
         {
             "emoji": "\u2122\ufe0f", 
-            "name": "TRADE MARK SIGN trade mark"
+            "name": "?"
+        }
+    ], 
+    "toast": [
+        {
+            "emoji": "\ud83c\udf5e", 
+            "name": "?"
+        }
+    ], 
+    "tobacco": [
+        {
+            "emoji": "\ud83d\udeac", 
+            "name": "?"
         }
     ], 
     "tobago": [
         {
             "emoji": "\ud83c\uddf9\ud83c\uddf9", 
             "name": "Flag for Trinidad  Tobago"
+        }
+    ], 
+    "toddler": [
+        {
+            "emoji": "\ud83d\udc76", 
+            "name": "?"
         }
     ], 
     "together": [
@@ -29901,7 +40936,23 @@ var EMOJI_MAP = {
     "toilet": [
         {
             "emoji": "\ud83d\udebd", 
-            "name": "TOILET"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeba", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udebb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udebe", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb9", 
+            "name": "?"
         }
     ], 
     "tokelau": [
@@ -29913,13 +40964,13 @@ var EMOJI_MAP = {
     "tokyo": [
         {
             "emoji": "\ud83d\uddfc", 
-            "name": "TOKYO TOWER"
+            "name": "?"
         }
     ], 
     "tomato": [
         {
             "emoji": "\ud83c\udf45", 
-            "name": "TOMATO"
+            "name": "?"
         }
     ], 
     "tome": [
@@ -29934,6 +40985,12 @@ var EMOJI_MAP = {
             "name": "Flag for S\u00e3o Tom\u00e9  Pr\u00edncipe"
         }
     ], 
+    "tone": [
+        {
+            "emoji": "\ud83c\udfb5", 
+            "name": "?"
+        }
+    ], 
     "tonga": [
         {
             "emoji": "\ud83c\uddf9\ud83c\uddf4", 
@@ -29942,20 +40999,24 @@ var EMOJI_MAP = {
     ], 
     "tongue": [
         {
-            "emoji": "\ud83d\ude1b", 
-            "name": "FACE WITH STUCKOUT TONGUE"
+            "emoji": "\ud83d\udc45", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude1c", 
-            "name": "FACE WITH STUCKOUT TONGUE AND WINKING EYE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1b", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude1d", 
-            "name": "FACE WITH STUCKOUT TONGUE AND TIGHTLYCLOSED EYES"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc45", 
-            "name": "TONGUE"
+            "emoji": "\ud83d\ude0b", 
+            "name": "?"
         }
     ], 
     "tool": [
@@ -30064,20 +41125,54 @@ var EMOJI_MAP = {
             "name": "TRIDENT EMBLEM"
         }
     ], 
+    "tools": [
+        {
+            "emoji": "\ud83d\udd28", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd29", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd27", 
+            "name": "?"
+        }
+    ], 
     "top": [
         {
-            "emoji": "\ud83c\udfa9", 
-            "name": "TOP HAT"
+            "emoji": "\u23eb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2934\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b06\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3a", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd1d", 
-            "name": "TOP WITH UPWARDS ARROW ABOVE top arrow"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfa9", 
+            "name": "TOP HAT"
         }
     ], 
     "tophat": [
         {
             "emoji": "\ud83c\udfa9", 
-            "name": "TOP HAT"
+            "name": "?"
         }
     ], 
     "torch": [
@@ -30092,6 +41187,12 @@ var EMOJI_MAP = {
             "name": "CLOUD WITH TORNADO tornado"
         }
     ], 
+    "tortoise": [
+        {
+            "emoji": "\ud83d\udc22", 
+            "name": "?"
+        }
+    ], 
     "totally": [
         {
             "emoji": "\ud83d\ude32", 
@@ -30101,7 +41202,13 @@ var EMOJI_MAP = {
     "tower": [
         {
             "emoji": "\ud83d\uddfc", 
-            "name": "TOKYO TOWER"
+            "name": "?"
+        }
+    ], 
+    "toy": [
+        {
+            "emoji": "\ud83c\udf8e", 
+            "name": "?"
         }
     ], 
     "track": [
@@ -30124,6 +41231,16 @@ var EMOJI_MAP = {
             "name": "TRACKBALL"
         }
     ], 
+    "tracking": [
+        {
+            "emoji": "\ud83d\udc63", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3e", 
+            "name": "?"
+        }
+    ], 
     "tracks": [
         {
             "emoji": "\ud83d\udd00", 
@@ -30133,7 +41250,7 @@ var EMOJI_MAP = {
     "tractor": [
         {
             "emoji": "\ud83d\ude9c", 
-            "name": "TRACTOR"
+            "name": "?"
         }
     ], 
     "trade": [
@@ -30145,17 +41262,17 @@ var EMOJI_MAP = {
     "trademark": [
         {
             "emoji": "\u2122\ufe0f", 
-            "name": "TRADE MARK SIGN trade mark"
+            "name": "?"
         }
     ], 
     "traffic": [
         {
-            "emoji": "\ud83d\udea5", 
-            "name": "HORIZONTAL TRAFFIC LIGHT"
+            "emoji": "\ud83d\udea6", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udea6", 
-            "name": "VERTICAL TRAFFIC LIGHT"
+            "emoji": "\ud83d\udea5", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udeb8", 
@@ -30169,7 +41286,11 @@ var EMOJI_MAP = {
     "train": [
         {
             "emoji": "\ud83d\ude82", 
-            "name": "STEAM LOCOMOTIVE locomotive"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude8b", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude83", 
@@ -30196,14 +41317,20 @@ var EMOJI_MAP = {
             "name": "RAILWAY TRACK"
         }
     ], 
+    "train2": [
+        {
+            "emoji": "\ud83d\ude86", 
+            "name": "?"
+        }
+    ], 
     "tram": [
+        {
+            "emoji": "\ud83d\ude8a", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude83", 
             "name": "RAILWAY CAR"
-        }, 
-        {
-            "emoji": "\ud83d\ude8a", 
-            "name": "TRAM"
         }, 
         {
             "emoji": "\ud83d\ude8b", 
@@ -30217,10 +41344,192 @@ var EMOJI_MAP = {
     "tramway": [
         {
             "emoji": "\ud83d\udea1", 
-            "name": "AERIAL TRAMWAY"
+            "name": "?"
+        }
+    ], 
+    "transport": [
+        {
+            "emoji": "\ud83d\udcba", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udec4", 
+            "name": "?"
+        }
+    ], 
+    "transportation": [
+        {
+            "emoji": "\ud83d\ude93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude9b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude82", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude8c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude9e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude8e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude8d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude88", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude86", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude85", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude95", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude81", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26f5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude90", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude89", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude92", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude8a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude99", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude9a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2708\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude97", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude8b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude84", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude87", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude8f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude9d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude9f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude83", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude98", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea0", 
+            "name": "?"
+        }
+    ], 
+    "trash": [
+        {
+            "emoji": "\ud83d\udeaf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u267b\ufe0f", 
+            "name": "?"
         }
     ], 
     "travel": [
+        {
+            "emoji": "\ud83d\udec5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude85", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude8b", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude82", 
             "name": "STEAM LOCOMOTIVE locomotive"
@@ -30232,10 +41541,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\ude84", 
             "name": "HIGHSPEED TRAIN"
-        }, 
-        {
-            "emoji": "\ud83d\ude85", 
-            "name": "HIGHSPEED TRAIN WITH BULLET NOSE"
         }, 
         {
             "emoji": "\ud83d\ude86", 
@@ -30264,10 +41569,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\ude9e", 
             "name": "MOUNTAIN RAILWAY"
-        }, 
-        {
-            "emoji": "\ud83d\ude8b", 
-            "name": "TRAM CAR"
         }, 
         {
             "emoji": "\ud83d\ude8c", 
@@ -30558,10 +41859,6 @@ var EMOJI_MAP = {
             "name": "BAGGAGE CLAIM"
         }, 
         {
-            "emoji": "\ud83d\udec5", 
-            "name": "LEFT LUGGAGE"
-        }, 
-        {
             "emoji": "\u26a0\ufe0f", 
             "name": "WARNING SIGN warning"
         }, 
@@ -30605,50 +41902,72 @@ var EMOJI_MAP = {
     "tray": [
         {
             "emoji": "\ud83d\udce4", 
-            "name": "OUTBOX TRAY"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udce5", 
-            "name": "INBOX TRAY"
+            "name": "?"
+        }
+    ], 
+    "treble": [
+        {
+            "emoji": "\ud83c\udfbc", 
+            "name": "?"
         }
     ], 
     "tree": [
         {
-            "emoji": "\ud83c\udf32", 
-            "name": "EVERGREEN TREE evergreen"
-        }, 
-        {
             "emoji": "\ud83c\udf33", 
-            "name": "DECIDUOUS TREE"
-        }, 
-        {
-            "emoji": "\ud83c\udf34", 
-            "name": "PALM TREE"
-        }, 
-        {
-            "emoji": "\ud83c\udf84", 
-            "name": "CHRISTMAS TREE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf8b", 
-            "name": "TANABATA TREE"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf84", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf43", 
+            "name": "?"
         }
     ], 
     "trend": [
         {
-            "emoji": "\ud83d\udcb9", 
-            "name": "CHART WITH UPWARDS TREND AND YEN SIGN chart increasing with yen"
+            "emoji": "\ud83d\udcc9", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcc8", 
-            "name": "CHART WITH UPWARDS TREND chart increasing"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcc9", 
-            "name": "CHART WITH DOWNWARDS TREND chart decreasing"
+            "emoji": "\ud83d\udcb9", 
+            "name": "CHART WITH UPWARDS TREND AND YEN SIGN chart increasing with yen"
         }
     ], 
     "triangle": [
+        {
+            "emoji": "\ud83d\udd3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3b", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udcd0", 
             "name": "TRIANGULAR RULER"
@@ -30682,10 +42001,6 @@ var EMOJI_MAP = {
             "name": "BLACK LEFTPOINTING DOUBLE TRIANGLE WITH VERTICAL BAR last track button"
         }, 
         {
-            "emoji": "\ud83d\udd3c", 
-            "name": "UPPOINTING SMALL RED TRIANGLE up button"
-        }, 
-        {
             "emoji": "\u23eb", 
             "name": "BLACK UPPOINTING DOUBLE TRIANGLE fast up button"
         }, 
@@ -30696,30 +42011,22 @@ var EMOJI_MAP = {
         {
             "emoji": "\u23ec", 
             "name": "BLACK DOWNPOINTING DOUBLE TRIANGLE fast down button"
-        }, 
-        {
-            "emoji": "\ud83d\udd3a", 
-            "name": "UPPOINTING RED TRIANGLE red triangle pointed up"
-        }, 
-        {
-            "emoji": "\ud83d\udd3b", 
-            "name": "DOWNPOINTING RED TRIANGLE red triangle pointed down"
         }
     ], 
     "triangular": [
         {
-            "emoji": "\ud83d\udcd0", 
-            "name": "TRIANGULAR RULER"
+            "emoji": "\ud83d\udea9", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udea9", 
-            "name": "TRIANGULAR FLAG ON POST triangular flag"
+            "emoji": "\ud83d\udcd0", 
+            "name": "?"
         }
     ], 
     "trident": [
         {
             "emoji": "\ud83d\udd31", 
-            "name": "TRIDENT EMBLEM"
+            "name": "?"
         }
     ], 
     "trinidad": [
@@ -30737,7 +42044,7 @@ var EMOJI_MAP = {
     "triumph": [
         {
             "emoji": "\ud83d\ude24", 
-            "name": "FACE WITH LOOK OF TRIUMPH face with steam from nose"
+            "name": "?"
         }
     ], 
     "trolley": [
@@ -30747,6 +42054,10 @@ var EMOJI_MAP = {
         }
     ], 
     "trolleybus": [
+        {
+            "emoji": "\ud83d\ude8e", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude83", 
             "name": "RAILWAY CAR"
@@ -30758,26 +42069,22 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\ude8b", 
             "name": "TRAM CAR"
-        }, 
-        {
-            "emoji": "\ud83d\ude8e", 
-            "name": "TROLLEYBUS"
         }
     ], 
     "trophy": [
         {
             "emoji": "\ud83c\udfc6", 
-            "name": "TROPHY"
+            "name": "?"
         }
     ], 
     "tropical": [
         {
             "emoji": "\ud83d\udc20", 
-            "name": "TROPICAL FISH"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf79", 
-            "name": "TROPICAL DRINK"
+            "name": "?"
         }
     ], 
     "trousers": [
@@ -30788,12 +42095,12 @@ var EMOJI_MAP = {
     ], 
     "truck": [
         {
-            "emoji": "\ud83d\ude92", 
-            "name": "FIRE ENGINE"
+            "emoji": "\ud83d\ude9a", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude9a", 
-            "name": "DELIVERY TRUCK"
+            "emoji": "\ud83d\ude92", 
+            "name": "FIRE ENGINE"
         }, 
         {
             "emoji": "\ud83d\ude9b", 
@@ -30803,19 +42110,37 @@ var EMOJI_MAP = {
     "trumpet": [
         {
             "emoji": "\ud83c\udfba", 
-            "name": "TRUMPET"
+            "name": "?"
         }
     ], 
     "tshirt": [
         {
             "emoji": "\ud83d\udc55", 
-            "name": "TSHIRT"
+            "name": "?"
+        }
+    ], 
+    "tsukimi": [
+        {
+            "emoji": "\ud83c\udf91", 
+            "name": "?"
+        }
+    ], 
+    "tsunami": [
+        {
+            "emoji": "\ud83c\udf0a", 
+            "name": "?"
+        }
+    ], 
+    "tube": [
+        {
+            "emoji": "\ud83d\ude87", 
+            "name": "?"
         }
     ], 
     "tulip": [
         {
             "emoji": "\ud83c\udf37", 
-            "name": "TULIP"
+            "name": "?"
         }
     ], 
     "tunisia": [
@@ -30827,10 +42152,20 @@ var EMOJI_MAP = {
     "turban": [
         {
             "emoji": "\ud83d\udc73", 
-            "name": "MAN WITH TURBAN"
+            "name": "?"
+        }
+    ], 
+    "turd": [
+        {
+            "emoji": "\ud83d\udca9", 
+            "name": "?"
         }
     ], 
     "turkey": [
+        {
+            "emoji": "\ud83c\udf57", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83e\udd83", 
             "name": "TURKEY"
@@ -30855,7 +42190,7 @@ var EMOJI_MAP = {
     "turtle": [
         {
             "emoji": "\ud83d\udc22", 
-            "name": "TURTLE"
+            "name": "?"
         }
     ], 
     "tuvalu": [
@@ -30867,7 +42202,13 @@ var EMOJI_MAP = {
     "tv": [
         {
             "emoji": "\ud83d\udcfa", 
-            "name": "TELEVISION"
+            "name": "?"
+        }
+    ], 
+    "tweet": [
+        {
+            "emoji": "\ud83d\udc26", 
+            "name": "?"
         }
     ], 
     "twelve": [
@@ -30886,6 +42227,56 @@ var EMOJI_MAP = {
             "name": "CLOCK FACE TWELVETHIRTY twelvethirty"
         }
     ], 
+    "twilight": [
+        {
+            "emoji": "\ud83c\udf17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf12", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf16", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf13", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf11", 
+            "name": "?"
+        }
+    ], 
     "twins": [
         {
             "emoji": "\ud83d\udc6c", 
@@ -30899,7 +42290,7 @@ var EMOJI_MAP = {
     "twisted": [
         {
             "emoji": "\ud83d\udd00", 
-            "name": "TWISTED RIGHTWARDS ARROWS shuffle tracks button"
+            "name": "?"
         }
     ], 
     "twister": [
@@ -30908,18 +42299,32 @@ var EMOJI_MAP = {
             "name": "CYCLONE"
         }
     ], 
+    "twitter": [
+        {
+            "emoji": "#\ufe0f\u20e3", 
+            "name": "?"
+        }
+    ], 
     "two": [
         {
+            "emoji": "2\ufe0f\u20e3", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc6c", 
-            "name": "TWO MEN HOLDING HANDS"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc6d", 
-            "name": "TWO WOMEN HOLDING HANDS"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc95", 
-            "name": "TWO HEARTS"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270c\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd51", 
@@ -30928,10 +42333,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd5d", 
             "name": "CLOCK FACE TWOTHIRTY twothirty"
-        }, 
-        {
-            "emoji": "2\ufe0f\u20e3", 
-            "name": "Keycap DIGIT TWO"
         }
     ], 
     "twohump": [
@@ -30962,10 +42363,86 @@ var EMOJI_MAP = {
             "name": "Flag for U.S. Virgin Islands"
         }
     ], 
+    "u5272": [
+        {
+            "emoji": "\ud83c\ude39", 
+            "name": "?"
+        }
+    ], 
+    "u5408": [
+        {
+            "emoji": "\ud83c\ude34", 
+            "name": "?"
+        }
+    ], 
+    "u55b6": [
+        {
+            "emoji": "\ud83c\ude3a", 
+            "name": "?"
+        }
+    ], 
+    "u6307": [
+        {
+            "emoji": "\ud83c\ude2f", 
+            "name": "?"
+        }
+    ], 
+    "u6708": [
+        {
+            "emoji": "\ud83c\ude37\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "u6709": [
+        {
+            "emoji": "\ud83c\ude36", 
+            "name": "?"
+        }
+    ], 
+    "u6e80": [
+        {
+            "emoji": "\ud83c\ude35", 
+            "name": "?"
+        }
+    ], 
+    "u7121": [
+        {
+            "emoji": "\ud83c\ude1a", 
+            "name": "?"
+        }
+    ], 
+    "u7533": [
+        {
+            "emoji": "\ud83c\ude38", 
+            "name": "?"
+        }
+    ], 
+    "u7981": [
+        {
+            "emoji": "\ud83c\ude32", 
+            "name": "?"
+        }
+    ], 
+    "u7a7a": [
+        {
+            "emoji": "\ud83c\ude33", 
+            "name": "?"
+        }
+    ], 
     "uae": [
         {
             "emoji": "\ud83c\udde6\ud83c\uddea", 
             "name": "Flag for United Arab Emirates"
+        }
+    ], 
+    "uber": [
+        {
+            "emoji": "\ud83d\ude95", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude96", 
+            "name": "?"
         }
     ], 
     "ufo": [
@@ -30986,6 +42463,14 @@ var EMOJI_MAP = {
     ], 
     "uk": [
         {
+            "emoji": "\ud83d\udcb7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc82", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\uddec\ud83c\udde7", 
             "name": "Flag for United Kingdom"
         }
@@ -31004,12 +42489,16 @@ var EMOJI_MAP = {
     ], 
     "umbrella": [
         {
-            "emoji": "\ud83c\udfd6\ufe0f", 
-            "name": "BEACH WITH UMBRELLA"
+            "emoji": "\ud83c\udf02", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf02", 
-            "name": "CLOSED UMBRELLA"
+            "emoji": "\u2614", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfd6\ufe0f", 
+            "name": "BEACH WITH UMBRELLA"
         }, 
         {
             "emoji": "\u2602\ufe0f", 
@@ -31027,13 +42516,31 @@ var EMOJI_MAP = {
     "unamused": [
         {
             "emoji": "\ud83d\ude12", 
-            "name": "UNAMUSED FACE"
+            "name": "?"
+        }
+    ], 
+    "unconscious": [
+        {
+            "emoji": "\ud83d\ude35", 
+            "name": "?"
         }
     ], 
     "underage": [
         {
             "emoji": "\ud83d\udd1e", 
-            "name": "NO ONE UNDER EIGHTEEN SYMBOL no one under eighteen"
+            "name": "?"
+        }
+    ], 
+    "underground": [
+        {
+            "emoji": "\ud83d\ude87", 
+            "name": "?"
+        }
+    ], 
+    "undo": [
+        {
+            "emoji": "\u21a9\ufe0f", 
+            "name": "?"
         }
     ], 
     "unexpressive": [
@@ -31044,11 +42551,23 @@ var EMOJI_MAP = {
     ], 
     "unhappy": [
         {
+            "emoji": "\ud83d\ude4d", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude12", 
             "name": "UNAMUSED FACE"
         }
     ], 
     "unicorn": [
+        {
+            "emoji": "\ud83c\udf08", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc34", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83e\udd84", 
             "name": "UNICORN FACE"
@@ -31110,6 +42629,12 @@ var EMOJI_MAP = {
             "name": "Flag for United Kingdom"
         }
     ], 
+    "union jack": [
+        {
+            "emoji": "\ud83c\uddec\ud83c\udde7", 
+            "name": "?"
+        }
+    ], 
     "united": [
         {
             "emoji": "\ud83c\udde6\ud83c\uddea", 
@@ -31138,20 +42663,64 @@ var EMOJI_MAP = {
             "name": "BLACK UNIVERSAL RECYCLING SYMBOL recycling symbol"
         }
     ], 
+    "university": [
+        {
+            "emoji": "\ud83c\udf93", 
+            "name": "?"
+        }
+    ], 
     "unlock": [
         {
             "emoji": "\ud83d\udd13", 
-            "name": "OPEN LOCK"
+            "name": "?"
+        }
+    ], 
+    "unwell": [
+        {
+            "emoji": "\ud83d\ude16", 
+            "name": "?"
         }
     ], 
     "up": [
         {
+            "emoji": "\u23eb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd99", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u261d\ufe0f", 
-            "name": "WHITE UP POINTING INDEX index pointing up"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2934\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b06\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2195\ufe0f", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc46", 
-            "name": "WHITE UP POINTING BACKHAND INDEX backhand index pointing up"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc4d", 
@@ -31160,10 +42729,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udd1d", 
             "name": "TOP WITH UPWARDS ARROW ABOVE top arrow"
-        }, 
-        {
-            "emoji": "\ud83c\udd99", 
-            "name": "SQUARED UP WITH EXCLAMATION MARK up! button"
         }
     ], 
     "up!": [
@@ -31182,6 +42747,16 @@ var EMOJI_MAP = {
         {
             "emoji": "\u2196\ufe0f", 
             "name": "NORTH WEST ARROW upleft arrow"
+        }
+    ], 
+    "upper": [
+        {
+            "emoji": "\u2196\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2197\ufe0f", 
+            "name": "?"
         }
     ], 
     "uppercase": [
@@ -31210,6 +42785,40 @@ var EMOJI_MAP = {
             "name": "NORTH EAST ARROW upright arrow"
         }
     ], 
+    "upset": [
+        {
+            "emoji": "\ud83d\ude14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude29", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude22", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude23", 
+            "name": "?"
+        }
+    ], 
     "upsidedown": [
         {
             "emoji": "\ud83d\ude43", 
@@ -31228,12 +42837,12 @@ var EMOJI_MAP = {
     ], 
     "upwards": [
         {
-            "emoji": "\ud83d\udcb9", 
-            "name": "CHART WITH UPWARDS TREND AND YEN SIGN chart increasing with yen"
+            "emoji": "\ud83d\udcc8", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udcc8", 
-            "name": "CHART WITH UPWARDS TREND chart increasing"
+            "emoji": "\ud83d\udcb9", 
+            "name": "CHART WITH UPWARDS TREND AND YEN SIGN chart increasing with yen"
         }, 
         {
             "emoji": "\u2b06\ufe0f", 
@@ -31256,6 +42865,12 @@ var EMOJI_MAP = {
             "name": "TOP WITH UPWARDS ARROW ABOVE top arrow"
         }
     ], 
+    "url": [
+        {
+            "emoji": "\ud83d\udd17", 
+            "name": "?"
+        }
+    ], 
     "urn": [
         {
             "emoji": "\u26b1\ufe0f", 
@@ -31269,6 +42884,10 @@ var EMOJI_MAP = {
         }
     ], 
     "us": [
+        {
+            "emoji": "\ud83c\uddfa\ud83c\uddf8", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\uddfa\ud83c\uddf2", 
             "name": "Flag for U.S. Outlying Islands"
@@ -31288,6 +42907,16 @@ var EMOJI_MAP = {
             "name": "Flag for U.S. Virgin Islands"
         }
     ], 
+    "user": [
+        {
+            "emoji": "\ud83d\udc64", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc65", 
+            "name": "?"
+        }
+    ], 
     "uzbekistan": [
         {
             "emoji": "\ud83c\uddfa\ud83c\uddff", 
@@ -31297,13 +42926,129 @@ var EMOJI_MAP = {
     "v": [
         {
             "emoji": "\u270c\ufe0f", 
-            "name": "VICTORY HAND"
+            "name": "?"
+        }
+    ], 
+    "vacation": [
+        {
+            "emoji": "\ud83c\udf04", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf84", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf05", 
+            "name": "?"
         }
     ], 
     "valentine": [
         {
             "emoji": "\ud83d\udc9d", 
             "name": "HEART WITH RIBBON"
+        }
+    ], 
+    "valentines": [
+        {
+            "emoji": "\ud83d\ude3b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude18", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc96", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc6b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf39", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude17", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude0d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc95", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc98", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc97", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2764\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc99", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc8c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc9c", 
+            "name": "?"
         }
     ], 
     "vanuatu": [
@@ -31318,128 +43063,202 @@ var EMOJI_MAP = {
             "name": "Flag for Vatican City"
         }
     ], 
+    "vegas": [
+        {
+            "emoji": "\ud83c\udfb0", 
+            "name": "?"
+        }
+    ], 
     "vegetable": [
         {
-            "emoji": "\ud83c\udf45", 
-            "name": "TOMATO"
+            "emoji": "\ud83c\udf42", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf8d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf44", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf40", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf46", 
-            "name": "AUBERGINE eggplant"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf45", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf34", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf43", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf35", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf41", 
+            "name": "?"
         }
     ], 
     "vehicle": [
         {
+            "emoji": "\ud83d\ude93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude9b", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude82", 
-            "name": "STEAM LOCOMOTIVE locomotive"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude83", 
-            "name": "RAILWAY CAR"
+            "emoji": "\ud83d\ude8c", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude84", 
-            "name": "HIGHSPEED TRAIN"
+            "emoji": "\ud83d\ude9e", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude85", 
-            "name": "HIGHSPEED TRAIN WITH BULLET NOSE"
+            "emoji": "\ud83d\ude8e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude8d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude88", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude86", 
-            "name": "TRAIN"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude85", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude95", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude81", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude96", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude9c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude90", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude89", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude92", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude8a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude94", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude99", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2708\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude97", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude8b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude84", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude9d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude9f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude83", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude98", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udea0", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude87", 
             "name": "METRO"
         }, 
         {
-            "emoji": "\ud83d\ude88", 
-            "name": "LIGHT RAIL"
-        }, 
-        {
-            "emoji": "\ud83d\ude89", 
-            "name": "STATION"
-        }, 
-        {
-            "emoji": "\ud83d\ude8a", 
-            "name": "TRAM"
-        }, 
-        {
-            "emoji": "\ud83d\ude9d", 
-            "name": "MONORAIL"
-        }, 
-        {
-            "emoji": "\ud83d\ude9e", 
-            "name": "MOUNTAIN RAILWAY"
-        }, 
-        {
-            "emoji": "\ud83d\ude8b", 
-            "name": "TRAM CAR"
-        }, 
-        {
-            "emoji": "\ud83d\ude8c", 
-            "name": "BUS"
-        }, 
-        {
-            "emoji": "\ud83d\ude8d", 
-            "name": "ONCOMING BUS"
-        }, 
-        {
-            "emoji": "\ud83d\ude8e", 
-            "name": "TROLLEYBUS"
-        }, 
-        {
-            "emoji": "\ud83d\ude90", 
-            "name": "MINIBUS"
-        }, 
-        {
             "emoji": "\ud83d\ude91", 
             "name": "AMBULANCE"
         }, 
         {
-            "emoji": "\ud83d\ude92", 
-            "name": "FIRE ENGINE"
-        }, 
-        {
-            "emoji": "\ud83d\ude93", 
-            "name": "POLICE CAR"
-        }, 
-        {
-            "emoji": "\ud83d\ude94", 
-            "name": "ONCOMING POLICE CAR"
-        }, 
-        {
-            "emoji": "\ud83d\ude95", 
-            "name": "TAXI"
-        }, 
-        {
-            "emoji": "\ud83d\ude96", 
-            "name": "ONCOMING TAXI"
-        }, 
-        {
-            "emoji": "\ud83d\ude97", 
-            "name": "AUTOMOBILE"
-        }, 
-        {
-            "emoji": "\ud83d\ude98", 
-            "name": "ONCOMING AUTOMOBILE"
-        }, 
-        {
-            "emoji": "\ud83d\ude99", 
-            "name": "RECREATIONAL VEHICLE"
-        }, 
-        {
             "emoji": "\ud83d\ude9a", 
             "name": "DELIVERY TRUCK"
-        }, 
-        {
-            "emoji": "\ud83d\ude9b", 
-            "name": "ARTICULATED LORRY"
-        }, 
-        {
-            "emoji": "\ud83d\ude9c", 
-            "name": "TRACTOR"
         }, 
         {
             "emoji": "\ud83d\udeb2", 
@@ -31458,10 +43277,6 @@ var EMOJI_MAP = {
             "name": "ROWBOAT"
         }, 
         {
-            "emoji": "\ud83d\udea4", 
-            "name": "SPEEDBOAT"
-        }, 
-        {
             "emoji": "\ud83d\udef3\ufe0f", 
             "name": "PASSENGER SHIP"
         }, 
@@ -31474,10 +43289,6 @@ var EMOJI_MAP = {
             "name": "SHIP"
         }, 
         {
-            "emoji": "\u2708\ufe0f", 
-            "name": "AIRPLANE"
-        }, 
-        {
             "emoji": "\ud83d\udee9\ufe0f", 
             "name": "SMALL AIRPLANE"
         }, 
@@ -31488,22 +43299,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udeec", 
             "name": "AIRPLANE ARRIVING airplane arrival"
-        }, 
-        {
-            "emoji": "\ud83d\ude81", 
-            "name": "HELICOPTER"
-        }, 
-        {
-            "emoji": "\ud83d\ude9f", 
-            "name": "SUSPENSION RAILWAY"
-        }, 
-        {
-            "emoji": "\ud83d\udea0", 
-            "name": "MOUNTAIN CABLEWAY"
-        }, 
-        {
-            "emoji": "\ud83d\udea1", 
-            "name": "AERIAL TRAMWAY"
         }, 
         {
             "emoji": "\ud83d\ude80", 
@@ -31521,7 +43316,7 @@ var EMOJI_MAP = {
     "veil": [
         {
             "emoji": "\ud83d\udc70", 
-            "name": "BRIDE WITH VEIL"
+            "name": "?"
         }
     ], 
     "venezuela": [
@@ -31536,6 +43331,12 @@ var EMOJI_MAP = {
             "name": "Flag for Cape Verde"
         }
     ], 
+    "verdict": [
+        {
+            "emoji": "\ud83d\udd28", 
+            "name": "?"
+        }
+    ], 
     "versus": [
         {
             "emoji": "\ud83c\udd9a", 
@@ -31545,7 +43346,7 @@ var EMOJI_MAP = {
     "vertical": [
         {
             "emoji": "\ud83d\udea6", 
-            "name": "VERTICAL TRAFFIC LIGHT"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd03", 
@@ -31571,13 +43372,13 @@ var EMOJI_MAP = {
     "vhs": [
         {
             "emoji": "\ud83d\udcfc", 
-            "name": "VIDEOCASSETTE"
+            "name": "?"
         }
     ], 
     "vibration": [
         {
             "emoji": "\ud83d\udcf3", 
-            "name": "VIBRATION MODE"
+            "name": "?"
         }
     ], 
     "vice": [
@@ -31589,13 +43390,21 @@ var EMOJI_MAP = {
     "victory": [
         {
             "emoji": "\u270c\ufe0f", 
-            "name": "VICTORY HAND"
+            "name": "?"
         }
     ], 
     "video": [
         {
+            "emoji": "\ud83d\udcfc", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udfae", 
-            "name": "VIDEO GAME"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcf9", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd79\ufe0f", 
@@ -31620,14 +43429,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udcf8", 
             "name": "CAMERA WITH FLASH"
-        }, 
-        {
-            "emoji": "\ud83d\udcf9", 
-            "name": "VIDEO CAMERA"
-        }, 
-        {
-            "emoji": "\ud83d\udcfc", 
-            "name": "VIDEOCASSETTE"
         }
     ], 
     "videocassette": [
@@ -31648,6 +43449,16 @@ var EMOJI_MAP = {
             "name": "Flag for Vietnam"
         }
     ], 
+    "view": [
+        {
+            "emoji": "\ud83c\udf04", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf05", 
+            "name": "?"
+        }
+    ], 
     "viewing": [
         {
             "emoji": "\ud83c\udf91", 
@@ -31660,10 +43471,20 @@ var EMOJI_MAP = {
             "name": "Flag for St. Vincent  Grenadines"
         }
     ], 
+    "violence": [
+        {
+            "emoji": "\ud83d\udc4a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd2b", 
+            "name": "?"
+        }
+    ], 
     "violin": [
         {
             "emoji": "\ud83c\udfbb", 
-            "name": "VIOLIN"
+            "name": "?"
         }
     ], 
     "virgin": [
@@ -31686,6 +43507,10 @@ var EMOJI_MAP = {
     ], 
     "virgo": [
         {
+            "emoji": "\u264d", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc67", 
             "name": "GIRL"
         }, 
@@ -31697,7 +43522,7 @@ var EMOJI_MAP = {
     "volcano": [
         {
             "emoji": "\ud83c\udf0b", 
-            "name": "VOLCANO"
+            "name": "?"
         }
     ], 
     "volleyball": [
@@ -31714,32 +43539,66 @@ var EMOJI_MAP = {
     ], 
     "volume": [
         {
-            "emoji": "\ud83d\udd07", 
-            "name": "SPEAKER WITH CANCELLATION STROKE speaker off"
+            "emoji": "\ud83d\udd0a", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd08", 
-            "name": "SPEAKER"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd07", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce3", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd09", 
-            "name": "SPEAKER WITH ONE SOUND WAVE speaker on"
+            "name": "?"
+        }
+    ], 
+    "vote": [
+        {
+            "emoji": "\u2705", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd0a", 
-            "name": "SPEAKER WITH THREE SOUND WAVES speaker loud"
+            "emoji": "\u2611\ufe0f", 
+            "name": "?"
         }
     ], 
     "vs": [
         {
             "emoji": "\ud83c\udd9a", 
-            "name": "SQUARED VS"
+            "name": "?"
         }
     ], 
     "vulcan": [
         {
             "emoji": "\ud83d\udd96", 
             "name": "RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS vulcan salute"
+        }
+    ], 
+    "wait": [
+        {
+            "emoji": "\ud83d\ude8f", 
+            "name": "?"
+        }
+    ], 
+    "wake": [
+        {
+            "emoji": "\u23f0", 
+            "name": "?"
         }
     ], 
     "wales": [
@@ -31756,8 +43615,20 @@ var EMOJI_MAP = {
     ], 
     "walking": [
         {
+            "emoji": "\ud83d\udc63", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udeb6", 
-            "name": "PEDESTRIAN"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb7", 
+            "name": "?"
         }
     ], 
     "wallis": [
@@ -31769,17 +43640,49 @@ var EMOJI_MAP = {
     "waning": [
         {
             "emoji": "\ud83c\udf16", 
-            "name": "WANING GIBBOUS MOON SYMBOL waning gibbous moon"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf18", 
-            "name": "WANING CRESCENT MOON SYMBOL waning crescent moon"
+            "name": "?"
+        }
+    ], 
+    "warm": [
+        {
+            "emoji": "\u2668\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd05", 
+            "name": "?"
         }
     ], 
     "warning": [
         {
+            "emoji": "\ud83d\udea7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2755", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\u26a0\ufe0f", 
-            "name": "WARNING SIGN warning"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2757", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb8", 
+            "name": "?"
+        }
+    ], 
+    "washroom": [
+        {
+            "emoji": "\ud83d\udebd", 
+            "name": "?"
         }
     ], 
     "wastebasket": [
@@ -31788,7 +43691,21 @@ var EMOJI_MAP = {
             "name": "WASTEBASKET"
         }
     ], 
+    "wat": [
+        {
+            "emoji": "\u2049\ufe0f", 
+            "name": "?"
+        }
+    ], 
     "watch": [
+        {
+            "emoji": "\ud83d\udc40", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u231a", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u231a\ufe0f", 
             "name": "WATCH"
@@ -31796,28 +43713,52 @@ var EMOJI_MAP = {
     ], 
     "water": [
         {
-            "emoji": "\ud83d\udc03", 
-            "name": "WATER BUFFALO"
+            "emoji": "\ud83d\udca7", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udebf", 
-            "name": "SHOWER"
+            "emoji": "\ud83d\udea3", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf0a", 
-            "name": "WATER WAVE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udeb0", 
-            "name": "POTABLE WATER SYMBOL potable water"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfca", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26f5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeb1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udebf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca6", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26f2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc03", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udebe", 
             "name": "WATER CLOSET"
-        }, 
-        {
-            "emoji": "\ud83d\udeb1", 
-            "name": "NONPOTABLE WATER SYMBOL nonpotable water"
         }, 
         {
             "emoji": "\u2652\ufe0f", 
@@ -31827,17 +43768,17 @@ var EMOJI_MAP = {
     "watermelon": [
         {
             "emoji": "\ud83c\udf49", 
-            "name": "WATERMELON"
+            "name": "?"
         }
     ], 
     "wave": [
         {
-            "emoji": "\ud83d\udc4b", 
-            "name": "WAVING HAND SIGN waving hand"
+            "emoji": "\ud83c\udf0a", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf0a", 
-            "name": "WATER WAVE"
+            "emoji": "\ud83d\udc4b", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd09", 
@@ -31867,47 +43808,69 @@ var EMOJI_MAP = {
     "wavy": [
         {
             "emoji": "\u3030\ufe0f", 
-            "name": "WAVY DASH"
+            "name": "?"
         }
     ], 
     "waxing": [
         {
             "emoji": "\ud83c\udf12", 
-            "name": "WAXING CRESCENT MOON SYMBOL waxing crescent moon"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf14", 
             "name": "WAXING GIBBOUS MOON SYMBOL waxing gibbous moon"
         }
     ], 
+    "waxing_gibbous_moon": [
+        {
+            "emoji": "\ud83c\udf16", 
+            "name": "?"
+        }
+    ], 
     "way": [
         {
             "emoji": "\ud83c\udf0c", 
-            "name": "MILKY WAY"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2195\ufe0f", 
+            "name": "?"
         }
     ], 
     "wc": [
         {
+            "emoji": "\ud83d\udebd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udebb", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udebe", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udeb9", 
-            "name": "MENS SYMBOL men\u2019s room"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udeba", 
             "name": "WOMENS SYMBOL women\u2019s room"
-        }, 
-        {
-            "emoji": "\ud83d\udebb", 
-            "name": "RESTROOM"
-        }, 
-        {
-            "emoji": "\ud83d\udebe", 
-            "name": "WATER CLOSET"
         }
     ], 
     "weapon": [
         {
+            "emoji": "\ud83d\udd31", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udd2a", 
-            "name": "HOCHO kitchen knife"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd2b", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udffa", 
@@ -31922,10 +43885,6 @@ var EMOJI_MAP = {
             "name": "CROSSED SWORDS"
         }, 
         {
-            "emoji": "\ud83d\udd2b", 
-            "name": "PISTOL"
-        }, 
-        {
             "emoji": "\ud83c\udff9", 
             "name": "BOW AND ARROW"
         }, 
@@ -31937,7 +43896,7 @@ var EMOJI_MAP = {
     "weary": [
         {
             "emoji": "\ud83d\ude29", 
-            "name": "WEARY FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude40", 
@@ -31945,6 +43904,42 @@ var EMOJI_MAP = {
         }
     ], 
     "weather": [
+        {
+            "emoji": "\u26c5", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2601\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2600\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26c4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2744\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26a1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf00", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf02", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2614", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\ude0e", 
             "name": "SMILING FACE WITH SUNGLASSES"
@@ -32038,20 +44033,12 @@ var EMOJI_MAP = {
             "name": "THERMOMETER"
         }, 
         {
-            "emoji": "\u2600\ufe0f", 
-            "name": "BLACK SUN WITH RAYS sun"
-        }, 
-        {
             "emoji": "\ud83c\udf1d", 
             "name": "FULL MOON WITH FACE"
         }, 
         {
             "emoji": "\ud83c\udf1e", 
             "name": "SUN WITH FACE"
-        }, 
-        {
-            "emoji": "\u2601\ufe0f", 
-            "name": "CLOUD"
         }, 
         {
             "emoji": "\u26c5\ufe0f", 
@@ -32098,16 +44085,8 @@ var EMOJI_MAP = {
             "name": "WIND BLOWING FACE wind face"
         }, 
         {
-            "emoji": "\ud83c\udf00", 
-            "name": "CYCLONE"
-        }, 
-        {
             "emoji": "\ud83c\udf08", 
             "name": "RAINBOW"
-        }, 
-        {
-            "emoji": "\ud83c\udf02", 
-            "name": "CLOSED UMBRELLA"
         }, 
         {
             "emoji": "\u2602\ufe0f", 
@@ -32120,10 +44099,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\u26f1\ufe0f", 
             "name": "UMBRELLA ON GROUND"
-        }, 
-        {
-            "emoji": "\u2744\ufe0f", 
-            "name": "SNOWFLAKE"
         }, 
         {
             "emoji": "\u2603\ufe0f", 
@@ -32150,18 +44125,38 @@ var EMOJI_MAP = {
     ], 
     "wedding": [
         {
-            "emoji": "\ud83d\udc70", 
-            "name": "BRIDE WITH VEIL"
+            "emoji": "\ud83d\udc92", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udc92", 
-            "name": "WEDDING"
+            "emoji": "\ud83d\udc8d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc70", 
+            "name": "?"
         }
     ], 
     "wedge": [
         {
             "emoji": "\ud83e\uddc0", 
             "name": "CHEESE WEDGE"
+        }
+    ], 
+    "weed": [
+        {
+            "emoji": "\ud83c\udf3f", 
+            "name": "?"
+        }
+    ], 
+    "weep": [
+        {
+            "emoji": "\ud83d\ude02", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude3f", 
+            "name": "?"
         }
     ], 
     "weight": [
@@ -32172,6 +44167,16 @@ var EMOJI_MAP = {
         {
             "emoji": "\u2696\ufe0f", 
             "name": "SCALES balance scale"
+        }
+    ], 
+    "weird": [
+        {
+            "emoji": "\ud83d\ude15", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc7d", 
+            "name": "?"
         }
     ], 
     "west": [
@@ -32201,17 +44206,35 @@ var EMOJI_MAP = {
     "whale": [
         {
             "emoji": "\ud83d\udc33", 
-            "name": "SPOUTING WHALE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc0b", 
             "name": "WHALE"
         }
     ], 
+    "whale2": [
+        {
+            "emoji": "\ud83d\udc0b", 
+            "name": "?"
+        }
+    ], 
+    "what": [
+        {
+            "emoji": "\ud83d\ude26", 
+            "name": "?"
+        }
+    ], 
+    "wheat": [
+        {
+            "emoji": "\ud83c\udf5e", 
+            "name": "?"
+        }
+    ], 
     "wheel": [
         {
             "emoji": "\ud83c\udfa1", 
-            "name": "FERRIS WHEEL"
+            "name": "?"
         }, 
         {
             "emoji": "\u2638\ufe0f", 
@@ -32219,6 +44242,10 @@ var EMOJI_MAP = {
         }
     ], 
     "wheelchair": [
+        {
+            "emoji": "\u267f", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u267f\ufe0f", 
             "name": "WHEELCHAIR SYMBOL wheelchair"
@@ -32230,6 +44257,12 @@ var EMOJI_MAP = {
             "name": "DISAPPOINTED BUT RELIEVED FACE"
         }
     ], 
+    "whine": [
+        {
+            "emoji": "\ud83d\ude2b", 
+            "name": "?"
+        }
+    ], 
     "whirlwind": [
         {
             "emoji": "\ud83c\udf2a\ufe0f", 
@@ -32237,6 +44270,38 @@ var EMOJI_MAP = {
         }
     ], 
     "white": [
+        {
+            "emoji": "\u2705", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fb\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26aa", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2b1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25ab\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd33", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u25fd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcae", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u263a\ufe0f", 
             "name": "WHITE SMILING FACE smiling face"
@@ -32270,10 +44335,6 @@ var EMOJI_MAP = {
             "name": "WHITE DOWN POINTING BACKHAND INDEX backhand index pointing down"
         }, 
         {
-            "emoji": "\ud83d\udcae", 
-            "name": "WHITE FLOWER"
-        }, 
-        {
             "emoji": "\u2b50\ufe0f", 
             "name": "WHITE MEDIUM STAR"
         }, 
@@ -32294,24 +44355,12 @@ var EMOJI_MAP = {
             "name": "WAVING WHITE FLAG"
         }, 
         {
-            "emoji": "\u2705", 
-            "name": "WHITE HEAVY CHECK MARK"
-        }, 
-        {
             "emoji": "\u2754", 
             "name": "WHITE QUESTION MARK ORNAMENT white question mark"
         }, 
         {
             "emoji": "\u2755", 
             "name": "WHITE EXCLAMATION MARK ORNAMENT white exclamation mark"
-        }, 
-        {
-            "emoji": "\u25ab\ufe0f", 
-            "name": "WHITE SMALL SQUARE"
-        }, 
-        {
-            "emoji": "\u25fb\ufe0f", 
-            "name": "WHITE MEDIUM SQUARE"
         }, 
         {
             "emoji": "\u25fd\ufe0f", 
@@ -32322,15 +44371,51 @@ var EMOJI_MAP = {
             "name": "WHITE LARGE SQUARE"
         }, 
         {
-            "emoji": "\ud83d\udd33", 
-            "name": "WHITE SQUARE BUTTON"
-        }, 
-        {
             "emoji": "\u26aa\ufe0f", 
             "name": "MEDIUM WHITE CIRCLE white circle"
         }
     ], 
+    "whotel": [
+        {
+            "emoji": "\ud83c\udfe8", 
+            "name": "?"
+        }
+    ], 
+    "wifi": [
+        {
+            "emoji": "\ud83d\udcf6", 
+            "name": "?"
+        }
+    ], 
+    "wild": [
+        {
+            "emoji": "\ud83d\udc3a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc2f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc3b", 
+            "name": "?"
+        }
+    ], 
+    "win": [
+        {
+            "emoji": "\ud83c\udfc6", 
+            "name": "?"
+        }
+    ], 
     "wind": [
+        {
+            "emoji": "\ud83c\udf90", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca8", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83c\udf43", 
             "name": "LEAF FLUTTERING IN WIND"
@@ -32338,28 +44423,36 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83c\udf2c\ufe0f", 
             "name": "WIND BLOWING FACE wind face"
-        }, 
-        {
-            "emoji": "\ud83c\udf90", 
-            "name": "WIND CHIME"
         }
     ], 
     "wine": [
         {
+            "emoji": "\ud83c\udf47", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf76", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83c\udf77", 
-            "name": "WINE GLASS"
+            "name": "?"
         }
     ], 
     "wings": [
         {
+            "emoji": "\ud83d\udc7c", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udcb8", 
-            "name": "MONEY WITH WINGS"
+            "name": "?"
         }
     ], 
     "wink": [
         {
             "emoji": "\ud83d\ude09", 
-            "name": "WINKING FACE"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\ude1c", 
@@ -32368,12 +44461,164 @@ var EMOJI_MAP = {
     ], 
     "winking": [
         {
-            "emoji": "\ud83d\ude09", 
-            "name": "WINKING FACE"
+            "emoji": "\ud83d\ude1c", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\ude1c", 
-            "name": "FACE WITH STUCKOUT TONGUE AND WINKING EYE"
+            "emoji": "\ud83d\ude09", 
+            "name": "WINKING FACE"
+        }
+    ], 
+    "winter": [
+        {
+            "emoji": "\ud83c\udfbf", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfc2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26c4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2744\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "wip": [
+        {
+            "emoji": "\ud83d\udea7", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26a0\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc77", 
+            "name": "?"
+        }
+    ], 
+    "wish": [
+        {
+            "emoji": "\ud83d\ude4f", 
+            "name": "?"
+        }
+    ], 
+    "with": [
+        {
+            "emoji": "\ud83c\udf1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udce9", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc71", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc73", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2611\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf10", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcec", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd10", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udca0", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc70", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc3", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udced", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u21a9\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf03", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcc8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfbd", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcb8", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udfe1", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcd4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc72", 
+            "name": "?"
         }
     ], 
     "withershins": [
@@ -32391,17 +44636,73 @@ var EMOJI_MAP = {
     "wolf": [
         {
             "emoji": "\ud83d\udc3a", 
-            "name": "WOLF FACE"
+            "name": "?"
         }
     ], 
     "woman": [
         {
-            "emoji": "\ud83d\udc69", 
-            "name": "WOMAN"
+            "emoji": "\ud83d\udc84", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udeba", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc59", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc83", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude46", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude4b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc81", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc78", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc67", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc75", 
-            "name": "OLDER WOMAN old woman"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc87", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc86", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude45", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc69", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc6f", 
@@ -32490,10 +44791,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udc52", 
             "name": "WOMANS HAT woman\u2019s hat"
-        }, 
-        {
-            "emoji": "\ud83d\udeba", 
-            "name": "WOMENS SYMBOL women\u2019s room"
         }
     ], 
     "woman,man": [
@@ -32549,7 +44846,11 @@ var EMOJI_MAP = {
     "womans": [
         {
             "emoji": "\ud83d\udc5a", 
-            "name": "WOMANS CLOTHES woman\u2019s clothes"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc52", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc61", 
@@ -32558,10 +44859,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\udc62", 
             "name": "WOMANS BOOTS woman\u2019s boot"
-        }, 
-        {
-            "emoji": "\ud83d\udc52", 
-            "name": "WOMANS HAT woman\u2019s hat"
         }
     ], 
     "woman\u2019s": [
@@ -32585,17 +44882,29 @@ var EMOJI_MAP = {
     "women": [
         {
             "emoji": "\ud83d\udc6f", 
-            "name": "WOMAN WITH BUNNY EARS women partying"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc58", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc6d", 
-            "name": "TWO WOMEN HOLDING HANDS"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude46", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc75", 
+            "name": "?"
         }
     ], 
     "womens": [
         {
             "emoji": "\ud83d\udeba", 
-            "name": "WOMENS SYMBOL women\u2019s room"
+            "name": "?"
         }
     ], 
     "women\u2019s": [
@@ -32608,6 +44917,24 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\ude24", 
             "name": "FACE WITH LOOK OF TRIUMPH face with steam from nose"
+        }
+    ], 
+    "woo": [
+        {
+            "emoji": "\ud83d\ude2f", 
+            "name": "?"
+        }
+    ], 
+    "woof": [
+        {
+            "emoji": "\ud83d\udc36", 
+            "name": "?"
+        }
+    ], 
+    "wool": [
+        {
+            "emoji": "\ud83d\udc11", 
+            "name": "?"
         }
     ], 
     "word": [
@@ -32860,44 +45187,136 @@ var EMOJI_MAP = {
             "name": "SQUARED CJK UNIFIED IDEOGRAPH6E80 squared fullness ideograph"
         }
     ], 
+    "words": [
+        {
+            "emoji": "\ud83c\udd96", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd20", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd98", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd19", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd92", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd91", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcac", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd93", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd94", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd9a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udd95", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd1a", 
+            "name": "?"
+        }
+    ], 
+    "work": [
+        {
+            "emoji": "\ud83c\udfe2", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcbc", 
+            "name": "?"
+        }
+    ], 
     "worker": [
         {
             "emoji": "\ud83d\udc77", 
-            "name": "CONSTRUCTION WORKER"
+            "name": "?"
         }
     ], 
     "world": [
         {
-            "emoji": "\ud83c\udf0d", 
-            "name": "EARTH GLOBE EUROPEAFRICA globe showing europeafrica"
-        }, 
-        {
-            "emoji": "\ud83c\udf0e", 
-            "name": "EARTH GLOBE AMERICAS globe showing americas"
+            "emoji": "\ud83c\udf10", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83c\udf0f", 
-            "name": "EARTH GLOBE ASIAAUSTRALIA globe showing asiaaustralia"
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83c\udf10", 
-            "name": "GLOBE WITH MERIDIANS"
+            "emoji": "\ud83c\udf0e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf0d", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\uddfa\ufe0f", 
             "name": "WORLD MAP"
         }
     ], 
+    "worm": [
+        {
+            "emoji": "\ud83d\udc1b", 
+            "name": "?"
+        }
+    ], 
     "worried": [
         {
             "emoji": "\ud83d\ude1f", 
-            "name": "WORRIED FACE"
+            "name": "?"
         }
     ], 
     "worship": [
         {
             "emoji": "\ud83d\uded0", 
             "name": "PLACE OF WORSHIP"
+        }
+    ], 
+    "wow": [
+        {
+            "emoji": "\u2755", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2757", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude2e", 
+            "name": "?"
         }
     ], 
     "wrapped": [
@@ -32908,21 +45327,45 @@ var EMOJI_MAP = {
     ], 
     "wrench": [
         {
-            "emoji": "\ud83d\udee0\ufe0f", 
-            "name": "HAMMER AND WRENCH"
+            "emoji": "\ud83d\udd27", 
+            "name": "?"
         }, 
         {
-            "emoji": "\ud83d\udd27", 
-            "name": "WRENCH"
+            "emoji": "\ud83d\udee0\ufe0f", 
+            "name": "HAMMER AND WRENCH"
         }
     ], 
     "write": [
+        {
+            "emoji": "\u2712\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270f\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcdd", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u270d\ufe0f", 
             "name": "WRITING HAND"
         }
     ], 
     "writing": [
+        {
+            "emoji": "\u2712\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u270f\ufe0f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udcdd", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u270d\ufe0f", 
             "name": "WRITING HAND"
@@ -32937,11 +45380,51 @@ var EMOJI_MAP = {
     "x": [
         {
             "emoji": "\u2716\ufe0f", 
-            "name": "HEAVY MULTIPLICATION X"
+            "name": "?"
         }, 
         {
             "emoji": "\u274c", 
-            "name": "CROSS MARK"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u274e", 
+            "name": "?"
+        }
+    ], 
+    "xmas": [
+        {
+            "emoji": "\ud83c\udf85", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf81", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf84", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd14", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u26c4", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2744\ufe0f", 
+            "name": "?"
+        }
+    ], 
+    "xox": [
+        {
+            "emoji": "\ud83d\ude32", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude35", 
+            "name": "?"
         }
     ], 
     "yacht": [
@@ -32956,14 +45439,44 @@ var EMOJI_MAP = {
             "name": "YIN YANG"
         }
     ], 
+    "yay": [
+        {
+            "emoji": "\ud83d\udc4f", 
+            "name": "?"
+        }
+    ], 
+    "yea": [
+        {
+            "emoji": "\ud83d\ude4c", 
+            "name": "?"
+        }
+    ], 
     "yellow": [
         {
+            "emoji": "\u2b50", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf15", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\udc9b", 
-            "name": "YELLOW HEART"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\udf3c", 
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udd30", 
             "name": "JAPANESE SYMBOL FOR BEGINNER"
+        }
+    ], 
+    "yellow-diamond": [
+        {
+            "emoji": "\ud83d\udeb8", 
+            "name": "?"
         }
     ], 
     "yemen": [
@@ -32975,11 +45488,25 @@ var EMOJI_MAP = {
     "yen": [
         {
             "emoji": "\ud83d\udcb4", 
-            "name": "BANKNOTE WITH YEN SIGN yen banknote"
+            "name": "?"
         }, 
         {
             "emoji": "\ud83d\udcb9", 
             "name": "CHART WITH UPWARDS TREND AND YEN SIGN chart increasing with yen"
+        }
+    ], 
+    "yes": [
+        {
+            "emoji": "\ud83c\udd97", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udc4d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83c\ude51", 
+            "name": "?"
         }
     ], 
     "yin": [
@@ -32997,7 +45524,7 @@ var EMOJI_MAP = {
     "yum": [
         {
             "emoji": "\ud83d\ude0b", 
-            "name": "FACE SAVOURING DELICIOUS FOOD"
+            "name": "?"
         }
     ], 
     "zambia": [
@@ -33007,6 +45534,10 @@ var EMOJI_MAP = {
         }
     ], 
     "zap": [
+        {
+            "emoji": "\u26a1", 
+            "name": "?"
+        }, 
         {
             "emoji": "\u26a1\ufe0f", 
             "name": "HIGH VOLTAGE SIGN high voltage"
@@ -33021,7 +45552,7 @@ var EMOJI_MAP = {
     "zero": [
         {
             "emoji": "0\ufe0f\u20e3", 
-            "name": "Keycap DIGIT ZERO"
+            "name": "?"
         }
     ], 
     "zimbabwe": [
@@ -33043,6 +45574,54 @@ var EMOJI_MAP = {
         }
     ], 
     "zodiac": [
+        {
+            "emoji": "\u2649", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264a", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264c", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264b", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2652", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2653", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2651", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2650", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264e", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u264f", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2648", 
+            "name": "?"
+        }, 
         {
             "emoji": "\ud83d\udc67", 
             "name": "GIRL"
@@ -33148,14 +45727,34 @@ var EMOJI_MAP = {
             "name": "OPHIUCHUS"
         }
     ], 
-    "zzz": [
+    "zoom": [
         {
-            "emoji": "\ud83d\ude34", 
-            "name": "SLEEPING FACE"
+            "emoji": "\ud83d\udd0e", 
+            "name": "?"
         }, 
         {
+            "emoji": "\ud83d\udd2d", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\udd0d", 
+            "name": "?"
+        }
+    ], 
+    "zoomin": [
+        {
+            "emoji": "\ud83d\udd2c", 
+            "name": "?"
+        }
+    ], 
+    "zzz": [
+        {
             "emoji": "\ud83d\udca4", 
-            "name": "SLEEPING SYMBOL zzz"
+            "name": "?"
+        }, 
+        {
+            "emoji": "\ud83d\ude34", 
+            "name": "?"
         }
     ], 
     "\u00e5land": [
