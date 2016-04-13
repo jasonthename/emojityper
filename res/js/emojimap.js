@@ -9451,15 +9451,15 @@ var EMOJI_MAP = {
     ], 
     "devil": [
         {
+            "emoji": "\ud83d\ude08", 
+            "name": "?"
+        },
+        {
             "emoji": "\ud83d\udc79", 
             "name": "?"
         }, 
         {
             "emoji": "\ud83d\udc7f", 
-            "name": "?"
-        }, 
-        {
-            "emoji": "\ud83d\ude08", 
             "name": "?"
         }
     ], 
