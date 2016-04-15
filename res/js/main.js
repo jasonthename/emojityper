@@ -2,44 +2,26 @@
 
 $(document).ready(function() {
 
+    var SYMBOLS = '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~';
+
     var delimiters = [' ', ',', '\n'];
 
-    var clearSuggestions = function() {
+
+    function clearSuggestions() {
         $('span.alt-emoji').remove();
         $('div.alt').hide();
     }
 
-    // Gets a list of the 'characters' in a string, treating each unicode 'character' as a single character.
-    // If you try just indexing a regular js string, you'll see the true jank of js and unicode
-    var getSymbols = function(string) {
-      var index = 0;
-      var length = string.length;
-      var output = [];
-      for (; index < length - 1; ++index) {
-        var charCode = string.charCodeAt(index); if (charCode >= 0xD800 && charCode <= 0xDBFF) {
-          charCode = string.charCodeAt(index + 1);
-          if (charCode >= 0xDC00 && charCode <= 0xDFFF) {
-            output.push(string.slice(index, index + 2));
-            ++index;
-            continue;
-          }
-        }
-        output.push(string.charAt(index));
-      }
-      output.push(string.charAt(index));
-      return output;
-    }
-
-    var findPreceedingSpace = function(str, index) {
+    function findPreceedingSpace(str, index) {
         for (var spaceIndex = index; spaceIndex >= 0; spaceIndex--) {
             if ($.inArray(str[spaceIndex], delimiters) > -1) {
                 return spaceIndex;
             }
         }
         return 0;
-    };
+    }
 
-    var getWordBeforeCursor = function() {
+    function getWordBeforeCursor() {
         var cursorPosition = $input.prop('selectionStart');
         var text = $input.val();
 
@@ -48,7 +30,7 @@ $(document).ready(function() {
         return prevWord;
     }
 
-    var replaceLast = function(str, pattern, replacement) {
+    function replaceLast(str, pattern, replacement) {
         // Replace the last occurrence of a pattern in a string.
         n = str.lastIndexOf(pattern);
         if (n !== -1) {
@@ -57,7 +39,7 @@ $(document).ready(function() {
         return null;
     }
 
-    var replaceBeforeCursor = function(replacement) {
+    function replaceBeforeCursor(replacement) {
         // Replace the occurrence of `pattern` immediately before the cursor with `replacement`.
 
         var cursorPosition = $input.prop('selectionStart');
@@ -101,10 +83,28 @@ $(document).ready(function() {
         clearSuggestions();
 
         if ($.inArray(event.keyCode, keycodes) !== -1) {
-            var prevWord = $.trim(getWordBeforeCursor());
-            //console.log("prevword: " + '"' +  prevWord + '"');
-            var emojiList = EMOJI_MAP[prevWord.toLowerCase()];
-            //console.table(emojiList);
+
+            var prevWord = getWordBeforeCursor();
+
+            var word = prevWord.trim().toLowerCase();
+
+            // Get all the punctuation at the start and end of the word juuust trust
+            var firstSymbol = '';
+            var lastSymbol = '';
+
+            while (SYMBOLS.indexOf(word[0]) != -1) {
+                firstSymbol += word[0];
+                word = word.slice(1, word.length);
+            }
+
+            while (SYMBOLS.indexOf(word[word.length - 1]) != -1) {
+                lastSymbol += word[word.length - 1];
+                word = word.slice(0, word.length - 1);
+            }
+
+            // Look up the emoji.
+            var emojiList = EMOJI_MAP[word];
+
             if (emojiList === undefined)  {
                 $input.attr('disabled', false);
                 return;
