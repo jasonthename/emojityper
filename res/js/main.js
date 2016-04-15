@@ -79,7 +79,7 @@ $(document).ready(function() {
     });
 
     $input.keyup(function(event) {
-        $input.attr('disabled', true);
+        //$input.attr('disabled', true);
         clearSuggestions();
 
         if ($.inArray(event.keyCode, keycodes) !== -1) {
