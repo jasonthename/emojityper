@@ -583,16 +583,6 @@ var EMOJI_MAP = {
             "name": "?"
         }
     ], 
-    "a": [
-        {
-            "emoji": "\ud83d\udca0", 
-            "name": "?"
-        }, 
-        {
-            "emoji": "\ud83c\udd70\ufe0f", 
-            "name": "?"
-        }
-    ], 
     "ab": [
         {
             "emoji": "\ud83c\udd8e", 
