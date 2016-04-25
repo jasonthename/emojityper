@@ -1,4 +1,7 @@
-@import url('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css');
+
+h1 {
+    color: white;
+}
 
 input#emoji {
 
@@ -13,6 +16,7 @@ input#emoji {
     height: 3em;
     line-height: 1em;
     overflow: hidden;
+    
 }
 
 div.main {
@@ -21,6 +25,10 @@ div.main {
 
 h1.title {
     margin-bottom: 50px;
+    font-family: Lobster;
+    font-style: normal;
+	font-variant: normal;
+	font-weight: 100;
 }
 div.alt {
     font-size: 2em;

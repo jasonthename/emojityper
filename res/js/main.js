@@ -110,11 +110,15 @@ $(document).ready(function() {
                 return;
             }
 
+            var chosenEmoji = emojiList[0].emoji
+
+
             $alt.html(emojiList.map(function(i) {
-                return '<span class="alt-emoji" data-canonical-emoji="' + emojiList[0].emoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
+                return '<span class="alt-emoji" data-canonical-emoji="' + chosenEmoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
             }).join(" "))
+
             // Replace the contents of the textarea with The Good Stuff
-            var newInput = replaceLast($input.val(), prevWord, emojiList[0]["emoji"]);
+            var newInput = replaceLast($input.val(), prevWord, firstSymbol + chosenEmoji + lastSymbol);
 
             // XSS YOURSELF I DARE YOU
             $input.val(newInput);
