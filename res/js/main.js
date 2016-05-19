@@ -79,10 +79,25 @@ $(document).ready(function() {
     });
 
     $input.keyup(function(event) {
-        //$input.attr('disabled', true);
         clearSuggestions();
 
-        if ($.inArray(event.keyCode, keycodes) !== -1) {
+
+        var charBeforeCursorIsTriggerChar = false;
+        // OKAY Chrome for Android always returns 0 for event.keyCode because "oooh maybe it's a voice input or a swipe input" WELL MAYBE IT ISN'T.
+        // Sigh we'll just hack around that so people browsing the internet on their phones probably still in bed at 2pm 
+        // on Saturday can still use this site even though their keyboard has excellent emoji support.
+        $('h1').append(event.keyCode)
+        if (event.keyCode != 0 || event.keyCode == 229) {
+            // Okay SIKE sometimes it returns 229 whatever fine be that way
+            // Find the cursor position, and check if the character before the cursor is a space
+            var cursorPosition = $input.prop('selectionStart');
+            charBeforeCursorIsTriggerChar = $.inArray($input.val().charCodeAt(cursorPosition - 1), keycodes);
+            console.log(cursorPosition);
+            console.log(charBeforeCursorIsTriggerChar);
+
+        }
+
+        if ($.inArray(event.keyCode, keycodes) !== -1 || charBeforeCursorIsTriggerChar) {
 
             var prevWord = getWordBeforeCursor();
 
