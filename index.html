@@ -28,15 +28,39 @@
       <div class="container">
           <h1 class="title">Emojityper</h1>
           <div class="main">
-              <input type="text" id="emoji" placeholder="Type words here to get emoji! (e.g 'party joy 100 food')"/>
+              <input type="text" id="emoji" placeholder="Type words here and press space to get emoji! (e.g 'party joy 100 food')"/>
 
-              <button class="btn btn-primary copy" data-clipboard-target="#emoji" alt="Copy to clipboard" style="display: none;">Copy to clipboard</button>
+              <section id="optional-content">
+                  <button class="btn btn-primary copy" data-clipboard-target="#emoji" alt="Copy to clipboard" style="visibility: hidden;">Copy to clipboard</button>
 
-          <div class="alt" style="display:none;">
-              <p class="suggest-hint">A different one?</p>
-              <p class="alt"></p>
+                  <section class="tip" style="visibility: hidden;">
+                      <p class="tip">No emoji found for <span id="word-not-found"></span> 💔</p>
+                  </section>
+                  <div class="alt" style="visibility: hidden;">
+                      <p class="suggest-hint">A different one?</p>
+                      <p class="alt"></p>
+                  </div>
               </div>
-        </div>
+            </section>
+
+          <section class="container" id="bottom">
+              <section id="features" class="row">
+                  <section class="span4">
+                      <h3>Emoji discovery</h3>
+                      <p> Type "fruit" to get 🍐🍑🍋🍓🍒🍉🍍🍌🍇🍅🍊🍈</p>
+                  </section>
+                  <section class="span4">
+                      <h3>Fast emoji stories</h3>
+                      <p> Type "sleepy coffee party" to get 😴 ☕🎉 </p>
+                  </section>
+                  <section class="span4">
+                      <h3>Works on your computer</h3>
+                      <p> No more switching to your phone for emoji 📵 </p>
+                  </section>
+
+            </section>
+        </section>
+
 
 
         <div class="footer">

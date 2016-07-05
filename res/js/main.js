@@ -2,20 +2,27 @@
 
 $(document).ready(function() {
 
+    // I'm sure this will be enough symbols.
     var SYMBOLS = '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~';
 
+    // These things seperate words.
     var delimiters = [' ', ',', '\n'];
 
 
     function clearSuggestions() {
         $('span.alt-emoji').remove();
-        $('div.alt').hide();
+        $('div.alt').css('visibility', 'hidden');
     }
 
     function findPreceedingSpace(str, index) {
         for (var spaceIndex = index; spaceIndex >= 0; spaceIndex--) {
             if ($.inArray(str[spaceIndex], delimiters) > -1) {
                 return spaceIndex;
+            }
+            // Or it's an emoji and there's no gap between the text and the emoji.
+            // This is completely unmaintainable but it's 11:12pm and I believe in showing your mistakes on GitHub kinda like how people don't not post about bad things on Facebook to avoid the pressure of feeling like they have to keep a perfect image of themselves and also wa
+            if (str.charCodeAt(spaceIndex) > 256) {
+                return spaceIndex + 1;
             }
         }
         return 0;
@@ -91,9 +98,6 @@ $(document).ready(function() {
             // Find the cursor position, and check if the character before the cursor is a space
             var cursorPosition = $input.prop('selectionStart');
             charBeforeCursorIsTriggerChar = $.inArray($input.val().charCodeAt(cursorPosition - 1), keycodes);
-            console.log(cursorPosition);
-            console.log(charBeforeCursorIsTriggerChar);
-
         }
 
         if ($.inArray(event.keyCode, keycodes) !== -1 || charBeforeCursorIsTriggerChar) {
@@ -119,8 +123,13 @@ $(document).ready(function() {
             // Look up the emoji.
             var emojiList = EMOJI_MAP[word];
 
+            // No emoji found for this word.
             if (emojiList === undefined)  {
                 $input.attr('disabled', false);
+
+                // Show the "no emoji found" text.
+                $("span#word-not-found").text(word);
+                $("section.tip").css('visibility', 'visible');
                 return;
             }
 
@@ -128,6 +137,7 @@ $(document).ready(function() {
 
 
             $alt.html(emojiList.map(function(i) {
+                // How HTML was meant to be written @timbernerslee
                 return '<span class="alt-emoji" data-canonical-emoji="' + chosenEmoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
             }).join(" "))
 
@@ -142,7 +152,7 @@ $(document).ready(function() {
                 return '<span class="alt-emoji btn btn-primary" alt="' + i.name + '" data-canonical-emoji="' + emojiList[0].emoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
             });
 
-            // Don't show the suggestion box if there isn't  more than one. .
+            // Don't show the suggestion box if there isn't more than one.
             if (alt_emoji_html.length < 2) {
                 $input.attr('disabled', false);
                 return;
@@ -152,9 +162,13 @@ $(document).ready(function() {
             $alt.html(alt_emoji_html.join('\n'));
 
             // mmmm damn that's some smooth UX
-            $('div.alt').fadeIn(100);
+            $('button.copy').css('visibility', 'visible');
+            $('div.alt').css('visibility', 'visible');
 
-            $('button.copy').show();
+        }
+        else {
+            $('button.copy').css('visibility', 'hidden');
+            $('section.tip').css('visibility', 'hidden');
         }
 
         $input.attr('disabled', false);
