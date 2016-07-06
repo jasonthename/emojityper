@@ -190,5 +190,9 @@ $(document).ready(function() {
     // Focus the input on pageload damn that's a smooth UX.
     $input.focus();
 
+    // Register the Service Worker, if available on this browser.
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
 
 });
