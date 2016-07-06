@@ -1,0 +1,15 @@
+{
+  "name": "⌨️EmojiTyper",
+  "short_name": "⌨️Emoji",
+  "icons": [
+    {
+      "src": "res/favicon.png",
+      "sizes": "128x128"
+    }
+  ],
+  "display": "browser",
+  "start_url": "?homescreen=true",
+  "orientation": "portrait",
+  "theme_color": "#1abc9c",
+  "background_color": "#2c3e50"
+}
