@@ -1,14 +1,23 @@
 {
-  "name": "⌨️EmojiTyper",
-  "short_name": "⌨️Emoji",
+  "name": "EmojiTyper",
+  "short_name": "Emoji⌨️",
   "icons": [
     {
-      "src": "res/favicon.png",
+      "src": "res/icon-128.png",
       "sizes": "128x128"
+    }, {
+      "src": "res/icon-192.png",
+      "sizes": "192x192"
+    }, {
+      "src": "res/icon-256.png",
+      "sizes": "256x256"
+    }, {
+      "src": "res/icon-512.png",
+      "sizes": "512x512"
     }
   ],
   "display": "browser",
-  "start_url": "?homescreen=true",
+  "start_url": "/",
   "orientation": "portrait",
   "theme_color": "#1abc9c",
   "background_color": "#2c3e50"
