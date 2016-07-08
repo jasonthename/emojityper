@@ -40365,12 +40365,6 @@ var EMOJI_MAP = {
             "name": "PERSON WITH FOLDED HANDS folded hands"
         }
     ], 
-    "the": [
-        {
-            "emoji": "\ud83c\udde8\ud83c\uddec", 
-            "name": "Flag for Congo  Brazzaville"
-        }
-    ], 
     "theater": [
         {
             "emoji": "\ud83c\udfad", 
