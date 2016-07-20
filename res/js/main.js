@@ -144,6 +144,7 @@ $(document).ready(function() {
             }
             return;
         }
+        var chosenEmoji = emojiList[0].emoji;
 
         // Send the emoji that you got straight to the NSA servers.
         ga('send', {
@@ -152,12 +153,6 @@ $(document).ready(function() {
             eventAction: 'type-success',
             eventLabel: emojiWord,
         });
-
-        var chosenEmoji = emojiList[0].emoji;
-        $alt.html(emojiList.map(function(i) {
-            // How HTML was meant to be written @timbernerslee
-            return '<span class="alt-emoji" data-canonical-emoji="' + chosenEmoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
-        }).join(' '))
 
         // Replace the contents of the textarea with The Good Stuff
         var prefix = prevWord.substr(0, match.index);
@@ -170,12 +165,9 @@ $(document).ready(function() {
 
         // If we have suggestions, make some sweet HTML and add it to the page.
         if (emojiList.length > 1) {
-            var altEmojiHTML = emojiList.map(function(i) {
+            $alt.html(emojiList.map(function(i) {
                 return '<span class="alt-emoji btn btn-primary" alt="' + i.name + '" data-canonical-emoji="' + emojiList[0].emoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
-            }).join('\n');
-
-            // XSS ME I DARE YOU
-            $alt.html(altEmojiHTML);
+            }).join(''));
             $('div.alt').css('visibility', 'visible');
         }
     });
