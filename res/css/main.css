@@ -31,6 +31,11 @@ input[placeholder] {
     text-overflow: ellipsis;
 }
 
+section.suggest {
+    text-align: center;
+    color: #4F6F8F;
+    word-spacing: 2px;
+}
 section.tip {
     text-align: center;
 }
@@ -72,15 +77,13 @@ div.alt .btn {
   box-sizing: border-box;
 }
 
-section#optional-content {
-    min-height: 200px;
-}
 p.alt {
     cursor: pointer;
     color: white;
     width: 50%;
     margin: 0 auto;
     min-width: 240px;
+    min-height: 126px;  /* the height of three buttons */
 }
 p.suggest-hint {
     color: #bbdefb;

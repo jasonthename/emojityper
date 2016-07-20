@@ -3,19 +3,49 @@
 'use strict';
 
 $(document).ready(function() {
+    var suggestWords = (function() {
+        var prefixLength = 3;   // generate prefixes up to this length
+        var maxSuggestions = 10;  // only generate this many suggestions
+        var prefixSuggest = {};
+        for (var k in EMOJI_MAP) {
+            var prefix = k.substr(0, prefixLength);
+            for (var i = 1; i <= prefix.length; ++i) {
+                var part = prefix.substr(0, i);
+                var opts = prefixSuggest[part];
+                if (!opts) {
+                    opts = prefixSuggest[part] = [];
+                }
+                if (opts.length < maxSuggestions) {
+                    opts.push(k);
+                }
+            }
+        }
+
+        return function(typed) {
+            var all = prefixSuggest[typed.substr(0, prefixLength)];
+            var rest = typed.substr(prefixLength);
+            if (rest && all) {
+                all = all.filter(function(word) {
+                    return word.substr(prefixLength).startsWith(rest);
+                });
+            }
+            return all;
+        }
+    }());
 
     // These things seperate words.
-    var delimiters = [' ', ',', '\n'];
-
+    function isSpace(char, delim) {
+        return char.match(/\s+/) || (delim && char == ',');
+    }
 
     function clearSuggestions() {
         $('span.alt-emoji').remove();
         $('div.alt').css('visibility', 'hidden');
     }
 
-    function findPreceedingSpace(str, index) {
-        for (var spaceIndex = index; spaceIndex >= 0; spaceIndex--) {
-            if (delimiters.indexOf(str[spaceIndex]) != -1) {
+    function findLastSpace(str) {
+        for (var spaceIndex = str.length - 1; spaceIndex >= 0; spaceIndex--) {
+            if (isSpace(str[spaceIndex], true)) {
                 return spaceIndex;
             }
             // Or it's an emoji and there's no gap between the text and the emoji.
@@ -29,11 +59,8 @@ $(document).ready(function() {
 
     function getWordBeforeCursor() {
         var cursorPosition = $input.prop('selectionStart');
-        var text = $input.val();
-
-        // -2 because we just pressed space
-        var prevWord = text.slice(findPreceedingSpace(text, cursorPosition - 2), cursorPosition - 1);
-        return prevWord;
+        var text = $input.val().substr(0, cursorPosition).trim().replace(/,$/, '');
+        return text.substr(findLastSpace(text)).trim();
     }
 
     function replaceLast(str, pattern, replacement) {
@@ -99,6 +126,7 @@ $(document).ready(function() {
         clearSuggestions();
     });
 
+    var autocompleteTimeout;
     $input.keyup(function(event) {
         clearSuggestions();
         var text = $input.val();
@@ -118,9 +146,18 @@ $(document).ready(function() {
             // This isn't the end of a word, give up.
             $('button.copy').css('visibility', 'hidden');
             $('section.tip').css('visibility', 'hidden');
+
+            window.clearTimeout(autocompleteTimeout);
+            autocompleteTimeout = window.setTimeout(function() {
+                var word = getWordBeforeCursor().toLowerCase();
+                var words = suggestWords(word) || [];
+
+                $('section.suggest').html(words.join(' '));
+            }, 50);
             return;
         }
 
+        $('section.suggest').html('');
         var prevWord = getWordBeforeCursor();
 
         // Find the most word-like bits of the thing entered. Don't match symbols on the EDGE \m/
