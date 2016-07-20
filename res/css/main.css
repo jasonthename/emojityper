@@ -90,12 +90,13 @@ p.footer {
 }
 
 div.social {
-    text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 div.social-item {
-    display: inline;
-    margin-left: 5px;
-    margin-right: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 button.copy {
@@ -108,9 +109,10 @@ html, body {
 }
 body {
   padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+  padding-bottom: 24px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   body {
     padding-top: 12px;
   }

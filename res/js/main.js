@@ -103,7 +103,7 @@ $(document).ready(function() {
 
     $input.keyup(function(event) {
         clearSuggestions();
-
+        var text = $input.val();
 
         var charBeforeCursorIsTriggerChar = false;
         // OKAY Chrome for Android always returns 0 for event.keyCode because "oooh maybe it's a voice input or a swipe input" WELL MAYBE IT ISN'T.
@@ -113,7 +113,8 @@ $(document).ready(function() {
             // Okay SIKE sometimes it returns 229 whatever fine be that way
             // Find the cursor position, and check if the character before the cursor is a space
             var cursorPosition = $input.prop('selectionStart');
-            charBeforeCursorIsTriggerChar = $.inArray($input.val().charCodeAt(cursorPosition - 1), keycodes);
+            charBeforeCursorIsTriggerChar =
+                keycodes.indexOf(text.charCodeAt(cursorPosition - 1)) != -1;
         }
 
         if ($.inArray(event.keyCode, keycodes) !== -1 || charBeforeCursorIsTriggerChar) {
