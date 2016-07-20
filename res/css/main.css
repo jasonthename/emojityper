@@ -13,6 +13,10 @@ h1 {
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
 }
 
+.invis {
+    visibility: hidden;
+}
+
 input#emoji {
     display: block;
     margin: 0 auto;
@@ -31,8 +35,10 @@ input[placeholder] {
     text-overflow: ellipsis;
 }
 
-section.suggest {
+section#optional-content > section {
     text-align: center;
+}
+section.suggest {
     color: #4F6F8F;
     min-height: 2em;
 }
@@ -43,9 +49,6 @@ section.suggest span {
 }
 section.suggest span:hover {
     color: #6792BC;
-}
-section.tip {
-    text-align: center;
 }
 
 #word-not-found {
