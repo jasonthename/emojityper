@@ -4,9 +4,6 @@
 
 $(document).ready(function() {
 
-    // I'm sure this will be enough symbols.
-    var SYMBOLS = '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~';
-
     // These things seperate words.
     var delimiters = [' ', ',', '\n'];
 
@@ -18,7 +15,7 @@ $(document).ready(function() {
 
     function findPreceedingSpace(str, index) {
         for (var spaceIndex = index; spaceIndex >= 0; spaceIndex--) {
-            if ($.inArray(str[spaceIndex], delimiters) > -1) {
+            if (delimiters.indexOf(str[spaceIndex]) != -1) {
                 return spaceIndex;
             }
             // Or it's an emoji and there's no gap between the text and the emoji.
@@ -43,7 +40,7 @@ $(document).ready(function() {
         // Replace the last occurrence of a pattern in a string.
         var n = str.lastIndexOf(pattern);
         if (n !== -1) {
-                return str.substring(0, n) + replacement + str.substring(n + pattern.length);
+            return str.substring(0, n) + replacement + str.substring(n + pattern.length);
         }
         return null;
     }
@@ -102,88 +99,68 @@ $(document).ready(function() {
             charBeforeCursorIsTriggerChar =
                 keycodes.indexOf(text.charCodeAt(cursorPosition - 1)) != -1;
         }
-
-        if ($.inArray(event.keyCode, keycodes) !== -1 || charBeforeCursorIsTriggerChar) {
-
-            var prevWord = getWordBeforeCursor();
-
-            var word = prevWord.trim().toLowerCase();
-
-            // Get all the punctuation at the start and end of the word juuust trust
-            var firstSymbol = '';
-            var lastSymbol = '';
-
-            while (SYMBOLS.indexOf(word[0]) != -1) {
-                firstSymbol += word[0];
-                word = word.slice(1, word.length);
-            }
-
-            while (SYMBOLS.indexOf(word[word.length - 1]) != -1) {
-                lastSymbol += word[word.length - 1];
-                word = word.slice(0, word.length - 1);
-            }
-
-            // Look up the emoji.
-            var emojiList = EMOJI_MAP[word];
-
-            // No emoji found for this word.
-            if (emojiList === undefined)  {
-                $input.attr('disabled', false);
-
-                // Show the "no emoji found" text.
-                $("span#word-not-found").text(word);
-                $("section.tip").css('visibility', 'visible');
-                return;
-            }
-
-            var chosenEmoji = emojiList[0].emoji
-
-
-            $alt.html(emojiList.map(function(i) {
-                // How HTML was meant to be written @timbernerslee
-                return '<span class="alt-emoji" data-canonical-emoji="' + chosenEmoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
-            }).join(" "))
-
-            // Replace the contents of the textarea with The Good Stuff
-            var newInput = replaceLast($input.val(), prevWord, firstSymbol + chosenEmoji + lastSymbol);
-
-            // XSS YOURSELF I DARE YOU
-            $input.val(newInput);
-
-            // Make HTML for each of the suggestions.
-            var alt_emoji_html = emojiList.map(function(i) {
-                return '<span class="alt-emoji btn btn-primary" alt="' + i.name + '" data-canonical-emoji="' + emojiList[0].emoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
-            });
-
-            // Don't show the suggestion box if there isn't more than one.
-            if (alt_emoji_html.length < 2) {
-                $input.attr('disabled', false);
-                return;
-            }
-
-            // XSS ME I DARE YOU
-            $alt.html(alt_emoji_html.join('\n'));
-
-            // mmmm damn that's some smooth UX
-            $('button.copy').css('visibility', 'visible');
-            $('div.alt').css('visibility', 'visible');
-
-        }
-        else {
+        if (keycodes.indexOf(event.keyCode) == -1 && !charBeforeCursorIsTriggerChar) {
+            // This isn't the end of a word, give up.
             $('button.copy').css('visibility', 'hidden');
             $('section.tip').css('visibility', 'hidden');
+            return;
         }
 
-        $input.attr('disabled', false);
+        var prevWord = getWordBeforeCursor();
 
+        // Find the most word-like bits of the thing entered. Don't match symbols on the EDGE \m/
+        var match = /\w.*\w|\w/.exec(prevWord);
+        var emojiWord = match ? match[0] : '';
+
+        // Look up the emoji.
+        var emojiList = EMOJI_MAP[emojiWord];
+        if (!emojiList) {
+            // No emoji found for this word, show the sad the "no emoji found" text if the word
+            // wasn't just symbols.
+            if (emojiWord) {
+                $("span#word-not-found").text(emojiWord);
+                $("section.tip").css('visibility', 'visible');
+            }
+            return;
+        }
+
+        var chosenEmoji = emojiList[0].emoji;
+        $alt.html(emojiList.map(function(i) {
+            // How HTML was meant to be written @timbernerslee
+            return '<span class="alt-emoji" data-canonical-emoji="' + chosenEmoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
+        }).join(' '))
+
+        // Replace the contents of the textarea with The Good Stuff
+        var prefix = prevWord.substr(0, match.index);
+        var suffix = prevWord.substr(match.index + match[0].length);
+        var newInput = replaceLast($input.val(), prevWord, prefix + chosenEmoji + suffix);
+        $input.val(newInput);
+
+        // mmmm damn that's some smooth UX
+        $('button.copy').css('visibility', 'visible');
+
+        // If we have suggestions, make some sweet HTML and add it to the page.
+        if (emojiList.length > 1) {
+            var altEmojiHTML = emojiList.map(function(i) {
+                return '<span class="alt-emoji btn btn-primary" alt="' + i.name + '" data-canonical-emoji="' + emojiList[0].emoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
+            }).join('\n');
+
+            // XSS ME I DARE YOU
+            $alt.html(altEmojiHTML);
+            $('div.alt').css('visibility', 'visible');
+        }
     });
 
     var clipboard = new Clipboard('button.copy');
     var $clipboardBtn = $('button.copy');
+    var resetTimeout;
+
     clipboard.on('success', function(e) {
-        console.log("Copied!");
+        console.info('Copied to clipboard:', $input.val());
         $clipboardBtn.text('Copied!');
-        window.setTimeout(function() {
+
+        window.clearTimeout(resetTimeout);
+        resetTimeout = window.setTimeout(function() {
             $clipboardBtn.text('Copy to clipboard');
         }, 1000);
 
@@ -195,7 +172,7 @@ $(document).ready(function() {
 
     // Register the Service Worker, if available on this browser.
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js');
+        navigator.serviceWorker.register('/sw.js');
     }
 
 });
