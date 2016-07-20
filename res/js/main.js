@@ -83,6 +83,8 @@ $(document).ready(function() {
     }
 
     var keycodes = [
+            // lol
+            -1,
             // Enter
             13,
             // .
@@ -94,6 +96,7 @@ $(document).ready(function() {
     ];
 
     var $input = $('input#emoji');
+    var $suggest = $('section.suggest');
     var $alt = $('p.alt');
 
     // Dynamically add click handlers as the emoji are created.
@@ -121,43 +124,57 @@ $(document).ready(function() {
         });
     });
 
+    // Dynamically add click handlers as the suggestions are created.
+    $suggest.on('click', 'span', function() {
+
+        var $this = $(this);
+
+        // It's fiiiine, just replace whatever's behind the cursor with the clicked thing.
+        var newTextContent = replaceLast($input.val(), getWordBeforeCursor(), $this.text());
+        $input.val(newTextContent);
+        $input.focus();
+        handleKeyUp();
+    });
+
     $input.click(function() {
         // Clear the suggestions when clicked so it's clear that you can only change emoji right after typing one.
         clearSuggestions();
     });
 
     var autocompleteTimeout;
-    $input.keyup(function(event) {
+    function handleKeyUp(event) {
         clearSuggestions();
+        window.clearTimeout(autocompleteTimeout);
         var text = $input.val();
+        var keyCode = (event ? event.keyCode : -1);
 
         var charBeforeCursorIsTriggerChar = false;
         // OKAY Chrome for Android always returns 0 for event.keyCode because "oooh maybe it's a voice input or a swipe input" WELL MAYBE IT ISN'T.
         // Sigh we'll just hack around that so people browsing the internet on their phones probably still in bed at 2pm 
         // on Saturday can still use this site even though their keyboard has excellent emoji support.
-        if (event.keyCode == 0 || event.keyCode == 229) {
+        if (keyCode == 0 || keyCode == 229) {
             // Okay SIKE sometimes it returns 229 whatever fine be that way
             // Find the cursor position, and check if the character before the cursor is a space
             var cursorPosition = $input.prop('selectionStart');
             charBeforeCursorIsTriggerChar =
                 keycodes.indexOf(text.charCodeAt(cursorPosition - 1)) != -1;
         }
-        if (keycodes.indexOf(event.keyCode) == -1 && !charBeforeCursorIsTriggerChar) {
+        if (keycodes.indexOf(keyCode) == -1 && !charBeforeCursorIsTriggerChar) {
             // This isn't the end of a word, give up.
             $('button.copy').css('visibility', 'hidden');
             $('section.tip').css('visibility', 'hidden');
 
-            window.clearTimeout(autocompleteTimeout);
             autocompleteTimeout = window.setTimeout(function() {
                 var word = getWordBeforeCursor().toLowerCase();
                 var words = suggestWords(word) || [];
-
-                $('section.suggest').html(words.join(' '));
+                $suggest.html(words.map(function(word) {
+                    return '<span>' + word + '</span>';
+                }).join(''));
             }, 50);
             return;
         }
 
-        $('section.suggest').html('');
+        $suggest.html('');
         var prevWord = getWordBeforeCursor();
 
         // Find the most word-like bits of the thing entered. Don't match symbols on the EDGE \m/
@@ -207,7 +224,8 @@ $(document).ready(function() {
             }).join(''));
             $('div.alt').css('visibility', 'visible');
         }
-    });
+    };
+    $input.keyup(handleKeyUp);
 
     var clipboard = new Clipboard('button.copy');
     var $clipboardBtn = $('button.copy');

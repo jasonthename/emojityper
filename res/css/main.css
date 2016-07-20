@@ -34,7 +34,15 @@ input[placeholder] {
 section.suggest {
     text-align: center;
     color: #4F6F8F;
-    word-spacing: 2px;
+    min-height: 2em;
+}
+section.suggest span {
+    padding: 0 2px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+section.suggest span:hover {
+    color: #6792BC;
 }
 section.tip {
     text-align: center;
