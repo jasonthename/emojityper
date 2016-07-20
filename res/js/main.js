@@ -1,5 +1,7 @@
 // Hello you probably don't want to be involved with this js spaghetti, you probably want emojimap.js
 
+'use strict';
+
 $(document).ready(function() {
 
     // I'm sure this will be enough symbols.
@@ -39,7 +41,7 @@ $(document).ready(function() {
 
     function replaceLast(str, pattern, replacement) {
         // Replace the last occurrence of a pattern in a string.
-        n = str.lastIndexOf(pattern);
+        var n = str.lastIndexOf(pattern);
         if (n !== -1) {
                 return str.substring(0, n) + replacement + str.substring(n + pattern.length);
         }
