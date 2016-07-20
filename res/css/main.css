@@ -13,6 +13,10 @@ h1 {
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
 }
 
+.invis {
+    visibility: hidden;
+}
+
 input#emoji {
     display: block;
     margin: 0 auto;
@@ -74,6 +78,9 @@ div.alt .btn {
 
 section#optional-content {
     min-height: 200px;
+}
+section#optional-content > section {
+    text-align: center
 }
 p.alt {
     cursor: pointer;

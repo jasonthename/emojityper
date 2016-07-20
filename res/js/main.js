@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     function clearSuggestions() {
         $('span.alt-emoji').remove();
-        $('div.alt').css('visibility', 'hidden');
+        $('div.alt').addClass('invis');
     }
 
     function findPreceedingSpace(str, index) {
@@ -104,10 +104,12 @@ $(document).ready(function() {
         var text = $input.val();
 
         var charBeforeCursorIsTriggerChar = false;
+
         // OKAY Chrome for Android always returns 0 for event.keyCode because "oooh maybe it's a voice input or a swipe input" WELL MAYBE IT ISN'T.
         // Sigh we'll just hack around that so people browsing the internet on their phones probably still in bed at 2pm 
         // on Saturday can still use this site even though their keyboard has excellent emoji support.
         if (event.keyCode == 0 || event.keyCode == 229) {
+
             // Okay SIKE sometimes it returns 229 whatever fine be that way
             // Find the cursor position, and check if the character before the cursor is a space
             var cursorPosition = $input.prop('selectionStart');
@@ -116,8 +118,8 @@ $(document).ready(function() {
         }
         if (keycodes.indexOf(event.keyCode) == -1 && !charBeforeCursorIsTriggerChar) {
             // This isn't the end of a word, give up.
-            $('button.copy').css('visibility', 'hidden');
-            $('section.tip').css('visibility', 'hidden');
+            $('button.copy').addClass('invis');
+            $('section.tip').addClass('invis');
             return;
         }
 
@@ -134,7 +136,8 @@ $(document).ready(function() {
             // wasn't just symbols.
             if (emojiWord) {
                 $("span#word-not-found").text(emojiWord);
-                $("section.tip").css('visibility', 'visible');
+                $("section.tip").removeClass('invis');
+                // sup nsa
                 ga('send', {
                     hitType: 'event',
                     eventCategory: 'Translations',
@@ -142,6 +145,8 @@ $(document).ready(function() {
                     eventLabel: emojiWord,
                 });
             }
+
+            e.clearSelection();
             return;
         }
         var chosenEmoji = emojiList[0].emoji;
@@ -161,14 +166,14 @@ $(document).ready(function() {
         $input.val(newInput);
 
         // mmmm damn that's some smooth UX
-        $('button.copy').css('visibility', 'visible');
+        $('button.copy').removeClass('invis');
 
         // If we have suggestions, make some sweet HTML and add it to the page.
         if (emojiList.length > 1) {
             $alt.html(emojiList.map(function(i) {
                 return '<span class="alt-emoji btn btn-primary" alt="' + i.name + '" data-canonical-emoji="' + emojiList[0].emoji + '" data-emoji="' + i.emoji + '"' +'>' + i.emoji + '</span>';
             }).join(''));
-            $('div.alt').css('visibility', 'visible');
+            $('div.alt').removeClass('invis');
         }
     });
 
@@ -185,10 +190,10 @@ $(document).ready(function() {
             $clipboardBtn.text('Copy to clipboard');
         }, 1000);
         e.clearSelection();
-
     });
 
     // Register the Service Worker, if available on this browser.
+    // This website sponsored by Google Developer "Evangelists".
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js');
     }
