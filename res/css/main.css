@@ -1,11 +1,19 @@
 
+html, body {
+    background: #2c3e50;
+    color: #1abc9c;
+}
+body {
+  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+  padding-bottom: 24px;
+}
+
 h1 {
     color: white;
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
 }
 
 input#emoji {
-
     display: block;
     margin: 0 auto;
     width: 100%;
@@ -22,15 +30,16 @@ input#emoji {
 input[placeholder] {
     text-overflow: ellipsis;
 }
-section, div{
-    color: #1ABC9C;
-}
 
 section.tip {
     text-align: center;
 }
 
-input#emoji :focus{
+#word-not-found {
+    font-weight: 700;
+}
+
+input#emoji :focus {
     border: 0;
 }
 
@@ -40,27 +49,31 @@ div.main {
 div.error {
     color: #E74C3C;
 }
-section#features{
+section#features {
     margin-top: 100px;
 }
 
 h1.title {
     margin-bottom: 50px;
-    font-family: Lobster;
+    font-family: 'Lobster', Helvetica, Arial, Sans-Serif;
     font-style: normal;
-	font-variant: normal;
-	font-weight: 100;
+    font-variant: normal;
+    font-weight: normal;
 }
 div.alt {
     font-size: 2em;
     text-align: center;
-}
-section#optional-content {
-    min-height: 200px;
-}
-div.alt {
     margin-top: 50px;
     font-size: 14px;
+}
+div.alt .btn {
+  padding: 9px;
+  min-width: 68px;
+  box-sizing: border-box;
+}
+
+section#optional-content {
+    min-height: 200px;
 }
 p.alt {
     cursor: pointer;
@@ -102,14 +115,6 @@ div.social-item {
 button.copy {
     margin: 0 auto;
     display: block;
-}
-
-html, body {
-    background: #2c3e50;
-}
-body {
-  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-  padding-bottom: 24px;
 }
 
 @media (max-width: 800px) {
