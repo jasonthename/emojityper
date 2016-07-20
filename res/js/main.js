@@ -73,11 +73,27 @@ $(document).ready(function() {
     // Dynamically add click handlers as the emoji are created.
     $('div.alt').on('click', 'span.alt-emoji', function() {
 
+        var $this = $(this);
+        var canonicalEmoji = $this.attr('data-canonical-emoji');
+        var replacementEmoji = $this.attr('data-emoji');
+
         // It's fiiiine, just replace whatever's behind the cursor with the clicked thing.
-        var newInput = replaceLast($input.val(), $(this).attr('data-canonical-emoji'), $(this).attr('data-emoji'));
-        $input.val(newInput);
+        var newTextContent = replaceLast($input.val(), canonicalEmoji, replacementEmoji);
+        $input.val(newTextContent);
         clearSuggestions();
         $input.focus();
+
+        ga('send', {
+            hitType: 'event',
+            eventCategory: 'Translations',
+            eventAction: 'suggestion-clicked',
+            eventLabel: 'replacement',
+            fieldsObject: {
+                'emoji-presented': canonicalEmoji,
+                'emoji-chosen': replacementEmoji
+
+            }
+        });
     });
 
     $input.click(function() {
@@ -130,7 +146,24 @@ $(document).ready(function() {
                 // Show the "no emoji found" text.
                 $("span#word-not-found").text(word);
                 $("section.tip").css('visibility', 'visible');
+
+                ga('send', {
+                    hitType: 'event',
+                    eventCategory: 'Translations',
+                    eventAction: 'type-fail',
+                    eventLabel: prevWord,
+                });
+
                 return;
+            }
+            else {
+                // Send the emoji that you got straight to the NSA servers.
+                ga('send', {
+                    hitType: 'event',
+                    eventCategory: 'Translations',
+                    eventAction: 'type-success',
+                    eventLabel: prevWord,
+                });
             }
 
             var chosenEmoji = emojiList[0].emoji
@@ -183,12 +216,9 @@ $(document).ready(function() {
         window.setTimeout(function() {
             $clipboardBtn.text('Copy to clipboard');
         }, 1000);
-
         e.clearSelection();
-    });
 
-    // Focus the input on pageload damn that's a smooth UX.
-    $input.focus();
+    });
 
     // Register the Service Worker, if available on this browser.
     if ('serviceWorker' in navigator) {
