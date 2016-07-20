@@ -171,7 +171,7 @@ $(document).ready(function() {
                 var words = suggestWords(word) || [];
                 $suggest.html(words.map(function(word) {
                     return '<span>' + word + '</span>';
-                }).join(''));
+                }).join(' '));
             }, 50);
             return;
         }

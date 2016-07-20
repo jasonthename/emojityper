@@ -41,9 +41,9 @@ section#optional-content > section {
 section.suggest {
     color: #4F6F8F;
     min-height: 2em;
+    word-spacing: 4px;
 }
 section.suggest span {
-    padding: 0 2px;
     text-decoration: underline;
     cursor: pointer;
 }
