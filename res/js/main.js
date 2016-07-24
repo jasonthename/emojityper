@@ -33,11 +33,6 @@ $(document).ready(function() {
         }
     }());
 
-    // These things seperate words.
-    function isSpace(char, delim) {
-        return char.match(/\s+/) || (delim && char == ',');
-    }
-
     function clearSuggestions() {
         $('span.alt-emoji').remove();
         $('div.alt').addClass('invis');
@@ -45,7 +40,8 @@ $(document).ready(function() {
 
     function findLastSpace(str) {
         for (var spaceIndex = str.length - 1; spaceIndex >= 0; spaceIndex--) {
-            if (isSpace(str[spaceIndex], true)) {
+            // Spaces and ',' separate words.
+            if (str[spaceIndex].match(/[\s,]+/)) {
                 return spaceIndex;
             }
             // Or it's an emoji and there's no gap between the text and the emoji.
