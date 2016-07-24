@@ -33,6 +33,14 @@ $(document).ready(function() {
         }
     }());
 
+    function dedup(fn, duration) {
+        var timeout;
+        return function() {
+            window.clearTimeout(timeout);
+            timeout = window.setTimeout(fn, duration || 1000);
+        };
+    }
+
     function clearSuggestions() {
         $('span.alt-emoji').remove();
         $('div.alt').addClass('invis');
@@ -137,10 +145,16 @@ $(document).ready(function() {
         clearSuggestions();
     });
 
-    var autocompleteTimeout;
+    var invokeSuggest = dedup(function() {
+        var word = getWordBeforeCursor().toLowerCase();
+        var words = suggestWords(word) || [];
+        $suggest.html(words.map(function(word) {
+            return '<span>' + word + '</span>';
+        }).join(' '));
+    }, 100);
+
     function handleKeyUp(event) {
         clearSuggestions();
-        window.clearTimeout(autocompleteTimeout);
         var text = $input.val();
         var keyCode = (event ? event.keyCode : -1);
 
@@ -161,15 +175,7 @@ $(document).ready(function() {
             // This isn't the end of a word, give up.
             $('button.copy').addClass('invis');
             $('section.tip').addClass('invis');
-
-            autocompleteTimeout = window.setTimeout(function() {
-                var word = getWordBeforeCursor().toLowerCase();
-                var words = suggestWords(word) || [];
-                $suggest.html(words.map(function(word) {
-                    return '<span>' + word + '</span>';
-                }).join(' '));
-            }, 50);
-            return;
+            return invokeSuggest();
         }
 
         $suggest.html('');
@@ -226,20 +232,19 @@ $(document).ready(function() {
     };
     $input.keyup(handleKeyUp);
 
-    var clipboard = new Clipboard('button.copy');
-    var $clipboardBtn = $('button.copy');
-    var resetTimeout;
-
-    clipboard.on('success', function(e) {
-        console.info('Copied to clipboard:', $input.val());
-        $clipboardBtn.text('Copied!');
-
-        window.clearTimeout(resetTimeout);
-        resetTimeout = window.setTimeout(function() {
-            $clipboardBtn.text('Copy to clipboard');
-        }, 1000);
-        e.clearSelection();
-    });
+    (function() {
+        var clipboardButton = document.querySelector('button.copy');
+        var clipboard = new Clipboard(clipboardButton);
+        var resetFunction = dedup(function() {
+            clipboardButton.textContent = 'Copy to clipboard';
+        });
+        clipboard.on('success', function(e) {
+            console.info('Copied to clipboard:', $input.val());
+            clipboardButton.textContent = 'Copied!';
+            resetFunction();
+            e.clearSelection();
+        });
+    }());
 
     // Register the Service Worker, if available on this browser.
     // This website sponsored by Google Developer "Evangelists".
