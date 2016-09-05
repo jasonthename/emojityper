@@ -102,6 +102,7 @@ $(document).ready(function() {
     var $input = $('input#emoji');
     var $suggest = $('section.suggest');
     var $alt = $('p.alt');
+    var $shareButton = $('button.share');
 
     // Dynamically add click handlers as the emoji are created.
     $('div.alt').on('click', 'span.alt-emoji', function() {
@@ -143,6 +144,25 @@ $(document).ready(function() {
     $input.click(function() {
         // Clear the suggestions when clicked so it's clear that you can only change emoji right after typing one.
         clearSuggestions();
+    });
+
+    $shareButton.click(function() {
+       // Share the written emoji.
+       var textContent = $input.val();
+       navigator.share({ title: textContent, text: textContent })
+         .then(function() {
+             console.info('Shared');
+             ga('send', {
+                    hitType: 'event',
+                    eventCategory: 'Sharing',
+                    eventAction: 'share-success',
+                    eventLabel: textContent,
+                });
+             $shareButton.textContent = 'Shared!';
+         })
+         .catch(function() {
+             console.error('Error sharing');
+         });
     });
 
     var invokeSuggest = dedup(function() {
@@ -221,6 +241,8 @@ $(document).ready(function() {
 
         // mmmm damn that's some smooth UX
         $('button.copy').removeClass('invis');
+        // If the API is not supported always remain invisible...
+        if(navigator.share !== undefined) $shareButton.removeClass('invis');
 
         // If we have suggestions, make some sweet HTML and add it to the page.
         if (emojiList.length > 1) {
@@ -234,6 +256,7 @@ $(document).ready(function() {
 
     (function() {
         var clipboardButton = document.querySelector('button.copy');
+        var shareButton = document.querySelector('button.share');
         var clipboard = new Clipboard(clipboardButton);
         var resetFunction = dedup(function() {
             clipboardButton.textContent = 'Copy to clipboard';
