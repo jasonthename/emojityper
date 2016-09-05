@@ -17,6 +17,11 @@ h1 {
     visibility: hidden;
 }
 
+button.copy.invis, button.share.invis {
+    visibility: initial;
+    display: none !important;
+}
+
 input#emoji {
     display: block;
     margin: 0 auto;
@@ -36,6 +41,9 @@ input[placeholder] {
 }
 
 section#optional-content > section {
+    text-align: center;
+}
+section.actions {
     text-align: center;
 }
 section.suggest {
@@ -128,7 +136,12 @@ div.social-item {
 
 button.copy {
     margin: 0 auto;
-    display: block;
+    display: inline;
+}
+
+button.share {
+    margin: 0 auto;
+    display: inline; 
 }
 
 @media (max-width: 800px) {

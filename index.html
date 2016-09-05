@@ -34,8 +34,10 @@
               <input autofocus type="text" id="emoji" placeholder="Type words here and press space to get emoji!"/>
 
               <section id="optional-content">
-                  <button class="btn btn-primary copy invis" data-clipboard-target="#emoji" alt="Copy to clipboard">Copy to clipboard</button>
-
+                  <section id="actions">
+                      <button class="btn btn-primary copy invis" data-clipboard-target="#emoji" alt="Copy to clipboard">Copy to clipboard</button>
+                      <button class="btn btn-primary share invis" alt="Share">Share</button>
+                  </section>
                   <section class="suggest"> </section>
                   <section class="tip invis">
                       <p class="tip">No emoji found for <span id="word-not-found"></span> 💔</p>
