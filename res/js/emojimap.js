@@ -5,6 +5,12 @@ var EMOJI_MAP = {
             "name": "OK HAND SIGN ok hand"
         }, 
     ],
+    "siren": [
+        {
+            "emoji": "\ud83d\udea8", 
+            "name": "POLICE CARS REVOLVING LIGHT police car\u2019s light"
+        }, 
+    ],
     "+1": [
         {
             "emoji": "\ud83d\udc4d", 
@@ -1078,6 +1084,10 @@ var EMOJI_MAP = {
         }
     ], 
     "alarm": [
+        {
+            "emoji": "\ud83d\udea8", 
+            "name": "POLICE CARS REVOLVING LIGHT police car\u2019s light"
+        }, 
         {
             "emoji": "\u23f0", 
             "name": "?"
@@ -10751,11 +10761,11 @@ var EMOJI_MAP = {
     ], 
     "egg": [
         {
-            "emoji": "\ud83d\udc23", 
-            "name": "?"
-        }, 
-        {
             "emoji": "\ud83c\udf73", 
+            "name": "?"
+        },
+        {
+            "emoji": "\ud83d\udc23", 
             "name": "?"
         }
     ], 
@@ -17299,6 +17309,10 @@ var EMOJI_MAP = {
     ], 
     "heart": [
         {
+            "emoji": "\u2764\ufe0f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude3b", 
             "name": "?"
         }, 
@@ -17340,10 +17354,6 @@ var EMOJI_MAP = {
         }, 
         {
             "emoji": "\ud83d\udc9a", 
-            "name": "?"
-        }, 
-        {
-            "emoji": "\u2764\ufe0f", 
             "name": "?"
         }, 
         {
@@ -19119,6 +19129,10 @@ var EMOJI_MAP = {
     ], 
     "japan": [
         {
+            "emoji": "\ud83c\uddef\ud83c\uddf5", 
+            "name": "Flag for Japan"
+        },
+        {
             "emoji": "\ud83c\udf65", 
             "name": "?"
         }, 
@@ -19129,10 +19143,6 @@ var EMOJI_MAP = {
         {
             "emoji": "\ud83d\uddfe", 
             "name": "?"
-        }, 
-        {
-            "emoji": "\ud83c\uddef\ud83c\uddf5", 
-            "name": "Flag for Japan"
         }
     ], 
     "japanese": [
@@ -21213,6 +21223,10 @@ var EMOJI_MAP = {
     ], 
     "love": [
         {
+            "emoji": "\u2764\ufe0f", 
+            "name": "?"
+        }, 
+        {
             "emoji": "\ud83d\ude3b", 
             "name": "?"
         }, 
@@ -21306,10 +21320,6 @@ var EMOJI_MAP = {
         }, 
         {
             "emoji": "\ud83d\udc9a", 
-            "name": "?"
-        }, 
-        {
-            "emoji": "\u2764\ufe0f", 
             "name": "?"
         }, 
         {
@@ -27197,15 +27207,15 @@ var EMOJI_MAP = {
     ], 
     "ok": [
         {
-            "emoji": "\u2705", 
-            "name": "?"
-        }, 
-        {
             "emoji": "\ud83d\udc4c", 
             "name": "?"
         }, 
         {
             "emoji": "\ud83c\udd97", 
+            "name": "?"
+        }, 
+        {
+            "emoji": "\u2705", 
             "name": "?"
         }, 
         {
