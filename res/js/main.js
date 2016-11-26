@@ -4,6 +4,9 @@
 
 $(document).ready(function() {
     var suggestWords = (function() {
+
+        // Generate a mapping of the first `prefixLength` chracters of each emoji trigger word
+        // to the possible full words
         var prefixLength = 3;   // generate prefixes up to this length
         var maxSuggestions = 10;  // only generate this many suggestions
         var prefixSuggest = {};
@@ -21,6 +24,9 @@ $(document).ready(function() {
             }
         }
 
+        // When something is typed, look up the first `prefixLength` characters,
+        // and return all suggestions which match what was typed after disregarding
+        // the first `prefixLength` characters.
         return function(typed) {
             var all = prefixSuggest[typed.substr(0, prefixLength)];
             var rest = typed.substr(prefixLength);
@@ -132,6 +138,7 @@ $(document).ready(function() {
     // Dynamically add click handlers as the suggestions are created.
     $suggest.on('click', 'span', function() {
 
+        // Sigh
         var $this = $(this);
 
         // It's fiiiine, just replace whatever's behind the cursor with the clicked thing.
