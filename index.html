@@ -41,13 +41,8 @@
   let focusWord;
   const show = results => {
     chooser.textContent = '';
-    let suggest = null;
 
     results.forEach(result => {
-      if (result.name.substr(0, focusWord.length) === focusWord) {
-        suggest = result.name;
-      }
-
       const options = document.createElement('div');
       options.className = 'options';
       chooser.appendChild(options);
@@ -66,9 +61,9 @@
 
   // handler for a word change
   typer.addEventListener('word', ev => {
-    chooser.textContent = '';
     focusWord = ev.detail;
-    if (!ev.detail) { return; }
+    chooser.textContent = '';
+    if (!focusWord) { return; }
 
     // FIXME: queue up real results
     const results = [
@@ -105,6 +100,25 @@
   const sizer = document.createElement('div');
   sizer.className = 'sizer';
   helper.appendChild(sizer);
+
+  // force selection
+  const setRange = (from, to, opt_force) => {
+    if (from >= to) { return false; }
+
+    // otherwise, record and draw the line
+    const indent = 15;  // FIXME: from CSS, to match `text-indent`
+    sizer.textContent = state.value.substr(0, from);
+    const left = (from ? sizer.getBoundingClientRect().width : indent) - state.left;
+
+    sizer.textContent = state.value.substr(from, to - from);
+    const width = sizer.getBoundingClientRect().width - indent;
+
+    underline.hidden = false;
+    underline.style.left = left + 'px';
+    underline.style.width = width + 'px';
+
+    [el.dataset.from, el.dataset.to] = [from, to];
+  };
 
   // state/handler keep track of the current focus word (plus scroll position, if input is big)
   const state = {start: undefined, end: undefined, value: undefined, left: undefined};
@@ -160,34 +174,21 @@
       }
     }
 
-    // no words, ignore
-    if (from >= to) { return false; }
-
-    // otherwise, record and draw the line
-    const indent = 15;  // FIXME: from CSS, to match `text-indent`
-    sizer.textContent = state.value.substr(0, from);
-    const left = (from ? sizer.getBoundingClientRect().width : indent) - state.left;
-
-    sizer.textContent = state.value.substr(from, to - from);
-    const width = sizer.getBoundingClientRect().width - indent;
-
-    underline.hidden = false;
-    underline.style.left = left + 'px';
-    underline.style.width = width + 'px';
-
-    [el.dataset.from, el.dataset.to] = [from, to];
+    return setRange(from, to);
   };
 
   // runs change handler and emits the 'word' event as appropriate
+  let lastWord = undefined;
   const mergedEventHandler = keyup => {
     if (changeHandler()) { return; }
 
-    if (el.dataset.from === undefined) {
-      el.dispatchEvent(new CustomEvent('word', {detail: null}))
-      return;
+    let word = null;
+    if (el.dataset.from !== undefined) {
+      const [from, to] = [+el.dataset.from, +el.dataset.to];
+      word = typer.value.substr(from, to - from);
     }
-    const [from, to] = [+el.dataset.from, +el.dataset.to];
-    const word = typer.value.substr(from, to - from);
+    if (word === lastWord) { return; }
+    lastWord = word;
     el.dispatchEvent(new CustomEvent('word', {detail: word}))
   };
 
@@ -248,6 +249,9 @@
     typer.dispatchEvent(new CustomEvent('change'));
     typer.selectionStart = start;
     typer.selectionEnd = start;
+
+    // FIXME: doesn't work yet, gets immediately overwritten in rAF
+    setRange(from, from + emoji.length, true);
   });
 }(typer));
 </script>
