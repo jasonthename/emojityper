@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: #2c3e50;
+  padding: 1em;
+  font-size: 38px;
+  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+h1 {
+  padding: 0 12px;
+  font-family: 'Lobster', 'Helvetica', 'Arial', sans-serif;
+  color: white;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+  font-size: 1em;
+  padding-bottom: 0.5em;
+}
+
+#main {
+  position: relative;
+}
+
+#main input,
+#main .sizer {
+  font: inherit;
+  font-size: 1em;
+  padding: 6px 0;
+  line-height: 1.5em;
+  text-indent: 15px;
+  border: 0;
+}
+#main .overflow-helper {
+  width: 100%;
+  overflow: hidden;
+  visibility: hidden;
+  position: absolute;
+  border-radius: 12px;
+}
+#main .sizer {
+  background: blue;
+  border-right: 0;
+  padding-right: 0;
+  display: inline-block;
+  white-space: pre;
+}
+#main input + .focus {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  border: 3px solid #606b79;
+  /** TODO: show box-shadow always? */
+  box-shadow:
+      inset 16px 0 8px -8px rgba(74, 87, 103, 0.75),
+      inset -16px 0 8px -8px rgba(74, 87, 103, 0.75);
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity 0.125s;
+}
+#main input:focus + .focus {
+  opacity: 1;
+}
+#main input {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.125);
+  width: 100%;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 1);
+}
+#main input::placeholder {
+  color: #cbd6e2;
+  opacity: 0.33;
+}
+#main input:focus {
+  outline: none;
+}
+#main .underline {
+  visibility: visible;
+  pointer-events: none;
+  position: absolute;
+  margin: 6px -2px;
+  padding: 0 2px;
+  height: 1.5em;
+  background: rgba(255, 255, 255, 0.125);
+  /*
+  border-bottom: 0.15em solid #0afaca;
+*/
+  border-radius: 0.15em;
+}
+
+.chooser {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.chooser h4 {
+  color: #0afaca;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-right: 12px;
+  font-size: 0.33em;
+}
+
+.options {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding-top: 8px;
+  padding-left: 8px;
+  z-index: 10;
+}
+
+.options button {
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background: rgba(0, 0, 0, 0.25);
+  padding-top: 0.1em;  /** offset emoji lower */
+  margin-right: 8px;
+  min-width: 68px;
+  font-size: 0.66em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.options button:hover {
+/*  background: rgba(10, 250, 202, 0.2);
+*/}
+
+.options button:focus {
+  outline: none;
+  border-color: rgba(10, 250, 202, 1.0);
+}
+
+/** size overrides */
+
+@media (max-width: 600px) {
+  html {
+    padding: 0.25em;
+  }
+}
+@media (max-height: 400px) {
+  html {
+    padding-top: 0.125em;
+    font-size: 32px;
+  }
+}

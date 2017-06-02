@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Emojityper</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Lobster" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<h1>Emojityper</h1>
+
+<div id="main">
+  <input type="text" id="typer" autocomplete="off" placeholder="Type words, receive emoji &#x1f44d;" autofocus />
+  <div class="focus"></div>
+</div>
+<div id="chooser" class="chooser"></div>
+
+<script>
+// IE9-11 CustomEvent polyfill
+(function() {
+  if (typeof window.CustomEvent === 'function') { return false };
+  function CustomEvent(name, params) {
+    params = params || {bubbles: false, cancelable: false, detail: undefined};
+    const event = document.createEvent('CustomEvent');
+    event.initCustomEvent(name, params.bubbles, params.cancelable, params.detail);
+    return event;
+  }
+  CustomEvent.prototype = window.Event.prototype;
+  window.CustomEvent = CustomEvent;
+})();
+
+// suggestion handler
+(function() {
+  // FIXME: sometimes click won't fire
+  chooser.addEventListener('click', ev => {
+    if (ev.target.localName !== 'button') { return; }
+    typer.dispatchEvent(new CustomEvent('emoji', {detail: ev.target.textContent}));
+  });
+
+  let focusWord;
+  const show = results => {
+    chooser.textContent = '';
+    let suggest = null;
+
+    results.forEach(result => {
+      if (result.name.substr(0, focusWord.length) === focusWord) {
+        suggest = result.name;
+      }
+
+      const options = document.createElement('div');
+      options.className = 'options';
+      chooser.appendChild(options);
+
+      const heading = document.createElement('h4');
+      heading.textContent = result.name;
+      options.appendChild(heading);
+
+      result.options.forEach(thing => {
+        const option = document.createElement('button');
+        option.textContent = thing;
+        options.appendChild(option);
+      });
+    });
+  };
+
+  // handler for a word change
+  typer.addEventListener('word', ev => {
+    chooser.textContent = '';
+    focusWord = ev.detail;
+    if (!ev.detail) { return; }
+
+    // FIXME: queue up real results
+    const results = [
+      {name: 'banana', options: ['🍌', '🐒']},
+      {name: 'karate', options: ['👊💥']},
+    ];
+    show(results);
+  });
+
+  // request an autocomplete, the user has just kept typing
+  typer.addEventListener('request', ev => {
+    // FIXME: reply with real suggestion
+    const choice = '🚀';
+    typer.dispatchEvent(new CustomEvent('emoji', {detail: choice}));
+  });
+
+}());
+
+// word focus handler
+(function(el) {
+  const isWordCode = code => {
+    // FIXME: turns out matching non-emoji is hard
+    return code < 5000 && code != 32;
+  };
+
+  const helper = document.createElement('div');
+  helper.className = 'overflow-helper';
+  el.parentNode.insertBefore(helper, el);
+
+  const underline = document.createElement('div');
+  underline.className = 'underline';
+  helper.appendChild(underline);
+
+  const sizer = document.createElement('div');
+  sizer.className = 'sizer';
+  helper.appendChild(sizer);
+
+  // state/handler keep track of the current focus word (plus scroll position, if input is big)
+  const state = {start: undefined, end: undefined, value: undefined, left: undefined};
+  const changeHandler = _ => {
+    if (el.selectionStart === state.start &&
+        el.selectionEnd === state.end &&
+        el.value === state.value &&
+        el.scrollLeft === state.left) {
+      return true;  // already at this state
+    }
+    [state.start, state.end] = [el.selectionStart, el.selectionEnd];
+    state.value = el.value;
+    state.left = el.scrollLeft;
+
+    underline.hidden = true;
+    delete(el.dataset['from']);
+    delete(el.dataset['to']);
+
+    let start = null;
+    let end = null;
+
+    // range selection, ignore
+    if (state.start !== state.end) { return false; }
+
+    // are we at the end (only have spaces until end)?
+    const isAtEnd = !el.value.substr(state.end).trim();
+    const isSpaceAfter = isAtEnd || el.value.charCodeAt(state.end) === 32;
+
+    if (isSpaceAfter) {
+      for (; state.end > 0; --state.end) {
+        if (el.value.charCodeAt(state.end - 1) !== 32) {
+          break;
+        }
+      }
+      if (state.end < state.start) {
+        state.start = state.end;
+      }
+    }
+
+    // walk backwards while the previous character is a word
+    let from = state.start;
+    for (; from > 0; --from) {
+      if (!isWordCode(el.value.charCodeAt(from - 1))) {
+        break;
+      }
+    }
+
+    // walk forwards while the next char is not a space
+    let to = state.start;
+    for (; to < el.value.length; ++to) {
+      if (!isWordCode(el.value.charCodeAt(to))) {
+        break;
+      }
+    }
+
+    // no words, ignore
+    if (from >= to) { return false; }
+
+    // otherwise, record and draw the line
+    const indent = 15;  // FIXME: from CSS, to match `text-indent`
+    sizer.textContent = state.value.substr(0, from);
+    const left = (from ? sizer.getBoundingClientRect().width : indent) - state.left;
+
+    sizer.textContent = state.value.substr(from, to - from);
+    const width = sizer.getBoundingClientRect().width - indent;
+
+    underline.hidden = false;
+    underline.style.left = left + 'px';
+    underline.style.width = width + 'px';
+
+    [el.dataset.from, el.dataset.to] = [from, to];
+  };
+
+  const mergedEventHandler = keyup => {
+    if (changeHandler()) { return; }
+
+    if (el.dataset.from === undefined) {
+      el.dispatchEvent(new CustomEvent('word', {detail: null}))
+      return;
+    }
+    const [from, to] = [+el.dataset.from, +el.dataset.to];
+    const word = typer.value.substr(from, to - from);
+    el.dispatchEvent(new CustomEvent('word', {detail: word}))
+
+    // if we had a keyup event, then check for space
+    if (!keyup || keyup.key !== ' ') { return; }
+    if (el.selectionStart === to + 1 && el.value.charAt(to) === ' ') {
+      el.dispatchEvent(new CustomEvent('request'));
+    }
+  };
+
+  // dedup listeners on a rAF
+  let frame;
+  let keyup;
+  const dedup = ev => {
+    if (!frame) {
+      keyup = [];
+      frame = window.requestAnimationFrame(_ => {
+        frame = null;
+        mergedEventHandler(keyup.length && keyup[0]);
+      });
+    }
+    if (ev && ev.type === 'keypress') {
+      keyup.push(ev);
+    }
+  };
+
+  // lots of listeners for a million different change reasons
+  const rest = 'change keydown keypress keyup focus click mousedown';
+  rest.split(/\s+/).forEach(event => el.addEventListener(event, dedup));
+  el.addEventListener('wheel', dedup, {passive: true});
+  dedup();
+
+  // handle 'emoji' event: if there's a current focus word, then replace it with the new emoji \o/
+  el.addEventListener('emoji', ev => {
+    const emoji = ev.detail;
+    if (el.dataset.from === undefined || el.dataset.to === undefined) { return; }
+
+    const [from, to] = [+el.dataset.from, +el.dataset.to];
+    let start = typer.selectionStart;
+
+    typer.value = typer.value.substr(0, from) + emoji + typer.value.substr(to);
+
+    if (start > to) {
+      start = start - (to - from) + emoji.length;
+    } else if (start > from) {
+      start = index;
+    } else {
+      // do nothing, was before
+    }
+    typer.focus();
+    typer.dispatchEvent(new CustomEvent('change'));
+    typer.selectionStart = start;
+    typer.selectionEnd = start;
+  });
+}(typer));
+</script>
+
+</body>
+</html>
