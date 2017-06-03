@@ -102,13 +102,19 @@
 (function(button, input) {
   let timeout;
   const defaultText = button.textContent;
+  const spaceRe = /\s*/;
 
   const copy = _ => {
     const [start, end] = [input.selectionStart, input.selectionEnd];
 
+    // find start/end of content (trim, but find positions)
+    const left = spaceRe.exec(input.value)[0].length;
+    const right = left + input.value.substr(left).trim().length;
+    if (right <= left) { return false; }
+
     input.focus();
-    input.selectionStart = 0;
-    input.selectionEnd = input.value.length;
+    input.selectionStart = left;
+    input.selectionEnd = right;
 
     let ok = false;
     try {
@@ -117,10 +123,11 @@
       console.warn('could not copy', e);
       ok = false;
     }
+    // restore previous selection
     [input.selectionStart, input.selectionEnd] = [start, end];
 
-    if (!ok) { return; }
-    console.info('copied', input.value);
+    if (!ok) { return true; }
+    console.info('copied', input.value.substr(left, right));
 
     // show message
     button.textContent = button.dataset.copied;
