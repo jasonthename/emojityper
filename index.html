@@ -17,7 +17,7 @@
     <div class="focus"></div>
   </div>
   <div id="buttons">
-    <button id="copy" tabindex="-1">Copied!</button>
+    <button id="copy" tabindex="-1" data-copied="Copied!">Copy</button>
   </div>
 </main>
 <div id="chooser" class="chooser"></div>
@@ -87,6 +87,39 @@
   });
 
 }());
+
+// copy handler
+(function(button, input) {
+  let timeout;
+  const defaultText = button.textContent;
+
+  input.addEventListener('keydown', ev => {
+    if (ev.key == 'Enter') {
+      button.click();
+    }
+  });
+
+  button.addEventListener('click', ev => {
+    // TODO: not ideal
+    input.focus();
+    input.selectionStart = 0;
+    input.selectionEnd = input.value.length;
+
+    let ok = false;
+    try {
+      ok = document.execCommand('copy');
+    } catch(e) {
+      ok = false;
+    }
+    if (!ok) { return; }
+
+    button.textContent = button.dataset.copied;
+    window.clearTimeout(timeout);
+    timeout = window.setTimeout(ev => {
+      button.textContent = defaultText;
+    }, 2000);
+  });
+}(copy, typer));
 
 // word focus handler
 (function(el) {
