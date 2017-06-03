@@ -93,14 +93,9 @@
   let timeout;
   const defaultText = button.textContent;
 
-  input.addEventListener('keydown', ev => {
-    if (ev.key == 'Enter') {
-      button.click();
-    }
-  });
+  const copy = _ => {
+    const [start, end] = [input.selectionStart, input.selectionEnd];
 
-  button.addEventListener('click', ev => {
-    // TODO: not ideal
     input.focus();
     input.selectionStart = 0;
     input.selectionEnd = input.value.length;
@@ -109,16 +104,28 @@
     try {
       ok = document.execCommand('copy');
     } catch(e) {
+      console.warn('could not copy', e);
       ok = false;
     }
-    if (!ok) { return; }
+    [input.selectionStart, input.selectionEnd] = [start, end];
 
+    if (!ok) { return; }
+    console.info('copied', input.value);
+
+    // show message
     button.textContent = button.dataset.copied;
     window.clearTimeout(timeout);
     timeout = window.setTimeout(ev => {
       button.textContent = defaultText;
-    }, 2000);
+    }, 500);
+  };
+
+  input.addEventListener('keydown', ev => {
+    if (ev.key == 'Enter') {
+      button.click();
+    }
   });
+  button.addEventListener('click', _ => copy());
 }(copy, typer));
 
 // word focus handler
