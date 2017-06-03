@@ -5,15 +5,21 @@
   <meta name="viewport" content="width=device-width, user-scalable=no" />
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Lobster" rel="stylesheet" />
   <link href="styles.css" rel="stylesheet" />
+  <script async src="https://cdn.rawgit.com/samthor/rippleJS/v1.0.2/ripple.min.js"></script>
 </head>
 <body>
 
 <h1>Emojityper</h1>
 
-<div id="main">
-  <input type="text" id="typer" autocomplete="off" placeholder="Type words, receive emoji &#x1f44d;" autofocus />
-  <div class="focus"></div>
-</div>
+<main>
+  <div id="input">
+    <input type="text" id="typer" autocomplete="off" placeholder="Type words, receive emoji &#x1f44d;" autofocus />
+    <div class="focus"></div>
+  </div>
+  <div id="buttons">
+    <button id="copy" tabindex="-1">Copied!</button>
+  </div>
+</main>
 <div id="chooser" class="chooser"></div>
 
 <script>
@@ -179,12 +185,8 @@
       }
     }
 
-    // if it's invalid, but there's a space after, and we were _caused_ by a space, ignore
-    // this allows just typed emojis to be changed.
-    if (from >= to && isNotWordAfter && permitNextChange) {
-      // FIXME: also need to handle "changing" the emoji in-place, shouldn't clear selection
-      return;
-    }
+    // if it's invalid, but there's not a word after, and we were permitted, ignore
+    if (from >= to && isNotWordAfter && permitNextChange) { return; }
     return setRange(from, to);
   };
 

@@ -19,12 +19,60 @@ h1 {
   padding-bottom: 0.5em;
 }
 
-#main {
+/** button */
+
+button {
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background: rgba(0, 0, 0, 0.25);
+  margin-right: 8px;
+  padding: 0 8px;
+  min-width: 68px;
+  font-size: 0.66em;
+  line-height: 1.33em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  letter-spacing: -1px;
   position: relative;
 }
 
-#main input,
-#main .sizer {
+button .rippleJS {
+  border-radius: 0;
+  color: rgba(10, 250, 202, 1.0);
+}
+
+button:hover {
+/*  background: rgba(10, 250, 202, 0.2);
+*/}
+
+button:focus {
+  outline: none;
+  border-color: rgba(10, 250, 202, 1.0);
+}
+
+/** main .ui */
+
+main {
+  display: flex;
+  align-items: center;
+}
+main #input {
+  flex-grow: 1;
+  position: relative;
+}
+main button {
+  min-width: 6ch;
+  margin-right: 0;
+  margin-left: 0.66em;
+  font-size: 0.5em;
+  line-height: 2em;
+}
+
+main input,
+main .sizer {
   font: inherit;
   font-size: 1em;
   padding: 6px 0;
@@ -32,21 +80,21 @@ h1 {
   text-indent: 15px;
   border: 0;
 }
-#main .overflow-helper {
+main .overflow-helper {
   width: 100%;
   overflow: hidden;
   visibility: hidden;
   position: absolute;
   border-radius: 12px;
 }
-#main .sizer {
+main .sizer {
   background: blue;
   border-right: 0;
   padding-right: 0;
   display: inline-block;
   white-space: pre;
 }
-#main input + .focus {
+main input + .focus {
   position: absolute;
   pointer-events: none;
   top: 0;
@@ -63,24 +111,24 @@ h1 {
   will-change: opacity;
   transition: opacity 0.125s;
 }
-#main input:focus + .focus {
+main input:focus + .focus {
   opacity: 1;
 }
-#main input {
+main input {
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.125);
   width: 100%;
   box-sizing: border-box;
   color: rgba(255, 255, 255, 1);
 }
-#main input::placeholder {
+main input::placeholder {
   color: #cbd6e2;
   opacity: 0.33;
 }
-#main input:focus {
+main input:focus {
   outline: none;
 }
-#main .underline {
+main .underline {
   visibility: visible;
   pointer-events: none;
   position: absolute;
@@ -116,26 +164,8 @@ h1 {
 }
 
 .options button {
-  border-radius: 4px;
-  border: 2px solid transparent;
-  background: rgba(0, 0, 0, 0.25);
   padding-top: 0.1em;  /** offset emoji lower */
-  margin-right: 8px;
-  min-width: 68px;
-  font-size: 0.66em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.options button:hover {
-/*  background: rgba(10, 250, 202, 0.2);
-*/}
-
-.options button:focus {
-  outline: none;
-  border-color: rgba(10, 250, 202, 1.0);
+  line-height: 1.23em;
 }
 
 /** size overrides */
