@@ -107,36 +107,41 @@
       underline.hidden = true;
       delete(el.dataset['from']);
       delete(el.dataset['to']);
+      delete(el.dataset['word']);
       return false;
     }
+    [el.dataset.from, el.dataset.to] = [from, to];
+    el.dataset.word = el.value.substr(from, to - from);
 
     // otherwise, record and draw the line
     const indent = 15;  // FIXME: from CSS, to match `text-indent`
     sizer.textContent = el.value.substr(0, from);
-    const left = (from ? sizer.getBoundingClientRect().width : indent) - el.scrollLeft;
+    const left = (from ? sizer.getBoundingClientRect().width : indent);
 
-    sizer.textContent = el.value.substr(from, to - from);
+    sizer.textContent = el.dataset.word;
     const width = sizer.getBoundingClientRect().width - indent;
 
     underline.hidden = false;
     underline.style.left = left + 'px';
     underline.style.width = width + 'px';
+  };
 
-    [el.dataset.from, el.dataset.to] = [from, to];
+  // update underline transform based on input scrollLeft
+  const performScroll = _ => {
+    underline.style.transform = 'translateX(-' + el.scrollLeft + 'px)';
   };
 
   // state/handler keep track of the current focus word (plus scroll position, if input is big)
-  const state = {start: undefined, end: undefined, value: undefined, left: undefined};
-  const changeHandler = causedBySpace => {
+  const state = {start: undefined, end: undefined, value: undefined};
+  const changeHandler = permitNextChange => {
+    performScroll();
     if (el.selectionStart === state.start &&
         el.selectionEnd === state.end &&
-        el.value === state.value &&
-        el.scrollLeft === state.left) {
+        el.value === state.value) {
       return true;  // already at this state
     }
     [state.start, state.end] = [el.selectionStart, el.selectionEnd];
     state.value = el.value;
-    state.left = el.scrollLeft;
 
     // range selection, ignore
     if (state.start !== state.end) { return false; }
@@ -176,7 +181,7 @@
 
     // if it's invalid, but there's a space after, and we were _caused_ by a space, ignore
     // this allows just typed emojis to be changed.
-    if (from >= to && isNotWordAfter && causedBySpace) {
+    if (from >= to && isNotWordAfter && permitNextChange) {
       // FIXME: also need to handle "changing" the emoji in-place, shouldn't clear selection
       return;
     }
@@ -185,14 +190,10 @@
 
   // runs change handler and emits the 'word' event as appropriate
   let lastWord = undefined;
-  const mergedEventHandler = causedBySpace => {
-    if (changeHandler(causedBySpace)) { return; }
+  const mergedEventHandler = permitNextChange => {
+    if (changeHandler(permitNextChange)) { return; }
 
-    let word = null;
-    if (el.dataset.from !== undefined) {
-      const [from, to] = [+el.dataset.from, +el.dataset.to];
-      word = typer.value.substr(from, to - from);
-    }
+    let word = el.dataset.word || null;
     if (word === lastWord) { return; }
     lastWord = word;
     el.dispatchEvent(new CustomEvent('word', {detail: word}))
@@ -200,16 +201,15 @@
 
   // dedup listeners on a rAF
   let frame;
-  let causedBySpace;
+  let permitNextChange;  // FIXME: global-ish scope is ugly
   const dedup = ev => {
     if (!frame) {
-      causedBySpace = false;
+      permitNextChange = false;
       frame = window.requestAnimationFrame(_ => {
         frame = null;
-        mergedEventHandler(causedBySpace);
+        mergedEventHandler(permitNextChange);
       });
     }
-    if (ev && ev.key == ' ') { causedBySpace = true; }
   };
 
   // add a non-deduped keydown handler, to run before others and intercept space
@@ -219,8 +219,17 @@
       el.dispatchEvent(new CustomEvent('send'));
       break;
     case ' ':
-      const [from, to] = [+el.dataset.from, +el.dataset.to];
-      if (el.selectionStart === to) {
+      if (el.dataset.to === undefined || el.selectionStart !== +el.dataset.to) { break; }
+
+      // check that the focus word is all-text, not an emoji
+      let valid = true;
+      for (let i = 0; i < el.dataset.word.length; ++i) {
+        if (!isWordCode(el.dataset.word.charCodeAt(i))) {
+          valid = false;
+          break;
+        }
+      }
+      if (valid) {
         el.dispatchEvent(new CustomEvent('request'));
       }
 
@@ -233,7 +242,7 @@
   // lots of listeners for a million different change reasons
   const rest = 'change keydown keypress focus click mousedown';
   rest.split(/\s+/).forEach(event => el.addEventListener(event, dedup));
-  el.addEventListener('wheel', dedup, {passive: true});
+  el.addEventListener('wheel', ev => window.requestAnimationFrame(performScroll), {passive: true});
   dedup();
 
   // handle 'emoji' event: if there's a current focus word, then replace it with the new emoji \o/
@@ -258,7 +267,7 @@
     typer.selectionStart = start;
     typer.selectionEnd = start;
 
-    // FIXME: doesn't work yet, gets immediately overwritten in rAF
+    permitNextChange = true;
     setRange(from, from + emoji.length);
   });
 }(typer));
