@@ -49,7 +49,7 @@
 
 // suggestion handler
 (function() {
-  const invalidLetterRe = /\W+/g;
+  const invalidLetterRe = /[^\w:\.,$%^']+/g;
   const simplifyWord = word => {
     if (word) {
       return word.replace(invalidLetterRe, '').toLowerCase();
@@ -78,10 +78,14 @@
       heading.textContent = result['name'];
       options.appendChild(heading);
 
+      const buttons = document.createElement('div');
+      buttons.className = 'buttons';
+      options.appendChild(buttons);
+
       result['options'].forEach(thing => {
-        const option = document.createElement('button');
-        option.textContent = thing;
-        options.appendChild(option);
+        const button = document.createElement('button');
+        button.textContent = thing;
+        buttons.appendChild(button);
       });
     });
   };
@@ -275,7 +279,7 @@
     let word = el.dataset.word || null;
     if (word === lastWord) { return; }
     lastWord = word;
-    el.dispatchEvent(new CustomEvent('word', {detail: word}))
+    el.dispatchEvent(new CustomEvent('word', {detail: word}));
   };
 
   // dedup listeners on a rAF
@@ -338,7 +342,7 @@
       }
     };
     window.addEventListener('resize', dedupRenderLine);
-    el.addEventListener('wheel', dedupRenderLine, {passive: false});
+    el.addEventListener('wheel', dedupRenderLine, {passive: true});
   }());
 
   // handle 'emoji' event: if there's a current focus word, then replace it with the new emoji \o/
