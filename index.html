@@ -96,7 +96,6 @@
 
   // handler for a word change
   typer.addEventListener('word', ev => {
-    console.info('got new word', ev.detail);
     window.emojimanager.request = simplifyWord(ev.detail);
   });
 
@@ -216,8 +215,8 @@
       return false;
     }
     [el.dataset.from, el.dataset.to] = [from, to];
-    el.dataset.word = el.value.substr(from, to - from);
     renderLine();
+    return true;
   };
 
   // state/handler keep track of the current focus word (plus scroll position, if input is big)
@@ -269,7 +268,10 @@
 
     // if it's invalid, but there's not a word after, and we were permitted, ignore
     if (from >= to && isNotWordAfter && permitNextChange) { return; }
-    return setRange(from, to);
+    if (setRange(from, to)) {
+      // if the range was valid, update the word: this means only text words end up here
+      el.dataset.word = el.value.substr(from, to - from);
+    }
   };
 
   // runs change handler and emits the 'word' event as appropriate
