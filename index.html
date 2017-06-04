@@ -16,6 +16,7 @@
   <div id="buttons" class="buttons">
     <button disabled id="copy" tabindex="-1" data-copied="Copied!">Copy</button>
     <button disabled id="add" class="strong" tabindex="-1">&#xff0b;</button>
+    <input type="text" id="namer" autocomplete="off" placeholder="Name this emoji" hidden />
   </div>
 </header>
 
@@ -218,6 +219,33 @@
   });
 
 }(typer, chooser));
+
+// name button handler
+// FIXME: not really well thought out
+(function(button, input, namer) {
+
+  namer.addEventListener('blur', ev => {
+    namer.hidden = true;
+  });
+
+  namer.addEventListener('keydown', ev => {
+    if (ev.key === 'Enter') {
+      window.emojimanager.submit(namer.value, input.value).then(_ => {
+        console.info('OK!');
+        namer.blur();
+      }).catch(err => {
+        console.warn('err', err);
+      });
+    }
+  })
+
+  button.addEventListener('click', ev => {
+    namer.hidden = false;
+    namer.value = '';
+    namer.focus();
+  });
+
+}(add, typer, namer));
 
 // buttons handler
 (function(holder, input) {

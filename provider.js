@@ -67,6 +67,13 @@
     get request() {
       return requestWord;
     },
+    submit(name, value) {
+      // TODO: do something
+      console.debug('got', name, 'to', value);
+      return new Promise((resolve, reject) => {
+        window.setTimeout(resolve, 1000);
+      });
+    },
   };
 
 }())
