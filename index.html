@@ -6,6 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Lobster" rel="stylesheet" />
   <link href="styles.css" rel="stylesheet" />
   <script async src="https://cdn.rawgit.com/samthor/rippleJS/v1.0.2/ripple.min.js"></script>
+  <script src="provider.js"></script>
 </head>
 <body>
 
@@ -48,26 +49,36 @@
 
 // suggestion handler
 (function() {
+  const invalidLetterRe = /\W+/g;
+  const simplifyWord = word => {
+    if (word) {
+      return word.replace(invalidLetterRe, '').toLowerCase();
+    }
+    return null;
+  };
+
   // FIXME: sometimes click won't fire
   chooser.addEventListener('click', ev => {
     if (ev.target.localName !== 'button') { return; }
     typer.dispatchEvent(new CustomEvent('emoji', {detail: ev.target.textContent}));
   });
 
-  let focusWord;
+  let savedResults = null;
+
   const show = results => {
     chooser.textContent = '';
+    savedResults = results;
 
-    results.forEach(result => {
+    (results || []).forEach(result => {
       const options = document.createElement('div');
       options.className = 'options';
       chooser.appendChild(options);
 
       const heading = document.createElement('h4');
-      heading.textContent = result.name;
+      heading.textContent = result['name'];
       options.appendChild(heading);
 
-      result.options.forEach(thing => {
+      result['options'].forEach(thing => {
         const option = document.createElement('button');
         option.textContent = thing;
         options.appendChild(option);
@@ -75,25 +86,29 @@
     });
   };
 
+  // set global callback for show
+  window.emojimanager.callback = show;
+
   // handler for a word change
   typer.addEventListener('word', ev => {
-    focusWord = ev.detail;
-    chooser.textContent = '';
-    if (!focusWord) { return; }
-
-    // FIXME: queue up real results
-    const results = [
-      {name: 'banana', options: ['🍌', '🐒']},
-      {name: 'karate', options: ['👊💥']},
-    ];
-    show(results);
+    console.info('got new word', ev.detail);
+    window.emojimanager.request = simplifyWord(ev.detail);
   });
 
   // request an autocomplete, the user has just kept typing
   typer.addEventListener('request', ev => {
-    // FIXME: reply with real suggestion
-    const choice = '🚀';
-    typer.dispatchEvent(new CustomEvent('emoji', {detail: choice}));
+    const word = simplifyWord(ev.detail);
+    let choice = null;
+
+    (savedResults || []).some(result => {
+      if (result.name !== word) { return false; }
+      choice = result.options[0];
+      return true;
+    });
+
+    if (choice) {
+      typer.dispatchEvent(new CustomEvent('emoji', {detail: choice}));
+    }
   });
 
 }());
@@ -294,14 +309,15 @@
 
       // check that the focus word is all-text, not an emoji
       let valid = true;
-      for (let i = 0; i < el.dataset.word.length; ++i) {
-        if (!isWordCode(el.dataset.word.charCodeAt(i))) {
+      const word = el.dataset.word;
+      for (let i = 0; i < word.length; ++i) {
+        if (!isWordCode(word.charCodeAt(i))) {
           valid = false;
           break;
         }
       }
       if (valid) {
-        el.dispatchEvent(new CustomEvent('request'));
+        el.dispatchEvent(new CustomEvent('request', {detail: word}));
       }
 
       // TODO: do this to prevent actually space being hit (as "Sam Prefers")
