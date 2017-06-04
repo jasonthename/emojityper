@@ -13,8 +13,9 @@
 <header>
   <h1>Emojityper</h1>
   <div class="grow"></div>
-  <div id="buttons">
-    <button id="copy" tabindex="-1" data-copied="Copied!">Copy</button>
+  <div id="buttons" class="buttons">
+    <button disabled id="copy" tabindex="-1" data-copied="Copied!">Copy</button>
+    <button disabled id="add" class="strong" tabindex="-1">&#xff0b;</button>
   </div>
 </header>
 
@@ -213,6 +214,20 @@
 
 }(typer, chooser));
 
+// buttons handler
+(function(holder, input) {
+  const buttons = Array.prototype.slice.call(holder.querySelectorAll('button'));
+
+  const handler = ev => {
+    const text = (ev ? ev.detail : input.value).trim();
+    buttons.forEach(button => button.disabled = !text);
+  };
+
+  input.addEventListener('value', handler);
+  handler();
+
+}(buttons, typer));
+
 // copy handler
 (function(button, input) {
   let timeout;
@@ -255,9 +270,13 @@
   input.addEventListener('keydown', ev => {
     if (ev.key == 'Enter') {
       button.click();
+      input.focus();
     }
   });
-  button.addEventListener('click', _ => copy());
+  button.addEventListener('click', ev => {
+    copy();
+    button.focus();
+  });
 }(copy, typer));
 
 // word focus handler
@@ -325,7 +344,10 @@
       return true;  // already at this state
     }
     [state.start, state.end] = [el.selectionStart, el.selectionEnd];
-    state.value = el.value;
+    if (state.value !== el.value) {
+      el.dispatchEvent(new CustomEvent('value', {detail: el.value}));
+      state.value = el.value;
+    }
 
     // range selection, ignore
     if (state.start !== state.end) { return false; }

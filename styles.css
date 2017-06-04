@@ -53,11 +53,19 @@ button {
   letter-spacing: -1px;
   position: relative;
   display: block;
+  will-change: opacity;
+  transition: opacity 0.2s;
 }
 
 button .rippleJS {
   border-radius: 0;
   color: rgba(10, 250, 202, 1.0);
+}
+
+button:disabled {
+  opacity: 0;
+  pointer-events: none;
+  cursor: default;
 }
 
 button:hover {
@@ -87,12 +95,19 @@ header {
   align-items: flex-end;
   padding: 0 12px 0.5em;
 }
+header .buttons {
+  display: flex;
+  flex-flow: row;
+}
 header button {
-  min-width: 6ch;
+  min-width: 2em;
   margin-right: 0;
   margin-left: 0.66em;
   font-size: 0.5em;
   line-height: 2em;
+}
+header button.strong {
+  font-weight: bold;
 }
 
 /** main .ui */
@@ -144,7 +159,7 @@ main input + .focus {
       inset -16px 0 8px -8px rgba(74, 87, 103, 0.75);
   opacity: 0;
   will-change: opacity;
-  transition: opacity 0.125s;
+  transition: opacity 0.2s;
 }
 main input:focus + .focus {
   opacity: 1;
