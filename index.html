@@ -343,7 +343,8 @@
   // state/handler keep track of the current focus word (plus scroll position, if input is big)
   const state = {start: 0, end: 0, value: undefined};
   const changeHandler = permitNextChange => {
-    if (el.selectionStart === state.start &&
+    if (permitNextChange !== false &&
+        el.selectionStart === state.start &&
         el.selectionEnd === state.end &&
         el.value === state.value) {
       return true;  // already at this state
@@ -421,7 +422,7 @@
     let events = new Set();  // records the events that occured to cause this
     const dedup = ev => {
       if (!frame) {
-        permitNextChange = false;
+        permitNextChange = undefined;
         events.clear();
         frame = window.requestAnimationFrame(_ => {
           frame = null;
@@ -447,9 +448,10 @@
   // add a non-deduped keydown handler, to run before others and intercept space
   el.addEventListener('keydown', ev => {
     switch (ev.key) {
-    case 'Enter':
-      el.dispatchEvent(new CustomEvent('send'));
+    case 'Escape':
+      permitNextChange = false;  // force next change
       break;
+
     case ' ':
       if (el.dataset.prefix && el.selectionStart === +el.dataset.to) {
         el.dispatchEvent(new CustomEvent('request', {detail: el.dataset.prefix}));
