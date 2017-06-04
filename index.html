@@ -317,7 +317,7 @@
   };
 
   // state/handler keep track of the current focus word (plus scroll position, if input is big)
-  const state = {start: undefined, end: undefined, value: undefined};
+  const state = {start: 0, end: 0, value: undefined};
   const changeHandler = permitNextChange => {
     if (el.selectionStart === state.start &&
         el.selectionEnd === state.end &&
@@ -374,7 +374,7 @@
   // runs change handler and emits the 'word' event as appropriate
   const mergedEventHandler = (events, permitNextChange) => {
     // if there was a focus event, don't let the browser take over: reset previous known good
-    if (events.has('focus') && state.start !== undefined) {
+    if (events.has('focus')) {
       [el.selectionStart, el.selectionEnd] = [state.start, state.end];
     }
 
@@ -409,6 +409,13 @@
     rest.split(/\s+/).forEach(event => el.addEventListener(event, dedup));
     dedup();
   }());
+
+  // on blur, after a backspace, Chrome moves the start/end selection: fix it
+  el.addEventListener('blur', ev => {
+    if (el.selectionStart !== state.start || el.selectionStart !== state.end) {
+      [el.selectionStart, el.selectionEnd] = [state.start, state.end];
+    }
+  });
 
   // add a non-deduped keydown handler, to run before others and intercept space
   el.addEventListener('keydown', ev => {
