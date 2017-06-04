@@ -164,6 +164,28 @@
   sizer.className = 'sizer';
   helper.appendChild(sizer);
 
+  // re-render underline
+  const renderLine = _ => {
+    if (el.dataset.from === undefined) {
+      underline.hidden = true;
+      return false;
+    }
+    const [from, to] = [+el.dataset.from, +el.dataset.to];
+
+    // otherwise, record and draw the line
+    const indent = 15;  // FIXME: from CSS, to match `text-indent`
+    sizer.textContent = el.value.substr(0, from);
+    const left = (from ? sizer.getBoundingClientRect().width : indent);
+
+    sizer.textContent = el.value.substr(from, to - from);
+    const width = sizer.getBoundingClientRect().width - indent;
+
+    underline.hidden = false;
+    underline.style.left = left + 'px';
+    underline.style.width = width + 'px';
+    underline.style.transform = 'translateX(-' + el.scrollLeft + 'px)';
+  };
+
   // force selection
   const setRange = (from, to) => {
     if (from >= to) {
@@ -175,29 +197,12 @@
     }
     [el.dataset.from, el.dataset.to] = [from, to];
     el.dataset.word = el.value.substr(from, to - from);
-
-    // otherwise, record and draw the line
-    const indent = 15;  // FIXME: from CSS, to match `text-indent`
-    sizer.textContent = el.value.substr(0, from);
-    const left = (from ? sizer.getBoundingClientRect().width : indent);
-
-    sizer.textContent = el.dataset.word;
-    const width = sizer.getBoundingClientRect().width - indent;
-
-    underline.hidden = false;
-    underline.style.left = left + 'px';
-    underline.style.width = width + 'px';
-  };
-
-  // update underline transform based on input scrollLeft
-  const performScroll = _ => {
-    underline.style.transform = 'translateX(-' + el.scrollLeft + 'px)';
+    renderLine();
   };
 
   // state/handler keep track of the current focus word (plus scroll position, if input is big)
   const state = {start: undefined, end: undefined, value: undefined};
   const changeHandler = permitNextChange => {
-    performScroll();
     if (el.selectionStart === state.start &&
         el.selectionEnd === state.end &&
         el.value === state.value) {
@@ -259,17 +264,24 @@
   };
 
   // dedup listeners on a rAF
-  let frame;
   let permitNextChange;  // FIXME: global-ish scope is ugly
-  const dedup = ev => {
-    if (!frame) {
-      permitNextChange = false;
-      frame = window.requestAnimationFrame(_ => {
-        frame = null;
-        mergedEventHandler(permitNextChange);
-      });
-    }
-  };
+  (function() {
+    let frame;
+    const dedup = ev => {
+      if (!frame) {
+        permitNextChange = false;
+        frame = window.requestAnimationFrame(_ => {
+          frame = null;
+          mergedEventHandler(permitNextChange);
+        });
+      }
+    };
+
+    // lots of listeners for a million different change reasons
+    const rest = 'change keydown keypress focus click mousedown';
+    rest.split(/\s+/).forEach(event => el.addEventListener(event, dedup));
+    dedup();
+  }());
 
   // add a non-deduped keydown handler, to run before others and intercept space
   el.addEventListener('keydown', ev => {
@@ -298,11 +310,20 @@
     }
   });
 
-  // lots of listeners for a million different change reasons
-  const rest = 'change keydown keypress focus click mousedown';
-  rest.split(/\s+/).forEach(event => el.addEventListener(event, dedup));
-  el.addEventListener('wheel', ev => window.requestAnimationFrame(performScroll), {passive: true});
-  dedup();
+  // dedup re-rendering calls
+  (function() {
+    let frame;
+    const dedupRenderLine = _ => {
+      if (!frame) {
+        frame = window.requestAnimationFrame(_ => {
+          frame = null;
+          renderLine();
+        });
+      }
+    };
+    window.addEventListener('resize', dedupRenderLine);
+    el.addEventListener('wheel', dedupRenderLine, {passive: false});
+  }());
 
   // handle 'emoji' event: if there's a current focus word, then replace it with the new emoji \o/
   el.addEventListener('emoji', ev => {
