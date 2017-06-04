@@ -53,8 +53,7 @@ button {
   letter-spacing: -1px;
   position: relative;
   display: block;
-  will-change: opacity;
-  transition: opacity 0.2s;
+  will-change: opacity;  /* force layer */
 }
 
 button .rippleJS {
@@ -63,7 +62,7 @@ button .rippleJS {
 }
 
 button:disabled {
-  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   cursor: default;
 }
