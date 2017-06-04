@@ -10,15 +10,18 @@
 </head>
 <body>
 
-<h1>Emojityper</h1>
+<header>
+  <h1>Emojityper</h1>
+  <div class="grow"></div>
+  <div id="buttons">
+    <button id="copy" tabindex="-1" data-copied="Copied!">Copy</button>
+  </div>
+</header>
 
 <main>
   <div id="input">
     <input type="text" id="typer" autocomplete="off" placeholder="Type words, receive emoji &#x1f44d;" autofocus />
     <div class="focus"></div>
-  </div>
-  <div id="buttons">
-    <button id="copy" tabindex="-1" data-copied="Copied!">Copy</button>
   </div>
 </main>
 <div id="chooser" class="chooser"></div>

@@ -27,27 +27,15 @@ a:hover {
 }
 
 h1 {
-  padding: 0 12px;
+  padding-right: 12px;
   font-family: 'Lobster', 'Helvetica', 'Arial', sans-serif;
   color: white;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
   font-size: 1em;
-  padding-bottom: 0.5em;
 }
 
 .grow {
   flex-grow: 1;
-}
-
-footer {
-  margin-top: 1em;
-  color: #b4bcc2;
-  opacity: 0.75;
-  font-size: 0.33em;
-  text-align: center;
-}
-footer .ib {
-  display: inline-block;
 }
 
 /** button */
@@ -60,13 +48,11 @@ button {
   min-width: 68px;
   font-size: 0.66em;
   line-height: 1.33em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
   color: white;
   letter-spacing: -1px;
   position: relative;
+  display: block;
 }
 
 button .rippleJS {
@@ -83,6 +69,32 @@ button:focus {
   border-color: rgba(10, 250, 202, 1.0);
 }
 
+/** header/footer */
+
+footer {
+  margin-top: 1em;
+  color: #b4bcc2;
+  opacity: 0.75;
+  font-size: 0.33em;
+  text-align: center;
+}
+footer .ib {
+  display: inline-block;
+}
+
+header {
+  display: flex;
+  align-items: flex-end;
+  padding: 0 12px 0.5em;
+}
+header button {
+  min-width: 6ch;
+  margin-right: 0;
+  margin-left: 0.66em;
+  font-size: 0.5em;
+  line-height: 2em;
+}
+
 /** main .ui */
 
 main {
@@ -92,13 +104,6 @@ main {
 main #input {
   flex-grow: 1;
   position: relative;
-}
-main button {
-  min-width: 6ch;
-  margin-right: 0;
-  margin-left: 0.66em;
-  font-size: 0.5em;
-  line-height: 2em;
 }
 
 main input,
