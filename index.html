@@ -460,8 +460,10 @@
     typer.value = typer.value.substr(0, from) + emoji + typer.value.substr(to);
 
     if (start > to) {
+      // after the emoji
       start = start - (to - from) + emoji.length;
     } else if (start > from) {
+      // during the emoji
       start = from + emoji.length;
     } else {
       // do nothing, was before
@@ -470,6 +472,7 @@
     typer.dispatchEvent(new CustomEvent('change'));
     typer.selectionStart = start;
     typer.selectionEnd = start;
+    state.start = state.end = start;  // pretend we were like this all along
 
     // if this was a prefix match, now it's a word match (the word masks the emoji)
     el.dataset['word'] = ev.detail.word || el.dataset['prefix'];
