@@ -7,6 +7,7 @@
   <link href="styles.css" rel="stylesheet" />
   <script async src="https://cdn.rawgit.com/samthor/rippleJS/v1.0.2/ripple.min.js"></script>
   <script src="provider.js"></script>
+  <script src="modifier.js"></script>
 </head>
 <body>
 
@@ -26,7 +27,27 @@
     <div class="focus"></div>
   </div>
 </main>
-<div id="chooser" class="chooser"></div>
+<div class="chooser" id="chooser" hidden>
+  <div class="options modifier" id="gender">
+    <h4>gender</h4>
+    <div class="buttons">
+      <button data-modifier="gender">&mdash;</button>
+      <button data-modifier="gender" data-value="9792">&#x2640;</button>
+      <button data-modifier="gender" data-value="9794">&#x2642;</button>
+    </div>
+  </div>
+  <div class="options modifier" id="diversity">
+    <h4>tone</h4>
+    <div class="buttons">
+      <button data-modifier="diversity">&mdash;</button>
+      <button data-modifier="diversity" data-value="127995">&#x1f3fb;</button>
+      <button data-modifier="diversity" data-value="127996">&#x1f3fc;</button>
+      <button data-modifier="diversity" data-value="127997">&#x1f3fd;</button>
+      <button data-modifier="diversity" data-value="127998">&#x1f3fe;</button>
+      <button data-modifier="diversity" data-value="127999">&#x1f3ff;</button>
+    </div>
+  </div>
+</div>
 
 <div class="grow"></div>
 
@@ -66,6 +87,9 @@
 
 // suggestion handler
 (function(input, chooser) {
+  const modifiersEl = {};
+  Array.from(chooser.querySelectorAll('.options.modifier')).forEach(el => modifiersEl[el.id] = el);
+
   // nb. this puncutation list is just misc stuff needed by emojimap
   const invalidLetterRe = /[^\w:\.,$%^\-']+/g;
   const simplifyWord = word => {
@@ -79,9 +103,16 @@
 
   // FIXME: sometimes click won't fire
   chooser.addEventListener('click', ev => {
-    if (ev.target.localName !== 'button') { return; }
-    const detail = {choice: ev.target.textContent, word: ev.target.dataset.word};
-    input.dispatchEvent(new CustomEvent('emoji', {detail}));
+    const b = ev.target;
+    if (b.localName !== 'button') {
+      // ignore
+    } else if (b.dataset['modifier']) {
+      const detail = {type: b.dataset['modifier'], code: +b.dataset['value'] || 0};
+      input.dispatchEvent(new CustomEvent('modifier', {detail}));
+    } else {
+      const detail = {choice: b.textContent, word: b.dataset['word']};
+      input.dispatchEvent(new CustomEvent('emoji', {detail}));
+    }
   });
 
   input.addEventListener('keydown', ev => {
@@ -158,14 +189,24 @@
   });
 
   let savedResults = null;
-  let isPrefix = undefined;
+  let query = null;
   const show = results => {
     chooser.textContent = '';
+    chooser.hidden = false;  // reset initial flag
     buttonArray.length = 0;
     savedResults = results;
 
+    if (query.focus) {
+      const out = modifier.info(query.focus);
+      out.gender && chooser.appendChild(modifiersEl['gender']);
+      out.diversity && chooser.appendChild(modifiersEl['diversity']);
+    }
+
+    // nb. grab all appended buttons: e.g. from modifiers
+    buttonArray.push(...chooser.querySelectorAll('button'));
+
     (results || []).forEach(result => {
-      if (!isPrefix && window.emojimanager.request !== result['name']) {
+      if (!query.prefix && window.emojimanager.request !== result['name']) {
         return;
       }
 
@@ -197,8 +238,8 @@
   // handler for a prefix search
   input.addEventListener('query', ev => {
     // FIXME: pass prefix request to backend
-    isPrefix = ev.detail.prefix;
-    window.emojimanager.request = simplifyWord(ev.detail.text);
+    query = ev.detail;
+    window.emojimanager.request = simplifyWord(query.text);
   });
 
   // request an autocomplete, the user has just kept typing
@@ -217,7 +258,6 @@
       input.dispatchEvent(new CustomEvent('emoji', {detail}));
     }
   });
-
 }(typer, chooser));
 
 // name button handler
@@ -356,14 +396,12 @@
   // force selection
   const setRange = (from, to) => {
     if (from >= to) {
+      ['from', 'to', 'prefix', 'word', 'focus'].forEach(key => delete(el.dataset[key]));
       underline.hidden = true;
-      delete(el.dataset['from']);
-      delete(el.dataset['to']);
-      delete(el.dataset['prefix']);
-      delete(el.dataset['word']);
       return false;
     }
     [el.dataset.from, el.dataset.to] = [from, to];
+    el.dataset['focus'] = el.value.substr(from, to - from);
     renderLine();
     return true;
   };
@@ -422,8 +460,9 @@
     // if it's invalid, but there's not a word after, and we were permitted, ignore
     if (from >= to && isNotWordAfter && permitNextChange) { return; }
     if (setRange(from, to)) {
-      // if the range was valid, update the word: this means only text words end up here
-      el.dataset.prefix = el.value.substr(from, to - from);
+      // if the range was valid, update the prefix/focus but delete the word (in typing state)
+      el.dataset['focus'] = el.dataset['prefix'] = el.value.substr(from, to - from);
+      delete(el.dataset['word']);
     }
   };
 
@@ -439,7 +478,7 @@
 
     // send query: prefix or whole-word
     let text = el.dataset.prefix || el.dataset.word || null;
-    const detail = {text, prefix: 'prefix' in el.dataset};
+    const detail = {text, prefix: 'prefix' in el.dataset, focus: el.dataset.focus};
     el.dispatchEvent(new CustomEvent('query', {detail}));
   };
 
@@ -506,36 +545,59 @@
     el.addEventListener('wheel', dedupRenderLine, {passive: true});
   }());
 
-  // handle 'emoji' event: if there's a current focus word, then replace it with the new emoji \o/
-  el.addEventListener('emoji', ev => {
-    if (el.dataset.from === undefined || el.dataset.to === undefined) { return; }
+  // replace helper
+  const replaceFocus = call => {
+    if (el.dataset.from === undefined || el.dataset.to === undefined) { return false; }
 
     const [from, to] = [+el.dataset.from, +el.dataset.to];
+    const value = el.value.substr(from, to - from);
     let start = typer.selectionStart;
 
-    const emoji = ev.detail.choice;
-    typer.value = typer.value.substr(0, from) + emoji + typer.value.substr(to);
+    const update = call(value);
+    if (update == null) { return false; }
+    typer.value = typer.value.substr(0, from) + update + typer.value.substr(to);
 
     if (start > to) {
-      // after the emoji
-      start = start - (to - from) + emoji.length;
+      // after the update
+      start = start - (to - from) + update.length;
     } else if (start > from) {
-      // during the emoji
-      start = from + emoji.length;
+      // during the update
+      start = from + update.length;
     } else {
       // do nothing, was before
     }
+
+    // TODO: retain range?
     typer.focus();
-    typer.dispatchEvent(new CustomEvent('change'));
+    typer.dispatchEvent(new CustomEvent('change'));  // nb. updates from/to (from won't change)
     typer.selectionStart = start;
     typer.selectionEnd = start;
     state.start = state.end = start;  // pretend we were like this all along
+    return true;
+  };
 
-    // if this was a prefix match, now it's a word match (the word masks the emoji)
+  // handle 'modifier' event: apply modifiers to the focus word, if any
+  el.addEventListener('modifier', ev => {
+    let update;
+    const arg = {[ev.detail.type]: ev.detail.code};
+    if (!replaceFocus(value => update = modifier.apply(value, arg))) { return; }
+
+    permitNextChange = true;
+    const from = +el.dataset.from;
+    setRange(from, from + update.length);
+  });
+
+  // handle 'emoji' event: if there's a current focus word, then replace it with the new emoji \o/
+  el.addEventListener('emoji', ev => {
+    const emoji = ev.detail.choice;
+    if (!replaceFocus(_ => emoji)) { return; }
+
     el.dataset['word'] = ev.detail.word || el.dataset['prefix'];
     delete(el.dataset['prefix']);
 
+    // if this was a prefix match, now it's a word match (the word masks the emoji)
     permitNextChange = true;
+    const from = +el.dataset.from;
     setRange(from, from + emoji.length);
   });
 }(typer));

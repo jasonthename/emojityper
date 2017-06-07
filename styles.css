@@ -3,11 +3,16 @@
   padding: 0;
 }
 
+*[hidden] {
+  display: none !important;
+}
+
 html {
   background: #2c3e50;
   min-height: 100vh;
   font-size: 38px;
-  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  /** nb: does NOT include Arial: this causes Chrome 59? to not combine gender emojis properly */
+  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
 body {
@@ -29,7 +34,7 @@ a:hover {
 
 h1 {
   padding-right: 12px;
-  font-family: 'Lobster', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Lobster', 'Helvetica Neue', 'Helvetica', sans-serif;
   color: white;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
   font-size: 1em;
@@ -228,7 +233,14 @@ main .underline {
   padding-top: 8px;
 }
 
-.chooser h4 {
+.options {
+  display: flex;
+  flex-flow: row;
+  padding-left: 8px;
+  z-index: 10;
+}
+
+.options h4 {
   color: #0afaca;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
@@ -236,12 +248,8 @@ main .underline {
   font-size: 0.33em;
   line-height: 3em;
 }
-
-.options {
-  display: flex;
-  flex-flow: row;
-  padding-left: 8px;
-  z-index: 10;
+.options.modifier h4 {
+  color: rgb(251, 220, 59);
 }
 
 .options .buttons {
