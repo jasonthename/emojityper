@@ -88,7 +88,8 @@
     if (b.localName !== 'button') {
       // ignore
     } else if (b.dataset['modifier']) {
-      const detail = {type: b.dataset['modifier'], code: +b.dataset['value'] || 0};
+      const value = 'value' in b.dataset ? (+b.dataset['value'] || b.dataset['value']) : null;
+      const detail = {type: b.dataset['modifier'], code: value};
       input.dispatchEvent(new CustomEvent('modifier', {detail}));
     } else {
       const detail = {choice: b.textContent, word: b.dataset['word']};
