@@ -89,18 +89,30 @@ footer {
   opacity: 0.75;
   font-size: 0.4em;
   text-align: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
-footer p.help {
+footer .help {
   margin-bottom: 1em;
   color: #CB6BAA;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   font-weight: 300;
+  list-style: none;
+  line-height: 1.5em;
 }
-footer p em {
+footer .help em {
   font-weight: 900;
   font-style: normal;
   text-transform: uppercase;
   font-size: 0.9em;
+}
+footer .help .small {
+  font-weight: 900;
+  font-style: normal;
+  text-transform: uppercase;
+  line-height: 1.5em;
+  font-size: 0.75em;
 }
 footer .ib {
   display: inline-block;
@@ -248,6 +260,12 @@ main .underline.range {
   display: flex;
   flex-flow: row wrap;
   padding-top: 8px;
+}
+body:not(.has-chooser) .chooser {
+  display: none;
+}
+body.has-value footer .help {
+  display: none;
 }
 
 .options {

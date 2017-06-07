@@ -27,7 +27,7 @@
     <div class="focus"></div>
   </div>
 </main>
-<div class="chooser" id="chooser" hidden>
+<div class="chooser" id="chooser">
   <div class="options modifier" id="gender">
     <h4>gender</h4>
     <div class="buttons">
@@ -52,9 +52,11 @@
 <div class="grow"></div>
 
 <footer>
-  <p class="help">
-    <em>space</em> to get the default emoji &middot; <em>enter</em> to copy to clipboard
-  </p>
+  <ul class="help">
+    <li><em>space</em> to get the default emoji</li>
+    <li><em>enter</em> to copy to clipboard</li>
+    <li><em>&larr;&uarr;&darr;&rarr;</em> to navigate options</li>
+  </ul>
   <p>
     We <a href="https://github.com/emojityper/emojityper.github.io" target="_blank">made this</a> because you millennials really need your emoji. You can talk to us about it if you want:
     <span class="ib">
@@ -197,7 +199,6 @@
   let query = null;
   const show = results => {
     chooser.textContent = '';
-    chooser.hidden = false;  // reset initial flag
     buttonArray.length = 0;
     savedResults = results;
 
@@ -235,6 +236,9 @@
         buttonArray.push(button);
       });
     });
+
+    // set global class to indicate chooser visible
+    document.body.classList.toggle('has-chooser', buttonArray.length > 0);
   };
 
   // set global callback for show
@@ -298,7 +302,9 @@
 
   const handler = ev => {
     const text = (ev ? ev.detail : input.value).trim();
-    buttons.forEach(button => button.disabled = !text);
+    const hasValue = Boolean(text);
+    document.body.classList.toggle('has-value', hasValue);
+    buttons.forEach(button => button.disabled = !hasValue);
   };
 
   input.addEventListener('value', handler);
