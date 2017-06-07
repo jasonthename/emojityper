@@ -203,7 +203,8 @@
 
     if (query.focus) {
       const out = modifier.info(query.focus);
-      out.gender && chooser.appendChild(modifiersEl['gender']);
+      // TODO: do something with out.gender booleans
+      out.gender.single && chooser.appendChild(modifiersEl['gender']);
       out.diversity && chooser.appendChild(modifiersEl['diversity']);
     }
 

@@ -15,6 +15,14 @@ const measureText = (function() {
 
 /**
  * @param {number} p
+ * @return whether the passed rune is a basic emoji person gender: Man or Woman
+ */
+function isPersonGender(p) {
+  return p === 0x1f468 || p === 0x1f469;
+}
+
+/**
+ * @param {number} p
  * @return whether the passed rune is a Variation_Selector
  */
 function isVariationSelector(p) {
@@ -70,6 +78,14 @@ function jsdecode(s) {
 const modifier = {};
 
 /**
+ * True if the standard "female" icon can be varied with a diversity modifier. This is the basic
+ * level of emoji diversity support, but doesn't imply support for all the professions.
+ *
+ * @type {boolean}
+ */
+modifier.basicDiversity = (measureText('\u{1f468}\u{1f3fb}') === 1);
+
+/**
  * Determines whether the given emoji string can be modified in terms of diversity, and/or gender.
  * At worst, this might be O(n). You've been warned. Empty strings or strings without emoji should
  * return both false.
@@ -80,38 +96,89 @@ const modifier = {};
 modifier.info = function info(s) {
   const out = {
     diversity: false,
-    gender: false,
+    gender: {
+      neutral: false,
+      single: false,
+      double: false,
+    },
   };
   const points = jsdecode(s);
 
   // early pass for gender: look for M/F heads
-  for (let i = 0, p; p = points[i]; ++i) {
-    // FIXME: these can't be neutered, report them as MF only
-    // FIXME: if these appear in ZWJ, report combos: e.g., "xx" for mm, mf, fm, ff
-    // FIXME: the "family" ZWJ's can't be toned anywhere: any of man, woman, boy, girl, baby
-    if (p === 0x1f468 || p === 0x1f469) {
-      out.gender = true;
-      break;
+  for (let i = 0; points[i]; ++i) {
+    // walk ZWJ run
+    let zwj = false;
+    let family = false;
+    let genderable = 0;
+    const first = points[i];
+    zwj:
+    for (;;) {
+      const p = points[i];
+      if (isPersonGender(p)) {
+        // found another M/F, which can be gendered
+        ++genderable;
+      } else if (p === 0x1f476 || p === 0x1f466 || p === 0x1f467) {
+        // found a baby/boy/girl, which implies this run is a Family
+        family = true;
+      } else if (p === 0x2640 || p === 0x2642) {
+        if (zwj) {
+          // found a gender modifier, and already a zwj, so this is probably genderable
+          // nb. this allows gendering of "already unsupported", since we don't measure it
+          out.gender.single = true;
+          out.gender.neutral = true;
+        }
+      }
+
+      // search for next char in zwj, if any
+      let count = 1;
+      for (;;) {
+        const check = points[i+count];
+        if (check === 0x200d) {
+          i += ++count;
+          zwj = true;
+          continue zwj;
+        } else if (isDiversitySelector(check) || isVariationSelector(check)) {
+          ++count;
+          continue;
+        }
+        break zwj;
+      }
+      throw new Error('should not get here');
     }
-  }
 
-  // FIXME: it would be nice to use \p{Emoji_Modifier_Base}, but it's sometimes out-of-date :(
-  // either way this is O(n), ugh
-  for (let i = 0, p; p = points[i]; ++i) {
+    if (genderable) {
+      if (genderable >= 2) {
+        out.gender.double = true;
+      }
+      out.gender.single = true;
+    }
+
+    if (zwj) {
+      // if this has an initial, single gender and it's not a family, it's diversity-able (it's a
+      // profession- and if the profession isn't supported, the male/female on left still is)
+      // nb. this relies on vendors not implementing more ZWJ'ed sequences with genders
+      const firstIsPersonGender = isPersonGender(first);
+      if (modifier.basicDiversity && genderable === 1 && !family && firstIsPersonGender) {
+        out.diversity = true;
+      }
+      if (firstIsPersonGender) {
+        // we know everything already
+        continue;
+      }
+    }
+
     // nb. skip low emojis (everything below Emoji_Modifier_Base) and male/female signs
-    if (unlikelyModifierBase(p)) { continue; }
+    if (unlikelyModifierBase(first)) { continue; }
 
-    const candidate = String.fromCodePoint(p);
+    // do dumb checks
+    const candidate = String.fromCodePoint(first);
     if (!out.diversity && measureText(candidate + '\u{1F3FB}') === 1) {
       out.diversity = true;
     }
-    if (!out.gender && measureText(candidate + '\u{200d}\u{2640}\u{fe0f}') === 1) {
-      out.gender = true;
+    if (!out.gender.neutral && measureText(candidate + '\u{200d}\u{2640}\u{fe0f}') === 1) {
+      out.gender.neutral = true;
+      out.gender.single = true;
     }
-
-    // FIXME: support the notion of: gender but ONLY male or female (occupations)
-
-    if (out.diversity && out.gender) { break; }
   }
 
   return out;
@@ -126,6 +193,9 @@ modifier.info = function info(s) {
  * @return {string} the modified string
  */
 modifier.apply = function apply(s, modifier) {
+  if (modifier.gender) {
+    // TODO: allow combination of 'mf' or empty string for neutral
+  }
   // if (modifier.gender && !(modifier.gender === 0x2640 || modifier.gender == 0x2642)) {
   //   throw new Error('invalid gender: ' + modifier.gender);
   // }
@@ -157,7 +227,7 @@ modifier.apply = function apply(s, modifier) {
     for (let i = 0, p; p = points[i]; ++i) {
       if (unlikelyModifierBase(p)) { continue; }
 
-      if (modifier.gender && (p === 0x1f468 || p === 0x1f469)) {
+      if (modifier.gender && isPersonGender(p)) {
         if (modifier.gender === 0x2640) {
           points[i] = 0x1f468;  // set to man
         }
