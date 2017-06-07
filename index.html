@@ -26,27 +26,7 @@
     <div class="focus"></div>
   </div>
 </main>
-<div class="chooser" id="chooser">
-  <div class="options modifier" id="gender">
-    <h4>gender</h4>
-    <div class="buttons">
-      <button data-modifier="gender">&mdash;</button>
-      <button data-modifier="gender" data-value="9792">&#x2640;</button>
-      <button data-modifier="gender" data-value="9794">&#x2642;</button>
-    </div>
-  </div>
-  <div class="options modifier" id="diversity">
-    <h4>tone</h4>
-    <div class="buttons">
-      <button data-modifier="diversity">&mdash;</button>
-      <button data-modifier="diversity" data-value="127995">&#x1f3fb;</button>
-      <button data-modifier="diversity" data-value="127996">&#x1f3fc;</button>
-      <button data-modifier="diversity" data-value="127997">&#x1f3fd;</button>
-      <button data-modifier="diversity" data-value="127998">&#x1f3fe;</button>
-      <button data-modifier="diversity" data-value="127999">&#x1f3ff;</button>
-    </div>
-  </div>
-</div>
+<div class="chooser" id="chooser"></div>
 
 <div class="grow"></div>
 
@@ -201,12 +181,59 @@
     buttonArray.length = 0;
     savedResults = results;
 
+    const createOptionsButtons = (heading, opt_class) => {
+      const el = document.createElement('div');
+      el.className = 'options';
+      opt_class && el.classList.add(opt_class);
+
+      const h4 = document.createElement('h4');
+      h4.textContent = heading;
+      el.appendChild(h4);
+
+      const buttons = document.createElement('div');
+      buttons.className = 'buttons';
+      el.appendChild(buttons);
+      chooser.appendChild(el);
+      return buttons;
+    };
+
+    const createButton = (holder, content) => {
+      const button = document.createElement('button');
+      button.textContent = content;
+      holder.appendChild(button);
+      buttonArray.push(button);
+      return button;
+    };
+
     // if there's a focus but it's not a prefix (which implies that it's text-only)
     if (query.focus && !query.prefix) {
+      const modifiers = {};
+      const createModifierButton = (type, text, opt_value) => {
+        let buttons = modifiers[type];
+        if (!buttons) {
+          modifiers[type] = buttons = createOptionsButtons(type, 'modifier');
+        }
+        const button = createButton(buttons, text);
+        button.dataset['modifier'] = type;
+        if (opt_value) {
+          button.dataset['value'] = opt_value;
+        }
+      };
+
       const out = modifier.info(query.focus);
-      // TODO: do something with out.gender booleans
-      out.gender.single && chooser.appendChild(modifiersEl['gender']);
-      out.diversity && chooser.appendChild(modifiersEl['diversity']);
+
+      out.gender.neutral && createModifierButton('gender', '\u{2014}');
+      out.gender.single && createModifierButton('gender', '\u{2640}', 'f');
+      out.gender.double && createModifierButton('gender', '\u{2640}\u{2642}', 'fm');
+      out.gender.single && createModifierButton('gender', '\u{2642}', 'm');
+      out.gender.double && createModifierButton('gender', '\u{2642}\u{2640}', 'mf');
+
+      if (out.diversity) {
+        createModifierButton('diversity', '\u{2014}');
+        for (let i = 0x1f3fb; i <= 0x1f3ff; ++i) {
+          createModifierButton('diversity', String.fromCodePoint(i), i);
+        }
+      }
     }
 
     // nb. grab all appended buttons: e.g. from modifiers
@@ -217,24 +244,10 @@
         return;
       }
 
-      const options = document.createElement('div');
-      options.className = 'options';
-      chooser.appendChild(options);
-
-      const heading = document.createElement('h4');
-      heading.textContent = result['name'];
-      options.appendChild(heading);
-
-      const buttons = document.createElement('div');
-      buttons.className = 'buttons';
-      options.appendChild(buttons);
-
+      const buttons = createOptionsButtons(result['name']);
       result['options'].forEach(option => {
-        const button = document.createElement('button');
-        button.textContent = option;
-        button.dataset.word = result['name'];
-        buttons.appendChild(button);
-        buttonArray.push(button);
+        const button = createButton(buttons, option);
+        button.dataset['word'] = result['name'];
       });
     });
 
