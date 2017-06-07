@@ -202,11 +202,19 @@ main input:focus + .focus {
   opacity: 1;
 }
 main input {
+  position: relative;  /* place above underline */
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.125);
   width: 100%;
   box-sizing: border-box;
   color: rgba(255, 255, 255, 1);
+}
+main input::selection {
+  background: transparent;
+}
+main input::-moz-selection {
+  /** firefox only */
+  background: transparent;
 }
 main input::placeholder {
   color: #cbd6e2;
@@ -222,9 +230,18 @@ main .underline {
   margin: 6px -2px;
   padding: 0 2px;
   height: 1.5em;
-  background: rgba(255, 255, 255, 0.125);
+  background: white;
+  opacity: 0.125;
   will-change: transform;
   border-radius: 0.15em;
+}
+main .underline.range {
+  padding: 0;
+  margin: 10px 0;
+  height: calc(1.5em - 8px);  /* extra 4px margin, == 8px */
+  border-radius: 0.05em;
+  background: red;
+  opacity: 0.75;
 }
 
 .chooser {

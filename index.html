@@ -23,7 +23,7 @@
 
 <main>
   <div id="input">
-    <input type="text" id="typer" autocomplete="off" placeholder="Type words, receive emoji &#x1f44d;" autofocus />
+    <input type="text" id="typer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Type words, receive emoji &#x1f44d;" autofocus />
     <div class="focus"></div>
   </div>
 </main>
@@ -421,8 +421,19 @@
       state.value = el.value;
     }
 
-    // range selection, ignore
-    if (state.start !== state.end) { return false; }
+    // range selection, magic
+    if (state.start !== state.end) {
+      delete(el.dataset['prefix']);
+      delete(el.dataset['word']);
+
+      setRange(state.start, state.end);
+
+      underline.classList.add('range');
+      el.classList.add('range');
+      return false;
+    }
+    underline.classList.remove('range');
+    el.classList.remove('range');
 
     // calculate from/to locally
     let from = state.start;
@@ -500,9 +511,16 @@
     };
 
     // lots of listeners for a million different change reasons
-    const rest = 'change keydown keypress focus click mousedown';
+    const rest = 'change keydown keypress focus click mousedown select';
     rest.split(/\s+/).forEach(event => el.addEventListener(event, dedup));
     dedup();
+
+    el.addEventListener('mousemove', ev => {
+      if (ev.which) {
+        dedup();
+      }
+    })
+
   }());
 
   // on blur, after a backspace, Chrome moves the start/end selection: fix it
@@ -573,18 +591,16 @@
     typer.selectionStart = start;
     typer.selectionEnd = start;
     state.start = state.end = start;  // pretend we were like this all along
+
+    permitNextChange = true;
+    setRange(from, from + update.length);
     return true;
   };
 
   // handle 'modifier' event: apply modifiers to the focus word, if any
   el.addEventListener('modifier', ev => {
-    let update;
     const arg = {[ev.detail.type]: ev.detail.code};
-    if (!replaceFocus(value => update = modifier.apply(value, arg))) { return; }
-
-    permitNextChange = true;
-    const from = +el.dataset.from;
-    setRange(from, from + update.length);
+    replaceFocus(value => modifier.apply(value, arg));
   });
 
   // handle 'emoji' event: if there's a current focus word, then replace it with the new emoji \o/
@@ -592,13 +608,9 @@
     const emoji = ev.detail.choice;
     if (!replaceFocus(_ => emoji)) { return; }
 
+    // if this was a prefix match, now it's a word match (the word masks the emoji)
     el.dataset['word'] = ev.detail.word || el.dataset['prefix'];
     delete(el.dataset['prefix']);
-
-    // if this was a prefix match, now it's a word match (the word masks the emoji)
-    permitNextChange = true;
-    const from = +el.dataset.from;
-    setRange(from, from + emoji.length);
   });
 }(typer));
 </script>
