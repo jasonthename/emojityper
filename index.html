@@ -569,28 +569,29 @@
 
     const [from, to] = [+el.dataset.from, +el.dataset.to];
     const value = el.value.substr(from, to - from);
-    let start = typer.selectionStart;
+    let [start, end] = [typer.selectionStart, typer.selectionEnd];
 
     const update = call(value);
     if (update == null) { return false; }
     typer.value = typer.value.substr(0, from) + update + typer.value.substr(to);
 
-    if (start > to) {
-      // after the update
-      start = start - (to - from) + update.length;
-    } else if (start > from) {
-      // during the update
-      start = from + update.length;
-    } else {
-      // do nothing, was before
-    }
+    const drift = where => {
+      if (where > to) {
+        // after the update
+        where = where - (to - from) + update.length;
+      } else if (where > from) {
+        // during the update
+        where = from + update.length;
+      } else {
+        // do nothing, was before
+      }
+      return where;
+    };
 
-    // TODO: retain range?
     typer.focus();
     typer.dispatchEvent(new CustomEvent('change'));  // nb. updates from/to (from won't change)
-    typer.selectionStart = start;
-    typer.selectionEnd = start;
-    state.start = state.end = start;  // pretend we were like this all along
+    // pretend we were like this all along
+    [state.start, state.end] = [typer.selectionStart, typer.selectionEnd] = [drift(start), drift(end)];
 
     permitNextChange = true;
     setRange(from, from + update.length);
