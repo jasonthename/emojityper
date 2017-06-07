@@ -311,8 +311,14 @@
     const [start, end] = [input.selectionStart, input.selectionEnd];
 
     // find start/end of content (trim, but find positions)
-    const left = spaceRe.exec(input.value)[0].length;
-    const right = left + input.value.substr(left).trim().length;
+    let left = 0;
+    let right = input.value.length;
+    if (input.selectionStart !== input.selectionEnd) {
+      left = input.selectionStart;
+      right = input.selectionEnd;
+    }
+    left += spaceRe.exec(input.value.substr(left))[0].length;
+    right = left + input.value.substr(left, right - left).trim().length;
     if (right <= left) { return false; }
 
     input.focus();
