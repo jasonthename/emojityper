@@ -201,7 +201,8 @@
     buttonArray.length = 0;
     savedResults = results;
 
-    if (query.focus) {
+    // if there's a focus but it's not a prefix (which implies that it's text-only)
+    if (query.focus && !query.prefix) {
       const out = modifier.info(query.focus);
       // TODO: do something with out.gender booleans
       out.gender.single && chooser.appendChild(modifiersEl['gender']);
