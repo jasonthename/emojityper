@@ -104,8 +104,10 @@ modifier.info = function info(s) {
   };
   const points = jsdecode(s);
 
-  // early pass for gender: look for M/F heads
+  // walk over points
   for (let i = 0; points[i]; ++i) {
+    if (out.diversity && out.gender.neutral && out.gender.single && out.gender.double) { break; }
+
     // walk ZWJ run
     let zwj = false;
     let family = false;
@@ -185,6 +187,38 @@ modifier.info = function info(s) {
 }
 
 /**
+ * Consume a single emoji character from the passed points. This returns many emojis split by
+ * ZWJs.
+ *
+ * @param {!Array<number>} points
+ * @return {length: number, parts: Array<Array<number>>}
+ */
+function consumeEmoji(points) {
+  if (!points.length) {
+    return {length: 0, parts: []};
+  }
+  let curr = [points[0]];
+  const parts = [curr];
+
+  let i = 1;
+  for (;;) {
+    let check = points[i];
+    if (isDiversitySelector(check) || isVariationSelector(check)) {
+      curr.push(check);
+      ++i;
+    } else if (check === 0x200d) {
+      ++i;
+      curr = [points[i++]];
+      parts.push(curr);
+    } else {
+      break;
+    }
+  }
+
+  return {length: i, parts};
+}
+
+/**
  * Modifies the given string to change diversity or gender. This will be slower than info(), as it
  * always walks the entire string when a change is requested.
  *
@@ -194,20 +228,22 @@ modifier.info = function info(s) {
  */
 modifier.apply = function apply(s, modifier) {
   if (modifier.gender) {
-    // TODO: allow combination of 'mf' or empty string for neutral
+    for (let i = 0, c; c = modifier.gender[i]; ++i) {
+      if (c !== 'm' && c !== 'f') {
+        throw new Error('invalid gender: ' + modifier.gender);
+      }
+    }
   }
-  // if (modifier.gender && !(modifier.gender === 0x2640 || modifier.gender == 0x2642)) {
-  //   throw new Error('invalid gender: ' + modifier.gender);
-  // }
   if (modifier.diversity && !isDiversitySelector(modifier.diversity)) {
     throw new Error('invalid diversity: ' + modifier.diversity);
   }
 
   // nothing to do, return early
-  if (!('diversity' in modifier) && !('gender' in modifier)) {
+  if (modifier.diversity === undefined && modifier.gender === undefined) {
     return s;
   }
 
+  // strip gender and diversity modifiers
   const points = jsdecode(s);
   for (let i = 0, p; p = points[i]; ++i) {
     if ((p === 0x2640 || p === 0x2642)) {
@@ -223,34 +259,80 @@ modifier.apply = function apply(s, modifier) {
   }
 
   // if this was just a strip operation, return early
-  if (modifier.diversity || modifier.gender) {
-    for (let i = 0, p; p = points[i]; ++i) {
-      if (unlikelyModifierBase(p)) { continue; }
-
-      if (modifier.gender && isPersonGender(p)) {
-        if (modifier.gender === 0x2640) {
-          points[i] = 0x1f468;  // set to man
-        }
-        if (modifier.gender === 0x2642) {
-          points[i] = 0x1f469;  // set to woman
-        }
-        continue;
-      }
-
-      const candidate = String.fromCodePoint(p);
-      if (modifier.diversity && measureText(candidate + '\u{1F3FB}') === 1) {
-        points.splice(i+1, 0, modifier.diversity);
-        ++i;
-      }
-      if (modifier.gender && measureText(candidate + '\u{200d}\u{2640}\u{fe0f}') === 1) {
-        if (isDiversitySelector(points[i+1])) {
-          ++i;  // apply after diversity selector
-        }
-        points.splice(i+1, 0, 0x200d, modifier.gender, 0xfe0f);
-        i += 3;
-      }
-    }
+  if (!modifier.diversity && !modifier.gender) {
+    return String.fromCodePoint(...points);
   }
 
-  return String.fromCodePoint(...points);
+  let genderIndex = undefined;
+  const selectGender = p => {
+    if (modifier.gender && (isPersonGender(p) || !p)) {
+      const target = modifier.gender[(++genderIndex) % modifier.gender.length];
+      if (!p) {
+        return target === 'm' ? 0x2640 : 0x2642;
+      }
+      return target === 'm' ? 0x1f469 : 0x1f468;
+    }
+    return p;
+  };
+
+  const output = [];
+  let at = 0;
+  for (;;) {
+    const consumed = consumeEmoji(points.slice(at));
+    if (!consumed.length) { break; }
+    at += consumed.length;
+
+    genderIndex = 0;
+
+    // if there's more than one person (or any children), don't apply diversity
+    // FIXME: this should just be singles + ZWJs now???
+    let family = false;
+    let genderable = 0;
+    consumed.parts = consumed.parts.map(part => {
+      // this is a single displayed char between ZWJs
+      return part.map(p => {
+        if (isPersonGender(p)) {
+          ++genderable;
+          return selectGender(p);
+        } else if (p === 0x1f476 || p === 0x1f466 || p === 0x1f467) {
+          // found a baby/boy/girl
+          family = true;
+        }
+        return p;
+      });
+    });
+
+    do {
+      console.info('stuff', genderable, family);
+      if (genderable > 1 || family) {
+        break;
+      }
+
+      // nb. diversity is only ever applied to first IIRC
+      const candidate = String.fromCodePoint(consumed.parts[0][0]);
+      let i = 1;
+      if (modifier.diversity && measureText(candidate + '\u{1F3FB}') === 1) {
+        consumed.parts[0].splice(i, 0, modifier.diversity);
+        ++i;
+      }
+
+      // gender inserts only if there's one
+      if (!genderable && consumed.parts.length === 1 && modifier.gender) {
+        if (measureText(candidate + '\u{200d}\u{2640}\u{fe0f}') === 1) {
+          consumed.parts[0].splice(i, 0, 0x200d, selectGender(0), 0xfe0f);
+        }
+      }
+
+    } while (0);
+
+    // TODO: diversity and gender modifier only ever applies to the first char, so look for consumed.parts.length === 1
+
+    // ugh
+    consumed.parts.forEach(run => output.push(...run, 0x200d));
+    output.pop();
+
+    console.info('got char', consumed.parts);
+  }
+  console.info('got output', output);
+  return String.fromCodePoint(...output);
 }
