@@ -101,7 +101,7 @@
 
   let buttonArray = [];
 
-  // FIXME: sometimes click won't fire
+  // button click handler
   chooser.addEventListener('click', ev => {
     const b = ev.target;
     if (b.localName !== 'button') {
@@ -115,14 +115,21 @@
     }
   });
 
+  // handle moving down from input
   input.addEventListener('keydown', ev => {
-    if (ev.key == 'ArrowDown') {
+    if (ev.key === 'ArrowDown') {
       const first = chooser.querySelector('button');
       first && first.focus();
     }
   });
 
+  // handle keyboard navigation inside chooser
   chooser.addEventListener('keydown', ev => {
+    switch (ev.key) {
+    case 'Escape':
+      input.focus();
+      break;
+    }
     if (!ev.key.startsWith('Arrow')) { return; }
 
     const index = buttonArray.indexOf(document.activeElement);
@@ -178,10 +185,8 @@
       return;
     }
 
-    // if we were at top and going -ve, then focus input
+    // if we were at top and going -ve, then return to input
     if (targetTop === undefined && delta < 0) {
-      // save and restore start/end, focus clears input
-      // TODO: we want to save/restore start/end, but this can trigger reselect of text/emoji
       input.focus();
       return;
     }
