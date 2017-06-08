@@ -110,10 +110,15 @@ function jsdecode(s) {
   return points;
 }
 
-const modifier = {};
-modifier.genderFlip = new Map();
-
-(function() {
+/**
+ * Returns details about a character and whether it can be gender flipped to a single or neutral
+ * gender. This contains emojis which, due to historical emoji reasons, aren't officially versions
+ * of each other: e.g., Santa and Mrs. Claus, or Old {Man,Woman,Adult}.
+ *
+ * @param {number} point to look up in the other gender flips table
+ * @return {{single: boolean, neutral: boolean, points: {f: number, m: number, n: number}}?}
+ */
+const genderFlip = (function() {
   // TODO: covers F/M/neutral, but _not_ mixed (e.g. holding hands => no m/f combo)
   const list = [
     0x1f936, 0x1f385, 0,        // mrs. claus, santa
@@ -125,20 +130,36 @@ modifier.genderFlip = new Map();
     0x1f478, 0x1f934, 0,        // princess, prince
   ];
 
+  // build map with raw data only
+  const all = new Map();
   for (let i = 0; i < list.length; i += 3) {
     const data = {
-      f: list[i+0],
-      m: list[i+1],
-      n: list[i+2],
+      points: {f: list[i], m: list[i+1], n: list[i+2]},
     };
     for (let j = 0; j < 3; ++j) {
       const v = list[i+j];
       if (v) {
-        modifier.genderFlip.set(list[i+j], data);
+        if (all.has(v)) {
+          throw new Error('duplicate in gender list: ' + v);
+        }
+        all.set(v, data);
       }
     }
+  }
+
+  // return helper
+  return point => {
+    const out = all.get(point) || null;
+    if (out && out.single === undefined) {
+      // do the heavy lifting only when first fetched
+      out.single = measureText(String.fromCodePoint(out.points.f, out.points.m)) === 2;
+      out.neutral = out.points.n && isSingle(String.fromCodePoint(out.points.n));
+    }
+    return out;
   };
 }());
+
+const modifier = {};
 
 /**
  * True if the standard "female" icon can be varied with a diversity modifier. This is the basic
@@ -218,16 +239,11 @@ modifier.modify = function(s, opt_op) {
         // this run is a family (child and already has parent), so it can't be made diverse
         family = true;
       } else {
-        // check gender flips
-        // FIXME: depth is much ugly
-        const flip = modifier.genderFlip.get(p);
+        // look for potential gender flips
+        const flip = genderFlip(p);
         if (flip) {
-          if (!stats.gender.single && measureText(String.fromCodePoint(flip.m, flip.f)) === 2) {
-            stats.gender.single = true;
-          }
-          if (!stats.gender.neutral && flip.n && isSingle(String.fromCodePoint(flip.n))) {
-            stats.gender.neutral = true;
-          }
+          stats.gender.single |= flip.single;
+          stats.gender.neutral |= flip.neutral;
         }
       }
     });
@@ -292,15 +308,13 @@ modifier.modify = function(s, opt_op) {
         // if this is a point, return the alternative point (or clear)
         return next ? (next === 'm' ? 0x2642 : 0x2640) : 0;
       } else if (opt_allowOtherFlip) {
-        const flip = modifier.genderFlip.get(point);
+        // do other gender flips: note that some of these have F/M/N, but not all have N
+        const flip = genderFlip(point);
         if (flip) {
-          // FIXME: ugh still ugly
-          if (!next) {
-            if (flip.n && isSingle(String.fromCodePoint(flip.n))) {
-              return flip.n;
-            }
-          } else if (measureText(String.fromCodePoint(flip.m, flip.f)) === 2) {
-            return next === 'm' ? flip.m : flip.f;
+          if (!next && flip.neutral) {
+            return flip.points.n;
+          } else if (next && flip.single) {
+            return next === 'm' ? flip.points.m : flip.points.f;
           }
         }
       }
