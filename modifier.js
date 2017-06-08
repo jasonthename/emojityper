@@ -165,7 +165,6 @@ modifier.modify = function(s, opt_op) {
   const record = (opt_op ? [] : null);
   chars.some((char, i) => {
     const first = char[0].point;
-    let prevPointGender = undefined;
     let genderable = 0;
     let family = false;
 
@@ -173,18 +172,10 @@ modifier.modify = function(s, opt_op) {
     char.forEach(ch => {
       const p = ch.point;
       if (isPointGender(p)) {
-        // this is a point, so we can definitely do single changes
+        // we can remove or replace the point
         stats.gender.single = true;
-        if (prevPointGender === false) {
-          // if there was a previous point in the char, and it wasn't a gender, we _can_ remove this
-          stats.gender.neutral = true;
-        }
-        prevPointGender = true;
-        return;
-      }
-      prevPointGender = false;
-
-      if (isPersonGender(p)) {
+        stats.gender.neutral = true;
+      } else if (isPersonGender(p)) {
         // easily swappable person
         stats.gender.single = true;
         if (++genderable >= 2) {
@@ -271,7 +262,7 @@ modifier.modify = function(s, opt_op) {
 
     if (opt_op.gender !== undefined) {
       // replace/remove existing male/female characters
-      // TODO: this removes orphaned gender point characters
+      // nb. this removes orphaned gender point characters
       char.forEach(ch => ch.point = nextGenderPoint(points, ch.point));
 
       // under various conditions, add a gender modifier to a single point
