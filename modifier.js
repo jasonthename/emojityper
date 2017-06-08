@@ -4,14 +4,33 @@
  * @return {number=} length of text in monospace units
  */
 const measureText = (function() {
-  if (typeof document === 'undefined') {
-    return s => undefined;
-  }
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
   context.font = '1px monospace';
-  return s => context.measureText(s).width;
+
+  let cache = {};
+  let count = 0;
+
+  return s => {
+    let result = cache[s];
+    if (result === undefined) {
+      cache[s] = result = context.measureText(s).width;
+      if (++count > 4000) {
+        // nb. at June 2017, there's about ~1,800 emojis including variations, so this number is
+        // probably greater than we'll ever use: still, empty if it's too big
+        cache = {};
+        count = 0;
+      }
+    }
+    return result;
+  };
 }());
+
+/**
+ * @param {string} string to measure
+ * @return {boolean} whether this is a single char long (and probably a single emoji)
+ */
+const isSingle = s => measureText(s) === 1;
 
 /**
  * @param {number} p
@@ -174,20 +193,6 @@ modifier.modify = function(s, opt_op) {
   const points = jsdecode(s);
   const stats = {diversity: false, gender: {single: false, double: false, neutral: false}};
 
-  // measure helper: caches result
-  const measureCache = (function(s) {
-    // TODO: global cache?
-    const cache = {};
-    return s => {
-      let out = cache[s];
-      if (out === undefined) {
-        cache[s] = out = measureText(s);
-      }
-      return out;
-    };
-  }());
-  const isSingle = s => measureCache(s) === 1;
-
   // FIXME: this removes variations we care about => the 'must be emoji' variation
   // remove gender modifiers and other variations with splitEmoji, walk chars
   const chars = splitEmoji(points);
@@ -218,7 +223,7 @@ modifier.modify = function(s, opt_op) {
         // FIXME: depth is much ugly
         const flip = modifier.genderFlip.get(p);
         if (flip) {
-          if (!stats.gender.single && measureCache(String.fromCodePoint(flip.m, flip.f)) === 2) {
+          if (!stats.gender.single && measureText(String.fromCodePoint(flip.m, flip.f)) === 2) {
             stats.gender.single = true;
           }
           if (!stats.gender.neutral && flip.n && isSingle(String.fromCodePoint(flip.n))) {
@@ -295,7 +300,7 @@ modifier.modify = function(s, opt_op) {
             if (flip.n && isSingle(String.fromCodePoint(flip.n))) {
               return flip.n;
             }
-          } else if (measureCache(String.fromCodePoint(flip.m, flip.f)) === 2) {
+          } else if (measureText(String.fromCodePoint(flip.m, flip.f)) === 2) {
             return next === 'm' ? flip.m : flip.f;
           }
         }
