@@ -193,8 +193,7 @@ modifier.modify = function(s, opt_op) {
   const points = jsdecode(s);
   const stats = {diversity: false, gender: {single: false, double: false, neutral: false}};
 
-  // FIXME: this removes variations we care about => the 'must be emoji' variation
-  // remove gender modifiers and other variations with splitEmoji, walk chars
+  // split out gender modifierss and other variations with splitEmoji, walk chars
   const chars = splitEmoji(points);
   const record = (opt_op ? [] : null);
   chars.some((char, i) => {
