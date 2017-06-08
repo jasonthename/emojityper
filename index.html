@@ -221,7 +221,7 @@
         }
       };
 
-      const out = modifier.info(query.focus);
+      const out = modifier.modify(query.focus);
 
       out.gender.neutral && createModifierButton('gender', '\u{2014}');
       out.gender.single && createModifierButton('gender', '\u{2640}', 'f');
@@ -609,7 +609,7 @@
   // handle 'modifier' event: apply modifiers to the focus word, if any
   el.addEventListener('modifier', ev => {
     const arg = {[ev.detail.type]: ev.detail.code};
-    replaceFocus(value => modifier.apply(value, arg));
+    replaceFocus(value => modifier.modify(value, arg).out || '');
   });
 
   // handle 'emoji' event: if there's a current focus word, then replace it with the new emoji \o/
