@@ -1,7 +1,7 @@
 
 /**
  * @param {string} string to measure
- * @return {number=} length of text in monospace units
+ * @return {number} length of text in monospace units
  */
 const measureText = (function() {
   const canvas = document.createElement('canvas');
@@ -34,7 +34,7 @@ const isSingle = s => measureText(s) === 1;
 
 /**
  * @param {number} p
- * @return whether the passed rune is a gender character
+ * @return {boolean} whether the passed rune is a gender character
  */
 function isPointGender(p) {
   return p === 0x2640 || p === 0x2642;
@@ -42,7 +42,7 @@ function isPointGender(p) {
 
 /**
  * @param {number} p
- * @return whether the passed rune is a basic emoji person gender: Man or Woman
+ * @return {boolean} whether the passed rune is a basic emoji person gender: Man or Woman
  */
 function isPersonGender(p) {
   return p === 0x1f468 || p === 0x1f469;
@@ -50,7 +50,7 @@ function isPersonGender(p) {
 
 /**
  * @param {number} p
- * @return whether this is a subordinate member of a family sequence: boy/girl/baby
+ * @return {boolean} whether this is a subordinate member of a family sequence: boy/girl/baby
  */
 function isFamilyMember(p) {
   return p === 0x1f476 || p === 0x1f466 || p === 0x1f467;
@@ -58,7 +58,7 @@ function isFamilyMember(p) {
 
 /**
  * @param {number} p
- * @return whether the passed rune is a Variation_Selector
+ * @return {boolean} whether the passed rune is a Variation_Selector
  */
 function isVariationSelector(p) {
   return (p >= 0xfe00 && p <= 0xfe0f) || (p >= 0xe0100 && p <= 0xe01ef);
@@ -66,7 +66,7 @@ function isVariationSelector(p) {
 
 /**
  * @param {number} p
- * @return whether the passed rune is a diversity selector (one of five skin tones)
+ * @return {boolean} whether the passed rune is a diversity selector (one of five skin tones)
  */
 function isDiversitySelector(p) {
   return p >= 0x1f3fb && p <= 0x1f3ff;
@@ -74,7 +74,7 @@ function isDiversitySelector(p) {
 
 /**
  * @param {number} p
- * @return whether the passed rune is probably not a modifier base
+ * @return {boolean} whether the passed rune is probably not a modifier base
  */
 function unlikelyModifierBase(p) {
   return p < 0x261d || isPointGender(p) || isVariationSelector(p) || isDiversitySelector(p) ||
