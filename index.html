@@ -14,9 +14,8 @@
 <header>
   <h1>Emojityper</h1>
   <div class="grow"></div>
-  <div id="buttons" class="buttons">
+  <div id="buttons" class="buttons ui">
     <button disabled id="copy" tabindex="-1" data-copied="Copied!">Copy</button>
-    <input type="text" id="namer" autocomplete="off" placeholder="Name this emoji" hidden />
   </div>
 </header>
 
@@ -29,6 +28,18 @@
 <div class="chooser" id="chooser"></div>
 
 <div class="grow"></div>
+
+<section class="advanced" id="advanced" hidden>
+  <form>
+    <input class="small" type="text" data-sequence="Give these emojis a name &#x270f;&#xfe0f;" placeholder="&#x270f;&#xfe0f; Name this emoji" pattern="[\w\d]+" />
+    <div class="buttons ui">
+      <button disabled>
+        <div class="loader"></div>
+        <div class="text">Submit</div>
+      </button>
+    </div>
+  </div>
+</section>
 
 <footer>
   <ul class="help">
@@ -299,6 +310,49 @@
   handler();
 
 }(buttons, typer));
+
+// advanced handler
+(function(input, advanced) {
+  const form = advanced.querySelector('form');
+  const namer = form.querySelector('input');
+  const button = form.querySelector('button');
+
+  let focus = '';
+
+  input.addEventListener('query', ev => {
+    const query = ev.detail;
+    const selection = (query.text === null && query.focus !== undefined);
+    focus = query.focus;
+    advanced.hidden = !selection;
+    if (advanced.hidden) {
+      namer.value = '';
+    }
+  });
+
+  const handler = ev => {
+    button.disabled = !namer.value;
+  };
+  'input change'.split(/\s+/).forEach(type => namer.addEventListener(type, handler));
+
+  form.addEventListener('submit', ev => {
+    ev.preventDefault();
+
+    form.classList.add('pending');
+    namer.disabled = true;
+    button.disabled = true;
+
+    const cleanup = _ => {
+      form.classList.remove('pending');
+      namer.disabled = false;
+      button.disabled = false;
+    };
+
+    emojimanager.submit(namer.value, focus).then(cleanup, cleanup).then(_ => {
+      namer.value = '';
+    });
+  });
+
+}(typer, advanced));
 
 // copy handler
 (function(button, input) {

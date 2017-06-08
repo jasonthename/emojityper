@@ -31,6 +31,13 @@ a {
 a:hover {
   text-decoration: underline;
 }
+a:focus {
+  outline: none;
+  color: #2c3e50;
+  background: rgba(10, 250, 202, 1.0);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+}
 
 h1 {
   padding-right: 12px;
@@ -42,6 +49,9 @@ h1 {
 
 .grow {
   flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /** button */
@@ -60,6 +70,7 @@ button {
   position: relative;
   display: block;
   will-change: opacity;  /* force layer */
+  overflow: hidden;
 }
 
 button .rippleJS {
@@ -71,6 +82,9 @@ button:disabled {
   visibility: hidden;
   pointer-events: none;
   cursor: default;
+}
+button .loader {
+  opacity: 0;
 }
 
 button:hover {
@@ -123,40 +137,17 @@ header {
   align-items: flex-end;
   padding: 0 12px 0.5em;
 }
-header .buttons {
+.buttons.ui {
   display: flex;
   flex-flow: row;
   align-items: center;
 }
-header button {
+.buttons.ui button {
   min-width: 2em;
   margin-right: 0;
   margin-left: 0.66em;
   font-size: 0.5em;
   line-height: 2em;
-}
-header button.strong {
-  font-weight: bold;
-}
-header input {
-  font: inherit;
-  font-size: 0.5em;
-  padding: 4px 0;
-  line-height: 1.5em;
-  text-indent: 9px;
-  border: 2px solid transparent;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.125);
-  box-sizing: border-box;
-  color: white;
-}
-header input::placeholder {
-  color: #cbd6e2;
-  opacity: 0.33;
-}
-header input:focus {
-  outline: none;
-  border-color: #606b79;
 }
 
 /** main .ui */
@@ -298,6 +289,101 @@ body.has-value footer .help {
   line-height: 1.23em;
   margin-bottom: 4px;
   margin-right: 4px;
+}
+
+/** advanced */
+
+section.advanced {
+  margin: 1em;
+  display: flex;
+  justify-content: center;
+}
+section.advanced form {
+  display: flex;
+}
+section.advanced button:disabled {
+  visibility: visible;
+  opacity: 0.5;
+}
+
+input.small {
+  font: inherit;
+  font-size: 0.5em;
+  padding: 4px 0;
+  line-height: 1.5em;
+  text-indent: 9px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.125);
+  box-sizing: border-box;
+  color: #0afaca;
+  opacity: 0.5;
+}
+input.small::placeholder {
+  color: #cbd6e2;
+  opacity: 0.33;
+  text-transform: none;
+}
+input.small:not(:placeholder-shown) {
+  /* FIXME: not supported in IE/Edge */
+  opacity: 1;
+}
+input.small:focus {
+  outline: none;
+  border-color: #0afaca;
+  opacity: 1;
+}
+
+form.pending button .loader {
+  opacity: 1;
+}
+form.pending button .text {
+  opacity: 0;
+}
+form.pending button:disabled {
+  opacity: 1 !important;
+}
+
+/** loader */
+
+@keyframes loader {
+  from { transform: scale(0.5); }
+  to   { transform: scale(1); }
+}
+.text {
+  will-change: opacity;
+  transition: opacity 0.33s;
+}
+.loader {
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  position: relative;
+  left: 50%;
+  top: -0.5em;
+  font-size: 3em;
+  will-change: opacity;
+  transition: opacity 0.25s;
+}
+.loader::after, .loader::before {
+  content: '';
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  top: 0.33em;
+  left: 0;
+  opacity: 0.8;
+  border-radius: 1000px;
+  background: #0afaca;
+  will-change: transform, opacity;
+  animation: loader infinite 1s alternate ease-in-out;
+}
+.loader::before {
+  margin-left: -0.75em;
+  animation-delay: -1s;
+}
+.loader::after {
+  margin-left: -0.25em;
 }
 
 /** size overrides */

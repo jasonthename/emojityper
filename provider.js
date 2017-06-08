@@ -1,4 +1,5 @@
 (function() {
+  let emojimap;
 
   const helper = window.fetch('https://emojityper.com/res/js/emojimap.js').then(out => out.text()).then(out => {
     const first = out.indexOf('{');
@@ -6,7 +7,13 @@
       throw new Error('invalid emojimap');
     }
     // FIXME: never do this :O
-    eval('var emojimap = ' + out.substr(first));
+    eval('emojimap = ' + out.substr(first));
+
+    emojimap['karate'] = [
+      {
+        'emoji': '👊🏻💥',
+      },
+    ];
 
     return (function() {
       const prefixLength = 3;   // generate prefixes up to this length
@@ -71,7 +78,14 @@
       // TODO: do something
       console.debug('got', name, 'to', value);
       return new Promise((resolve, reject) => {
-        window.setTimeout(resolve, 1000);
+        window.setTimeout(resolve, Math.random() * 5000);
+      }).then(_ => {
+        let data = emojimap[name];
+        if (!data) {
+          emojimap[name] = data = [];
+        }
+        // TODO: doesn't update index :( - so doesn't work
+        data.push({emoji: value});
       });
     },
   };
