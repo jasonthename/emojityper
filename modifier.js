@@ -92,6 +92,34 @@ function jsdecode(s) {
 }
 
 const modifier = {};
+modifier.genderFlip = new Map();
+
+(function() {
+  // TODO: covers F/M/neutral, but _not_ mixed (e.g. holding hands => no m/f combo)
+  const list = [
+    0x1f936, 0x1f385, 0,        // mrs. claus, santa
+    0x1f483, 0x1f57a, 0,        // dancers
+    0x1f470, 0x1f935, 0,        // bride, man in tuxedo
+    0x1f467, 0x1f466, 0,        // girl, boy
+    0x1f475, 0x1f474, 0x1f9d3,  // old {woman,man,adult}
+    0x1f46d, 0x1f46c, 0,        // women/men holding hands
+    0x1f478, 0x1f934, 0,        // princess, prince
+  ];
+
+  for (let i = 0; i < list.length; i += 3) {
+    const data = {
+      f: list[i+0],
+      m: list[i+1],
+      n: list[i+2],
+    };
+    for (let j = 0; j < 3; ++j) {
+      const v = list[i+j];
+      if (v) {
+        modifier.genderFlip.set(list[i+j], data);
+      }
+    }
+  };
+}());
 
 /**
  * True if the standard "female" icon can be varied with a diversity modifier. This is the basic
@@ -147,17 +175,18 @@ modifier.modify = function(s, opt_op) {
   const stats = {diversity: false, gender: {single: false, double: false, neutral: false}};
 
   // measure helper: caches result
-  const isSingle = (function(s) {
+  const measureCache = (function(s) {
     // TODO: global cache?
     const cache = {};
     return s => {
       let out = cache[s];
       if (out === undefined) {
-        cache[s] = out = (measureText(s) === 1);
+        cache[s] = out = measureText(s);
       }
       return out;
     };
   }());
+  const isSingle = s => measureCache(s) === 1;
 
   // FIXME: this removes variations we care about => the 'must be emoji' variation
   // remove gender modifiers and other variations with splitEmoji, walk chars
@@ -181,9 +210,21 @@ modifier.modify = function(s, opt_op) {
         if (++genderable >= 2) {
           stats.gender.double = true;
         }
-      } else if (isFamilyMember(p)) {
-        // this run is a family, so it can't be made diverse
+      } else if (isFamilyMember(p) && genderable) {
+        // this run is a family (child and already has parent), so it can't be made diverse
         family = true;
+      } else {
+        // check gender flips
+        // FIXME: depth is much ugly
+        const flip = modifier.genderFlip.get(p);
+        if (flip) {
+          if (!stats.gender.single && measureCache(String.fromCodePoint(flip.m, flip.f)) === 2) {
+            stats.gender.single = true;
+          }
+          if (!stats.gender.neutral && flip.n && isSingle(String.fromCodePoint(flip.n))) {
+            stats.gender.neutral = true;
+          }
+        }
       }
     });
 
@@ -231,7 +272,7 @@ modifier.modify = function(s, opt_op) {
     const g = opt_op.gender || '';
     let previousMaster;
     let index;
-    return (master, opt_point) => {
+    return (master, opt_point, opt_allowOtherFlip) => {
       if (previousMaster === undefined || master !== previousMaster) {
         previousMaster = master;
         index = 0;
@@ -246,11 +287,22 @@ modifier.modify = function(s, opt_op) {
       } else if (!point || isPointGender(point)) {
         // if this is a point, return the alternative point (or clear)
         return next ? (next === 'm' ? 0x2642 : 0x2640) : 0;
-      } else {
-        // didn't consume anything
-        --index;
-        return point;
+      } else if (opt_allowOtherFlip) {
+        const flip = modifier.genderFlip.get(point);
+        if (flip) {
+          // FIXME: ugh still ugly
+          if (!next) {
+            if (flip.n && isSingle(String.fromCodePoint(flip.n))) {
+              return flip.n;
+            }
+          } else if (measureCache(String.fromCodePoint(flip.m, flip.f)) === 2) {
+            return next === 'm' ? flip.m : flip.f;
+          }
+        }
       }
+      // didn't consume anything
+      --index;
+      return point;
     };
   }());
 
@@ -263,7 +315,8 @@ modifier.modify = function(s, opt_op) {
     if (opt_op.gender !== undefined) {
       // replace/remove existing male/female characters
       // nb. this removes orphaned gender point characters
-      char.forEach(ch => ch.point = nextGenderPoint(points, ch.point));
+      const allowOtherFlip = (isSinglePerson === undefined);  // not for family/profession
+      char.forEach(ch => ch.point = nextGenderPoint(points, ch.point, allowOtherFlip));
 
       // under various conditions, add a gender modifier to a single point
       if (isSinglePerson === undefined && char.length === 1 && !isPointGender(first)) {
