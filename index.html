@@ -248,9 +248,6 @@
       }
     }
 
-    // nb. grab all appended buttons: e.g. from modifiers
-    buttonArray.push(...chooser.querySelectorAll('button'));
-
     (results || []).forEach(result => {
       if (!query.prefix && window.emojimanager.request !== result['name']) {
         return;
