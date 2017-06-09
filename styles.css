@@ -223,6 +223,11 @@ main input::placeholder {
   color: #cbd6e2;
   opacity: 0.33;
 }
+main input::-ms-placeholder {
+  /** FIXME: rollup into above */
+  color: #cbd6e2;
+  opacity: 0.33;
+}
 main input:focus {
   outline: none;
 }
@@ -322,7 +327,11 @@ input.small {
 input.small::placeholder {
   color: #cbd6e2;
   opacity: 0.33;
-  text-transform: none;
+}
+input.small::-ms-placeholder {
+  /** FIXME: rollup into above */
+  color: #cbd6e2;
+  opacity: 0.33;
 }
 input.small:not(:placeholder-shown) {
   /* FIXME: not supported in IE/Edge */
