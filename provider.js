@@ -32,7 +32,8 @@
     return window.fetch(api + '/popular').then(out => out.json());
   }
 
-  const data = historicData();
+  // const data = historicData();
+  const data = futureData();
   let indexed = data.then(emojimap => {
     const prefixLength = 3;   // generate prefixes up to this length
     const maxSuggestions = 10;  // only generate this many suggestions
@@ -53,6 +54,7 @@
     }
 
     return function(typed) {
+      typed = typed.toLowerCase();
       const rest = typed.substr(prefixLength);
       let all = prefixSuggest[typed.substr(0, prefixLength)] || [];
 
@@ -67,17 +69,38 @@
     }
   });
 
-  let requestWord = null;
-
-  const dummyResults = word => {
-    if (!requestWord) {
+  let timeout;
+  const performRequest = (text, prefix) => {
+    if (!text) {
       window.emojimanager.callback(null);
       return;
     }
 
+    function send(out) {
+      if (timeout === localTimeout) {
+        window.emojimanager.callback(out);
+      } else {
+        console.debug('got results for old query');
+      }
+    }
+
+    // TODO: only send extra query if there's not enough results, or the user hits 'more'
+    window.clearTimeout(timeout);
+    localTimeout = window.setTimeout(_ => {
+      const data = new FormData();
+      data.set('q', text);
+      data.set('prefix', prefix)
+      window.fetch(api + '/query', {method: 'POST', data}).then(out => out.json()).then(send);
+    }, 2000);
+    timeout = localTimeout;
+
     indexed.then(suggest => {
-      const results = suggest(word);
-      window.emojimanager.callback(results);
+      let results = suggest(text);
+      if (!prefix) {
+        results = results.filter(result => result['name'] === text);
+      }
+      // FIXME: don't return results if request has changed
+      send(results);
     }).catch(err => {
       console.warn('some error in suggest', err);
     });
@@ -85,17 +108,13 @@
 
   window.emojimanager = {
     callback: function() {},
-    set request(v) {
-      requestWord = v;
-      window.requestAnimationFrame(dummyResults.bind(null, requestWord));
-    },
-    get request() {
-      return requestWord;
+    request(text, prefix) {
+      window.requestAnimationFrame(_ => {
+        performRequest(text, prefix);
+      });
     },
     submit(name, value) {
-      const data = new FormData();
-      data.set('name', name);
-      data.set('emoji', value);
+      const data = `name=${name}&emoji=${value}`;
       return window.fetch(api + '/name', {method: 'POST', data});
     },
   };

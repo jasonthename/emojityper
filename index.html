@@ -34,6 +34,7 @@
     <input class="small" type="text" data-sequence="Give these emojis a name &#x270f;&#xfe0f;" placeholder="&#x270f;&#xfe0f; Name this emoji" pattern="[\w\d]+" />
     <div class="buttons ui">
       <button disabled>
+        <div class="statusicon"></div>
         <div class="loader"></div>
         <div class="text">Submit</div>
       </button>
@@ -249,10 +250,6 @@
     }
 
     (results || []).forEach(result => {
-      if (!query.prefix && window.emojimanager.request !== result['name']) {
-        return;
-      }
-
       const buttons = createOptionsButtons(result['name']);
       result['options'].forEach(option => {
         const button = createButton(buttons, option);
@@ -269,9 +266,8 @@
 
   // handler for a prefix search
   input.addEventListener('query', ev => {
-    // FIXME: pass prefix request to backend
     query = ev.detail;
-    window.emojimanager.request = simplifyWord(query.text);
+    window.emojimanager.request(query.text, query.prefix);
   });
 
   // request an autocomplete, the user has just kept typing
@@ -342,10 +338,20 @@
       form.classList.remove('pending');
       namer.disabled = false;
       button.disabled = false;
+      namer.value = '';
     };
 
-    emojimanager.submit(namer.value, focus).then(cleanup, cleanup).then(_ => {
-      namer.value = '';
+    const p = emojimanager.submit(namer.value, focus).then(_ => {
+      button.classList.add('success');
+      return false;
+    }).catch(err => {
+      button.classList.add('failure');
+      console.warn('failed to submit emoji', err)
+      return true;
+    }).then(cleanup);
+
+    p.then(_ => new Promise((resolve, reject) => window.setTimeout(resolve, 2000))).then(_ => {
+      button.className = '';
     });
   });
 
