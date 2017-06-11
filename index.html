@@ -23,17 +23,16 @@
 <main>
   <div id="input">
     <input type="text" id="typer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Type words, receive emoji &#x1f44d;" autofocus />
-    <script>
+    <div class="focus"></div>
+  </div>
+  <script>
 /* nb. intentionally runs inline and is ES5 */
 window.addEventListener('hashchange', function(ev) {
   var v = window.decodeURI(window.location.hash.substr(1));
   typer.value = v;
-  typer.dispatchEvent(new CustomEvent('change'));
 });
 window.dispatchEvent(new CustomEvent('hashchange'));
-    </script>
-    <div class="focus"></div>
-  </div>
+  </script>
 </main>
 <div class="chooser" id="chooser"></div>
 
