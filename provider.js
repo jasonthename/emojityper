@@ -88,8 +88,8 @@
     window.clearTimeout(timeout);
     localTimeout = window.setTimeout(_ => {
       const data = new FormData();
-      data.set('q', text);
-      data.set('prefix', prefix)
+      data.append('q', text);
+      data.append('prefix', prefix)
       window.fetch(api + '/query', {method: 'POST', data}).then(out => out.json()).then(send);
     }, 2000);
     timeout = localTimeout;
@@ -118,8 +118,8 @@
       // FIXME: we've disabled CORS for now; the response is actually useless anyway
       // FIXME: however, the client now thinks this succeeds even when it 400s
       const data = new FormData();
-      data.set('name', name);
-      data.set('emoji', value);
+      data.append('name', name);
+      data.append('emoji', value);
       return window.fetch(api + '/name', {method: 'POST', data, mode: 'no-cors'});
     },
   };
