@@ -251,7 +251,7 @@ main .underline.range {
   margin: 10px 0;
   height: calc(1.5em - 8px);  /* extra 4px margin, == 8px */
   border-radius: 0.05em;
-  background: red;
+  background: rgba(10, 250, 202, 0.5);
   opacity: 0.75;
 }
 
