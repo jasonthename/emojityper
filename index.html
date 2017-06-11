@@ -318,7 +318,7 @@ window.dispatchEvent(new CustomEvent('hashchange'));
 (function(input) {
   input.addEventListener('value', ev => {
     const v = ev.detail;
-    window.history.replaceState(null, null, v ? ('#' + v) : '/');
+    window.history.replaceState(null, null, v ? ('#' + v) : window.location.pathname);
   });
 }(typer));
 
