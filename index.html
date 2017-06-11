@@ -258,11 +258,24 @@ window.dispatchEvent(new CustomEvent('hashchange'));
       }
     }
 
+    // FIXME: slowly add these (over frames), to amortize rendering hit
+    // FIXME: we still get duplicates- some which are just force emoji / missing
     (results || []).forEach(result => {
-      const buttons = createOptionsButtons(result['name']);
+      const name = result['name'];
+      let buttons = null;
       result['options'].forEach(option => {
+        // TODO: If a user has allowed it, render all emojis (even invalid) anyway.
+        if (!isExpectedLength(option)) {
+          // FIXME: are we discarding some for some reason?
+          console.info('can\'t render', option, name);
+          return;
+        }
+        if (!buttons) {
+          // create if we haven't already got it
+          buttons = createOptionsButtons(name);
+        }
         const button = createButton(buttons, option);
-        button.dataset['word'] = result['name'];
+        button.dataset['word'] = name;
       });
     });
 

@@ -35,6 +35,25 @@ const measureText = (function() {
 }());
 
 /**
+ * Is this string rendering correctly as an emoji or sequence of emojis?
+ *
+ * @param {string} string to check
+ * @return {boolean} whether this is probably an emoji
+ */
+function isExpectedLength(s) {
+  // emojis could be _smaller_ than expected, but not larger- and not random non-unit widths
+  const points = jsdecode(s);
+  const expectedLength = splitEmoji(points).length;
+  const width = measureText(s);
+
+  // does this have non-emoji characters in it?
+  if (Math.floor(width) !== width) { return false; }
+
+  // otherwise, as long as we're equal or smaller
+  return width <= expectedLength;
+}
+
+/**
  * @param {string} string to measure
  * @return {boolean} whether this is a single char long (and probably a single emoji)
  */
