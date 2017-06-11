@@ -11,10 +11,18 @@ const measureText = (function() {
   let cache = {};
   let count = 0;
 
+  // find baseline: macOS renders emojis as width=1, but Windows and other places are different
+  const characterWidth = context.measureText('a').width;
+  const emojiWidth = context.measureText('\u{1f602}').width;
+  if (characterWidth >= emojiWidth) {
+    // ... something might have gone wrong or no emoji are supported, ugh
+    console.warn('emoji \u{1f602} width', emojiWidth, 'character width', characterWidth);
+  }
+
   return s => {
     let result = cache[s];
     if (result === undefined) {
-      cache[s] = result = context.measureText(s).width;
+      cache[s] = result = context.measureText(s).width / emojiWidth;
       if (++count > 4000) {
         // nb. at June 2017, there's about ~1,800 emojis including variations, so this number is
         // probably greater than we'll ever use: still, empty if it's too big
