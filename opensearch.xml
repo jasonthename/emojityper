@@ -2,6 +2,6 @@
 <ShortName>Emojityper</ShortName>
 <Description>Type words, receive emoji</Description>
 <Image height="128" width="128" type="image/png">https://emojityper.com/res/icon-128.png</Image>
-<Url type="text/html" method="get" template="/#{searchTerms}"/>
+<Url type="text/html" method="get" template="'https://samthor.github.io/'mojityper/#{searchTerms}"/>
 <Url type="application/opensearchdescription+xml" rel="self" template="https://samthor.github.io/mojityper/opensearch.xml"/>
 </OpenSearchDescription>
