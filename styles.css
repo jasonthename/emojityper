@@ -294,8 +294,8 @@ body.has-value footer .help {
 }
 
 .options button {
-  padding-top: 0.1em;  /** offset emoji lower */
-  line-height: 1.23em;
+  padding-top: 0.05em;  /** offset emoji lower */
+  line-height: calc(1.33em - 0.05em);
   margin-bottom: 4px;
   margin-right: 4px;
 }
