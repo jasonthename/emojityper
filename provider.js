@@ -114,8 +114,13 @@
       });
     },
     submit(name, value) {
-      const data = `name=${name}&emoji=${value}`;
-      return window.fetch(api + '/name', {method: 'POST', data});
+      // const data = `name=${name}&emoji=${value}`;
+      // FIXME: we've disabled CORS for now; the response is actually useless anyway
+      // FIXME: however, the client now thinks this succeeds even when it 400s
+      const data = new FormData();
+      data.set('name', name);
+      data.set('emoji', value);
+      return window.fetch(api + '/name', {method: 'POST', data, mode: 'no-cors'});
     },
   };
 
