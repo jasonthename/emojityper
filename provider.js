@@ -69,8 +69,9 @@
     }
   });
 
-  let timeout;
+  let timeout;  // timeout handler for secondary query
   const performRequest = (text, prefix) => {
+    window.clearTimeout(timeout);
     if (!text) {
       window.emojimanager.callback(null);
       return;
@@ -85,7 +86,6 @@
     }
 
     // TODO: only send extra query if there's not enough results, or the user hits 'more'
-    window.clearTimeout(timeout);
     localTimeout = window.setTimeout(_ => {
       const data = new FormData();
       data.append('q', text);
@@ -99,10 +99,7 @@
       if (!prefix) {
         results = results.filter(result => result['name'] === text);
       }
-      // FIXME: don't return results if request has changed
       send(results);
-    }).catch(err => {
-      console.warn('some error in suggest', err);
     });
   };
 
