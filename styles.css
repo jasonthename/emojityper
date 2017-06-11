@@ -243,6 +243,9 @@ main .underline {
   will-change: transform;
   border-radius: 0.15em;
 }
+main .underline.loading {
+  display: none !important;
+}
 main .underline.range {
   padding: 0;
   margin: 10px 0;

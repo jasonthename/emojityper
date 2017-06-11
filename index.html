@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no" />
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Lobster" rel="stylesheet" />
   <link href="styles.css" rel="stylesheet" />
+  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Emojityper" />
   <script async src="https://cdn.rawgit.com/samthor/rippleJS/v1.0.2/ripple.min.js"></script>
   <script src="provider.js"></script>
   <script src="modifier.js"></script>
@@ -22,6 +23,15 @@
 <main>
   <div id="input">
     <input type="text" id="typer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Type words, receive emoji &#x1f44d;" autofocus />
+    <script>
+/* nb. intentionally runs inline and is ES5 */
+window.addEventListener('hashchange', function(ev) {
+  var v = window.decodeURI(window.location.hash.substr(1));
+  typer.value = v;
+  typer.dispatchEvent(new CustomEvent('change'));
+});
+window.dispatchEvent(new CustomEvent('hashchange'));
+    </script>
     <div class="focus"></div>
   </div>
 </main>
@@ -304,6 +314,14 @@
 
 }(buttons, typer));
 
+// hash handler
+(function(input) {
+  input.addEventListener('value', ev => {
+    const v = ev.detail;
+    window.history.replaceState(null, null, v ? ('#' + v) : '/');
+  });
+}(typer));
+
 // advanced handler
 (function(input, advanced) {
   const form = advanced.querySelector('form');
@@ -433,7 +451,15 @@
   sizer.className = 'sizer';
   helper.appendChild(sizer);
 
-  // re-render underline
+  // hide underline until load: the font used might not be ready, so it's probably out of whack
+  if (document.readyState !== 'complete') {
+    underline.classList.add('loading');
+    window.addEventListener('load', ev => {
+      renderLine();
+      underline.classList.remove('loading');
+    });
+  }
+
   const renderLine = _ => {
     if (el.dataset.from === undefined) {
       underline.hidden = true;
@@ -469,7 +495,8 @@
   };
 
   // state/handler keep track of the current focus word (plus scroll position, if input is big)
-  const state = {start: 0, end: 0, value: undefined};
+  const initialLength = el.value.length;
+  const state = {start: initialLength, end: initialLength, value: undefined};
   const changeHandler = permitNextChange => {
     if (permitNextChange !== false &&
         el.selectionStart === state.start &&
@@ -545,6 +572,7 @@
     if (events.has('focus')) {
       // only if it wasn't a range selection (otherwise clicking back retains range, weird)
       if (state.start === state.end) {
+        // TODO: this sets on initial load, even though it probably doesn't need to
         [el.selectionStart, el.selectionEnd] = [state.start, state.end];
       }
     }
