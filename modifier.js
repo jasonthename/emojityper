@@ -19,10 +19,16 @@ const measureText = (function() {
     console.warn('emoji \u{1f602} width', emojiWidth, 'character width', characterWidth);
   }
 
+  const invalidWidth = context.measureText('\u{ffffd}').width;
+  console.info('invalid width', invalidWidth, 'char width', characterWidth, 'emojiWidth', emojiWidth);
+
+  // TODO: check invalid against \u{ffffd}
+
+
   return s => {
     let result = cache[s];
     if (result === undefined) {
-      cache[s] = result = context.measureText(s).width / emojiWidth;
+      cache[s] = result = context.measureText(s).width;
       if (++count > 4000) {
         // nb. at June 2017, there's about ~1,800 emojis including variations, so this number is
         // probably greater than we'll ever use: still, empty if it's too big
@@ -35,12 +41,12 @@ const measureText = (function() {
 }());
 
 /**
- * Is this string rendering correctly as an emoji or sequence of emojis?
+ * Is this string rendering correctly as an emoji or sequence of emojis on a Mac?
  *
  * @param {string} string to check
  * @return {boolean} whether this is probably an emoji
  */
-function isExpectedLength(s) {
+function isExpectedLengthFixedEmoji(s) {
   // emojis could be _smaller_ than expected, but not larger- and not random non-unit widths
   const points = jsdecode(s);
   const expectedLength = splitEmoji(points).length;
@@ -52,6 +58,14 @@ function isExpectedLength(s) {
   // otherwise, as long as we're equal or smaller
   return width <= expectedLength;
 }
+
+/**
+ * Is this string rendering correctly as an emoji or sequence of emojis?
+ *
+ * @param {string} string to check
+ * @return {boolean} whether this is probably an emoji
+ */
+const isExpectedLength = isExpectedLengthFixedEmoji;
 
 /**
  * @param {string} string to measure
