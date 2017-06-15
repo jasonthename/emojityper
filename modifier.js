@@ -1,4 +1,6 @@
 
+const modifier = {};
+
 /**
  * @param {string} string to measure
  * @return {number} length of text in monospace units
@@ -6,29 +8,15 @@
 const measureText = (function() {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
-  context.font = '1px monospace';
+  context.font = '100px monospace';
 
   let cache = {};
   let count = 0;
 
-  // find baseline: macOS renders emojis as width=1, but Windows and other places are different
-  const characterWidth = context.measureText('a').width;
-  const emojiWidth = context.measureText('\u{1f602}').width;
-  if (characterWidth >= emojiWidth) {
-    // ... something might have gone wrong or no emoji are supported, ugh
-    console.warn('emoji \u{1f602} width', emojiWidth, 'character width', characterWidth);
-  }
-
-  const invalidWidth = context.measureText('\u{ffffd}').width;
-  console.info('invalid width', invalidWidth, 'char width', characterWidth, 'emojiWidth', emojiWidth);
-
-  // TODO: check invalid against \u{ffffd}
-
-
   return s => {
     let result = cache[s];
     if (result === undefined) {
-      cache[s] = result = context.measureText(s).width;
+      cache[s] = result = context.measureText(s).width / 100;
       if (++count > 4000) {
         // nb. at June 2017, there's about ~1,800 emojis including variations, so this number is
         // probably greater than we'll ever use: still, empty if it's too big
@@ -39,6 +27,50 @@ const measureText = (function() {
     return result;
   };
 }());
+
+/**
+ * @param {string} string to measure
+ * @return {boolean} whether this is a single char long (and probably a single emoji)
+ */
+const isSingle = s => measureText(s) === 1;
+
+/**
+ * The width of the letter 'a' in monospace.
+ *
+ * @type {number}
+ */
+modifier.characterWidth = measureText('a');
+
+/**
+ * The width of a basic emoji character. Note that only Mac uses a fixed width for all emoji.
+ *
+ * @type {number}
+ */
+modifier.emojiWidth = measureText('\u{1f602}');
+
+/**
+ * The width of the 'invalid' emoji character (typically a box).
+ *
+ * @type {number}
+ */
+modifier.invalidWidth = measureText('\u{ffffd}');
+
+
+(function() {
+  // TODO: do something with this information
+  if (modifier.invalidWidth === modifier.emojiWidth) {
+    console.warn('basic emoji has invalid width, emoji probably not supported');
+  }
+  console.info('invalid width', modifier.invalidWidth, 'char width', modifier.characterWidth, 'emojiWidth', modifier.emojiWidth);
+}());
+
+/**
+ * True if the standard "female" icon can be varied with a diversity modifier. This is the basic
+ * level of emoji diversity support, but doesn't imply support for all the professions.
+ *
+ * @type {boolean}
+ */
+modifier.basicDiversity = isSingle('\u{1f468}\u{1f3fb}');
 
 /**
  * Is this string rendering correctly as an emoji or sequence of emojis on a Mac?
@@ -66,12 +98,6 @@ function isExpectedLengthFixedEmoji(s) {
  * @return {boolean} whether this is probably an emoji
  */
 const isExpectedLength = isExpectedLengthFixedEmoji;
-
-/**
- * @param {string} string to measure
- * @return {boolean} whether this is a single char long (and probably a single emoji)
- */
-const isSingle = s => measureText(s) === 1;
 
 /**
  * @param {number} p
@@ -199,16 +225,6 @@ const genderFlip = (function() {
     return out;
   };
 }());
-
-const modifier = {};
-
-/**
- * True if the standard "female" icon can be varied with a diversity modifier. This is the basic
- * level of emoji diversity support, but doesn't imply support for all the professions.
- *
- * @type {boolean}
- */
-modifier.basicDiversity = (measureText('\u{1f468}\u{1f3fb}') === 1);
 
 /**
  * Splits a single emoji into raw characters, removing variants or diversity modifiers. Each
