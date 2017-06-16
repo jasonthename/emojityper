@@ -17,6 +17,7 @@ const measureText = (function() {
     let result = cache[s];
     if (result === undefined) {
       cache[s] = result = context.measureText(s).width / 100;
+      console.debug('emoji', s, 'is', result);
       if (++count > 4000) {
         // nb. at June 2017, there's about ~1,800 emojis including variations, so this number is
         // probably greater than we'll ever use: still, empty if it's too big
@@ -70,7 +71,7 @@ modifier.invalidWidth = measureText('\u{ffffd}');
  *
  * @type {boolean}
  */
-modifier.basicDiversity = isSingle('\u{1f468}\u{1f3fb}');
+modifier.basicDiversity = (measureText('\u{1f468}\u{1f3fb}') === measureText('\u{1f468}'));
 
 /**
  * Is this string rendering correctly as an emoji or sequence of emojis on a Mac?
