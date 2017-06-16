@@ -4,9 +4,6 @@ import * as modifier from './lib/modifier.js';
 
 // suggestion handler
 (function(input, chooser) {
-  const modifiersEl = {};
-  Array.from(chooser.querySelectorAll('.options.modifier')).forEach(el => modifiersEl[el.id] = el);
-
   // nb. this puncutation list is just misc stuff needed by emojimap
   const invalidLetterRe = /[^\w:\.,$%^\-']+/g;
   const simplifyWord = word => {
