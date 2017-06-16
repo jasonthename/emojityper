@@ -239,7 +239,7 @@ const genderFlip = (function() {
     if (out && out.single === undefined) {
       // do the heavy lifting only when first fetched
       out.single = isSingle(String.fromCodePoint(out.points.f)) &&
-          isSingle(String.fromCodePoint(out.points.m)));
+          isSingle(String.fromCodePoint(out.points.m));
       out.neutral = out.points.n && isSingle(String.fromCodePoint(out.points.n));
     }
     return out;
