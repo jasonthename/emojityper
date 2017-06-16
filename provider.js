@@ -1,39 +1,7 @@
 (function() {
   const api = 'https://emojityper.appspot.com';
 
-  function historicData() {
-    let p = window.fetch('https://emojityper.com/res/js/emojimap.js').then(out => out.text());
-    p = p.then(raw => {
-      const first = raw.indexOf('{');
-      if (first === -1) {
-        throw new Error('invalid emojimap');
-      }
-      // FIXME: never do this :O
-      eval('var emojimap = ' + raw.substr(first));
-      return emojimap;
-    })
-    p = p.then(emojimap => {
-      const out = {};
-      Object.keys(emojimap).forEach(string => {
-        const data = emojimap[string];
-        string = string.replace(/\s+/g, '').replace(/[’’]/g, '');
-        if (!(string in out)) {
-          out[string] = [];
-        }
-        out[string].push(...data.map(details => details.emoji));
-      });
-
-      return out;
-    });
-    return p;
-  }
-
-  function futureData() {
-    return window.fetch(api + '/popular').then(out => out.json());
-  }
-
-  // const data = historicData();
-  const data = futureData();
+  const data = window.fetch(api + '/popular').then(out => out.json());
   let indexed = data.then(emojimap => {
     const prefixLength = 3;   // generate prefixes up to this length
     const maxSuggestions = 10;  // only generate this many suggestions
