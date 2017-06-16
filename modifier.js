@@ -230,7 +230,8 @@ const genderFlip = (function() {
     const out = all.get(point) || null;
     if (out && out.single === undefined) {
       // do the heavy lifting only when first fetched
-      out.single = measureText(String.fromCodePoint(out.points.f, out.points.m)) === 2;
+      out.single = isSingle(String.fromCodePoint(out.points.f)) &&
+          isSingle(String.fromCodePoint(out.points.m)));
       out.neutral = out.points.n && isSingle(String.fromCodePoint(out.points.n));
     }
     return out;
