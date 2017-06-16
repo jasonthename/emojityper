@@ -11,8 +11,8 @@ const uglify = require('rollup-plugin-uglify');
 
 gulp.task('less', function() {
   return gulp.src('*.less')
-      .pipe(less())
-      .pipe(gulp.dest('./dist'));
+    .pipe(less())
+    .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('rollup', function() {
@@ -20,20 +20,27 @@ gulp.task('rollup', function() {
   const options = {
     plugins: [babel(), uglify()],
   };
-  gulp.src('src/bundle.js')
-      .pipe(sourcemaps.init())
-      .pipe(rollup(options, {format: 'iife'}))
-      .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest('./dist'));
+  return gulp.src('src/bundle.js')
+    .pipe(sourcemaps.init())
+    .pipe(rollup(options, {format: 'iife'}))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('./dist'));
 })
 
 gulp.task('html', function() {
   const mutator = document => {
-
+    document.getElementById('less').remove();
+    const link = Object.assign(document.createElement('link'), {href: 'styles.css', rel: 'stylesheet'});
+    document.head.appendChild(link);
   };
   return gulp.src('*.html')
-      .pipe(tweakdom(mutator))
-      .pipe(gulp.dest('./dist'));
-})
+    .pipe(tweakdom(mutator))
+    .pipe(gulp.dest('./dist'));
+});
 
-gulp.task('default', ['less', 'rollup', 'html']);
+gulp.task('static', function() {
+  return gulp.src(['manifest.json', 'opensearch.xml'])
+    .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('default', ['less', 'rollup', 'html', 'static']);

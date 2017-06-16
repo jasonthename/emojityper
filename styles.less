@@ -27,16 +27,17 @@ body {
 a {
   color: rgba(10, 250, 202, 1.0);
   text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-a:focus {
-  outline: none;
-  color: #2c3e50;
-  background: rgba(10, 250, 202, 1.0);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-  border-radius: 2px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+  &:focus {
+    outline: none;
+    color: #2c3e50;
+    background: rgba(10, 250, 202, 1.0);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+  }
 }
 
 h1 {
@@ -72,29 +73,26 @@ button {
   display: block;
   will-change: opacity;  /* force layer */
   overflow: hidden;
-}
 
-button .rippleJS {
-  border-radius: 0;
-  color: rgba(10, 250, 202, 1.0);
-}
+  &.rippleJS {
+    border-radius: 0;
+    color: rgba(10, 250, 202, 1.0);
+  }
 
-button:disabled {
-  visibility: hidden;
-  pointer-events: none;
-  cursor: default;
-}
-button .loader {
-  opacity: 0;
-}
+  &:disabled {
+    visibility: hidden;
+    pointer-events: none;
+    cursor: default;
+  }
 
-button:hover {
-/*  background: rgba(10, 250, 202, 0.2);
-*/}
+  &:focus {
+    outline: none;
+    border-color: rgba(10, 250, 202, 1.0);
+  }
 
-button:focus {
-  outline: none;
-  border-color: rgba(10, 250, 202, 1.0);
+  .loader {
+    opacity: 0;
+  }
 }
 
 /** header/footer */
@@ -107,30 +105,32 @@ footer {
   display: flex;
   flex-flow: column;
   align-items: center;
-}
-footer .help {
-  margin-bottom: 1em;
-  color: #CB6BAA;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
-  font-weight: 300;
-  list-style: none;
-  line-height: 1.5em;
-}
-footer .help em {
-  font-weight: 900;
-  font-style: normal;
-  text-transform: uppercase;
-  font-size: 0.9em;
-}
-footer .help .small {
-  font-weight: 900;
-  font-style: normal;
-  text-transform: uppercase;
-  line-height: 1.5em;
-  font-size: 0.75em;
-}
-footer .ib {
-  display: inline-block;
+
+  .help {
+    margin-bottom: 1em;
+    color: #CB6BAA;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    font-weight: 300;
+    list-style: none;
+    line-height: 1.5em;
+
+    em {
+      font-weight: 900;
+      font-style: normal;
+      text-transform: uppercase;
+      font-size: 0.9em;
+    }
+    .small {
+      font-weight: 900;
+      font-style: normal;
+      text-transform: uppercase;
+      line-height: 1.5em;
+      font-size: 0.75em;
+    }
+  }
+  .ib {
+    display: inline-block;
+  }
 }
 
 header {
@@ -156,10 +156,11 @@ header {
 main {
   display: flex;
   align-items: center;
-}
-main #input {
-  flex-grow: 1;
-  position: relative;
+
+  #input {
+    flex-grow: 1;
+    position: relative;
+  }
 }
 
 main input,
@@ -232,28 +233,31 @@ main input::-ms-placeholder {
 main input:focus {
   outline: none;
 }
-main .underline {
-  visibility: visible;
-  pointer-events: none;
-  position: absolute;
-  margin: 6px -2px;
-  padding: 0 2px;
-  height: 1.5em;
-  background: white;
-  opacity: 0.125;
-  will-change: transform;
-  border-radius: 0.15em;
-}
-main .underline.loading {
-  display: none !important;
-}
-main .underline.range {
-  padding: 0;
-  margin: 10px 0;
-  height: calc(1.5em - 8px);  /* extra 4px margin, == 8px */
-  border-radius: 0.05em;
-  background: rgba(10, 250, 202, 0.5);
-  opacity: 0.75;
+main {
+  .underline {
+    visibility: visible;
+    pointer-events: none;
+    position: absolute;
+    margin: 6px -2px;
+    padding: 0 2px;
+    height: 1.5em;
+    background: white;
+    opacity: 0.125;
+    will-change: transform;
+    border-radius: 0.15em;
+
+    &.loading {
+      display: none !important;
+    }
+    &.range {
+      padding: 0;
+      margin: 10px 0;
+      height: calc(1.5em - 8px);  /* extra 4px margin, == 8px */
+      border-radius: 0.05em;
+      background: rgba(10, 250, 202, 0.5);
+      opacity: 0.75;
+    }
+  }
 }
 
 .chooser {
@@ -273,31 +277,33 @@ body.has-value footer .help {
   flex-flow: row;
   padding-left: 8px;
   z-index: 10;
-}
 
-.options h4 {
-  color: #0afaca;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
-  text-transform: uppercase;
-  margin-right: 12px;
-  font-size: 0.33em;
-  line-height: 3em;
-}
-.options.modifier h4 {
-  color: rgb(251, 220, 59);
-}
+  h4 {
+    color: #0afaca;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    margin-right: 12px;
+    font-size: 0.33em;
+    line-height: 3em;
+  }
 
-.options .buttons {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: flex-start;
-}
+  &.modifier h4 {
+    color: rgb(251, 220, 59);
+  }
 
-.options button {
-  padding-top: 0.05em;  /** offset emoji lower */
-  line-height: calc(1.33em - 0.05em);
-  margin-bottom: 4px;
-  margin-right: 4px;
+  .buttons {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+  }
+
+  button {
+    @offset: 0.05em;
+    padding-top: @offset;  /** offset emoji lower */
+    line-height: calc(1.33em - @offset);
+    margin-bottom: 4px;
+    margin-right: 4px;
+  }
 }
 
 /** advanced */
@@ -376,11 +382,12 @@ form.pending button:disabled {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.statusicon::before {
-  opacity: 0;
-  will-change: opacity;
-  transition: opacity 0.5s;
+
+  &::before {
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 0.5s;
+  }
 }
 .failure .text {
   opacity: 0;
@@ -406,26 +413,27 @@ form.pending button:disabled {
   font-size: 3em;
   will-change: opacity;
   transition: opacity 0.25s;
-}
-.loader::after, .loader::before {
-  content: '';
-  position: absolute;
-  width: 1em;
-  height: 1em;
-  top: 0.33em;
-  left: 0;
-  opacity: 0.8;
-  border-radius: 1000px;
-  background: #0afaca;
-  will-change: transform, opacity;
-  animation: loader infinite 1s alternate ease-in-out;
-}
-.loader::before {
-  margin-left: -0.75em;
-  animation-delay: -1s;
-}
-.loader::after {
-  margin-left: -0.25em;
+
+  &::after, &::before {
+    content: '';
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    top: 0.33em;
+    left: 0;
+    opacity: 0.8;
+    border-radius: 1000px;
+    background: #0afaca;
+    will-change: transform, opacity;
+    animation: loader infinite 1s alternate ease-in-out;
+  }
+  &::before {
+    margin-left: -0.75em;
+    animation-delay: -1s;
+  }
+  &::after {
+    margin-left: -0.25em;
+  }
 }
 
 /** size overrides */
