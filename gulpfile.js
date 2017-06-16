@@ -6,6 +6,8 @@ const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const rollup = require('gulp-better-rollup')
 const babel = require('rollup-plugin-babel')
+const uglify = require('rollup-plugin-uglify');
+
 
 gulp.task('less', function() {
   return gulp.src('*.less')
@@ -16,7 +18,7 @@ gulp.task('less', function() {
 gulp.task('rollup', function() {
   // TODO: bring in Promise and fetch polyfill
   const options = {
-    plugins: [babel()],
+    plugins: [babel(), uglify()],
   };
   gulp.src('src/bundle.js')
       .pipe(sourcemaps.init())
