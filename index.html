@@ -448,6 +448,8 @@ window.dispatchEvent(new CustomEvent('hashchange'));
 (function(el) {
   const isWordCode = code => {
     // FIXME: turns out matching non-emoji is hard
+    // TODO: this RegExp _might_ work but it needs transpiling-
+    // new RegExp(/(?:[\p{Letter}\p{Number}\p{Punctuation}](?!\u{fe0f}?\u{20e3}))+/u);
     return code < 5000 && code != 32;
   };
 
