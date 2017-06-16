@@ -10,14 +10,22 @@ const measureText = (function() {
   const context = canvas.getContext('2d');
   context.font = '100px monospace';
 
+  // get a baseline emoji width: this is the well-supported 'FACE WITH TEARS OF JOY'
+  const emojiWidth = context.measureText('\u{1f602}').width;
+  const invalidWidth = context.measureText('\u{ffffd}').width;
+  if (emojiWidth === invalidWidth) {
+    console.warn('emoji likely not supported, \u{1f602} appears invalid')
+  }
+
   let cache = {};
   let count = 0;
 
   return s => {
     let result = cache[s];
     if (result === undefined) {
-      cache[s] = result = context.measureText(s).width / 100;
-      console.debug('emoji', s, 'is', result);
+      const real = context.measureText(s).width / 100;
+      cache[s] = result = real / emojiWidth;
+      console.debug('emoji', s, 'has width', real, 'adjusted', result);
       if (++count > 4000) {
         // nb. at June 2017, there's about ~1,800 emojis including variations, so this number is
         // probably greater than we'll ever use: still, empty if it's too big
