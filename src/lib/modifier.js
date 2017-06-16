@@ -1,6 +1,4 @@
 
-const modifier = {};
-
 /**
  * @param {string} string to measure
  * @return {number} length of text in monospace units
@@ -57,7 +55,7 @@ const isSingle = (function() {
  * @param {string} string to check
  * @return {boolean} whether this is probably an emoji
  */
-const isExpectedLength = (function() {
+export const isExpectedLength = (function() {
   if (fixedWidthEmoji) {
     // use 'FACE WITH TEARS OF JOY'
     const emojiWidth = measureText('\u{1f602}');
@@ -118,7 +116,7 @@ const isExpectedLength = (function() {
  *
  * @type {boolean}
  */
-modifier.basicDiversity = (measureText('\u{1f468}\u{1f3fb}') === measureText('\u{1f468}'));
+const basicDiversity = (measureText('\u{1f468}\u{1f3fb}') === measureText('\u{1f468}'));
 
 /**
  * @param {number} p
@@ -307,7 +305,7 @@ function splitEmoji(points) {
  * @param {{diversity: undefined|number, gender: undefined|string}=} opt_op
  * @return {out: (string|undefined), diversity: boolean, gender: {single: boolean, double: boolean, neutral: boolean}}
  */
-modifier.modify = function(s, opt_op) {
+export function modify(s, opt_op) {
   const points = jsdecode(s);
   const stats = {diversity: false, gender: {single: false, double: false, neutral: false}};
 
@@ -349,7 +347,7 @@ modifier.modify = function(s, opt_op) {
     const isSinglePerson =
         genderable ? (isPersonGender(first) && genderable === 1 && !family) : undefined;
     if (isSinglePerson) {
-      stats.diversity = modifier.basicDiversity;
+      stats.diversity = basicDiversity;
     }
     if (record) {
       // true: is a 'non family person', aka profession or disembodied head (diversity OK)
@@ -359,7 +357,7 @@ modifier.modify = function(s, opt_op) {
     }
 
     // check for early exhaustive answer
-    if ((stats.diversity || !modifier.basicDiversity) && stats.gender.neutral) {
+    if ((stats.diversity || !basicDiversity) && stats.gender.neutral) {
       // ... don't finish 'some' early if we're recording gender data
       return !record && stats.gender.single && stats.gender.double;
     }
@@ -370,7 +368,7 @@ modifier.modify = function(s, opt_op) {
     // do slow measure checks
     // TODO: can we use \p{Modifier_Base} as a faster check than measureText for +ve case?
     const candidate = String.fromCodePoint(first);
-    if (modifier.basicDiversity && !stats.diversity && isSingle(candidate + '\u{1f3fb}')) {
+    if (basicDiversity && !stats.diversity && isSingle(candidate + '\u{1f3fb}')) {
       stats.diversity = true;
     }
     if (!stats.gender.neutral && isSingle(candidate + '\u{200d}\u{2640}\u{fe0f}')) {
@@ -448,7 +446,7 @@ modifier.modify = function(s, opt_op) {
         if (isDiversitySelector(ch.suffix)) {
           // always tweak existing diversity modifiers
           ch.suffix = opt_op.diversity;
-        } else if (i === 0 && modifier.basicDiversity && isSinglePerson !== false) {
+        } else if (i === 0 && basicDiversity && isSinglePerson !== false) {
           // if it's the first point in a non-family, try to apply diversity
           if (isSinglePerson || isSingle(String.fromCodePoint(first) + '\u{1f3fb}')) {
             ch.suffix = opt_op.diversity;

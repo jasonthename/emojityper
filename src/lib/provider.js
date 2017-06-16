@@ -54,7 +54,7 @@
     }
 
     // TODO: only send extra query if there's not enough results, or the user hits 'more'
-    localTimeout = window.setTimeout(_ => {
+    const localTimeout = window.setTimeout(_ => {
       const data = new FormData();
       data.append('q', text);
       data.append('prefix', prefix)
