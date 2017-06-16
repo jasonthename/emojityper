@@ -10,23 +10,13 @@ const measureText = (function() {
   const context = canvas.getContext('2d');
   context.font = '1px monospace';
 
-  // get a baseline emoji width: this is the well-supported 'FACE WITH TEARS OF JOY'
-  const emojiWidth = context.measureText('\u{1f602}').width;
-  const invalidWidth = context.measureText('\u{ffffd}').width;
-  if (emojiWidth === invalidWidth) {
-    console.warn('emoji likely not supported, \u{1f602} appears invalid')
-  }
-  console.debug('basic emoji width', emojiWidth);
-
   let cache = {};
   let count = 0;
 
   return s => {
     let result = cache[s];
     if (result === undefined) {
-      const real = context.measureText(s).width;
-      cache[s] = result = real / emojiWidth;
-      console.debug('emoji', s, 'has width', real, 'adjusted', result);
+      cache[s] = result = context.measureText(s).width;
       if (++count > 4000) {
         // nb. at June 2017, there's about ~1,800 emojis including variations, so this number is
         // probably greater than we'll ever use: still, empty if it's too big
@@ -39,39 +29,87 @@ const measureText = (function() {
 }());
 
 /**
+ * @type {boolean} whether this platform probably has fixed width emoji
+ */
+const fixedWidthEmoji = Boolean(/Mac|Android|iP(hone|od|ad)/);
+
+/**
  * @param {string} string to measure
  * @return {boolean} whether this is a single char long (and probably a single emoji)
  */
-const isSingle = s => measureText(s) === 1;
-
-/**
- * The width of the letter 'a' in monospace.
- *
- * @type {number}
- */
-modifier.characterWidth = measureText('a');
-
-/**
- * The width of a basic emoji character. Note that only Mac uses a fixed width for all emoji.
- *
- * @type {number}
- */
-modifier.emojiWidth = measureText('\u{1f602}');
-
-/**
- * The width of the 'invalid' emoji character (typically a box).
- *
- * @type {number}
- */
-modifier.invalidWidth = measureText('\u{ffffd}');
-
-
-(function() {
-  // TODO: do something with this information
-  if (modifier.invalidWidth === modifier.emojiWidth) {
-    console.warn('basic emoji has invalid width, emoji probably not supported');
+const isSingle = (function() {
+  if (fixedWidthEmoji) {
+    // get a baseline emoji width: this is the well-supported 'FACE WITH TEARS OF JOY'
+    const emojiWidth = measureText('\u{1f602}');
+    return s => measureText(s) === emojiWidth;
   }
-  console.info('invalid width', modifier.invalidWidth, 'char width', modifier.characterWidth, 'emojiWidth', modifier.emojiWidth);
+  const invalidWidth = context.measureText('\u{ffffd}').width;
+  return s => {
+    const width = measureText(s);
+    return width !== invalidWidth && width < invalidWidth * 2;
+  };
+}());
+
+/**
+ * Is this string rendering correctly as an emoji or sequence of emojis? On variable width
+ * platforms, this can take O(n).
+ *
+ * @param {string} string to check
+ * @return {boolean} whether this is probably an emoji
+ */
+const isExpectedLength = (function() {
+  if (fixedWidthEmoji) {
+    // use 'FACE WITH TEARS OF JOY'
+    const emojiWidth = measureText('\u{1f602}');
+    return s => {
+      // emojis could be _smaller_ than expected, but not larger- and not random non-unit widths
+      const points = jsdecode(s);
+      const chars = splitEmoji(points);
+
+      // count flags, reduce expected by / 2
+      const flags = chars.reduce((total, char) => total += isFlagPoint(char[0].point) ? 1 : 0, 0);
+      const expectedLength = chars.length - Math.ceil(flags / 2);
+
+      const width = measureText(s) / emojiWidth;
+
+      // does this have non-emoji characters in it?
+      if (Math.floor(width) !== width) { return false; }
+
+      // otherwise, as long as we're equal or smaller
+      return width <= expectedLength;
+    };
+  }
+
+  const invalidWidth = context.measureText('\u{ffffd}').width;
+  return s => {
+    const points = jsdecode(s);
+    const chars = splitEmoji(points);
+
+    for (let i = 0; i < chars.length; ++i) {
+      const char = chars[i];
+      if (isFlagPoint(char[0].point)) {
+        if (i === chars.length - 1 || !isFlagPoint(char[i+1].point)) {
+          return false;  // only one single flag point
+        }
+
+        const s = String.fromCodePoint(...char[i].point, char[i+1].point);
+        if (!isSingle(s)) {
+          return false;  // can't render this flag
+        }
+
+        ++i;  // eaten next flag char
+        continue;
+      }
+
+      // otherwise, measure this particular point and ensure it's single.
+      const s = String.fromCodePoint(...char.map(c => c.point));
+      if (!isSingle(s)) {
+        return false;
+      }
+    }
+
+    return true;
+  };
 }());
 
 /**
@@ -81,33 +119,6 @@ modifier.invalidWidth = measureText('\u{ffffd}');
  * @type {boolean}
  */
 modifier.basicDiversity = (measureText('\u{1f468}\u{1f3fb}') === measureText('\u{1f468}'));
-
-/**
- * Is this string rendering correctly as an emoji or sequence of emojis on a Mac?
- *
- * @param {string} string to check
- * @return {boolean} whether this is probably an emoji
- */
-function isExpectedLengthFixedEmoji(s) {
-  // emojis could be _smaller_ than expected, but not larger- and not random non-unit widths
-  const points = jsdecode(s);
-  const expectedLength = splitEmoji(points).length;
-  const width = measureText(s);
-
-  // does this have non-emoji characters in it?
-  if (Math.floor(width) !== width) { return false; }
-
-  // otherwise, as long as we're equal or smaller
-  return width <= expectedLength;
-}
-
-/**
- * Is this string rendering correctly as an emoji or sequence of emojis?
- *
- * @param {string} string to check
- * @return {boolean} whether this is probably an emoji
- */
-const isExpectedLength = isExpectedLengthFixedEmoji;
 
 /**
  * @param {number} p
@@ -266,18 +277,23 @@ function splitEmoji(points) {
 
   for (let i = 1; i < points.length; ++i) {
     const check = points[i];
-    if (isDiversitySelector(check) || isVariationSelector(check)) {
+
+    if (isFlagPoint(curr[curr.length-1].point)) {
+      // previous was a flag, create a new one
+    } else if (isDiversitySelector(check) || isVariationSelector(check)) {
       // store in suffix
       curr[curr.length-1].suffix = check;
+      continue;
     } else if (check === 0x200d) {
       // push next char onto curr
       const next = points[++i];
       next && curr.push({point: next, suffix: 0});
-    } else {
-      // new character, reset
-      curr = [{point: check, suffix: 0}];
-      out.push(curr);
+      continue;
     }
+
+    // new character, reset
+    curr = [{point: check, suffix: 0}];
+    out.push(curr);
   }
   return out;
 }
