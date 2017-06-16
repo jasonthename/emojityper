@@ -1,4 +1,6 @@
 
+import * as provider from './lib/provider.js';
+
 // advanced handler
 (function(input, advanced) {
   const form = advanced.querySelector('form');
@@ -36,7 +38,7 @@
       namer.value = '';
     };
 
-    const p = emojimanager.submit(namer.value, focus).then(_ => {
+    const p = provider.submit(namer.value, focus).then(_ => {
       button.classList.add('success');
       return false;
     }).catch(err => {

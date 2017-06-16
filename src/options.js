@@ -1,5 +1,5 @@
 
-import './lib/provider.js';
+import * as provider from './lib/provider.js';
 import * as modifier from './lib/modifier.js';
 
 // suggestion handler
@@ -197,12 +197,12 @@ import * as modifier from './lib/modifier.js';
   };
 
   // set global callback for show
-  window.emojimanager.callback = show;
+  provider.callback(show);
 
   // handler for a prefix search
   input.addEventListener('query', ev => {
     query = ev.detail;
-    window.emojimanager.request(query.text, query.prefix);
+    provider.request(query.text, query.prefix);
   });
 
   // request an autocomplete, the user has just kept typing
