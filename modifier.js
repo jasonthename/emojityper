@@ -6,16 +6,18 @@ const modifier = {};
  * @return {number} length of text in monospace units
  */
 const measureText = (function() {
+  const factor = 100;
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
-  context.font = '100px monospace';
+  context.font = factor + 'px monospace';
 
   // get a baseline emoji width: this is the well-supported 'FACE WITH TEARS OF JOY'
-  const emojiWidth = context.measureText('\u{1f602}').width;
-  const invalidWidth = context.measureText('\u{ffffd}').width;
+  const emojiWidth = context.measureText('\u{1f602}').width / factor;
+  const invalidWidth = context.measureText('\u{ffffd}').width / factor;
   if (emojiWidth === invalidWidth) {
     console.warn('emoji likely not supported, \u{1f602} appears invalid')
   }
+  console.debug('basic emoji width', emojiWidth);
 
   let cache = {};
   let count = 0;
@@ -23,7 +25,7 @@ const measureText = (function() {
   return s => {
     let result = cache[s];
     if (result === undefined) {
-      const real = context.measureText(s).width / 100;
+      const real = context.measureText(s).width / factor;
       cache[s] = result = real / emojiWidth;
       console.debug('emoji', s, 'has width', real, 'adjusted', result);
       if (++count > 4000) {
