@@ -152,11 +152,19 @@ function isDiversitySelector(p) {
 
 /**
  * @param {number} p
+ * @return {boolean} whether the passed rune is one of A-Z for flags
+ */
+function isFlagPoint(p) {
+  return p >= 0x1f1e6 && p <= 0x1f1ff;
+}
+
+/**
+ * @param {number} p
  * @return {boolean} whether the passed rune is probably not a modifier base
  */
 function unlikelyModifierBase(p) {
   return p < 0x261d || isPointGender(p) || isVariationSelector(p) || isDiversitySelector(p) ||
-      (p >= 0x1f1e6 && p <= 0x1f1ff);  // flags
+      isFlagPoint(p);
 }
 
 /**
@@ -251,6 +259,11 @@ function splitEmoji(points) {
   }
   let curr = [{point: points[0], suffix: 0}];
   const out = [curr];
+
+  // TODO: doesn't deal with flags or regional letters
+  // flags are weird: U + N + A, for instance, will render the Namibia flag where the UN flag is
+  // not supported (but the UN flag where it is)- taking the left-most valid code
+  // NOTE: the regional flag letters are seen as _emoji_ on their own, at least on Mac.
 
   for (let i = 1; i < points.length; ++i) {
     const check = points[i];
