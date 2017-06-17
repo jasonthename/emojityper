@@ -46,7 +46,12 @@ function upgrade(el) {
     sizer.textContent = el.value.substr(from, to - from);
     const width = sizer.getBoundingClientRect().width - indent;
 
-    underline.hidden = false;
+    if (width < 0 && !document.getElementById('less')) {
+      // nb. this seems to happen in dev with lesscss
+      console.warn('invalid sizer width', width, 'for text', sizer.textContent);
+    }
+
+    underline.hidden = width <= 0;
     underline.style.left = left + 'px';
     underline.style.width = width + 'px';
     underline.style.transform = 'translateX(-' + el.scrollLeft + 'px)';
