@@ -1,4 +1,5 @@
-const api = 'https://emojityper.appspot.com';
+//const api = 'https://emojityper.appspot.com';
+const api = 'http://localhost:8080';
 
 const data = window.fetch(api + '/popular').then(out => out.json());
 let indexed = data.then(emojimap => {
@@ -78,13 +79,18 @@ export function request(text, prefix) {
 }
 
 export function submit(name, value) {
-  // const data = `name=${name}&emoji=${value}`;
-  // FIXME: we've disabled CORS for now; the response is actually useless anyway
-  // FIXME: however, the client now thinks this succeeds even when it 400s
   const data = new FormData();
   data.append('name', name);
   data.append('emoji', value);
-  return window.fetch(api + '/name', {method: 'POST', data, mode: 'no-cors'});
+
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.onload = resolve;  // TODO
+    xhr.onerror = reject;
+    xhr.open('POST', api + '/name');
+    xhr.send(data);
+  });
+//  return window.fetch(api + '/name', {method: 'POST', mode: 'cors', data: data});
 }
 
 export function callback(callback) {
