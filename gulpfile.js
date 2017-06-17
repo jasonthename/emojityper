@@ -8,6 +8,7 @@ const cleanCSS = require('gulp-clean-css');
 const less = require('gulp-less');
 const sourcemaps = require('gulp-sourcemaps');
 const tweakdom = require('gulp-tweakdom');
+const path = require('path');
 const babel = require('rollup-plugin-babel')
 const uglify = require('rollup-plugin-uglify');
 const uglifyES = require('uglify-es');
@@ -25,7 +26,7 @@ gulp.task('rollup-nomodule', function() {
     // nb. ascii_only so escaped emoji are left alone
     plugins: [babel(), uglify({output: {ascii_only: true}})],
   };
-  return gulp.src(['src/polyfill.js', 'src/bundle.js'])
+  return gulp.src(['src/support/*.js', 'src/bundle.js'])
     .pipe(sourcemaps.init())
     .pipe(rollup(options, {format: 'iife'}))
     .pipe(concat('support.min.js'))
@@ -47,7 +48,9 @@ gulp.task('rollup', ['rollup-nomodule'], function() {
 });
 
 gulp.task('html', function() {
-  const mutator = document => {
+  const mutator = (document, file) => {
+    if (path.basename(file) !== 'index.html') { return; }
+
     // replace lessCSS with actual styles
     document.getElementById('less').remove();
     const link = Object.assign(document.createElement('link'),
