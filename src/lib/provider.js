@@ -46,12 +46,6 @@ const performRequest = (text, prefix) => {
     return;
   }
 
-  function send(out) {
-    if (timeout === localTimeout) {
-      requestCallback(out);
-    }
-  }
-
   // TODO: only send extra query if there's not enough results, or the user hits 'more'
   const localTimeout = window.setTimeout(_ => {
     const data = new FormData();
@@ -68,6 +62,16 @@ const performRequest = (text, prefix) => {
     }
     send(results);
   });
+
+  // nb. at end to hoist above 'localTimeout'
+  function send(out) {
+    if (timeout === localTimeout) {
+      console.debug('got A-OK results', out);
+      requestCallback(out);
+    } else {
+      console.debug('timeout changed, not sending', out);
+    }
+  }
 };
 
 export function request(text, prefix) {
