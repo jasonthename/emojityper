@@ -1,4 +1,4 @@
-Emojityper lets you type words, receive emoji &#x1f44d;
+[Emojityper](https://emojityper.com) lets you type words, receive emoji &#x1f44d;
 
 ## Develop
 
