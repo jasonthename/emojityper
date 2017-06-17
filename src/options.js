@@ -207,7 +207,7 @@ const show = results => {
     holders[name] = buttons;
 
     // do a quick pass on already available buttons
-    result['options'] = result['options'].filter(option => {
+    result['pending'] = result['options'].filter(option => {
       const button = buttonCache.get(option);
       if (!button) {
         return true;  // we want to redraw this later
@@ -228,7 +228,7 @@ const show = results => {
     let idle = null;
 
     for (let i = 0, result; result = results[i]; ++i) {
-      const options = result['options'];
+      const options = result['pending'];
       for (let j = 0, option; option = options[j]; ++j) {
         if (!idle || idle.timeRemaining() <= 0) {
           const p = new Promise(resolve => window.requestIdleCallback(o => resolve(o)));
@@ -261,7 +261,7 @@ typer.addEventListener('request', ev => {
   let choice = null;
 
   (savedResults || []).some(result => {
-    if (result.name !== word) { return false; }
+    if (result['name'] !== word) { return false; }
     choice = result.options[0];
     return true;
   });
