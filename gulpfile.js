@@ -10,6 +10,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const tweakdom = require('gulp-tweakdom');
 const path = require('path');
 const babel = require('rollup-plugin-babel')
+const commonJS = require('rollup-plugin-commonjs');
 const uglify = require('rollup-plugin-uglify');
 const uglifyES = require('uglify-es');
 
@@ -21,10 +22,15 @@ gulp.task('css', function() {
 });
 
 gulp.task('rollup-nomodule', function() {
-  // TODO: bring in Promise and fetch polyfill or remove dep
+  // TODO: bring in fetch polyfill
   const options = {
     // nb. ascii_only so escaped emoji are left alone
-    plugins: [babel(), uglify({output: {ascii_only: true}})],
+    plugins: [
+      commonJS(),
+      babel(),
+      uglify({output: {ascii_only: true}}),
+    ],
+    cache: false,  // cache clobbers rollup
   };
   return gulp.src(['src/support/*.js', 'src/bundle.js'])
     .pipe(sourcemaps.init())
@@ -34,11 +40,14 @@ gulp.task('rollup-nomodule', function() {
     .pipe(gulp.dest('./dist'));
 })
 
-gulp.task('rollup', ['rollup-nomodule'], function() {
+gulp.task('rollup', function() {
   // nb. this task doesn't really depend on rollup-nomodule, but they can't be run in parallel
   const options = {
     // nb. ascii_only so escaped emoji are left alone
-    plugins: [uglify({output: {ascii_only: true, ecma: 6}}, uglifyES.minify)],
+    plugins: [
+      uglify({output: {ascii_only: true, ecma: 6}}, uglifyES.minify),
+    ],
+    cache: false,  // cache clobbers rollup-nomodule
   };
   return gulp.src('src/bundle.js')
     .pipe(sourcemaps.init())
@@ -71,7 +80,8 @@ gulp.task('static', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('default', ['css', 'rollup', 'html', 'static']);
+gulp.task('js', ['rollup', 'rollup-nomodule']);
+gulp.task('default', ['css', 'js', 'html', 'static']);
 
 gulp.task('clean', function() {
   return del(['./dist'])

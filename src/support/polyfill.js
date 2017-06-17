@@ -26,3 +26,13 @@ if (!Array.from) {
     return Array.prototype.slice.call(arg);
   };
 }
+
+// for Promise
+import Promise from '../../node_modules/promise-polyfill/promise.min.js';
+if (!window.Promise) {
+  window.Promise = Promise;
+}
+
+// for async/await magic
+// nb. this puts regeneratorRuntime into the top-level scope
+import '../../node_modules/regenerator-runtime/runtime.js';
