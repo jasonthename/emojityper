@@ -1,3 +1,7 @@
+@color-feature: #0afaca;
+@color-background: #2c3e50;
+@color-placeholder: #cbd6e2;
+
 * {
   margin: 0;
   padding: 0;
@@ -8,11 +12,8 @@
 }
 
 html {
-  background: #2c3e50;
+  background: @color-background;
   min-height: 100vh;
-  font-size: 38px;
-  /** nb: does NOT include Arial: this causes Chrome 59? to not combine gender emojis properly */
-  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
 body {
@@ -22,10 +23,21 @@ body {
   flex-flow: column;
   min-height: 100vh;
   color: #b4bcc2;
+  font-size: 38px;
+  /** nb: does NOT include Arial: this causes Chrome 59? to not combine gender emojis properly */
+  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+
+  @media (max-width: 600px) {
+    padding: 0.25em;
+  }
+  @media (max-height: 400px) {
+    padding-top: 0.125em;
+    font-size: 32px;
+  }
 }
 
 a {
-  color: rgba(10, 250, 202, 1.0);
+  color: @color-feature;
   text-decoration: none;
 
   &:hover {
@@ -33,8 +45,8 @@ a {
   }
   &:focus {
     outline: none;
-    color: #2c3e50;
-    background: rgba(10, 250, 202, 1.0);
+    color: @color-background;
+    background: @color-feature;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
     border-radius: 2px;
   }
@@ -76,7 +88,7 @@ button {
 
   &.rippleJS {
     border-radius: 0;
-    color: rgba(10, 250, 202, 1.0);
+    color: @color-feature;
   }
 
   &:disabled {
@@ -87,7 +99,7 @@ button {
 
   &:focus {
     outline: none;
-    border-color: rgba(10, 250, 202, 1.0);
+    border-color: @color-feature;
   }
 
   .loader {
@@ -161,79 +173,78 @@ main {
     flex-grow: 1;
     position: relative;
   }
-}
 
-main input,
-main .sizer {
-  font: inherit;
-  font-size: 1em;
-  padding: 6px 0;
-  line-height: 1.5em;
-  text-indent: 15px;
-  border: 0;
-}
-main .overflow-helper {
-  width: 100%;
-  overflow: hidden;
-  visibility: hidden;
-  position: absolute;
-  border-radius: 12px;
-}
-main .sizer {
-  background: blue;
-  border-right: 0;
-  padding-right: 0;
-  display: inline-block;
-  white-space: pre;
-}
-main input + .focus {
-  position: absolute;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 12px;
-  border: 3px solid #606b79;
-  /** TODO: show box-shadow always? */
-  box-shadow:
-      inset 16px 0 8px -8px rgba(74, 87, 103, 0.75),
-      inset -16px 0 8px -8px rgba(74, 87, 103, 0.75);
-  opacity: 0;
-  will-change: opacity;
-  transition: opacity 0.2s;
-}
-main input:focus + .focus {
-  opacity: 1;
-}
-main input {
-  position: relative;  /* place above underline */
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.125);
-  width: 100%;
-  box-sizing: border-box;
-  color: rgba(255, 255, 255, 1);
-}
-main input::selection {
-  background: transparent;
-}
-main input::-moz-selection {
-  /** firefox only */
-  background: transparent;
-}
-main input::placeholder {
-  color: #cbd6e2;
-  opacity: 0.33;
-}
-main input::-ms-placeholder {
-  /** FIXME: rollup into above */
-  color: #cbd6e2;
-  opacity: 0.33;
-}
-main input:focus {
-  outline: none;
-}
-main {
+  input, .sizer {
+    font: inherit;
+    font-size: 1em;
+    padding: 6px 0;
+    line-height: 1.5em;
+    text-indent: 15px;
+    border: 0;
+  }
+  input {
+    position: relative;  // place above underline
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.125);
+    width: 100%;
+    box-sizing: border-box;
+    color: white;
+
+    &::selection {
+      background: transparent;
+    }
+    &::-moz-selection {
+      /** firefox only */
+      background: transparent;
+    }
+    &::placeholder {
+      color: @color-placeholder;
+      opacity: 0.33;
+    }
+    &::-ms-placeholder {
+      color: @color-placeholder;
+      opacity: 0.33;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  .sizer {
+    background: red;  // should never be shown
+    border-right: 0;
+    padding-right: 0;
+    display: inline-block;
+    white-space: pre;
+  }
+
+  .overflow-helper {
+    width: 100%;
+    overflow: hidden;
+    visibility: hidden;
+    position: absolute;
+    border-radius: 12px;
+  }
+
+  input + .focus {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    border: 3px solid #606b79;
+    // TODO: show box-shadow always?
+    box-shadow:
+        inset 16px 0 8px -8px rgba(74, 87, 103, 0.75),
+        inset -16px 0 8px -8px rgba(74, 87, 103, 0.75);
+    opacity: 0;
+    will-change: opacity;
+  }
+  input:focus + .focus {
+    opacity: 1;
+  }
+
   .underline {
     visibility: visible;
     pointer-events: none;
@@ -254,7 +265,7 @@ main {
       margin: 10px 0;
       height: ~"calc(1.5em - 8px)";  /* extra 4px margin, == 8px */
       border-radius: 0.05em;
-      background: rgba(10, 250, 202, 0.5);
+      background: @color-feature;
       opacity: 0.75;
     }
   }
@@ -279,7 +290,7 @@ body.has-value footer .help {
   z-index: 10;
 
   h4 {
-    color: #0afaca;
+    color: @color-feature;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
     margin-right: 12px;
@@ -312,13 +323,14 @@ section.advanced {
   margin: 1em;
   display: flex;
   justify-content: center;
-}
-section.advanced form {
-  display: flex;
-}
-section.advanced button:disabled {
-  visibility: visible;
-  opacity: 0.5;
+
+  form {
+    display: flex;
+  }
+  button:disabled {
+    visibility: visible;
+    opacity: 0.5;
+  }
 }
 
 input.small {
@@ -331,26 +343,25 @@ input.small {
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.125);
   box-sizing: border-box;
-  color: #0afaca;
+  color: @color-feature;
   opacity: 0.5;
-}
-input.small::placeholder {
-  color: #cbd6e2;
-  opacity: 0.33;
-}
-input.small::-ms-placeholder {
-  /** FIXME: rollup into above */
-  color: #cbd6e2;
-  opacity: 0.33;
-}
-input.small:not(:placeholder-shown) {
-  /* FIXME: not supported in IE/Edge */
-  opacity: 1;
-}
-input.small:focus {
-  outline: none;
-  border-color: #0afaca;
-  opacity: 1;
+
+  &::placeholder {
+    color: @color-placeholder;
+    opacity: 0.33;
+  }
+  &::-ms-placeholder {
+    color: @color-placeholder;
+    opacity: 0.33;
+  }
+  &:not(:placeholder-shown) {
+    opacity: 1;  // FIXME: not supported in IE/Edge
+  }
+  &:focus {
+    outline: none;
+    border-color: @color-feature;
+    opacity: 1;
+  }
 }
 
 form.pending button .loader {
@@ -423,7 +434,7 @@ form.pending button:disabled {
     left: 0;
     opacity: 0.8;
     border-radius: 1000px;
-    background: #0afaca;
+    background: @color-feature;
     will-change: transform, opacity;
     animation: loader infinite 1s alternate ease-in-out;
   }
@@ -433,19 +444,5 @@ form.pending button:disabled {
   }
   &::after {
     margin-left: -0.25em;
-  }
-}
-
-/** size overrides */
-
-@media (max-width: 600px) {
-  body {
-    padding: 0.25em;
-  }
-}
-@media (max-height: 400px) {
-  body {
-    padding-top: 0.125em;
-    font-size: 32px;
   }
 }
