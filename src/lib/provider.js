@@ -66,10 +66,7 @@ const performRequest = (text, prefix) => {
   // nb. at end to hoist above 'localTimeout'
   function send(out) {
     if (timeout === localTimeout) {
-      console.debug('got A-OK results', out);
       requestCallback(out);
-    } else {
-      console.debug('timeout changed, not sending', out);
     }
   }
 };
