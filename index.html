@@ -34,13 +34,13 @@
   <script>
 // nb. intentionally inline ES5
 window.addEventListener('hashchange', function(ev) {
-  var v = window.decodeURI(window.location.hash.substr(1));
-  typer.value = v;
+  typer.value = window.decodeURI(window.location.hash.substr(1));
 });
-window.dispatchEvent(new CustomEvent('hashchange'));
+typer.value = window.decodeURI(window.location.hash.substr(1));
 typer.addEventListener('value', function(ev) {
   var v = ev.detail;
-  window.history.replaceState(null, null, v ? ('#' + v) : window.location.pathname);
+  var l = window.location;
+  window.history.replaceState(null, null, v ? ('#' + v) : l.pathname + l.search);
 });
   </script>
 </main>
