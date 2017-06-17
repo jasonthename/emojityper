@@ -252,7 +252,7 @@ main {
     &.range {
       padding: 0;
       margin: 10px 0;
-      height: calc(1.5em - 8px);  /* extra 4px margin, == 8px */
+      height: ~"calc(1.5em - 8px)";  /* extra 4px margin, == 8px */
       border-radius: 0.05em;
       background: rgba(10, 250, 202, 0.5);
       opacity: 0.75;
@@ -300,7 +300,7 @@ body.has-value footer .help {
   button {
     @offset: 0.05em;
     padding-top: @offset;  /** offset emoji lower */
-    line-height: calc(1.33em - @offset);
+    line-height: (1.33em - @offset);
     margin-bottom: 4px;
     margin-right: 4px;
   }
