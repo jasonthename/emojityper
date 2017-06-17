@@ -8,9 +8,11 @@ Otherwise, run the build steps below and serve the `dist` path.
 ## Build
 
 1. Run `yarn install` to get dependencies
-1. Build with `gulp`
-1. Check in the contents of `dist` to the `gh-pages` branch
-1. &#x1f60e;
+1. Run `deploy.sh`, which—
+  * builds with `gulp`
+  * checks in the contents of `dist` into `gh-pages`
+
+&#x1f60e;
 
 ## Backend
 
