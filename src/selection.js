@@ -34,8 +34,8 @@ import * as provider from './lib/provider.js';
     const cleanup = _ => {
       form.classList.remove('pending');
       namer.disabled = false;
-      button.disabled = false;
       namer.value = '';
+      namer.dispatchEvent(new CustomEvent('change'));
     };
 
     const p = provider.submit(namer.value, focus).then(_ => {
