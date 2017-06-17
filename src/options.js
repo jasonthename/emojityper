@@ -115,6 +115,9 @@ import * as modifier from './lib/modifier.js';
     buttonArray.length = 0;
     savedResults = results;
 
+    const canary = document.createElement('span');
+    chooser.appendChild(canary);
+
     const createOptionsButtons = (heading, opt_class) => {
       const el = document.createElement('div');
       el.className = 'options';
@@ -170,27 +173,46 @@ import * as modifier from './lib/modifier.js';
       }
     }
 
-    // FIXME: slowly add these (over frames), to amortize rendering hit
-    // FIXME: we still get duplicates- some which are just force emoji / missing
-    (results || []).forEach(result => {
-      const name = result['name'];
-      let buttons = null;
-      result['options'].forEach(option => {
-        // TODO: If a user has allowed it, render all emojis (even invalid) anyway.
-        if (!modifier.isExpectedLength(option)) {
-          return;
-        }
-        if (!buttons) {
-          // create if we haven't already got it
-          buttons = createOptionsButtons(name);
-        }
-        const button = createButton(buttons, option);
-        button.dataset['word'] = name;
-      });
-    });
+    // async helper function for adding emoji over multiple frames (via requestIdleCallback).
+    // FIXME: immediately readd matchin emoji buttons, avoid flash
+    const render = async function() {
+      let idle = null;
 
-    // set global class to indicate chooser visible
-    document.body.classList.toggle('has-chooser', buttonArray.length > 0);
+      for (let i = 0, result; result = results[i]; ++i) {
+        const name = result['name'];
+        let buttons = null;
+
+        const options = result['options'];
+        for (let j = 0, option; option = options[j]; ++j) {
+          if (!idle || idle.timeRemaining() <= 0) {
+            const p = new Promise(resolve => window.requestIdleCallback(o => resolve(o)));
+            idle = await p;
+            if (!canary.parentNode) { return; }
+          }
+
+          // TODO: If a user has allowed it, render all emojis (even invalid) anyway.
+          if (!modifier.isExpectedLength(option)) {
+            return;
+          }
+          if (!buttons) {
+            // create if we haven't already got it
+            buttons = createOptionsButtons(name);
+          }
+          const button = createButton(buttons, option);
+          button.dataset['word'] = name;
+        };
+      };
+
+    };
+
+    if (results) {
+      const p = render();
+      p.then(_ => {
+        document.body.classList.toggle('has-chooser', buttonArray.length > 0);
+      }).catch(e => console.warn('couldn\'t render emoji', e));
+    } else {
+      document.body.classList.remove('has-chooser');
+    }
   };
 
   // set global callback for show
