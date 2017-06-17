@@ -10,10 +10,12 @@ const uglify = require('rollup-plugin-uglify');
 const uglifyES = require('uglify-es');
 const concat = require('gulp-concat');
 const del = require('del');
+const cleanCSS = require('gulp-clean-css');
 
-gulp.task('less', function() {
+gulp.task('css', function() {
   return gulp.src('*.less')
     .pipe(less())
+    .pipe(cleanCSS())
     .pipe(gulp.dest('./dist'));
 });
 
@@ -66,7 +68,7 @@ gulp.task('static', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('default', ['less', 'rollup', 'html', 'static']);
+gulp.task('default', ['css', 'rollup', 'html', 'static']);
 
 gulp.task('clean', function() {
   return del(['./dist'])

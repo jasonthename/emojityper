@@ -10,6 +10,7 @@
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-better-rollup": "^1.1.1",
+    "gulp-clean-css": "^3.4.2",
     "gulp-concat": "^2.6.1",
     "gulp-less": "^3.3.0",
     "gulp-sourcemaps": "^2.6.0",
