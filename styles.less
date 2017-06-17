@@ -276,9 +276,6 @@ main {
   flex-flow: row wrap;
   padding-top: 8px;
 }
-body:not(.has-chooser) .chooser {
-  display: none;
-}
 body.has-value footer .help {
   display: none;
 }
@@ -286,6 +283,7 @@ body.has-value footer .help {
 .options {
   display: flex;
   flex-flow: row;
+  align-items: flex-start;
   padding-left: 8px;
   z-index: 10;
 
@@ -296,6 +294,7 @@ body.has-value footer .help {
     margin-right: 12px;
     font-size: 0.33em;
     line-height: 3em;
+    order: -1;
   }
 
   &.modifier h4 {
@@ -306,6 +305,9 @@ body.has-value footer .help {
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
+  }
+  .buttons:empty + h4 {
+    display: none;
   }
 
   button {
