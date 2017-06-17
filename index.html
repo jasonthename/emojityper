@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head>
+  <title>Emojityper</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Lobster" rel="stylesheet">
+  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Emojityper">
+  <script type="module" src="https://cdn.rawgit.com/samthor/rippleJS/v1.0.2/ripple.min.js"></script>
+  <script>
+// https://gist.github.com/samthor/64b114e4a4f539915a95b91ffd340acc
+!function(){var e=document,t=e.createElement('script');if(!('noModule'in t)&&'onbeforeload'in t){var n=!1;e.addEventListener('beforeload',function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute('nomodule')||!n)return;e.preventDefault()},!0),t.type='module',t.src='.',e.head.appendChild(t),t.remove()}}();
+  </script>
+  <script defer="" nomodule="" src="support.min.js"></script>
+  <script type="module" src="bundle.js"></script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1abc9c">
+  <link rel="shortcut icon" type="image/png" href="res/icon-128.png">
+<link href="styles.css" rel="stylesheet"></head>
+<body>
+
+
+
+<header>
+  <h1>Emojityper</h1>
+  <div class="grow"></div>
+  <div id="buttons" class="buttons ui">
+    <button disabled="" id="copy" tabindex="-1" data-copied="Copied!">Copy</button>
+  </div>
+</header>
+
+<main>
+  <div id="input">
+    <input type="text" id="typer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Type words, receive emoji 👍" autofocus="">
+    <div class="focus"></div>
+  </div>
+  <script>
+// nb. intentionally inline ES5
+window.addEventListener('hashchange', function(ev) {
+  var v = window.decodeURI(window.location.hash.substr(1));
+  typer.value = v;
+});
+window.dispatchEvent(new CustomEvent('hashchange'));
+typer.addEventListener('value', function(ev) {
+  var v = ev.detail;
+  window.history.replaceState(null, null, v ? ('#' + v) : window.location.pathname);
+});
+  </script>
+</main>
+<div class="chooser" id="chooser"></div>
+
+<div class="grow"></div>
+
+<section class="advanced" id="advanced" hidden="">
+  <form>
+    <input class="small" type="text" data-sequence="Give these emojis a name ✏️" placeholder="✏️ Name this emoji" pattern="[\w\d]+">
+    <div class="buttons ui">
+      <button disabled="">
+        <div class="statusicon"></div>
+        <div class="loader"></div>
+        <div class="text">Submit</div>
+      </button>
+    </div>
+  </form>
+</section>
+
+<footer>
+  <ul class="help">
+    <li><em>space</em> to get the default emoji</li>
+    <li><em>enter</em> to copy to clipboard</li>
+    <li><em>←↑↓→</em> to navigate options</li>
+  </ul>
+  <p>
+    We <a href="https://github.com/emojityper/emojityper.github.io" target="_blank">made this</a> because you millennials really need your emoji. You can talk to us about it if you want:
+    <span class="ib">
+      <a target="_blank" href="https://twitter.com/mangopdf">@mangopdf</a>
+      <a target="_blank" href="https://twitter.com/samthor">@samthor</a>
+    </span>
+  </p>
+</footer>
+
+
+
+</body></html>
