@@ -19,7 +19,8 @@ gulp.task('less', function() {
 gulp.task('rollup-nomodule', function() {
   // TODO: bring in Promise and fetch polyfill or remove dep
   const options = {
-    plugins: [babel(), uglify()],
+    // nb. ascii_only so escaped emoji are left alone
+    plugins: [babel(), uglify({output: {ascii_only: true}})],
   };
   return gulp.src(['src/polyfill.js', 'src/bundle.js'])
     .pipe(sourcemaps.init())
@@ -32,7 +33,8 @@ gulp.task('rollup-nomodule', function() {
 gulp.task('rollup', ['rollup-nomodule'], function() {
   // nb. this task doesn't really depend on rollup-nomodule, but they can't be run in parallel
   const options = {
-    plugins: [uglify({}, uglifyES.minify)],
+    // nb. ascii_only so escaped emoji are left alone
+    plugins: [uglify({output: {ascii_only: true, ecma: 6}}, uglifyES.minify)],
   };
   return gulp.src('src/bundle.js')
     .pipe(sourcemaps.init())
