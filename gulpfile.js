@@ -9,6 +9,7 @@ const babel = require('rollup-plugin-babel')
 const uglify = require('rollup-plugin-uglify');
 const uglifyES = require('uglify-es');
 const concat = require('gulp-concat');
+const del = require('del');
 
 gulp.task('less', function() {
   return gulp.src('*.less')
@@ -66,3 +67,7 @@ gulp.task('static', function() {
 });
 
 gulp.task('default', ['less', 'rollup', 'html', 'static']);
+
+gulp.task('clean', function() {
+  return del(['./dist'])
+});
