@@ -7,7 +7,8 @@ const sourcemaps = require('gulp-sourcemaps');
 const rollup = require('gulp-better-rollup')
 const babel = require('rollup-plugin-babel')
 const uglify = require('rollup-plugin-uglify');
-
+const uglifyES = require('uglify-es');
+const concat = require('gulp-concat');
 
 gulp.task('less', function() {
   return gulp.src('*.less')
@@ -15,17 +16,30 @@ gulp.task('less', function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('rollup', function() {
-  // TODO: bring in Promise and fetch polyfill
+gulp.task('rollup-nomodule', function() {
+  // TODO: bring in Promise and fetch polyfill or remove dep
   const options = {
     plugins: [babel(), uglify()],
   };
-  return gulp.src('src/bundle.js')
+  return gulp.src(['src/polyfill.js', 'src/bundle.js'])
     .pipe(sourcemaps.init())
     .pipe(rollup(options, {format: 'iife'}))
+    .pipe(concat('support.min.js'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist'));
 })
+
+gulp.task('rollup', ['rollup-nomodule'], function() {
+  // nb. this task doesn't really depend on rollup-nomodule, but they can't be run in parallel
+  const options = {
+    plugins: [uglify({}, uglifyES.minify)],
+  };
+  return gulp.src('src/bundle.js')
+    .pipe(sourcemaps.init())
+    .pipe(rollup(options, {format: 'es'}))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('./dist'));
+});
 
 gulp.task('html', function() {
   const mutator = document => {
