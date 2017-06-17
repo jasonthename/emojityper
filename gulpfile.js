@@ -43,9 +43,17 @@ gulp.task('rollup', ['rollup-nomodule'], function() {
 
 gulp.task('html', function() {
   const mutator = document => {
+    // replace lessCSS with actual styles
     document.getElementById('less').remove();
-    const link = Object.assign(document.createElement('link'), {href: 'styles.css', rel: 'stylesheet'});
+    const link = Object.assign(document.createElement('link'),
+        {href: 'styles.css', rel: 'stylesheet'});
     document.head.appendChild(link);
+
+    // fix paths for module/nomodule code
+    document.head.querySelector('[nomodule]').src = 'support.min.js';
+    const bundle = document.getElementById('bundle');
+    bundle.src = 'bundle.js';
+    bundle.removeAttribute('id');
   };
   return gulp.src('*.html')
     .pipe(tweakdom(mutator))
