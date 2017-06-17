@@ -46,6 +46,7 @@ chooser.addEventListener('click', ev => {
     const word = b.parentNode.dataset['word'];
     const detail = {choice: b.textContent, word};
     typer.dispatchEvent(new CustomEvent('emoji', {detail}));
+    provider.select(word, detail.choice);
   }
 });
 
@@ -138,7 +139,7 @@ const show = results => {
 
   // if there's a focus but it's not a prefix (which implies that it's text-only)
   if (query.focus && !query.prefix) {
-    // TODO: dedup some of this code with the above generators
+    // TODO: dedup some of this code with the below generators
     const holderFor = type => {
       const el = document.createElement('div');
       el.className = 'options modifier';
@@ -192,7 +193,6 @@ const show = results => {
 
     const el = document.createElement('div');
     el.className = 'options';
-    //opt_class && el.classList.add(opt_class);
 
     const buttons = document.createElement('div');
     buttons.className = 'buttons';

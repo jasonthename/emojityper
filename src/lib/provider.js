@@ -1,5 +1,4 @@
-//const api = 'https://emojityper.appspot.com';
-const api = 'http://localhost:8080';
+const api = 'https://emojityper.appspot.com';
 
 const data = window.fetch(api + '/popular').then(out => out.json());
 let indexed = data.then(emojimap => {
@@ -78,19 +77,26 @@ export function request(text, prefix) {
   });
 }
 
-export function submit(name, value) {
-  const data = new FormData();
-  data.append('name', name);
-  data.append('emoji', value);
+let pendingSelect = {};
+let timeoutSelect;
+export function select(name, emoji) {
+  pendingSelect[name] = emoji;
 
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.onload = resolve;  // TODO
-    xhr.onerror = reject;
-    xhr.open('POST', api + '/name');
-    xhr.send(data);
-  });
-//  return window.fetch(api + '/name', {method: 'POST', mode: 'cors', data: data});
+  window.clearTimeout(timeoutSelect);
+  timeoutSelect = window.setTimeout(_ => {
+    const body = JSON.stringify(pendingSelect);
+    pendingSelect = {};
+
+    // TODO: ugh promises
+    window.fetch(api + '/select', {method: 'POST', body})
+  }, 5 * 1000);
+}
+
+export function submit(name, emoji) {
+  const body = new FormData();
+  body.append('name', name);
+  body.append('emoji', emoji);
+  return window.fetch(api + '/name', {method: 'POST', mode: 'cors', body});
 }
 
 export function callback(callback) {
