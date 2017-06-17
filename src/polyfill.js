@@ -1,0 +1,20 @@
+
+/**
+ * @fileoverview Polyfills needed for modern browsers, even those supporting ES6 modules.
+ */
+
+if (!window.requestIdleCallback) {
+  // TODO: this is a pretty terrible requestIdleCallback
+  window.requestIdleCallback = callback => {
+    const start = performance.now();
+    return window.setTimeout(() => {
+      cb({
+        didTimeout: false,
+        timeRemaining: () => Math.max(0, 50 - (performance.now() - start)),
+      });
+    }, 1);
+  };
+
+  window.cancelIdleCallback = id => window.clearTimeout(id);
+}
+
