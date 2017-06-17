@@ -1198,9 +1198,9 @@ gulp-sourcemaps@^2.6.0:
     through2 "2.X"
     vinyl "1.X"
 
-gulp-tweakdom@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/gulp-tweakdom/-/gulp-tweakdom-1.0.1.tgz#7645817eb66d67bf119404a0080d66958000b078"
+gulp-tweakdom@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/gulp-tweakdom/-/gulp-tweakdom-1.0.2.tgz#18d3fb530da419ba8c7b3c1f38be695bb66593df"
   dependencies:
     jsdom "^11.0.0"
     plugin-error "^0.1.2"
