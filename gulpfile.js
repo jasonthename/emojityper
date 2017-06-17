@@ -45,7 +45,7 @@ gulp.task('rollup', function() {
   const options = {
     // nb. ascii_only so escaped emoji are left alone
     plugins: [
-      uglify({output: {ascii_only: true, ecma: 6}}, uglifyES.minify),
+      uglify({output: {ascii_only: true, ecma: 6}, mangle: {safari10: true}}, uglifyES.minify),
     ],
     cache: false,  // cache clobbers rollup-nomodule
   };

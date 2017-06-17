@@ -1,6 +1,15 @@
 
 import * as modifier from './lib/modifier.js';
 
+function datasetSafeDelete(el, ...keys) {
+  const d = el.dataset;
+  for (let key of keys) {
+    if (key in d) {
+      delete d[key];
+    }
+  }
+}
+
 // word focus handler
 function upgrade(el) {
   const isWordCode = code => {
@@ -60,7 +69,7 @@ function upgrade(el) {
   // force selection
   const setRange = (from, to) => {
     if (from >= to) {
-      ['from', 'to', 'prefix', 'word', 'focus'].forEach(key => delete(el.dataset[key]));
+      datasetSafeDelete(el, 'from', 'to', 'prefix', 'word', 'focus');
       underline.hidden = true;
       return false;
     }
@@ -88,8 +97,7 @@ function upgrade(el) {
 
     // range selection, magic
     if (state.start !== state.end) {
-      delete(el.dataset['prefix']);
-      delete(el.dataset['word']);
+      datasetSafeDelete(el, 'prefix', 'word');
 
       setRange(state.start, state.end);
 
@@ -138,7 +146,7 @@ function upgrade(el) {
     if (setRange(from, to)) {
       // if the range was valid, update the prefix/focus but delete the word (in typing state)
       el.dataset['focus'] = el.dataset['prefix'] = el.value.substr(from, to - from);
-      delete(el.dataset['word']);
+      datasetSafeDelete(el, 'word');
     }
   };
 
@@ -280,7 +288,7 @@ function upgrade(el) {
 
     // if this was a prefix match, now it's a word match (the word masks the emoji)
     el.dataset['word'] = ev.detail.word || el.dataset['prefix'];
-    delete(el.dataset['prefix']);
+    datasetSafeDelete(el, 'prefix');
   });
 }
 

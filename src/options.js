@@ -205,13 +205,12 @@ import * as modifier from './lib/modifier.js';
 
     };
 
+    document.body.classList.toggle('has-chooser', buttonArray.length > 0);  // for diversity
     if (results) {
       const p = render();
       p.then(_ => {
         document.body.classList.toggle('has-chooser', buttonArray.length > 0);
       }).catch(e => console.warn('couldn\'t render emoji', e));
-    } else {
-      document.body.classList.remove('has-chooser');
     }
   };
 
