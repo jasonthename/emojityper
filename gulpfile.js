@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
-const less = require('gulp-less');
-const tweakdom = require('gulp-tweakdom');
+const del = require('del');
 const gulp = require('gulp');
-const sourcemaps = require('gulp-sourcemaps');
 const rollup = require('gulp-better-rollup')
+const concat = require('gulp-concat');
+const cleanCSS = require('gulp-clean-css');
+const less = require('gulp-less');
+const sourcemaps = require('gulp-sourcemaps');
+const tweakdom = require('gulp-tweakdom');
 const babel = require('rollup-plugin-babel')
 const uglify = require('rollup-plugin-uglify');
 const uglifyES = require('uglify-es');
-const concat = require('gulp-concat');
-const del = require('del');
-const cleanCSS = require('gulp-clean-css');
 
 gulp.task('css', function() {
   return gulp.src('*.less')
