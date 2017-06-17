@@ -52,10 +52,8 @@ gulp.task('html', function() {
     document.head.appendChild(link);
 
     // fix paths for module/nomodule code
-    document.head.querySelector('[nomodule]').src = 'support.min.js';
-    const bundle = document.getElementById('bundle');
-    bundle.src = 'bundle.js';
-    bundle.removeAttribute('id');
+    document.head.querySelector('script[nomodule]').src = 'support.min.js';
+    document.head.querySelector('script[src^="src/"]').src = 'bundle.js';
   };
   return gulp.src('*.html')
     .pipe(tweakdom(mutator))
@@ -63,7 +61,7 @@ gulp.task('html', function() {
 });
 
 gulp.task('static', function() {
-  return gulp.src(['manifest.json', 'opensearch.xml'])
+  return gulp.src(['manifest.json', 'opensearch.xml', 'res/*'], {base: '.'})
     .pipe(gulp.dest('./dist'));
 });
 
