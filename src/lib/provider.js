@@ -1,43 +1,33 @@
-const api = 'https://emojityper.appspot.com';
+const api = 'https://us-central1-emojityper.cloudfunctions.net';
 
-const data = window.fetch(api + '/popular').then(out => out.json());
-let indexed = data.then(emojimap => {
-  const prefixLength = 3;   // generate prefixes up to this length
-  const maxSuggestions = 10;  // only generate this many suggestions
-  const prefixSuggest = {};
+import build from './prefixgen.js';
 
-  for (let k in emojimap) {
-    const prefix = k.substr(0, prefixLength);
-    for (let i = 1; i <= prefix.length; ++i) {
-      const part = prefix.substr(0, i);
-      let opts = prefixSuggest[part];
-      if (!opts) {
-        opts = prefixSuggest[part] = [];
-      }
-      if (opts.length < maxSuggestions) {
-        opts.push(k);
-      }
-    }
+let indexed;
+try {
+  let data = JSON.parse(window.localStorage['popular']);
+  if (data['created'] >= (+new Date - 60 * 60 * 24 * 1000)) {
+    indexed = Promise.resolve(build(data['results']));
+    console.debug('got indexed localStorage');
   }
-
-  return function(typed) {
-    typed = typed.toLowerCase();
-    const rest = typed.substr(prefixLength);
-    let all = prefixSuggest[typed.substr(0, prefixLength)] || [];
-
-    if (rest) {
-      all = all.filter(word => word.substr(prefixLength).startsWith(rest));
-    }
-    all = all.map(word => {
-      return {'name': word, 'options': emojimap[word] || []};
-    });
-
-    return all.length ? all : null;
+} catch (e) {
+  console.debug('couldn\'t parse localStorage popular', e);
+}
+if (!indexed) {
+  // if no data or >1day old, refetch
+  const f = window.fetch(api + '/popular').then(out => out.json());
+  f.then(data => {
+    data['created'] = +new Date();
+    window.localStorage['popular'] = JSON.stringify(data);
+  });
+  const local = f.then(v => build(v['results']));
+  if (!indexed) {
+    indexed = local;
+  } else {
+    local.then(() => indexed = local);
   }
-});
+}
 
 let requestCallback = function() {};
-
 let timeout;  // timeout handler for secondary query
 const performRequest = (text, prefix) => {
   window.clearTimeout(timeout);
@@ -48,10 +38,18 @@ const performRequest = (text, prefix) => {
 
   // TODO: only send extra query if there's not enough results, or the user hits 'more'
   const localTimeout = window.setTimeout(_ => {
-    const data = new FormData();
-    data.append('q', text);
-    data.append('prefix', prefix)
-    window.fetch(api + '/query', {method: 'POST', data}).then(out => out.json()).then(send);
+    let url = api + '/query?query=' + encodeURIComponent(text);
+    if (prefix) {
+      url += '&prefix=true';
+    }
+    // FIXME: don't ever clobber old results: maybe do this under "more" or if there's
+    // only very few results?
+    window.fetch(url)
+        .then(out => out.json())
+        .then(out => {
+          const all = out.results.map(arr => ({'name': arr[0], 'options': arr.slice(1)}));
+          send(all);
+        });
   }, 2000);
   timeout = localTimeout;
 
