@@ -3,11 +3,11 @@ import * as modifier from './lib/modifier.js';
 
 function datasetSafeDelete(el, ...keys) {
   const d = el.dataset;
-  for (let key of keys) {
+  keys.forEach(key => {
     if (key in d) {
       delete d[key];
     }
-  }
+  });
 }
 
 // word focus handler
