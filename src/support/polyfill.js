@@ -3,6 +3,11 @@
  * @fileoverview Polyfills included for Emojityper on non-module browsers.
  */
 
+import '../../node_modules/core-js/modules/es6.string.starts-with';
+import '../../node_modules/core-js/modules/es6.array.from';
+import '../../node_modules/core-js/modules/es6.promise';
+import '../../node_modules/core-js/modules/es6.symbol';
+
 if (typeof window.CustomEvent !== 'function') {
   function CustomEvent(name, params) {
     params = params || {bubbles: false, cancelable: false, detail: undefined};
@@ -12,25 +17,6 @@ if (typeof window.CustomEvent !== 'function') {
   }
   CustomEvent.prototype = window.Event.prototype;
   window.CustomEvent = CustomEvent;
-}
-
-if (!String.prototype.startsWith) {
-  String.prototype.startsWith = function(search, from) {
-    return this.substr(from || 0, search.length) === search;
-  };
-}
-
-if (!Array.from) {
-  Array.from = function(arg) {
-    // TODO: this isn't the whole polyfill, but it's good for now: just for rollup generated code
-    return Array.prototype.slice.call(arg);
-  };
-}
-
-// for Promise
-import Promise from '../../node_modules/promise-polyfill/promise.min.js';
-if (!window.Promise) {
-  window.Promise = Promise;
 }
 
 // for async/await magic
