@@ -14,16 +14,23 @@ try {
 }
 if (!indexed) {
   // if no data or >1day old, refetch
-  const f = window.fetch(api + '/popular').then(out => out.json());
+  const f = new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', api + '/popular');
+    xhr.onerror = reject;
+    xhr.responseType = 'json';
+    xhr.onload = () => resolve(xhr.response);
+    xhr.send();
+  });
   f.then(data => {
     data['created'] = +new Date();
     window.localStorage['popular'] = JSON.stringify(data);
   });
   const local = f.then(v => build(v['results']));
   if (!indexed) {
-    indexed = local;
+    indexed = local;  // wait for data
   } else {
-    local.then(() => indexed = local);
+    local.then(() => indexed = local);  // use existing data before replacing it
   }
 }
 
