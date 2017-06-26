@@ -9,6 +9,7 @@ git checkout master
 # build and copy
 gulp clean && gulp
 git checkout gh-pages
+git pull
 cp -R dist/* .
 
 # try to checkin code, only commit if change
