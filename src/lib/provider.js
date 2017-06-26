@@ -21,6 +21,9 @@ if (!indexed) {
     xhr.responseType = 'json';
     xhr.onload = () => resolve(xhr.response);
     xhr.send();
+  }).then(raw => {
+    // IE11 doesn't respect responseType, and we always return an Object
+    return typeof raw === 'string' ? JSON.parse(raw) : raw;
   });
   f.then(data => {
     data['created'] = +new Date();
