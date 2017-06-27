@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const autoprefixer = require('gulp-autoprefixer');
 const del = require('del');
 const gulp = require('gulp');
 const rollup = require('gulp-better-rollup')
@@ -15,8 +16,10 @@ const uglify = require('rollup-plugin-uglify');
 const uglifyES = require('uglify-es');
 
 gulp.task('css', function() {
+  const browsers = ['last 2 versions', 'IE 11'];
   return gulp.src('*.less')
     .pipe(less())
+    .pipe(autoprefixer({browsers}))
     .pipe(cleanCSS())
     .pipe(gulp.dest('./dist'));
 });
