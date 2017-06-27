@@ -4,6 +4,7 @@
  */
 
 import '../../node_modules/core-js/modules/es6.string.starts-with';
+import '../../node_modules/core-js/modules/es6.string.from-code-point';
 import '../../node_modules/core-js/modules/es6.array.from';
 import '../../node_modules/core-js/modules/es6.promise';
 import '../../node_modules/core-js/modules/es6.symbol';

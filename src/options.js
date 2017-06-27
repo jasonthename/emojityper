@@ -75,9 +75,9 @@ chooser.addEventListener('keydown', ev => {
 
   // handle l/r keys
   let delta;
-  if (ev.key === 'ArrowLeft') {
+  if (ev.key === 'ArrowLeft' || ev.key === 'Left') {
     delta = -1;
-  } else if (ev.key === 'ArrowRight') {
+  } else if (ev.key === 'ArrowRight' || ev.key === 'Right') {
     delta = +1;
   }
   if (delta) {
@@ -89,9 +89,9 @@ chooser.addEventListener('keydown', ev => {
   }
 
   // handle u/d keys
-  if (ev.key === 'ArrowUp') {
+  if (ev.key === 'ArrowUp' || ev.key === 'Up') {
     delta = -1;
-  } else if (ev.key === 'ArrowDown') {
+  } else if (ev.key === 'ArrowDown' || ev.key === 'Down') {
     delta = +1;
   } else {
     return;
