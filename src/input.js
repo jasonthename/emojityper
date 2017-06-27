@@ -225,6 +225,17 @@ function upgrade(el) {
     }
   });
 
+  // add a non-deduped keyup handler, for space on mobile browsers
+  el.addEventListener('keyup', ev => {
+    if (ev.keyCode === 229 || !ev.keyCode) {
+      // look for a space before whatever was entered.
+      const v = el.value.substr(el.selectionStart - 1, 1);
+      if (v === ' ' && el.dataset.prefix) {
+        el.dispatchEvent(new CustomEvent('request', {detail: el.dataset.prefix}));
+      }
+    }
+  });
+
   // dedup re-rendering calls
   (function() {
     let frame;
