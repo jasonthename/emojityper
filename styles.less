@@ -17,12 +17,9 @@
   display: none !important;
 }
 
-html, body {
-  height: 100%;  // IE11 flexbox
-}
-
 html {
   background: @color-background;
+  height: 100%;  // IE11 flexbox?
 }
 
 body {
@@ -35,12 +32,13 @@ body {
   font-size: 38px;
   font-family: @fonts-normal;
 
-  @media (max-width: 600px) {
-    padding: 0.25em;
-  }
   @media (max-height: 400px) {
+    padding: 0.5em;
     padding-top: 0.125em;
     font-size: 32px;
+  }
+  @media (max-width: 600px) {
+    padding: 0.25em;
   }
 }
 

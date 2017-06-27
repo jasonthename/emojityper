@@ -2,18 +2,12 @@
 const all = Array.prototype.slice.call(buttons.querySelectorAll('button'));
 
 const handler = ev => {
-  const text = (ev ? ev.detail : typer.value).trim();
-  // we don't use .toggle, as it has an IE11 bug
-  if (text) {
-    document.body.classList.add('has-value');
-  } else {
-    document.body.classList.remove('has-value');
-  }
+  const text = ev.detail.trim();
+  const hasValue = Boolean(text);
   all.forEach(button => button.disabled = !hasValue);
 };
-
 typer.addEventListener('value', handler);
-handler();
+handler({detail: typer.value});
 
 // copy handler
 (function(button, input) {
