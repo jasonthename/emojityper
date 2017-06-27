@@ -58,6 +58,11 @@ typer.addEventListener('keydown', ev => {
   }
 });
 
+const arrowKeys = ['Left', 'Right', 'Up', 'Down'];
+const isArrowKey = key => {
+  return key.startsWith('Arrow') || arrowKeys.indexOf(key) !== -1;
+};
+
 // handle keyboard navigation inside chooser
 chooser.addEventListener('keydown', ev => {
   switch (ev.key) {
@@ -65,7 +70,7 @@ chooser.addEventListener('keydown', ev => {
     typer.focus();
     break;
   }
-  if (!ev.key.startsWith('Arrow')) { return; }
+  if (!isArrowKey(ev.key)) { return; }
   if (!document.activeElement || !chooser.contains(document.activeElement)) { return; }
 
   // TODO: memoize value
