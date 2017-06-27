@@ -16,7 +16,7 @@ const uglify = require('rollup-plugin-uglify');
 const uglifyES = require('uglify-es');
 
 gulp.task('css', function() {
-  const browsers = ['last 2 versions', 'IE 11'];
+  const browsers = ['last 2 versions'];
   return gulp.src('*.less')
     .pipe(less())
     .pipe(autoprefixer({browsers}))
