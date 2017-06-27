@@ -193,6 +193,13 @@ main {
     text-indent: 15px;
     border: 0;
   }
+  @supports (-ms-ime-align:auto) {
+    // For IE11/Edge, don't use text-indent: it's applied twice to the placeholder.
+    input, .sizer {
+      text-indent: 0;
+      padding: 6px 15px;
+    }
+  }
   input {
     position: relative;  // place above underline
     border-radius: 12px;
@@ -212,7 +219,7 @@ main {
       color: @color-placeholder;
       opacity: 0.33;
     }
-    &::-ms-placeholder {
+    &::-ms-input-placeholder {
       color: @color-placeholder;
       opacity: 0.33;
     }
@@ -363,7 +370,7 @@ input.small {
     color: @color-placeholder;
     opacity: 0.33;
   }
-  &::-ms-placeholder {
+  &::-ms-input-placeholder {
     color: @color-placeholder;
     opacity: 0.33;
   }

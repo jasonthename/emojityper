@@ -3,8 +3,12 @@ const all = Array.prototype.slice.call(buttons.querySelectorAll('button'));
 
 const handler = ev => {
   const text = (ev ? ev.detail : typer.value).trim();
-  const hasValue = Boolean(text);
-  document.body.classList.toggle('has-value', hasValue);
+  // we don't use .toggle, as it has an IE11 bug
+  if (text) {
+    document.body.classList.add('has-value');
+  } else {
+    document.body.classList.remove('has-value');
+  }
   all.forEach(button => button.disabled = !hasValue);
 };
 
