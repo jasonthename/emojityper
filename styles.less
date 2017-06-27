@@ -2,8 +2,10 @@
 @color-background: #2c3e50;
 @color-placeholder: #cbd6e2;
 
-/** nb: does NOT include Arial: this causes Chrome 59? to not combine gender emojis properly */
+// nb: does NOT include Arial: this causes Chrome 59? to not combine gender emojis properly
 @fonts-normal: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+
+// nb: include Segoe for IE11/Edge
 @fonts-emoji: 'Lato', 'Helvetica Neue', 'Helvetica', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 
 * {
@@ -15,9 +17,12 @@
   display: none !important;
 }
 
+html, body {
+  height: 100%;  // IE11 flexbox
+}
+
 html {
   background: @color-background;
-  min-height: 100vh;
 }
 
 body {
@@ -184,6 +189,7 @@ main {
     font-size: 1em;
     padding: 6px 0;
     line-height: 1.5em;
+    height: ~"calc(1.5em + 12px)";  // include padding on both sides, for IE11/Edge
     text-indent: 15px;
     border: 0;
   }
