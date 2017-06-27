@@ -52,7 +52,7 @@ chooser.addEventListener('click', ev => {
 
 // handle moving down from input
 typer.addEventListener('keydown', ev => {
-  if (ev.key === 'ArrowDown') {
+  if (ev.key === 'ArrowDown' || ev.key === 'Down') {
     const first = chooser.querySelector('button');
     first && first.focus();
   }
