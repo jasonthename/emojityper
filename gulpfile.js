@@ -16,7 +16,8 @@ const uglify = require('rollup-plugin-uglify');
 const uglifyES = require('uglify-es');
 
 gulp.task('css', function() {
-  const browsers = ['last 2 versions', 'not IE <= 11'];
+  // exclude IE11's broken flexbox
+  const browsers = ['last 2 versions', 'not IE <= 11', 'not IE_mob <= 11'];
   return gulp.src('*.less')
     .pipe(less())
     .pipe(autoprefixer({browsers}))
