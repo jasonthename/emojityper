@@ -35,6 +35,7 @@ function createButton(text) {
 
 // button click handler
 chooser.addEventListener('click', ev => {
+  let label = undefined;
   const b = ev.target;
   if (b.localName !== 'button') {
     // ignore
@@ -42,19 +43,25 @@ chooser.addEventListener('click', ev => {
     const value = 'value' in b.dataset ? (+b.dataset['value'] || b.dataset['value']) : null;
     const detail = {type: b.parentNode.dataset['modifier'], code: value};
     typer.dispatchEvent(new CustomEvent('modifier', {detail}));
+    label = 'modifier';
   } else {
     const word = b.parentNode.dataset['word'];
     const detail = {choice: b.textContent, word};
     typer.dispatchEvent(new CustomEvent('emoji', {detail}));
     provider.select(word, detail.choice);
+    label = 'emoji';
   }
+  ga('send', 'event', 'options', 'click', label);
 });
 
 // handle moving down from input
 typer.addEventListener('keydown', ev => {
   if (ev.key === 'ArrowDown' || ev.key === 'Down') {
     const first = chooser.querySelector('button');
-    first && first.focus();
+    if (first) {
+      first.focus();
+      ga('send', 'event', 'options', 'keyboardnav');
+    }
   }
 });
 
@@ -272,6 +279,7 @@ typer.addEventListener('request', ev => {
   });
 
   if (choice) {
+    ga('send', 'event', 'options', 'typing');
     const detail = {choice, word};
     typer.dispatchEvent(new CustomEvent('emoji', {detail}));
   }

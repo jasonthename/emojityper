@@ -46,6 +46,9 @@ handler({detail: typer.value});
     if (!ok) { return true; }
     console.info('copied', input.value.substr(left, right));
 
+    // analytics
+    ga('send', 'event', 'text', 'copy');
+
     // show message
     button.textContent = button.dataset.copied;
     window.clearTimeout(timeout);
