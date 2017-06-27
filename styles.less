@@ -2,6 +2,10 @@
 @color-background: #2c3e50;
 @color-placeholder: #cbd6e2;
 
+/** nb: does NOT include Arial: this causes Chrome 59? to not combine gender emojis properly */
+@fonts-normal: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+@fonts-emoji: 'Lato', 'Helvetica Neue', 'Helvetica', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+
 * {
   margin: 0;
   padding: 0;
@@ -24,8 +28,7 @@ body {
   min-height: 100vh;
   color: #b4bcc2;
   font-size: 38px;
-  /** nb: does NOT include Arial: this causes Chrome 59? to not combine gender emojis properly */
-  font-family: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-family: @fonts-normal;
 
   @media (max-width: 600px) {
     padding: 0.25em;
@@ -71,6 +74,7 @@ h1 {
 
 button {
   font: inherit;
+  font-family: @fonts-emoji;
   border-radius: 4px;
   border: 2px solid transparent;
   background: rgba(0, 0, 0, 0.25);
@@ -176,6 +180,7 @@ main {
 
   input, .sizer {
     font: inherit;
+    font-family: @fonts-emoji;
     font-size: 1em;
     padding: 6px 0;
     line-height: 1.5em;
