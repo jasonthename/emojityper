@@ -26,11 +26,15 @@ if (!indexed) {
     return typeof raw === 'string' ? JSON.parse(raw) : raw;
   });
   f.then(data => {
+    // TODO: It's a bit ugly to hit the loader from here.
+    window.loader.hidden = true;
     data['created'] = +new Date();
     window.localStorage['popular'] = JSON.stringify(data);
   });
   const local = f.then(v => build(v['results']));
   if (!indexed) {
+    // TODO: It's a bit ugly to hit the loader from here.
+    window.loader.hidden = false;
     indexed = local;  // wait for data
   } else {
     local.then(() => indexed = local);  // use existing data before replacing it

@@ -170,6 +170,40 @@ header {
   line-height: 2em;
 }
 
+/** loader */
+
+@keyframes bob {
+  from { transform: translateY(5px); }
+  to   { transform: translateY(-5px); }
+}
+
+#loader {
+  text-align: center;
+  font-size: 0.5em;
+  will-change: opacity;
+  transition: opacity 0.5s;
+
+  span {
+    margin: 0 1px;
+    display: inline-block;
+    will-change: transform;
+    &.face {
+      vertical-align: sub;
+      animation: bob 1s infinite alternate ease-in-out;
+    }
+    &.think {
+      vertical-align: super;
+      animation: bob 1s infinite alternate ease-in-out;
+      animation-delay: -0.125s;
+    }
+  }
+
+  &[hidden] {
+    display: initial !important;
+    opacity: 0;
+  }
+}
+
 /** main .ui */
 
 main {
