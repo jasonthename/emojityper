@@ -3,7 +3,7 @@ const api = 'https://us-central1-emojityper.cloudfunctions.net';
 import build from './prefixgen.js';
 import * as results from './results.js';
 
-let indexed = (function() {
+const getPrefixGen = (function() {
   let localPromise = null;  // results from localStorage
   const raw = window.localStorage['popular'];
   if (raw) {
@@ -18,7 +18,7 @@ let indexed = (function() {
       localPromise = Promise.resolve(build(out['results']));
       if (out['created'] >= (+new Date - 60 * 60 * 24 * 1000)) {
         // return immediately, it's less than one day old
-        return localPromise;
+        return () => localPromise;
       }
     }
   }
@@ -47,14 +47,13 @@ let indexed = (function() {
   if (!localPromise) {
     // TODO: It's a bit ugly to hit the loader from here.
     window.loader.hidden = false;
-    return remotePromise;  // wait for data
+    return () => remotePromise;  // wait for data
   }
 
-  remotePromise.then(v => {
-    // TODO: replacing our returned result is super ugly
-    indexed = remotePromise;
-  });
-  return localPromise;
+  // return localPromise until remotePromise is done
+  let promiseToReturn = localPromise;
+  remotePromise.then(() => promiseToReturn = remotePromise);
+  return () => promiseToReturn;
 }());
 
 const zeroCallback = function() {};
@@ -88,7 +87,7 @@ const performRequest = (text, prefix) => {
   }, 2000);
   timeout = localTimeout;
 
-  indexed.then(suggest => {
+  getPrefixGen().then(suggest => {
     let results = suggest(text);
     if (!prefix) {
       results = results.filter(result => result[0] === text);
