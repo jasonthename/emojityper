@@ -200,8 +200,11 @@ const show = results => {
   // create buttons and headings for all options; immediately re-add previously cached buttons
   const replacement = document.createDocumentFragment();
   const holders = {};
+  const pending = [];
+  console.info('got updated? results', results);
   results && results.forEach(result => {
-    const name = result['name'];
+    const name = result[0];
+    const rest = result.slice(1);
 
     const el = document.createElement('div');
     el.className = 'options';
@@ -219,7 +222,7 @@ const show = results => {
     holders[name] = buttons;
 
     // do a quick pass on already available buttons
-    result['pending'] = result['options'].filter(option => {
+    const remaining = rest.filter(option => {
       const button = buttonCache.get(option);
       if (!button) {
         return true;  // we want to redraw this later
@@ -230,6 +233,9 @@ const show = results => {
       }
       return false;
     });
+    if (remaining.length) {
+      pending.push([name, ...remaining]);
+    }
   });
   buttonCache = updatedButtonCache;
   chooser.appendChild(replacement);
@@ -239,9 +245,9 @@ const show = results => {
   const p = (async function() {
     let idle = null;
 
-    for (let i = 0, result; result = results[i]; ++i) {
-      const options = result['pending'];
-      for (let j = 0, option; option = options[j]; ++j) {
+    for (let i = 0, result; result = pending[i]; ++i) {
+      const name = result[0];
+      for (let j = 1, option; option = result[j]; ++j) {
         if (!idle || idle.timeRemaining() <= 0) {
           const p = new Promise(resolve => window.requestIdleCallback(o => resolve(o)));
           idle = await p;
@@ -249,7 +255,7 @@ const show = results => {
         }
         if (!buttonCache.has(option) && modifier.isExpectedLength(option)) {
           // TODO: If a user has allowed it, render all emojis (even invalid) anyway.
-          const holder = holders[result['name']];
+          const holder = holders[name];
           holder.appendChild(createButton(option));
         }
       };

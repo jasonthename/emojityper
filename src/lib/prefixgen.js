@@ -28,9 +28,7 @@ export default function build(raw, prefixLength=3, maxSuggestions=10) {
     if (rest) {
       all = all.filter(word => word.substr(prefixLength).startsWith(rest));
     }
-    all = all.map(word => {
-      return {'name': word, 'options': values[word] || []};
-    });
+    all = all.map(word => [word, ...values[word]]);
 
     return all.length ? all : null;
   }
