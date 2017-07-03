@@ -151,6 +151,7 @@ function upgrade(el) {
   };
 
   // runs change handler and emits the 'word' event as appropriate
+  let previousDetail = {};
   const mergedEventHandler = (events, permitNextChange) => {
     // if there was a focus event, don't let the browser take over: reset previous known good
     if (events.has('focus')) {
@@ -165,9 +166,16 @@ function upgrade(el) {
     if (changeHandler(permitNextChange)) { return; }
 
     // send query: prefix or whole-word
-    let text = el.dataset.prefix || el.dataset.word || null;
+    const text = el.dataset.prefix || el.dataset.word || null;
     const detail = {text, prefix: 'prefix' in el.dataset, focus: el.dataset.focus};
-    el.dispatchEvent(new CustomEvent('query', {detail}));
+
+    // send event only if something has changed
+    if (detail.text !== previousDetail.text ||
+        detail.prefix !== previousDetail.prefix ||
+        detail.focus !== previousDetail.focus) {
+      previousDetail = detail;
+      el.dispatchEvent(new CustomEvent('query', {detail}));
+    }
   };
 
   // dedup listeners on a rAF
