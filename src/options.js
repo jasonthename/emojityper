@@ -4,15 +4,6 @@
 import * as provider from './lib/provider.js';
 import * as modifier from './lib/modifier.js';
 
-// nb. this puncutation list is just misc stuff needed by emojimap
-const invalidLetterRe = /[^\w:\.,$%^\-']+/g;
-const simplifyWord = word => {
-  if (word) {
-    return word.replace(invalidLetterRe, '').toLowerCase();
-  }
-  return null;
-};
-
 /**
  * @type {Map<string, !HTMLButtonElement> cache of previously displayed buttons
  */
@@ -278,6 +269,15 @@ typer.addEventListener('query', ev => {
   query = ev.detail;
   provider.request(query.text, query.prefix);
 });
+
+// nb. this puncutation list is just misc stuff needed by emojimap
+const invalidLetterRe = /[^\w:\.,$%^\-']+/g;
+const simplifyWord = word => {
+  if (word) {
+    return word.replace(invalidLetterRe, '').toLowerCase();
+  }
+  return null;
+};
 
 // request an autocomplete, the user has just kept typing
 typer.addEventListener('request', ev => {
