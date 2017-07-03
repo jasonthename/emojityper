@@ -197,6 +197,9 @@ const show = results => {
     }
   }
 
+  let addedButtonsCount = 0;
+  console.time('buttons');
+
   // create buttons and headings for all options; immediately re-add previously cached buttons
   const replacement = document.createDocumentFragment();
   const holders = {};
@@ -227,6 +230,7 @@ const show = results => {
         return true;  // we want to redraw this later
       } else if (!updatedButtonCache.has(option)) {
         // don't show the same emoji button twice
+        ++addedButtonsCount;
         buttons.appendChild(button);
         updatedButtonCache.set(option, button);
       }
@@ -240,16 +244,17 @@ const show = results => {
   chooser.appendChild(replacement);
 
   // async helper function for adding emoji over multiple frames (via requestIdleCallback).
-  if (!results.length) { return; }
   const p = (async function() {
     let idle = null;
+    let idleCount = 0;
 
     for (let i = 0, result; result = pending[i]; ++i) {
       const name = result[0];
       for (let j = 1, option; option = result[j]; ++j) {
         if (!idle || idle.timeRemaining() <= 0) {
-          const p = new Promise(resolve => window.requestIdleCallback(o => resolve(o)));
-          idle = await p;
+          // const p = new Promise(resolve => window.requestIdleCallback(o => resolve(o)));
+          // idle = await p;
+          ++idleCount;
           if (!canary.parentNode) { return; }
         }
         if (!buttonCache.has(option) && modifier.isExpectedLength(option)) {
@@ -259,6 +264,8 @@ const show = results => {
         }
       };
     };
+    console.debug('readding buttons', addedButtonsCount, 'pending', pending.length, 'idles', idleCount);
+    console.timeEnd('buttons');
   }());
   p.catch(e => console.warn('couldn\'t render emoji', e));
 };
@@ -278,8 +285,8 @@ typer.addEventListener('request', ev => {
   let choice = null;
 
   (savedResults || []).some(result => {
-    if (result['name'] !== word) { return false; }
-    choice = result.options[0];
+    if (result[0] !== word) { return false; }
+    choice = result[1];
     return true;
   });
 
