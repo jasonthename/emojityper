@@ -167,7 +167,6 @@ export const select = (function() {
   }
 }());
 
-
 /**
  * Submit the name of an emoji.
  *

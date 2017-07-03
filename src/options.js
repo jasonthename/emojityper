@@ -134,7 +134,7 @@ chooser.addEventListener('keydown', ev => {
   if (best.button) {
     best.button.focus();
   } else if (targetTop === undefined && delta < 0) {
-  // if we were at top and going -ve, then return to input
+    // if we were at top and going -ve, then return to input
     typer.focus();
   }
 });
