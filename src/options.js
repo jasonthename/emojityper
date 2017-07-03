@@ -201,8 +201,7 @@ const show = results => {
   const replacement = document.createDocumentFragment();
   const holders = {};
   const pending = [];
-  console.info('got updated? results', results);
-  results && results.forEach(result => {
+  results.forEach(result => {
     const name = result[0];
     const rest = result.slice(1);
 
@@ -241,7 +240,7 @@ const show = results => {
   chooser.appendChild(replacement);
 
   // async helper function for adding emoji over multiple frames (via requestIdleCallback).
-  if (!results) { return; }
+  if (!results.length) { return; }
   const p = (async function() {
     let idle = null;
 

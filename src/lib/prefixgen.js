@@ -20,7 +20,7 @@ export default function build(raw, prefixLength=3, maxSuggestions=10) {
     }
   });
 
-  return function(typed) {
+  return function(typed, prefix) {
     typed = typed.toLowerCase();
     const rest = typed.substr(prefixLength);
     let all = prefixSuggest[typed.substr(0, prefixLength)] || [];
@@ -28,8 +28,11 @@ export default function build(raw, prefixLength=3, maxSuggestions=10) {
     if (rest) {
       all = all.filter(word => word.substr(prefixLength).startsWith(rest));
     }
+    if (!prefix) {
+      all = all.filter(word => word === typed);
+    }
     all = all.map(word => [word, ...values[word]]);
 
-    return all.length ? all : null;
+    return all.length ? all : [];
   }
 }

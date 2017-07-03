@@ -3,6 +3,11 @@ const api = 'https://us-central1-emojityper.cloudfunctions.net';
 import build from './prefixgen.js';
 import * as results from './results.js';
 
+/**
+ * Returns the local prefix search tool.
+ *
+ * @return {function(string, boolean): !Array<!Array<string>>}
+ */
 const getPrefixGen = (function() {
   let localPromise = null;  // results from localStorage
   const raw = window.localStorage['popular'];
@@ -56,69 +61,61 @@ const getPrefixGen = (function() {
   return () => promiseToReturn;
 }());
 
+// shared state set via callback() and used in request()
 const zeroCallback = function() {};
 let requestCallback = zeroCallback;
 
-let timeout;  // timeout handler for secondary query
-const performRequest = (text, prefix) => {
-  window.clearTimeout(timeout);
-  if (!text) {
-    requestCallback(null);
-    return;
-  }
-
-  let indexedResults = null;
-
-  // TODO: only send extra query if there's not enough results, or the user hits 'more'
-  const localTimeout = window.setTimeout(_ => {
-    let url = api + '/query?query=' + encodeURIComponent(text);
-    if (prefix) {
-      url += '&prefix=true';
-    }
-    window.fetch(url)
-        .then(out => out.json())
-        .then(out => {
-          // TODO: store this request locally probably
-          const sending = indexedResults || [];
-          results.merge(sending, out['results']);
-          return sending;
-        })
-        .then(r => send(r));
-  }, 2000);
-  timeout = localTimeout;
-
-  getPrefixGen().then(suggest => {
-    let results = suggest(text);
-    if (!prefix) {
-      results = results.filter(result => result[0] === text);
-    }
-    indexedResults = results;
-    send(results);
-  });
-
-  // nb. at end to hoist above 'localTimeout'
-  function send(out) {
-    if (timeout === localTimeout) {
-      requestCallback(out);
-    }
-  }
-};
-
 /**
- * Requests emoji completion. Emoji will be returned via this Promise as well as the callback set
- * through callback().
+ * Requests emoji completion. Initial emoji will be returned via this Promise, as well as the
+ * callback set through callback().
  *
  * @param {string} text user has typed
  * @param {boolean} prefix is this a prefix search, or is it a definite whole word?
  * @return {!Promise<!Array<!Array>>}
  */
-export function request(text, prefix) {
-  return new Promise((resolve) => {
-    window.requestAnimationFrame(_ => {
-      resolve(performRequest(text, prefix));
-    });
-  });
-}
+export const request = (function() {
+  let timeout;  // timeout handler for secondary query
+
+  return async function request(text, prefix) {
+    await new Promise((resolve) => window.requestAnimationFrame(resolve));
+
+    window.clearTimeout(timeout);
+
+    if (!text) {
+      requestCallback([]);
+      return;
+    }
+    let indexedResults = null;
+
+    // TODO: only send extra query if there's not enough results, or the user hits 'more'
+    const localTimeout = window.setTimeout(_ => {
+      let url = api + '/query?query=' + encodeURIComponent(text);
+      if (prefix) {
+        url += '&prefix=true';
+      }
+      window.fetch(url)
+          .then(out => out.json())
+          .then(out => {
+            // TODO: store this request locally probably
+            const sending = indexedResults || [];
+            results.merge(sending, out['results']);
+            return sending;
+          })
+          .then(r => send(r));
+    }, 2000);
+    timeout = localTimeout;
+
+    function send(out) {
+      if (timeout === localTimeout) {
+        requestCallback(out);
+      }
+    }
+
+    const suggest = await getPrefixGen();
+    indexedResults = suggest(text, prefix);
+    send(indexedResults.slice());
+  }
+}());
 
 /**
  * Sets the callback for search requests, or null to clear.
@@ -145,7 +142,7 @@ export const select = (function() {
 
   const runner = () => {
     const body = JSON.stringify(pending);
-    pendingSelect = {};
+    pending = {};  // clear pending for next time
 
     // TODO: use sendBeacon
     const p = window.fetch(api + '/select', {method: 'POST', body})

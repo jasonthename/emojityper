@@ -10,7 +10,7 @@ function removeDuplicates(row) {
   return row.filter((item, i) => {
     if (i !== 0) {
       if (found.has(item)) { return false; }
-      found.set(item);
+      found.add(item);
     }
   });
 }
@@ -25,20 +25,18 @@ function removeDuplicates(row) {
  * @param {!Array<!Array<string>>} update
  */
 export function merge(existing, update) {
-  const index = {};
-  existing.forEach((row, i) => {
-    index[row[0]] = i;
-  });
+  const lookup = {};
+  existing.forEach((row) => lookup[row[0]] = row);
 
   update.forEach((row) => {
-    const existingRow = index[row[0]];
+    const existingRow = lookup[row[0]];
     if (!existingRow) {
-      index[row[0]] = row;  // in case there's dup data
+      lookup[row[0]] = row;  // in case there's dup data
       existing.push(row);
       return;
     }
 
     // otherwise, just append all new data
-    index[row[0]] = removeDuplicates(existingRow.concat(row.slice(1)));
+    lookup[row[0]] = removeDuplicates(existingRow.concat(row.slice(1)));
   });
 }
