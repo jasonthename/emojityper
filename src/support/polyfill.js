@@ -36,7 +36,7 @@ if (!Element.prototype.hasOwnProperty('remove')) {
 // IE11 classList.toggle 2nd arg
 const testEl = document.createElement('div');
 testEl.classList.toggle('testClass', false);
-if (testEl.classList.has('testClass')) {
+if (testEl.classList.contains('testClass')) {
   const original = DOMTokenList.prototype.toggle;
   DOMTokenList.prototype.toggle = function(name, force) {
     if (force === undefined) {
