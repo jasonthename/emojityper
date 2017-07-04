@@ -121,17 +121,31 @@ footer {
   opacity: 0.75;
   font-size: 0.4em;
   text-align: center;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
+
+  section {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    margin-bottom: 1em;
+    height: 5em;  // nb. this is just larger than the help stuff
+
+    .line {
+      width: 2px;
+      background: rgba(0, 0, 0, 0.125);
+      margin: 0 0.5em;
+    }
+  }
 
   .help {
-    margin-bottom: 1em;
+    align-self: center;
+    text-align: right;
     color: #CB6BAA;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
     font-weight: 300;
     list-style: none;
     line-height: 1.5em;
+    flex-grow: 1;
+    margin: 0 0.5em;
 
     em {
       font-weight: 900;
@@ -147,9 +161,50 @@ footer {
       font-size: 0.75em;
     }
   }
+  .adverts {
+    text-align: left;
+    color: @color-feature;
+    h4 {
+      font-size: 1.5em;
+    }
+    flex-grow: 4;
+    position: relative;
+
+    article {
+      box-sizing: border-box;
+      position: absolute;
+      top: 0%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-flow: column;
+      transition: opacity 0.25s ease-in-out;
+      will-change: opacity;
+      padding: 0 0.5em;
+
+      &:not(.active) {
+        opacity: 0;
+        user-select: none;
+      }
+    }
+  }
   .ib {
     display: inline-block;
   }
+
+  @media (max-width: 600px) {
+    .help, .line {
+      display: none;
+    }
+    .adverts {
+      text-align: center;
+
+      article {
+        width: 100%;
+      }
+    }
+  }
+
 }
 
 header {
@@ -327,7 +382,7 @@ main {
   flex-flow: row wrap;
   padding-top: 8px;
 }
-body.has-value footer .help {
+body.has-value footer section {
   display: none;
 }
 
