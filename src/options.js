@@ -180,7 +180,7 @@ const show = results => {
     }
 
     if (out.diversity) {
-      const diversityHolder = holderFor('diversity');
+      const diversityHolder = holderFor('tone');
       createModifierButton(diversityHolder, '\u{2014}');
       for (let i = 0x1f3fb; i <= 0x1f3ff; ++i) {
         createModifierButton(diversityHolder, String.fromCodePoint(i), i);
