@@ -4,51 +4,176 @@
 import * as provider from './lib/provider.js';
 import * as modifier from './lib/modifier.js';
 
-// WIP ButtonManager
+/**
+ * ButtonManager helps create and show emoji buttons in the UI.
+ */
 class ButtonManager {
   constructor(holder) {
     this.holder_ = holder;
+    this.pendingFirstEmoji_ = null;
 
     /** @type {!Map<string, !HTMLElement>} */
     this.options_ = new Map();
+
+    /** @type {!Map<string, !HTMLButtonElement>} */
+    this.buttons_ = new Map();
   }
 
-  option_(name) {
-    let node = this.options_.get(name);
-    if (!node) {
-      const node = document.createElement('div');
-      node.className = 'options';
-      node.setAttribute('data-name', name);
-      this.options_.set(name, node);
-    }
+  static option_(name) {
+    const node = document.createElement('div');
+    node.className = 'options';
+    node.setAttribute('data-name', name);
     return node;
   }
 
-  button_(text) {
+  static button_(text) {
     const button = document.createElement('button');
+    button.className = 'unknown';
     button.textContent = text;
     return button;
   }
-}
 
-/**
- * @type {Map<string, !HTMLButtonElement> cache of previously displayed buttons
- */
-let buttonCache = new Map();
+  immediateFirstEmojiForOption_(name) {
+    const node = this.options_.get(name);
+    if (!node) { return null; }
 
-/**
- * @param {string} text of button to create
- * @return {!HTMLButtonElement} button either from cache or newly created
- */
-function createButton(text) {
-  const candidate = buttonCache.get(text);
-  if (candidate) {
-    return candidate;
+    let cand = node.firstElementChild;
+    while (cand) {
+      if (!cand.hidden && cand.className === '') {
+        return cand.textContent;
+      }
+      cand = cand.nextElementSibling;
+    }
+    return null;
   }
-  const button = document.createElement('button');
-  button.textContent = text;
-  buttonCache.set(text, button);
-  return button;
+
+  checkFirstEmoji_() {
+    this.pendingFirstEmoji_ && this.pendingFirstEmoji_();
+  }
+
+  /**
+   * Returns a promise for the first valid emoji value for the given name. This allows a user to
+   * keep typing(-ish) yet have their text replaced with emoji.
+   *
+   * This promise isn't guaranteed to resolve. Drops previous request on additional calls.
+   *
+   * @param {string} name to search for
+   * @return {!Promise<?string>} emoji found
+   */
+  firstEmojiForOption(name) {
+    return new Promise((resolve) => {
+      const checker = () => {
+        const immediateResult = this.immediateFirstEmojiForOption_(name);
+        if (immediateResult) {
+          if (this.pendingFirstEmoji_ === checker) {
+            this.pendingFirstEmoji_ = null;
+          }
+          resolve(immediateResult);
+          return Promise.resolve(immediateResult);
+        }
+      };
+      this.pendingFirstEmoji_ = checker;
+      checker();
+    });
+  }
+
+  /**
+   * Filters all local option nodes based on the given query.
+   *
+   * @param {string} query
+   * @param {boolean} prefix
+   */
+  localFilter(query, prefix) {
+    let show;
+    if (prefix === true) {
+      const qlen = query.length;
+      if (qlen === 0) {
+        show = () => true;
+      } else {
+        show = (name) => name.length >= qlen && name.substr(0, qlen) === query;
+      }
+    } else {
+      show = (name) => (name === query);
+    }
+    this.options_.forEach((node, name) => node.hidden = !show(name));
+  }
+
+  /**
+   * Updated displayed options with real results.
+   *
+   * @param {!Array<!Array<string>>}
+   * @return {!Promise<undefined>}
+   */
+  update(results) {
+    const options = new Map();
+    const buttons = new Map();
+    const previousActiveElement = document.activeElement;
+    const queue = [];
+
+    results.forEach(result => {
+      const name = result[0];
+
+      const option = this.options_.get(name) || ButtonManager.option_(name);
+      this.options_.delete(name);
+      options.set(name, option);
+      option.hidden = true;
+      this.holder_.appendChild(option);  // reinsert in better order
+
+      for (let i = 1, emoji; emoji = result[i]; ++i) {
+        let button = this.buttons_.get(emoji);
+        if (!button) {
+          button = ButtonManager.button_(emoji);
+          queue.push({emoji, button});
+        } else {
+          this.buttons_.delete(emoji);
+          option.hidden = false;
+        }
+        buttons.set(emoji, button);
+        option.appendChild(button);
+      }
+    });
+    previousActiveElement.focus();
+
+    this.options_.forEach((option) => option.remove());
+    this.buttons_.forEach((button) => button.remove());
+    this.options_ = options;
+    this.buttons_ = buttons;
+
+    // TODO: move this to be running "all the time"
+    return (async () => {
+      let idle = null;
+      const start = window.performance.now();
+
+      // don't start with idle: the first N might complete really fast (already known)
+      for (let q = 0; q < queue.length; ++q) {
+        const {emoji, button} = queue[q];
+        if (!button.parentNode) {
+          continue;
+        }
+        if (modifier.isExpectedLength(emoji)) {
+          button.className = '';
+          button.parentNode.hidden = false;
+        } else {
+          button.remove();
+        }
+
+        if (q < 20 || (idle === null && window.performance.now() - start < 10)) {
+          continue;
+        }
+
+        let expired = true;
+        if (idle !== null) {
+          expired = idle.timeRemaining() < 0;
+        }
+        if (expired) {
+          this.checkFirstEmoji_();
+          idle = await (new Promise(resolve => window.requestIdleCallback(resolve)));
+        }
+      }
+
+      this.checkFirstEmoji_();
+    })();
+  }
 }
 
 // key overrides to recognize spacebar causing 'click'
@@ -168,15 +293,13 @@ chooser.addEventListener('keydown', ev => {
   }
 });
 
-let savedResults = null;
-let query = null;
-const show = results => {
-  savedResults = results;
+const manager = new ButtonManager(chooser);
+const show = (results) => {
+  manager.update(results);
+};
 
-  chooser.textContent = '';
-  const canary = document.createElement('span');
-  chooser.appendChild(canary);
-  const updatedButtonCache = new Map();
+const slowShow = (results) => {
+  // FIXME FIXME FIXME bring this back
 
   // if there's a focus but it's not a prefix (which implies that it's text-only)
   if (query.focus && !query.prefix) {
@@ -217,104 +340,68 @@ const show = results => {
       }
     }
   }
-
-  let addedButtonsCount = 0;
-  console.time('buttons');
-
-  // create buttons and headings for all options; immediately re-add previously cached buttons
-  const replacement = document.createDocumentFragment();
-  const holders = {};
-  const pending = [];
-  results.forEach(result => {
-    const name = result[0];
-    const rest = result.slice(1);
-
-    const el = document.createElement('div');
-    el.className = 'options';
-    el.setAttribute('data-name', name);
-
-    replacement.appendChild(el);
-    holders[name] = el;
-
-    // do a quick pass on already available buttons
-    const remaining = rest.filter(option => {
-      const button = buttonCache.get(option);
-      if (!button) {
-        return true;  // we want to redraw this later
-      } else if (!updatedButtonCache.has(option)) {
-        // don't show the same emoji button twice
-        ++addedButtonsCount;
-        el.appendChild(button);
-        updatedButtonCache.set(option, button);
-      }
-      return false;
-    });
-    if (remaining.length) {
-      pending.push([name, ...remaining]);
-    }
-  });
-  buttonCache = updatedButtonCache;
-  chooser.appendChild(replacement);
-
-  // async helper function for adding emoji over multiple frames (via requestIdleCallback).
-  const p = (async function() {
-    let idle = null;
-    let idleCount = 0;
-
-    for (let i = 0, result; result = pending[i]; ++i) {
-      const name = result[0];
-      for (let j = 1, option; option = result[j]; ++j) {
-        if (!idle || idle.timeRemaining() <= 0) {
-          // const p = new Promise(resolve => window.requestIdleCallback(o => resolve(o)));
-          // idle = await p;
-          ++idleCount;
-          if (!canary.parentNode) { return; }
-        }
-        if (!buttonCache.has(option) && modifier.isExpectedLength(option)) {
-          // TODO: If a user has allowed it, render all emojis (even invalid) anyway.
-          const holder = holders[name];
-          holder.appendChild(createButton(option));
-        }
-      };
-    };
-    console.debug('readding buttons', addedButtonsCount, 'pending', pending.length, 'idles', idleCount);
-    console.timeEnd('buttons');
-  }());
-  p.catch(e => console.warn('couldn\'t render emoji', e));
 };
 
 // set global callback for show
 provider.callback(show);
 
-// handler for a prefix search
-typer.addEventListener('query', ev => {
-  query = ev.detail;
-  provider.request(query.text, query.prefix);
-});
+(function() {
+  const longTime = 2000;
+  const delayTime = 250;
 
-// nb. this puncutation list is just misc stuff needed by emojimap
-const invalidLetterRe = /[^\w:\.,$%^\-']+/g;
-const simplifyWord = word => {
-  if (word) {
-    return word.replace(invalidLetterRe, '').toLowerCase();
-  }
-  return null;
-};
+  let previous = {};
+  let idleTimeout = 0;
+  let previousQueryAt = performance.now();
+  let pendingFirstEmojiRequest = null;
 
-// request an autocomplete, the user has just kept typing
-typer.addEventListener('request', ev => {
-  const word = simplifyWord(ev.detail);
-  let choice = null;
+  // handler for a prefix search
+  typer.addEventListener('query', ev => {
+    pendingFirstEmojiRequest = null;  // user typed something else
 
-  (savedResults || []).some(result => {
-    if (result[0] !== word) { return false; }
-    choice = result[1];
-    return true;
+    const runner = () => provider.request(query.text, query.prefix);
+    let immediate = false;
+
+    const now = performance.now();
+    const query = ev.detail;
+    if (!previous.text || previous.prefix !== query.prefix) {
+      immediate = true;  // type changed, user expects snappiness
+    } else if (now - previousQueryAt > longTime) {
+      immediate = true;  // it's been a while
+    }
+    previous = query;
+    previousQueryAt = now;
+
+    window.clearTimeout(idleTimeout);
+    if (immediate) {
+      return runner();
+    } else {
+      manager.localFilter(query.text, query.prefix);
+      idleTimeout = window.setTimeout(runner, delayTime);
+    }
   });
 
-  if (choice) {
-    ga('send', 'event', 'options', 'typing');
-    const detail = {choice, word};
-    typer.dispatchEvent(new CustomEvent('emoji', {detail}));
-  }
-});
+  // nb. this punctuation list is just misc stuff needed by emojimap
+  const invalidLetterRe = /[^\w:\.,$%^\-']+/g;
+  const simplifyWord = word => {
+    if (word) {
+      return word.replace(invalidLetterRe, '').toLowerCase();
+    }
+    return null;
+  };
+
+  // request an autocomplete, the user has just kept typing
+  typer.addEventListener('request', ev => {
+    const word = simplifyWord(ev.detail);
+    const request = manager.firstEmojiForOption(word);
+    pendingFirstEmojiRequest = request;
+    request.then(choice => {
+      if (pendingFirstEmojiRequest !== request) {
+        return;  // changed from under us
+      }
+      ga('send', 'event', 'options', 'typing');
+      const detail = {choice, word};
+      typer.dispatchEvent(new CustomEvent('emoji', {detail}));
+    });
+  });
+}());
+

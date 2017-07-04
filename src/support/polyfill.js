@@ -9,6 +9,7 @@ import '../../node_modules/core-js/modules/es6.array.from';
 import '../../node_modules/core-js/modules/es6.promise';
 import '../../node_modules/core-js/modules/es6.symbol';
 
+// IE11 CustomEvent
 if (typeof window.CustomEvent !== 'function') {
   function CustomEvent(name, params) {
     params = params || {bubbles: false, cancelable: false, detail: undefined};
@@ -18,6 +19,18 @@ if (typeof window.CustomEvent !== 'function') {
   }
   CustomEvent.prototype = window.Event.prototype;
   window.CustomEvent = CustomEvent;
+}
+
+// IE11 Element.remove
+if (!Element.prototype.hasOwnProperty('remove')) {
+  Object.defineProperty(Element.prototype, 'remove', {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    value: function remove() {
+      this.parentNode && this.parentNode.removeChild(this);
+    },
+  });
 }
 
 // for async/await magic

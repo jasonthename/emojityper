@@ -93,6 +93,10 @@ button {
   will-change: opacity;  /* force layer */
   overflow: hidden;
 
+  &.unknown {
+    display: none !important;
+  }
+
   &.rippleJS {
     border-radius: 0;
     color: @color-feature;

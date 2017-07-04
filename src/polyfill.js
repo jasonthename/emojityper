@@ -5,7 +5,7 @@
 
 if (!window.requestIdleCallback) {
   // TODO: this is a pretty terrible requestIdleCallback
-  window.requestIdleCallback = callback => {
+  window.requestIdleCallback = (callback) => {
     const start = performance.now();
     const fn = callback.bind(null, {
       didTimeout: false,
