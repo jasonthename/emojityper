@@ -190,7 +190,10 @@ class ButtonManager {
           queue.push({emoji, button});
         } else {
           this.buttons_.delete(emoji);
-          option.hidden = false;
+          if (!button.className) {
+            // if it's still unknown, option stays hidden
+            option.hidden = false;
+          }
         }
         buttons.set(emoji, button);
         option.appendChild(button);
@@ -211,7 +214,9 @@ class ButtonManager {
     }
 
     // TODO: move this to be running "all the time"
-    return (async () => {
+    // nb. This is a function as Safari fails on async arrows:
+    // https://bugs.webkit.org/show_bug.cgi?id=166879
+    return (async function() {
       let valid = 0;
       let idle = null;
       const start = window.performance.now();
@@ -246,7 +251,7 @@ class ButtonManager {
 
       this.checkFirstEmoji_();
       return valid;
-    })();
+    }.call(this));
   }
 }
 
@@ -414,15 +419,16 @@ chooser.addEventListener('keydown', ev => {
       return manager.update(results);
     };
 
-    const p = request(immediate ? 0 : delayTime);
-    p.then((valid) => {
-      if (valid === -1) { return; }  // query changed
+    const p = request(immediate ? 0 : delayTime).then((valid) => {
+      if (valid < 0) { return -2; }  // query changed
 
       // TODO: the 'more' behaviour interacts oddly with pendingFirstEmojiRequest, as it can appear
       // as if your emoji changes after a _long_ time.
 
       const timeout = Math.max(1000, 100 * Math.pow(valid, 0.75));
       return request(timeout, true);
+    }).catch(err => {
+      console.error('error doing request', err);
     });
   });
 
