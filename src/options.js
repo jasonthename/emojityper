@@ -63,7 +63,7 @@ chooser.addEventListener('click', ev => {
     typer.dispatchEvent(new CustomEvent('modifier', {detail}));
     label = 'modifier';
   } else {
-    const word = b.parentNode.dataset['word'];
+    const word = b.parentNode.dataset['name'];
     const detail = {choice: b.textContent, word};
     typer.dispatchEvent(new CustomEvent('emoji', {detail}));
     provider.select(word, detail.choice);
@@ -173,7 +173,6 @@ const show = results => {
     const holderFor = type => {
       const el = document.createElement('div');
       el.className = 'options modifier';
-      el.setAttribute('data-name', type);
       el.setAttribute('data-modifier', type);
 
       chooser.appendChild(el);
