@@ -306,10 +306,13 @@ function splitEmoji(points) {
  * @return {out: (string|undefined), tone: boolean, gender: {single: boolean, double: boolean, neutral: boolean}}
  */
 export function modify(s, opt_op) {
-  const points = jsdecode(s);
   const stats = {tone: false, gender: {single: false, double: false, neutral: false}};
+  if (!s) {
+    return stats;
+  }
+  const points = jsdecode(s);
 
-  // split out gender modifierss and other variations with splitEmoji, walk chars
+  // split out gender modifiers and other variations with splitEmoji, walk chars
   const chars = splitEmoji(points);
   const record = (opt_op ? [] : null);
   chars.some((char, i) => {

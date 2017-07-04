@@ -33,6 +33,23 @@ if (!Element.prototype.hasOwnProperty('remove')) {
   });
 }
 
+// IE11 classList.toggle 2nd arg
+const testEl = document.createElement('div');
+testEl.classList.toggle('testClass', false);
+if (testEl.classList.has('testClass')) {
+  const original = DOMTokenList.prototype.toggle;
+  DOMTokenList.prototype.toggle = function(name, force) {
+    if (force === undefined) {
+      return original.call(this, name);
+    } else if (force) {
+      this.add(name);
+    } else {
+      this.remove(name);
+    }
+    return this.contains(val);
+  };
+}
+
 // for async/await magic
 // nb. this puts regeneratorRuntime into the top-level scope
 import '../../node_modules/regenerator-runtime/runtime.js';

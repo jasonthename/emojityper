@@ -19,6 +19,61 @@ class ButtonManager {
 
     /** @type {!Map<string, !HTMLButtonElement>} */
     this.buttons_ = new Map();
+
+    /** @type {function(this:ButtonManager, !Object): void} */
+    this.setModifier = (() => {
+      const genderOption = ButtonManager.optionType_('modifier', 'gender');
+      const toneOption = ButtonManager.optionType_('modifier', 'tone');
+      this.holder_.appendChild(genderOption);
+      this.holder_.appendChild(toneOption);
+
+      // helper to create buttons
+      const createModifierButton = (text, value=null) => {
+        const button = document.createElement('button');
+        button.textContent = text;
+        button.dataset['value'] = value;
+        return button;
+      };
+
+      // create gender options
+      const genders = [
+        createModifierButton('\u{2014}', ''),
+        createModifierButton('\u{2640}', 'f'),
+        createModifierButton('\u{2640}\u{2642}', 'fm'),
+        createModifierButton('\u{2642}', 'm'),
+        createModifierButton('\u{2642}\u{2640}', 'mf'),
+      ];
+
+      // create tone options
+      const tones = [
+        toneOption.appendChild(createModifierButton('\u{2014}', '')),
+      ];
+      for (let i = 0x1f3fb; i <= 0x1f3ff; ++i) {
+        tones.push(createModifierButton(String.fromCodePoint(i), i));
+      }
+
+      // helper to add/remove
+      const updateStatus = (yes, node, owner) => {
+        yes ? owner.appendChild(node) : node.remove();
+      };
+      return function(info) {
+        genders.forEach(node => {
+          const l = node.dataset['value'].length;
+          const yes = (!l && info.gender.neutral)
+              || (l === 1 && info.gender.single)
+              || (l === 2 && info.gender.double);
+          updateStatus(yes, node, genderOption);
+        });
+        tones.forEach(node => updateStatus(info.tone, node, toneOption));
+      }
+    })();
+  }
+
+  static optionType_(type, value) {
+    const node = document.createElement('div');
+    node.className = 'options ' + type;
+    node.setAttribute('data-' + type, value);
+    return node;
   }
 
   static option_(name) {
@@ -306,50 +361,6 @@ chooser.addEventListener('keydown', ev => {
   }
 });
 
-const slowShow = (results) => {
-  // FIXME FIXME FIXME bring this back
-
-  // if there's a focus but it's not a prefix (which implies that it's text-only)
-  if (query.focus && !query.prefix) {
-    // TODO: dedup some of this code with the below generators
-    const holderFor = type => {
-      const el = document.createElement('div');
-      el.className = 'options modifier';
-      el.setAttribute('data-modifier', type);
-
-      chooser.appendChild(el);
-      return el;
-    };
-    const createModifierButton = (holder, text, opt_value) => {
-      const button = document.createElement('button');
-      button.textContent = text;
-      if (opt_value) {
-        button.dataset['value'] = opt_value;
-      }
-      holder.appendChild(button);
-    };
-
-    const out = modifier.modify(query.focus);
-
-    if (out.gender.single || out.gender.double) {
-      const genderHolder = holderFor('gender');
-      out.gender.neutral && createModifierButton(genderHolder, '\u{2014}');
-      out.gender.single && createModifierButton(genderHolder, '\u{2640}', 'f');
-      out.gender.double && createModifierButton(genderHolder, '\u{2640}\u{2642}', 'fm');
-      out.gender.single && createModifierButton(genderHolder, '\u{2642}', 'm');
-      out.gender.double && createModifierButton(genderHolder, '\u{2642}\u{2640}', 'mf');
-    }
-
-    if (out.tone) {
-      const toneHolder = holderFor('tone');
-      createModifierButton(toneHolder, '\u{2014}');
-      for (let i = 0x1f3fb; i <= 0x1f3ff; ++i) {
-        createModifierButton(toneHolder, String.fromCodePoint(i), i);
-      }
-    }
-  }
-};
-
 (function() {
   const longTime = 2000;
   const delayTime = 250;
@@ -361,6 +372,10 @@ const slowShow = (results) => {
 
   // handler for a prefix search
   typer.addEventListener('query', ev => {
+    // immediately inform manager of modifier buttons (gender, tone), if it's a full word search
+    const info = modifier.modify(!ev.detail.prefix && ev.detail.focus || '');
+    manager.setModifier(info);
+
     pendingFirstEmojiRequest = null;  // user typed something else
 
     let immediate = false;
@@ -384,7 +399,7 @@ const slowShow = (results) => {
       const results = await provider.request(query.text, query.prefix, more);
       if (previous !== query) { return -1; }
 
-      // FIXME: rather than discarding, can we work out whether this is something we can _filter_
+      // TODO: rather than discarding, can we work out whether this is something we can _filter_
       // to _look_ like the real results?
       // nb. we'd have to say... this is "old" but the final one hasn't finished.
 
@@ -421,4 +436,3 @@ const slowShow = (results) => {
     });
   });
 }());
-

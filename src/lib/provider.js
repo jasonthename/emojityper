@@ -121,7 +121,6 @@ export const select = (function() {
   };
 
   return function select(name, emoji) {
-    console.info('selected', name, emoji);
     pending[name] = emoji;
 
     if (!currentPromise) {
