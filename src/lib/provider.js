@@ -80,7 +80,6 @@ export function request(text, prefix, more=false) {
   }
 
   // TODO: At some point, the 'more' data should go into a local cache. For now, just fetch.
-  console.info('doing "more" request', text, prefix);
   let url = `${api}/query?query=${window.encodeURIComponent(text)}`;
   if (prefix) {
     url += '&prefix=true';

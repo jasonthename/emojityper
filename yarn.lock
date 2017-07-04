@@ -2557,9 +2557,9 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
-uglify-es@^3.0.17:
-  version "3.0.17"
-  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.0.17.tgz#fafc1129d64d3900ae255672e64a4cf94d25796c"
+uglify-es@^3.0.23:
+  version "3.0.23"
+  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.0.23.tgz#9682c6ae347269ad6b0628bd8b3d6a3b391707c0"
   dependencies:
     commander "~2.9.0"
     source-map "~0.5.1"
