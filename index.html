@@ -5,6 +5,14 @@
   <meta name="description" content="Emoji ready to copy and paste! List of all emoji, just type some words to get emoji. Laughing crying emoji \ud83d\ude02\u2328" />
   <meta name="author" content="@mangopdf, @samthor" />
   <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <script>
+// nb. intentionally inline ES5 before any other code
+if (window.location.hostname.indexOf('www.') === 0) {
+  window.stop();
+  window.location.hostname = window.location.hostname.substr(4);
+  throw new Error('redirect');
+}
+  </script>
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Lobster" rel="stylesheet" />
   <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Emojityper" />
   <script type="module" src="https://cdn.rawgit.com/samthor/rippleJS/v1.0.2/ripple.min.js"></script>
