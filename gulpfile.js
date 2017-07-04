@@ -83,7 +83,14 @@ gulp.task('html', function() {
 });
 
 gulp.task('static', function() {
-  return gulp.src(['manifest.json', 'sw.js', 'opensearch.xml', 'res/*'], {base: '.'})
+  const src = [
+    'CNAME',
+    'manifest.json',
+    'opensearch.xml',
+    'res/*',
+    'sw.js',
+  ];
+  return gulp.src(src, {base: '.'})
     .pipe(gulp.dest('./dist'));
 });
 
@@ -97,7 +104,7 @@ gulp.task('clean', function() {
 gulp.task('manifest', ['css', 'js', 'html', 'static'], function() {
   return workbox.generateFileManifest({
     manifestDest: './dist/manifest.js',
-    globPatterns: ['**/*'],
+    globPatterns: ['**/*.{png,html,js,json,css}'],
     globIgnores: ['*.map'],
     globDirectory: './dist',
     modifyUrlPrefix: {'/': './'},  // treat files as relative to SW
