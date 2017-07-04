@@ -201,7 +201,9 @@ footer {
       text-align: center;
     }
   }
-
+}
+body.has-value footer section {
+  display: none;
 }
 
 header {
@@ -209,12 +211,7 @@ header {
   align-items: flex-end;
   padding: 0 12px 0.5em;
 }
-.buttons.ui {
-  display: flex;
-  flex-flow: row;
-  align-items: center;
-}
-.buttons.ui button {
+.ui button {
   min-width: 2em;
   margin-right: 0;
   margin-left: 0.66em;
@@ -375,48 +372,35 @@ main {
 }
 
 .chooser {
-  display: flex;
-  flex-flow: row wrap;
+  line-height: 0;
   padding-top: 8px;
 }
-body.has-value footer section {
-  display: none;
-}
-
 .options {
-  display: flex;
-  flex-flow: row;
-  align-items: flex-start;
   padding-left: 8px;
-  z-index: 10;
+  display: inline-block;
 
-  h4 {
+  &::before {
+    content: attr(data-name);
     color: @color-feature;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
     margin-right: 12px;
     font-size: 0.33em;
     line-height: 3em;
-    order: -1;
+    font-weight: bold;
+    vertical-align: middle;
   }
-
-  &.modifier h4 {
+  &.modifier::before {
     color: rgb(251, 220, 59);
   }
-
-  .buttons {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-  }
-  .buttons:empty + h4 {
+  &:empty {
     display: none;
   }
 
   button {
-    @offset: 0.05em;
-    padding-top: @offset;  /** offset emoji lower */
-    line-height: (1.33em - @offset);
+    display: inline-block;
+    padding-top: 1px;  /** offset emoji slightly lower */
+    line-height: 1.33em;
     margin-bottom: 4px;
     margin-right: 4px;
   }

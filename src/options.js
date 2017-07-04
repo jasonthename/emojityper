@@ -4,6 +4,33 @@
 import * as provider from './lib/provider.js';
 import * as modifier from './lib/modifier.js';
 
+const optionsTemplate = document.createElement('template');
+optionsTemplate.innerHTML = `<div class="options"><div class="buttons"></div><h4></h4></div>`;
+
+class ButtonManager {
+  constructor(holder) {
+    this.holder_ = holder;
+
+    /** @type {!Map<string, ?>} */
+    this.options_ = new Map();
+  }
+
+  option_(name) {
+    const previous = this.options_.get(name);
+    if (previous) {
+      // TODO
+    }
+
+    const node = optionsTemplate.content.cloneNode(true);
+    console.info('got cloned node', node);
+
+    node.querySelector('h4').textContent = name;
+
+    this.options_.set(name, node);
+  }
+}
+
+
 /**
  * @type {Map<string, !HTMLButtonElement> cache of previously displayed buttons
  */
@@ -146,18 +173,11 @@ const show = results => {
     const holderFor = type => {
       const el = document.createElement('div');
       el.className = 'options modifier';
-
-      const buttons = document.createElement('div');
-      buttons.className = 'buttons';
-      buttons.dataset['modifier'] = type;
-      el.appendChild(buttons);
-
-      const h4 = document.createElement('h4');
-      h4.textContent = type;
-      el.appendChild(h4);
+      el.setAttribute('data-name', type);
+      el.setAttribute('data-modifier', type);
 
       chooser.appendChild(el);
-      return buttons;
+      return el;
     };
     const createModifierButton = (holder, text, opt_value) => {
       const button = document.createElement('button');
@@ -179,11 +199,11 @@ const show = results => {
       out.gender.double && createModifierButton(genderHolder, '\u{2642}\u{2640}', 'mf');
     }
 
-    if (out.diversity) {
-      const diversityHolder = holderFor('tone');
-      createModifierButton(diversityHolder, '\u{2014}');
+    if (out.tone) {
+      const toneHolder = holderFor('tone');
+      createModifierButton(toneHolder, '\u{2014}');
       for (let i = 0x1f3fb; i <= 0x1f3ff; ++i) {
-        createModifierButton(diversityHolder, String.fromCodePoint(i), i);
+        createModifierButton(toneHolder, String.fromCodePoint(i), i);
       }
     }
   }
@@ -201,18 +221,10 @@ const show = results => {
 
     const el = document.createElement('div');
     el.className = 'options';
-
-    const buttons = document.createElement('div');
-    buttons.className = 'buttons';
-    buttons.dataset['word'] = name;
-    el.appendChild(buttons);
-
-    const h4 = document.createElement('h4');
-    h4.textContent = name;
-    el.appendChild(h4);
+    el.setAttribute('data-name', name);
 
     replacement.appendChild(el);
-    holders[name] = buttons;
+    holders[name] = el;
 
     // do a quick pass on already available buttons
     const remaining = rest.filter(option => {
@@ -222,7 +234,7 @@ const show = results => {
       } else if (!updatedButtonCache.has(option)) {
         // don't show the same emoji button twice
         ++addedButtonsCount;
-        buttons.appendChild(button);
+        el.appendChild(button);
         updatedButtonCache.set(option, button);
       }
       return false;

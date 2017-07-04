@@ -302,12 +302,12 @@ function splitEmoji(points) {
  * This might be O(n), including the cost of measuring every individual character via measureText.
  *
  * @param {string} s
- * @param {{diversity: undefined|number, gender: undefined|string}=} opt_op
- * @return {out: (string|undefined), diversity: boolean, gender: {single: boolean, double: boolean, neutral: boolean}}
+ * @param {{tone: undefined|number, gender: undefined|string}=} opt_op
+ * @return {out: (string|undefined), tone: boolean, gender: {single: boolean, double: boolean, neutral: boolean}}
  */
 export function modify(s, opt_op) {
   const points = jsdecode(s);
-  const stats = {diversity: false, gender: {single: false, double: false, neutral: false}};
+  const stats = {tone: false, gender: {single: false, double: false, neutral: false}};
 
   // split out gender modifierss and other variations with splitEmoji, walk chars
   const chars = splitEmoji(points);
@@ -347,7 +347,7 @@ export function modify(s, opt_op) {
     const isSinglePerson =
         genderable ? (isPersonGender(first) && genderable === 1 && !family) : undefined;
     if (isSinglePerson) {
-      stats.diversity = basicDiversity;
+      stats.tone = basicDiversity;
     }
     if (record) {
       // true: is a 'non family person', aka profession or disembodied head (diversity OK)
@@ -357,7 +357,7 @@ export function modify(s, opt_op) {
     }
 
     // check for early exhaustive answer
-    if ((stats.diversity || !basicDiversity) && stats.gender.neutral) {
+    if ((stats.tone || !basicDiversity) && stats.gender.neutral) {
       // ... don't finish 'some' early if we're recording gender data
       return !record && stats.gender.single && stats.gender.double;
     }
@@ -368,8 +368,8 @@ export function modify(s, opt_op) {
     // do slow measure checks
     // TODO: can we use \p{Modifier_Base} as a faster check than measureText for +ve case?
     const candidate = String.fromCodePoint(first);
-    if (basicDiversity && !stats.diversity && isSingle(candidate + '\u{1f3fb}')) {
-      stats.diversity = true;
+    if (basicDiversity && !stats.tone && isSingle(candidate + '\u{1f3fb}')) {
+      stats.tone = true;
     }
     if (!stats.gender.neutral && isSingle(candidate + '\u{200d}\u{2640}\u{fe0f}')) {
       stats.gender.neutral = true;
@@ -441,15 +441,15 @@ export function modify(s, opt_op) {
     }
 
     // apply diversity
-    if (opt_op.diversity !== undefined) {
+    if (opt_op.tone !== undefined) {
       char.forEach((ch, i) => {
         if (isDiversitySelector(ch.suffix)) {
           // always tweak existing diversity modifiers
-          ch.suffix = opt_op.diversity;
+          ch.suffix = opt_op.tone;
         } else if (i === 0 && basicDiversity && isSinglePerson !== false) {
           // if it's the first point in a non-family, try to apply diversity
           if (isSinglePerson || isSingle(String.fromCodePoint(first) + '\u{1f3fb}')) {
-            ch.suffix = opt_op.diversity;
+            ch.suffix = opt_op.tone;
           }
         }
       });
