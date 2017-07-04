@@ -4,32 +4,32 @@
 import * as provider from './lib/provider.js';
 import * as modifier from './lib/modifier.js';
 
-const optionsTemplate = document.createElement('template');
-optionsTemplate.innerHTML = `<div class="options"><div class="buttons"></div><h4></h4></div>`;
-
+// WIP ButtonManager
 class ButtonManager {
   constructor(holder) {
     this.holder_ = holder;
 
-    /** @type {!Map<string, ?>} */
+    /** @type {!Map<string, !HTMLElement>} */
     this.options_ = new Map();
   }
 
   option_(name) {
-    const previous = this.options_.get(name);
-    if (previous) {
-      // TODO
+    let node = this.options_.get(name);
+    if (!node) {
+      const node = document.createElement('div');
+      node.className = 'options';
+      node.setAttribute('data-name', name);
+      this.options_.set(name, node);
     }
+    return node;
+  }
 
-    const node = optionsTemplate.content.cloneNode(true);
-    console.info('got cloned node', node);
-
-    node.querySelector('h4').textContent = name;
-
-    this.options_.set(name, node);
+  button_(text) {
+    const button = document.createElement('button');
+    button.textContent = text;
+    return button;
   }
 }
-
 
 /**
  * @type {Map<string, !HTMLButtonElement> cache of previously displayed buttons
