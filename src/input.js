@@ -305,8 +305,8 @@ function upgrade(el) {
     const emoji = ev.detail.choice;
     if (!replaceFocus(_ => emoji)) { return; }
 
-    // if this was a prefix match, now it's a word match (the word masks the emoji)
-    el.dataset['word'] = ev.detail.word || el.dataset['prefix'];
+    // listen to the caller's view on what word we should pretend this emoji is
+    el.dataset['word'] = ev.detail.word || '';
     datasetSafeDelete(el, 'prefix');
   });
 }

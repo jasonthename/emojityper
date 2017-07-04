@@ -51,6 +51,13 @@ function createButton(text) {
   return button;
 }
 
+// key overrides to recognize spacebar causing 'click'
+let spaceFrame = 0;
+chooser.addEventListener('keyup', ev => {
+  if (ev.key !== ' ' || ev.target.localName !== 'button') { return; }
+  spaceFrame = window.setTimeout(() => spaceFrame = 0, 0);
+});
+
 // button click handler
 chooser.addEventListener('click', ev => {
   let label = undefined;
@@ -63,7 +70,11 @@ chooser.addEventListener('click', ev => {
     typer.dispatchEvent(new CustomEvent('modifier', {detail}));
     label = 'modifier';
   } else {
-    const word = b.parentNode.dataset['name'];
+    // nb. we typically clear the word on choice (as it confuses @nickyringland), but if you hit
+    // space or ctrl-click the button, keep it around.
+    const retainWord = (spaceFrame !== 0 || ev.metaKey || ev.ctrlKey);
+    const word = retainWord ? b.parentNode.dataset['name'] : null;
+
     const detail = {choice: b.textContent, word};
     typer.dispatchEvent(new CustomEvent('emoji', {detail}));
     provider.select(word, detail.choice);
