@@ -3,6 +3,8 @@ import * as provider from './lib/provider.js';
 
 // advanced handler
 (function(input, advanced) {
+  // TODO: disabled for now
+/*
   const form = advanced.querySelector('form');
   const namer = form.querySelector('input');
   const button = form.querySelector('button');
@@ -51,5 +53,5 @@ import * as provider from './lib/provider.js';
       button.className = '';
     });
   });
-
+*/
 }(typer, advanced));

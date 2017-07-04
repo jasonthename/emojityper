@@ -28,3 +28,5 @@ The Emojityper backend is not currently public.
 
 Select a range of text including emoji.
 You'll be prompted to type a name.
+
+*TODO: coming soon*
