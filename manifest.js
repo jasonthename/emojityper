@@ -5,7 +5,7 @@ self.__file_manifest = [
   },
   {
     "url": "./error.html",
-    "revision": "c02f875801e452b88392352e67ea1942"
+    "revision": "5533bfcd928fbc274cf2429ab4b1b5b8"
   },
   {
     "url": "./index.html",
@@ -14,10 +14,6 @@ self.__file_manifest = [
   {
     "url": "./manifest.json",
     "revision": "5d901073fd2cf611e2e2593945dce6e4"
-  },
-  {
-    "url": "./opensearch.xml",
-    "revision": "37f41b8cc7e1383874350f6f3bbe1014"
   },
   {
     "url": "./res/crying.png",
