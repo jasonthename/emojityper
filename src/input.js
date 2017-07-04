@@ -3,7 +3,7 @@ import * as modifier from './lib/modifier.js';
 
 function datasetSafeDelete(el, ...keys) {
   const d = el.dataset;
-  keys.forEach(key => {
+  keys.forEach((key) => {
     if (key in d) {
       delete d[key];
     }
@@ -12,7 +12,7 @@ function datasetSafeDelete(el, ...keys) {
 
 // word focus handler
 function upgrade(el) {
-  const isWordCode = code => {
+  const isWordCode = (code) => {
     // FIXME: turns out matching non-emoji is hard
     // TODO: this RegExp _might_ work but it needs transpiling-
     // new RegExp(/(?:[\p{Letter}\p{Number}\p{Punctuation}](?!\u{fe0f}?\u{20e3}))+/u);
@@ -34,13 +34,13 @@ function upgrade(el) {
   // hide underline until load: the font used might not be ready, so it's probably out of whack
   if (document.readyState !== 'complete') {
     underline.classList.add('loading');
-    window.addEventListener('load', ev => {
+    window.addEventListener('load', (ev) => {
       renderLine();
       underline.classList.remove('loading');
     });
   }
 
-  const renderLine = _ => {
+  const renderLine = () => {
     if (el.dataset.from === undefined) {
       underline.hidden = true;
       return false;
@@ -82,7 +82,7 @@ function upgrade(el) {
   // state/handler keep track of the current focus word (plus scroll position, if input is big)
   const initialLength = el.value.length;
   const state = {start: initialLength, end: initialLength, value: undefined};
-  const changeHandler = permitNextChange => {
+  const changeHandler = (permitNextChange) => {
     if (permitNextChange !== false &&
         el.selectionStart === state.start &&
         el.selectionEnd === state.end &&
@@ -183,11 +183,11 @@ function upgrade(el) {
   (function() {
     let frame;
     let events = new Set();  // records the events that occured to cause this
-    const dedup = ev => {
+    const dedup = (ev) => {
       if (!frame) {
         permitNextChange = undefined;
         events.clear();
-        frame = window.requestAnimationFrame(_ => {
+        frame = window.requestAnimationFrame(() => {
           frame = null;
           mergedEventHandler(events, permitNextChange);
         });
@@ -197,26 +197,34 @@ function upgrade(el) {
 
     // lots of listeners for a million different change reasons
     const rest = 'change keydown keypress focus click mousedown select input';
-    rest.split(/\s+/).forEach(event => el.addEventListener(event, dedup));
+    rest.split(/\s+/).forEach((event) => el.addEventListener(event, dedup));
     dedup();
 
-    el.addEventListener('mousemove', ev => {
+    // if a user is dragging around, this might be changing the offsetLeft (dragging input l/r)
+    el.addEventListener('mousemove', (ev) => {
       if (ev.which) {
         dedup();
       }
-    })
+    });
 
+    // add 'selectionchange' (only valid on document) to listen to the initial long-press selection
+    // on Chrome (possibly others?) mobile: it doesn't generate 'select'.
+    document.addEventListener('selectionchange', (ev) => {
+      if (document.activeElement === el) {
+        dedup();
+      }
+    });
   }());
 
   // on blur, after a backspace, Chrome moves the start/end selection: fix it
-  el.addEventListener('blur', ev => {
+  el.addEventListener('blur', (ev) => {
     if (el.selectionStart !== state.start || el.selectionStart !== state.end) {
       [el.selectionStart, el.selectionEnd] = [state.start, state.end];
     }
   });
 
   // add a non-deduped keydown handler, to run before others and intercept space
-  el.addEventListener('keydown', ev => {
+  el.addEventListener('keydown', (ev) => {
     switch (ev.key) {
     case 'Escape':
       permitNextChange = false;  // force next change
@@ -227,14 +235,14 @@ function upgrade(el) {
         el.dispatchEvent(new CustomEvent('request', {detail: el.dataset.prefix}));
       }
 
-      // TODO: do this to prevent actually space being hit (as "Sam Prefers")
+      // TODO: do this to prevent actually space being hit (@samthor prefers it this way)
       //ev.preventDefault();
       break;
     }
   });
 
   // add a non-deduped keyup handler, for space on mobile browsers
-  el.addEventListener('keyup', ev => {
+  el.addEventListener('keyup', (ev) => {
     if (ev.keyCode === 229 || !ev.keyCode) {
       // look for a space before whatever was entered.
       const v = el.value.substr(el.selectionStart - 1, 1);
@@ -247,9 +255,9 @@ function upgrade(el) {
   // dedup re-rendering calls
   (function() {
     let frame;
-    const dedupRenderLine = _ => {
+    const dedupRenderLine = () => {
       if (!frame) {
-        frame = window.requestAnimationFrame(_ => {
+        frame = window.requestAnimationFrame(() => {
           frame = null;
           renderLine();
         });
@@ -260,7 +268,7 @@ function upgrade(el) {
   }());
 
   // replace helper
-  const replaceFocus = call => {
+  const replaceFocus = (call) => {
     if (el.dataset.from === undefined || el.dataset.to === undefined) { return false; }
 
     const [from, to] = [+el.dataset.from, +el.dataset.to];
@@ -271,7 +279,7 @@ function upgrade(el) {
     if (update == null) { return false; }
     typer.value = typer.value.substr(0, from) + update + typer.value.substr(to);
 
-    const drift = where => {
+    const drift = (where) => {
       if (where > to) {
         // after the update
         where = where - (to - from) + update.length;
@@ -295,15 +303,15 @@ function upgrade(el) {
   };
 
   // handle 'modifier' event: apply modifiers to the focus word, if any
-  el.addEventListener('modifier', ev => {
+  el.addEventListener('modifier', (ev) => {
     const arg = {[ev.detail.type]: ev.detail.code};
-    replaceFocus(value => modifier.modify(value, arg).out || '');
+    replaceFocus((value) => modifier.modify(value, arg).out || '');
   });
 
   // handle 'emoji' event: if there's a current focus word, then replace it with the new emoji \o/
-  el.addEventListener('emoji', ev => {
+  el.addEventListener('emoji', (ev) => {
     const emoji = ev.detail.choice;
-    if (!replaceFocus(_ => emoji)) { return; }
+    if (!replaceFocus(() => emoji)) { return; }
 
     // listen to the caller's view on what word we should pretend this emoji is
     el.dataset['word'] = ev.detail.word || '';
