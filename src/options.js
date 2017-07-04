@@ -166,7 +166,8 @@ class ButtonManager {
   update(results) {
     const options = new Map();
     const buttons = new Map();
-    const previousActiveElement = document.activeElement;
+    const previousActiveElement =
+        this.holder_.contains(document.activeElement) ? document.activeElement : null;
     const queue = [];
 
     results.forEach(result => {
@@ -195,12 +196,19 @@ class ButtonManager {
         option.appendChild(button);
       }
     });
-    previousActiveElement.focus();
 
     this.options_.forEach((option) => option.remove());
     this.buttons_.forEach((button) => button.remove());
     this.options_ = options;
     this.buttons_ = buttons;
+
+    if (previousActiveElement) {
+      if (!previousActiveElement.parentNode) {
+        typer.focus();  // restore to main input
+      } else {
+        previousActiveElement.focus();
+      }
+    }
 
     // TODO: move this to be running "all the time"
     return (async () => {
