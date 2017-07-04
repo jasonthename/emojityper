@@ -4,6 +4,8 @@
 import * as provider from './lib/provider.js';
 import * as modifier from './lib/modifier.js';
 
+const predicateTrue = () => true;
+
 /**
  * ButtonManager helps create and show emoji buttons in the UI.
  */
@@ -61,16 +63,19 @@ class ButtonManager {
    * @return {!Promise<?string>} emoji found
    */
   firstEmojiForOption(name) {
+    if (!name) {
+      return Promise.resolve(null);
+    }
     return new Promise((resolve) => {
       const checker = () => {
         const immediateResult = this.immediateFirstEmojiForOption_(name);
-        if (immediateResult) {
-          if (this.pendingFirstEmoji_ === checker) {
-            this.pendingFirstEmoji_ = null;
-          }
-          resolve(immediateResult);
-          return Promise.resolve(immediateResult);
+        if (!immediateResult) {
+          return false;
         }
+        if (this.pendingFirstEmoji_ === checker) {
+          this.pendingFirstEmoji_ = null;
+        }
+        resolve(immediateResult);
       };
       this.pendingFirstEmoji_ = checker;
       checker();
@@ -84,12 +89,10 @@ class ButtonManager {
    * @param {boolean} prefix
    */
   localFilter(query, prefix) {
-    let show;
+    let show = predicateTrue;
     if (prefix === true) {
       const qlen = query.length;
-      if (qlen === 0) {
-        show = () => true;
-      } else {
+      if (qlen !== 0) {
         show = (name) => name.length >= qlen && name.substr(0, qlen) === query;
       }
     } else {
@@ -99,7 +102,8 @@ class ButtonManager {
   }
 
   /**
-   * Updated displayed options with real results.
+   * Updated displayed options with real results. Adds all nodes immediately, but returns a Promise
+   * which indicates when all valid emoji are shown.
    *
    * @param {!Array<!Array<string>>}
    * @return {!Promise<undefined>}
@@ -120,6 +124,10 @@ class ButtonManager {
       this.holder_.appendChild(option);  // reinsert in better order
 
       for (let i = 1, emoji; emoji = result[i]; ++i) {
+        if (buttons.has(emoji)) {
+          continue;  // already stolen by something above us
+        }
+
         let button = this.buttons_.get(emoji);
         if (!button) {
           button = ButtonManager.button_(emoji);
@@ -141,6 +149,7 @@ class ButtonManager {
 
     // TODO: move this to be running "all the time"
     return (async () => {
+      let valid = 0;
       let idle = null;
       const start = window.performance.now();
 
@@ -153,6 +162,7 @@ class ButtonManager {
         if (modifier.isExpectedLength(emoji)) {
           button.className = '';
           button.parentNode.hidden = false;
+          ++valid;
         } else {
           button.remove();
         }
@@ -172,6 +182,7 @@ class ButtonManager {
       }
 
       this.checkFirstEmoji_();
+      return valid;
     })();
   }
 }
@@ -194,7 +205,7 @@ chooser.addEventListener('click', ev => {
     const detail = {type: b.parentNode.dataset['modifier'], code: value};
     typer.dispatchEvent(new CustomEvent('modifier', {detail}));
     label = 'modifier';
-  } else {
+  } else if (b.parentNode.dataset['name']) {
     // nb. we typically clear the word on choice (as it confuses @nickyringland), but if you hit
     // space or ctrl-click the button, keep it around.
     const retainWord = (spaceFrame !== 0 || ev.metaKey || ev.ctrlKey);
@@ -202,10 +213,12 @@ chooser.addEventListener('click', ev => {
 
     const detail = {choice: b.textContent, word};
     typer.dispatchEvent(new CustomEvent('emoji', {detail}));
-    provider.select(word, detail.choice);
+    provider.select(b.parentNode.dataset['name'], detail.choice);
     label = 'emoji';
+  } else {
+    // unknown
   }
-  ga('send', 'event', 'options', 'click', label);
+  label && ga('send', 'event', 'options', 'click', label);
 });
 
 // handle moving down from input
@@ -293,11 +306,6 @@ chooser.addEventListener('keydown', ev => {
   }
 });
 
-const manager = new ButtonManager(chooser);
-const show = (results) => {
-  manager.update(results);
-};
-
 const slowShow = (results) => {
   // FIXME FIXME FIXME bring this back
 
@@ -342,15 +350,12 @@ const slowShow = (results) => {
   }
 };
 
-// set global callback for show
-provider.callback(show);
-
 (function() {
   const longTime = 2000;
   const delayTime = 250;
+  const manager = new ButtonManager(chooser);
 
   let previous = {};
-  let idleTimeout = 0;
   let previousQueryAt = performance.now();
   let pendingFirstEmojiRequest = null;
 
@@ -358,9 +363,7 @@ provider.callback(show);
   typer.addEventListener('query', ev => {
     pendingFirstEmojiRequest = null;  // user typed something else
 
-    const runner = () => provider.request(query.text, query.prefix);
     let immediate = false;
-
     const now = performance.now();
     const query = ev.detail;
     if (!previous.text || previous.prefix !== query.prefix) {
@@ -371,33 +374,47 @@ provider.callback(show);
     previous = query;
     previousQueryAt = now;
 
-    window.clearTimeout(idleTimeout);
-    if (immediate) {
-      return runner();
-    } else {
-      manager.localFilter(query.text, query.prefix);
-      idleTimeout = window.setTimeout(runner, delayTime);
-    }
+    const request = async (timeout=0, more=false) => {
+      if (timeout) {
+        await new Promise((resolve) => window.setTimeout(() => {
+          window.requestAnimationFrame(resolve);
+        }, timeout));
+        if (previous !== query) { return -1; }
+      }
+      const results = await provider.request(query.text, query.prefix, more);
+      if (previous !== query) { return -1; }
+
+      // FIXME: rather than discarding, can we work out whether this is something we can _filter_
+      // to _look_ like the real results?
+      // nb. we'd have to say... this is "old" but the final one hasn't finished.
+
+      return manager.update(results);
+    };
+
+    const p = request(immediate ? 0 : delayTime);
+    p.then((valid) => {
+      if (valid === -1) { return; }  // query changed
+
+      // TODO: the 'more' behaviour interacts oddly with pendingFirstEmojiRequest, as it can appear
+      // as if your emoji changes after a _long_ time.
+
+      const timeout = Math.max(1000, 100 * Math.pow(valid, 0.75));
+      return request(timeout, true);
+    });
   });
 
   // nb. this punctuation list is just misc stuff needed by emojimap
   const invalidLetterRe = /[^\w:\.,$%^\-']+/g;
-  const simplifyWord = word => {
-    if (word) {
-      return word.replace(invalidLetterRe, '').toLowerCase();
-    }
-    return null;
-  };
+  const simplifyWord = word => word.replace(invalidLetterRe, '').toLowerCase();
 
   // request an autocomplete, the user has just kept typing
   typer.addEventListener('request', ev => {
-    const word = simplifyWord(ev.detail);
+    const word = simplifyWord(ev.detail || '');
     const request = manager.firstEmojiForOption(word);
     pendingFirstEmojiRequest = request;
     request.then(choice => {
-      if (pendingFirstEmojiRequest !== request) {
-        return;  // changed from under us
-      }
+      if (pendingFirstEmojiRequest !== request) { return; }
+
       ga('send', 'event', 'options', 'typing');
       const detail = {choice, word};
       typer.dispatchEvent(new CustomEvent('emoji', {detail}));

@@ -61,69 +61,36 @@ const getPrefixGen = (function() {
   return () => promiseToReturn;
 }());
 
-// shared state set via callback() and used in request()
-const zeroCallback = function() {};
-let requestCallback = zeroCallback;
-
 /**
- * Requests emoji completion. Initial emoji will be returned via this Promise, as well as the
- * callback set through callback().
+ * Requests emoji completion.
  *
  * @param {string} text user has typed
  * @param {boolean} prefix is this a prefix search, or is it a definite whole word?
+ * @param {boolean=} more whether to return lots more results for this query
  * @return {!Promise<!Array<!Array>>}
  */
-export const request = (function() {
-  let timeout;  // timeout handler for secondary query
-
-  return async function request(text, prefix) {
-    await new Promise((resolve) => window.requestAnimationFrame(resolve));
-
-    window.clearTimeout(timeout);
-
-    if (!text) {
-      requestCallback([]);
-      return;
-    }
-    let indexedResults = null;
-
-    // TODO: only send extra query if there's not enough results, or the user hits 'more'
-    const localTimeout = window.setTimeout(_ => {
-      let url = api + '/query?query=' + encodeURIComponent(text);
-      if (prefix) {
-        url += '&prefix=true';
-      }
-      window.fetch(url)
-          .then(out => out.json())
-          .then(out => {
-            // TODO: store this request locally probably
-            const sending = indexedResults || [];
-            results.merge(sending, out['results']);
-            return sending;
-          })
-          .then(r => send(r));
-    }, 2000);
-    timeout = localTimeout;
-
-    function send(out) {
-      if (timeout === localTimeout) {
-        requestCallback(out);
-      }
-    }
-
-    const suggest = await getPrefixGen();
-    indexedResults = suggest(text, prefix);
-    send(indexedResults.slice());
+export function request(text, prefix, more=false) {
+  if (!text) {
+    return Promise.resolve([]);
   }
-}());
 
-/**
- * Sets the callback for search requests, or null to clear.
- *
- * @param {?function(!Array<!Array>): undefined} callback
- */
-export function callback(callback) {
-  requestCallback = callback || zeroCallback;
+  const localPromise = getPrefixGen().then(suggest => suggest(text, prefix));
+  if (!more) {
+    return localPromise;
+  }
+
+  // TODO: At some point, the 'more' data should go into a local cache. For now, just fetch.
+  console.info('doing "more" request', text, prefix);
+  let url = `${api}/query?query=${window.encodeURIComponent(text)}`;
+  if (prefix) {
+    url += '&prefix=true';
+  }
+  const morePromise = window.fetch(url).then(out => out.json()).then(out => out['results']);
+  return Promise.all([localPromise, morePromise]).then(both => {
+    const [local, more] = both;
+    results.merge(local, more);
+    return local;
+  });
 }
 
 /**
@@ -154,6 +121,7 @@ export const select = (function() {
   };
 
   return function select(name, emoji) {
+    console.info('selected', name, emoji);
     pending[name] = emoji;
 
     if (!currentPromise) {
