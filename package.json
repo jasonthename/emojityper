@@ -23,6 +23,7 @@
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-uglify": "^2.0.1",
+    "run-sequence": "^2.0.0",
     "uglify-es": "^3.0.23",
     "workbox-build": "^1.0.1"
   }

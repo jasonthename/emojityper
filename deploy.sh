@@ -7,7 +7,7 @@ git checkout gh-pages
 git checkout master
 
 # build and copy
-gulp clean && gulp
+gulp dist
 git checkout gh-pages
 git pull
 cp -R dist/* .

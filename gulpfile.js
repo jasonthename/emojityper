@@ -13,6 +13,7 @@ const path = require('path');
 const babel = require('rollup-plugin-babel')
 const commonJS = require('rollup-plugin-commonjs');
 const uglify = require('rollup-plugin-uglify');
+const sequence = require('run-sequence');
 const uglifyES = require('uglify-es');
 const workbox = require('workbox-build');
 
@@ -81,6 +82,18 @@ gulp.task('html', function() {
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('static', function() {
+  return gulp.src(['manifest.json', 'sw.js', 'opensearch.xml', 'res/*'], {base: '.'})
+    .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('js', ['rollup', 'rollup-nomodule']);
+gulp.task('default', ['css', 'js', 'html', 'static']);
+
+gulp.task('clean', function() {
+  return del(['./dist'])
+});
+
 gulp.task('manifest', ['css', 'js', 'html', 'static'], function() {
   return workbox.generateFileManifest({
     manifestDest: './dist/manifest.js',
@@ -89,15 +102,6 @@ gulp.task('manifest', ['css', 'js', 'html', 'static'], function() {
     globDirectory: './dist',
   });
 });
-
-gulp.task('static', function() {
-  return gulp.src(['manifest.json', 'sw.js', 'opensearch.xml', 'res/*'], {base: '.'})
-    .pipe(gulp.dest('./dist'));
-});
-
-gulp.task('js', ['rollup', 'rollup-nomodule']);
-gulp.task('default', ['manifest']);  // manifest includes all static files
-
-gulp.task('clean', function() {
-  return del(['./dist'])
+gulp.task('dist', function(callback) {
+  sequence('clean', 'manifest', callback);
 });
