@@ -100,6 +100,7 @@ gulp.task('manifest', ['css', 'js', 'html', 'static'], function() {
     globPatterns: ['**/*'],
     globIgnores: ['*.map'],
     globDirectory: './dist',
+    modifyUrlPrefix: {'/': './'},  // treat files as relative to SW
   });
 });
 gulp.task('dist', function(callback) {
