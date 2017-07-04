@@ -14,6 +14,7 @@ const babel = require('rollup-plugin-babel')
 const commonJS = require('rollup-plugin-commonjs');
 const uglify = require('rollup-plugin-uglify');
 const uglifyES = require('uglify-es');
+const workbox = require('workbox-build');
 
 gulp.task('css', function() {
   // exclude IE11's broken flexbox
@@ -56,6 +57,7 @@ gulp.task('rollup', function() {
   return gulp.src('src/bundle.js')
     .pipe(sourcemaps.init())
     .pipe(rollup(options, {format: 'es'}))
+    .pipe(concat('bundle.min.js'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist'));
 });
@@ -72,20 +74,29 @@ gulp.task('html', function() {
 
     // fix paths for module/nomodule code
     document.head.querySelector('script[nomodule]').src = 'support.min.js';
-    document.head.querySelector('script[src^="src/"]').src = 'bundle.js';
+    document.head.querySelector('script[src^="src/"]').src = 'bundle.min.js';
   };
   return gulp.src('*.html')
     .pipe(tweakdom(mutator))
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('manifest', ['css', 'js', 'html', 'static'], function() {
+  return workbox.generateFileManifest({
+    manifestDest: './dist/manifest.js',
+    globPatterns: ['**/*'],
+    globIgnores: ['*.map'],
+    globDirectory: './dist',
+  });
+});
+
 gulp.task('static', function() {
-  return gulp.src(['manifest.json', 'opensearch.xml', 'res/*'], {base: '.'})
+  return gulp.src(['manifest.json', 'sw.js', 'opensearch.xml', 'res/*'], {base: '.'})
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('js', ['rollup', 'rollup-nomodule']);
-gulp.task('default', ['css', 'js', 'html', 'static']);
+gulp.task('default', ['manifest']);  // manifest includes all static files
 
 gulp.task('clean', function() {
   return del(['./dist'])
