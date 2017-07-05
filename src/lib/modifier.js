@@ -41,8 +41,20 @@ const isSingle = (function() {
     const emojiWidth = measureText('\u{1f602}');
     return s => measureText(s) === emojiWidth;
   }
+
+  if (window.location.search.indexOf('debug') !== -1) {
+    const invalidWidth = context.measureText('\u{ffffd}').width;
+    console.info('invalid char has width', invalidWidth);
+    return (s) => {
+      const width = measureText(s);
+      console.debug('isSingle', s, 'has width', width);
+      return width !== invalidWidth && width < invalidWidth * 2;
+    };
+  }
+
+
   const invalidWidth = context.measureText('\u{ffffd}').width;
-  return s => {
+  return (s) => {
     const width = measureText(s);
     return width !== invalidWidth && width < invalidWidth * 2;
   };
@@ -59,7 +71,7 @@ export const isExpectedLength = (function() {
   if (fixedWidthEmoji) {
     // use 'FACE WITH TEARS OF JOY'
     const emojiWidth = measureText('\u{1f602}');
-    return s => {
+    return (s) => {
       // emojis could be _smaller_ than expected, but not larger- and not random non-unit widths
       const points = jsdecode(s);
       const chars = splitEmoji(points);
@@ -79,7 +91,7 @@ export const isExpectedLength = (function() {
   }
 
   const invalidWidth = context.measureText('\u{ffffd}').width;
-  return s => {
+  return (s) => {
     const points = jsdecode(s);
     const chars = splitEmoji(points);
 
