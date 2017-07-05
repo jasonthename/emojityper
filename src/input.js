@@ -234,7 +234,6 @@ function upgrade(el) {
       }
     }, true);
     el.addEventListener('focusout', (ev) => {
-      console.info('got focusout', el.offsetLeft, 'target', scrollLeftOnBlur);
       if (scrollLeftOnBlur !== false) {
         el.scrollLeft = scrollLeftOnBlur;
         scrollLeftOnBlur = false;
