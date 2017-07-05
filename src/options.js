@@ -65,6 +65,10 @@ class ButtonManager {
           updateStatus(yes, node, genderOption);
         });
         tones.forEach(node => updateStatus(info.tone, node, toneOption));
+
+        // kick the elements: Safari needs this otherwise sometimes they remain hidden (!)
+        this.holder_.insertBefore(genderOption, genderOption.nextSibling);
+        this.holder_.insertBefore(toneOption, toneOption.nextSibling);
       }
     })();
   }
