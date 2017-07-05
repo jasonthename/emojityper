@@ -234,11 +234,12 @@ function upgrade(el) {
       }
     }, true);
     el.addEventListener('focusout', (ev) => {
+      console.info('got focusout', el.offsetLeft, 'target', scrollLeftOnBlur);
       if (scrollLeftOnBlur !== false) {
         el.scrollLeft = scrollLeftOnBlur;
         scrollLeftOnBlur = false;
       }
-    });
+    }, true);
   }());
 
   // add a non-deduped keydown handler, to run before others and intercept space
@@ -317,8 +318,8 @@ function upgrade(el) {
     [state.start, state.end] = [typer.selectionStart, typer.selectionEnd] = [drift(start), drift(end)];
 
     permitNextChange = true;
+    el.scrollLeft = previousScrollLeft;  // before setRange, so the underline is correct
     setRange(from, from + update.length);
-    el.scrollLeft = previousScrollLeft;
     return true;
   };
 
