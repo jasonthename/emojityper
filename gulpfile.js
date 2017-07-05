@@ -105,7 +105,7 @@ gulp.task('manifest', ['css', 'js', 'html', 'static'], function() {
   return workbox.generateFileManifest({
     manifestDest: './dist/manifest.js',
     globPatterns: ['**/*.{png,html,js,json,css}'],
-    globIgnores: ['*.map'],
+    globIgnores: ['*.map', 'sw.js', 'manifest.js'],  // don't include sourcemaps or SW
     globDirectory: './dist',
     modifyUrlPrefix: {'/': './'},  // treat files as relative to SW
   });
