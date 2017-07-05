@@ -1,7 +1,7 @@
 self.__file_manifest = [
   {
     "url": "./bundle.min.js",
-    "revision": "883f20ad85234b2b5656939a7cd493b1"
+    "revision": "25d65c40565c6c8d848f0cd0dcb7788c"
   },
   {
     "url": "./error.html",
@@ -13,7 +13,7 @@ self.__file_manifest = [
   },
   {
     "url": "./manifest.json",
-    "revision": "5d901073fd2cf611e2e2593945dce6e4"
+    "revision": "65d08396512cb24dc6737bdbbe0d69c4"
   },
   {
     "url": "./res/crying.png",
@@ -37,10 +37,10 @@ self.__file_manifest = [
   },
   {
     "url": "./styles.css",
-    "revision": "b609a4222405e847d13de8467beea72f"
+    "revision": "0d49d3e0a61491e55ebb3cd439a05458"
   },
   {
     "url": "./support.min.js",
-    "revision": "21d312db3e49a188b028b58cf90ce1f0"
+    "revision": "a6f5c267646d6ca3e965ae320dcc8bc8"
   }
 ];
