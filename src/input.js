@@ -27,9 +27,21 @@ function upgrade(el) {
   underline.className = 'underline';
   helper.appendChild(underline);
 
-  const sizer = document.createElement('div');
-  sizer.className = 'sizer';
-  helper.appendChild(sizer);
+  // measures the width of text
+  const measureText = (function() {
+    const sizer = document.createElement('div');
+    sizer.className = 'sizer';
+    helper.appendChild(sizer);
+
+    const nonce = document.createElement('div');
+    nonce.className = 'nonce';
+
+    return (text) => {
+      sizer.textContent = text;
+      sizer.appendChild(nonce);
+      return nonce.offsetLeft;
+    }
+  }());
 
   // hide underline until load: the font used might not be ready, so it's probably out of whack
   if (document.readyState !== 'complete') {
@@ -48,12 +60,8 @@ function upgrade(el) {
     const [from, to] = [+el.dataset.from, +el.dataset.to];
 
     // otherwise, record and draw the line
-    const indent = 15;  // FIXME: from CSS, to match `text-indent`
-    sizer.textContent = el.value.substr(0, from);
-    const left = (from ? sizer.getBoundingClientRect().width : indent);
-
-    sizer.textContent = el.value.substr(from, to - from);
-    const width = sizer.getBoundingClientRect().width - indent;
+    const left = measureText(el.value.substr(0, from));
+    const width = measureText(el.value.substr(from, to - from));
 
     if (width < 0 && !document.getElementById('less')) {
       // nb. this seems to happen in dev with lesscss
