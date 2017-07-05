@@ -5,11 +5,11 @@ self.__file_manifest = [
   },
   {
     "url": "./error.html",
-    "revision": "5533bfcd928fbc274cf2429ab4b1b5b8"
+    "revision": "90c03f7b6bff6bc3f12776abe0fe75e6"
   },
   {
     "url": "./index.html",
-    "revision": "f6c08fc56cb393f8a994d5eb0e9800d3"
+    "revision": "622d85d2aa417f2769747b187e5c8ae0"
   },
   {
     "url": "./manifest.json",
