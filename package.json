@@ -16,6 +16,7 @@
     "gulp-better-rollup": "^1.1.1",
     "gulp-clean-css": "^3.4.2",
     "gulp-concat": "^2.6.1",
+    "gulp-header-comment": "^0.2.1",
     "gulp-less": "^3.3.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-tweakdom": "^1.0.2",

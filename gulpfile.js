@@ -6,6 +6,7 @@ const gulp = require('gulp');
 const rollup = require('gulp-better-rollup')
 const concat = require('gulp-concat');
 const cleanCSS = require('gulp-clean-css');
+const comment = require('gulp-header-comment');
 const less = require('gulp-less');
 const sourcemaps = require('gulp-sourcemaps');
 const tweakdom = require('gulp-tweakdom');
@@ -88,7 +89,6 @@ gulp.task('static', function() {
     'manifest.json',
     'opensearch.xml',
     'res/*',
-    'sw.js',
   ];
   return gulp.src(src, {base: '.'})
     .pipe(gulp.dest('./dist'));
@@ -110,6 +110,13 @@ gulp.task('manifest', ['css', 'js', 'html', 'static'], function() {
     modifyUrlPrefix: {'/': './'},  // treat files as relative to SW
   });
 });
+
+gulp.task('sw', ['manifest'], function() {
+  return gulp.src(['sw.js'])
+    .pipe(comment(`Generated on <%= moment().toString() %>`))
+    .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('dist', function(callback) {
-  sequence('clean', 'manifest', callback);
+  sequence('clean', ['sw', 'manifest', 'default'], callback);
 });
