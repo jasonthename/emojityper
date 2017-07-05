@@ -222,14 +222,24 @@ function upgrade(el) {
         dedup();
       }
     });
-  }());
 
-  // on blur, after a backspace, Chrome moves the start/end selection: fix it
-  el.addEventListener('blur', (ev) => {
-    if (el.selectionStart !== state.start || el.selectionStart !== state.end) {
-      [el.selectionStart, el.selectionEnd] = [state.start, state.end];
-    }
-  });
+    // on blur, after a backspace, Chrome moves the start/end selection: fix it
+    let scrollLeftOnBlur = false;
+    el.addEventListener('blur', (ev) => {
+      if (el.scrollLeft) {
+        scrollLeftOnBlur = el.scrollLeft || false;
+      }
+      if (el.selectionStart !== state.start || el.selectionStart !== state.end) {
+        [el.selectionStart, el.selectionEnd] = [state.start, state.end];
+      }
+    }, true);
+    el.addEventListener('focusout', (ev) => {
+      if (scrollLeftOnBlur !== false) {
+        el.scrollLeft = scrollLeftOnBlur;
+        scrollLeftOnBlur = false;
+      }
+    });
+  }());
 
   // add a non-deduped keydown handler, to run before others and intercept space
   el.addEventListener('keydown', (ev) => {
@@ -279,6 +289,7 @@ function upgrade(el) {
   const replaceFocus = (call) => {
     if (el.dataset.from === undefined || el.dataset.to === undefined) { return false; }
 
+    const previousScrollLeft = el.scrollLeft;
     const [from, to] = [+el.dataset.from, +el.dataset.to];
     const value = el.value.substr(from, to - from);
     let [start, end] = [typer.selectionStart, typer.selectionEnd];
@@ -307,6 +318,7 @@ function upgrade(el) {
 
     permitNextChange = true;
     setRange(from, from + update.length);
+    el.scrollLeft = previousScrollLeft;
     return true;
   };
 
