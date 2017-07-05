@@ -42,9 +42,5 @@ self.__file_manifest = [
   {
     "url": "./support.min.js",
     "revision": "21d312db3e49a188b028b58cf90ce1f0"
-  },
-  {
-    "url": "./sw.js",
-    "revision": "dc3be6617981a8fb8b85bf00307b9a92"
   }
 ];
