@@ -29,7 +29,7 @@ const measureText = (function() {
 /**
  * @type {boolean} whether this platform probably has fixed width emoji
  */
-const fixedWidthEmoji = Boolean(/Mac|Android|iP(hone|od|ad)/);
+const fixedWidthEmoji = Boolean(/Mac|Android|iP(hone|od|ad)/.exec(navigator.platform));
 
 /**
  * @param {string} string to measure
