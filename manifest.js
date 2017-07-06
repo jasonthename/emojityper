@@ -1,7 +1,7 @@
 self.__file_manifest = [
   {
     "url": "./bundle.min.js",
-    "revision": "bb4de9f2d44eceb59da85b003a01ebc0"
+    "revision": "c024f58e5794e6aef6bb1395af58e0f4"
   },
   {
     "url": "./error.html",
@@ -41,6 +41,6 @@ self.__file_manifest = [
   },
   {
     "url": "./support.min.js",
-    "revision": "9af4879dd57d4fc3d27c40ad1be14ad0"
+    "revision": "6c118f82ac36bbc50c272dc60352f21f"
   }
 ];
