@@ -1,13 +1,13 @@
 
+const canvas = document.createElement('canvas');
+const context = canvas.getContext('2d');
+context.font = '1px monospace';
+
 /**
  * @param {string} string to measure
  * @return {number} length of text in monospace units
  */
 const measureText = (function() {
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d');
-  context.font = '1px monospace';
-
   let cache = {};
   let count = 0;
 
@@ -36,27 +36,37 @@ const fixedWidthEmoji = Boolean(/Mac|Android|iP(hone|od|ad)/.exec(navigator.plat
  * @return {boolean} whether this is a single char long (and probably a single emoji)
  */
 const isSingle = (function() {
+  const debugMode = window.location.search.indexOf('debug') !== -1;
+
+  // get a baseline emoji width: this is the well-supported 'FACE WITH TEARS OF JOY'
+  const emojiWidth = measureText('\u{1f602}');
   if (fixedWidthEmoji) {
-    // get a baseline emoji width: this is the well-supported 'FACE WITH TEARS OF JOY'
-    const emojiWidth = measureText('\u{1f602}');
-    return s => measureText(s) === emojiWidth;
+    if (debugMode) {
+      console.info('fixed emoji width is', emojiWidth, 'for \u{1f602}');
+      return (s) => {
+        const ok = measureText(s) === emojiWidth;
+        if (!ok) {
+          console.debug('isSingle can\'t render', s, 'width', measureText(s));
+        }
+        return ok;
+      };
+    }
+    // great! We can quickly check this!
+    return (s) => measureText(s) === emojiWidth;
   }
-
-  if (window.location.search.indexOf('debug') !== -1) {
-    const invalidWidth = context.measureText('\u{ffffd}').width;
-    console.info('invalid char has width', invalidWidth);
-    return (s) => {
-      const width = measureText(s);
-      console.debug('isSingle', s, 'has width', width);
-      return width !== invalidWidth && width < invalidWidth * 2;
-    };
-  }
-
 
   const invalidWidth = context.measureText('\u{ffffd}').width;
+  const characterWidth = context.measureText('a').width;
+  if (debugMode) {
+    console.info('invalid char has width', invalidWidth, 'ascii char has width', characterWidth);
+  }
   return (s) => {
     const width = measureText(s);
-    return width !== invalidWidth && width < invalidWidth * 2;
+    if (debugMode) {
+      console.debug('isSingle', s, 'has width', width);
+    }
+    return (width !== invalidWidth && width < invalidWidth * 2 && width > characterWidth) ||
+        width === emojiWidth;
   };
 }());
 
@@ -68,6 +78,9 @@ const isSingle = (function() {
  * @return {boolean} whether this is probably an emoji
  */
 export const isExpectedLength = (function() {
+  // FIXME: This treats ZWJ'ed characters that aren't a single char as invalid. Maybe it's not
+  // worth worrying, but instead just checking that all the points are valid emoji.
+
   if (fixedWidthEmoji) {
     // use 'FACE WITH TEARS OF JOY'
     const emojiWidth = measureText('\u{1f602}');
@@ -94,24 +107,13 @@ export const isExpectedLength = (function() {
   return (s) => {
     const points = jsdecode(s);
     const chars = splitEmoji(points);
-
-    for (let i = 0; i < chars.length; ++i) {
+    const clen = chars.length;
+    for (let i = 0; i < clen; ++i) {
       const char = chars[i];
-      if (isFlagPoint(char[0].point)) {
-        if (i === chars.length - 1 || !isFlagPoint(char[i+1].point)) {
-          return false;  // only one single flag point
-        }
-
-        const s = String.fromCodePoint(...char[i].point, char[i+1].point);
-        if (!isSingle(s)) {
-          return false;  // can't render this flag
-        }
-
-        ++i;  // eaten next flag char
-        continue;
+      if (char.length === 0 && isFlagPoint(char[0].point)) {
+        continue;  // treat flag chars as A-OK
       }
-
-      // otherwise, measure this particular point and ensure it's single.
+      // measure this particular point and ensure it's single.
       const s = String.fromCodePoint(...char.map(c => c.point));
       if (!isSingle(s)) {
         return false;
