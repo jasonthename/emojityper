@@ -12,6 +12,7 @@ function removeDuplicates(row) {
       if (found.has(item)) { return false; }
       found.add(item);
     }
+    return true;
   });
 }
 
@@ -26,17 +27,19 @@ function removeDuplicates(row) {
  */
 export function merge(existing, update) {
   const lookup = {};
-  existing.forEach((row) => lookup[row[0]] = row);
+  existing.forEach((row, i) => lookup[row[0]] = i);
 
   update.forEach((row) => {
-    const existingRow = lookup[row[0]];
-    if (!existingRow) {
-      lookup[row[0]] = row;  // in case there's dup data
+    const index = lookup[row[0]];
+    if (index === undefined) {
+      lookup[row[0]] = existing.length;  // in case there's dup data
       existing.push(row);
       return;
     }
 
-    // otherwise, just append all new data
-    lookup[row[0]] = removeDuplicates(existingRow.concat(row.slice(1)));
+    // otherwise, just append all new data and place back into array
+    const existingRow = existing[index];
+    const updatedData = row.slice(1);
+    existing[index] = removeDuplicates(existingRow.concat(updatedData));
   });
 }
