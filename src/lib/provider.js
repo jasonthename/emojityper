@@ -1,4 +1,4 @@
-const api = 'https://us-central1-emojityper.cloudfunctions.net';
+const api = 'https://emojityper.appspot.com';
 
 import build from './prefixgen.js';
 import * as results from './results.js';
@@ -110,10 +110,18 @@ export const select = (function() {
     const body = JSON.stringify(pending);
     pending = {};  // clear pending for next time
 
-    // TODO: use sendBeacon
-    const p = window.fetch(api + '/select', {method: 'POST', body})
-    if (!eventualResolve) {
-      throw new Error('got fetch without eventualResolve');
+    let p;
+
+    if (navigator.sendBeacon) {
+      p = navigator.sendBeacon(api + '/select', body);
+    } else {
+      p = new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', api + '/select', true);
+        xhr.onerror = reject;
+        xhr.onload = resolve;
+        xhr.send(body);
+      });
     }
     currentPromise = null;  // success... probably
     eventualResolve(p);
