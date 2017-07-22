@@ -175,12 +175,18 @@ function upgrade(el) {
 
     // send query: prefix or whole-word
     const text = el.dataset.prefix || el.dataset.word || null;
-    const detail = {text, prefix: 'prefix' in el.dataset, focus: el.dataset.focus};
+    const detail = {
+      text,
+      prefix: 'prefix' in el.dataset,
+      focus: el.dataset.focus,
+      selection: (el.selectionStart !== el.selectionEnd),
+    };
 
     // send event only if something has changed
     if (detail.text !== previousDetail.text ||
         detail.prefix !== previousDetail.prefix ||
-        detail.focus !== previousDetail.focus) {
+        detail.focus !== previousDetail.focus ||
+        detail.selection !== previousDetail.selection) {
       previousDetail = detail;
       el.dispatchEvent(new CustomEvent('query', {detail}));
     }

@@ -3,22 +3,30 @@ import * as provider from './lib/provider.js';
 
 // advanced handler
 (function(input, advanced) {
-  // TODO: disabled for now
-/*
   const form = advanced.querySelector('form');
   const namer = form.querySelector('input');
   const button = form.querySelector('button');
 
-  let focus = '';
+  let value = '';
+  let pending = null;
 
-  input.addEventListener('query', ev => {
+  if (!window.fetch) {
+    return false;  // just don't show on non-fetch browsers
+  }
+
+  input.addEventListener('query', (ev) => {
     const query = ev.detail;
-    const selection = (query.text === null && query.focus !== undefined);
-    focus = query.focus;
-    advanced.hidden = !selection;
-    if (advanced.hidden) {
-      namer.value = '';
+    const selection = (query.text === null && query.focus !== undefined && query.selection);
+    value = query.focus;
+    if (!selection) {
+      if (!pending) {
+        namer.value = '';  // clear on done if not pending
+        advanced.hidden = true;
+      }
+      return false;
     }
+    // TODO: round trip to confirm validity of emoji?
+    advanced.hidden = false;
   });
 
   const handler = ev => {
@@ -26,8 +34,11 @@ import * as provider from './lib/provider.js';
   };
   'input change'.split(/\s+/).forEach(type => namer.addEventListener(type, handler));
 
-  form.addEventListener('submit', ev => {
+  form.addEventListener('submit', (ev) => {
     ev.preventDefault();
+    if (pending) {
+      return false;  // can't submit while running
+    }
 
     form.classList.add('pending');
     namer.disabled = true;
@@ -38,20 +49,27 @@ import * as provider from './lib/provider.js';
       namer.disabled = false;
       namer.value = '';
       namer.dispatchEvent(new CustomEvent('change'));
+
+      pending = null;
+      if (!value) {
+        advanced.hidden = true;
+      }
     };
 
-    const p = provider.submit(namer.value, focus).then(_ => {
+    pending = provider.submit(namer.value, value).then((response) => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
       button.classList.add('success');
       return false;
     }).catch(err => {
       button.classList.add('failure');
-      console.warn('failed to submit emoji', err)
+      console.warn('failed to submit emoji', err);
       return true;
     }).then(cleanup);
 
-    p.then(_ => new Promise((resolve, reject) => window.setTimeout(resolve, 2000))).then(_ => {
+    pending.then(_ => new Promise((resolve, reject) => window.setTimeout(resolve, 2000))).then(_ => {
       button.className = '';
     });
   });
-*/
 }(typer, advanced));
