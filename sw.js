@@ -1,5 +1,5 @@
 /**
- * Generated on Sun Jul 23 2017 16:07:13 GMT+1000
+ * Generated on Sun Jul 23 2017 16:20:04 GMT+1000
  */
 
 importScripts('https://unpkg.com/workbox-sw@1.0.1');
