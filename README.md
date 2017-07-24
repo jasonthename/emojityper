@@ -26,7 +26,8 @@ The Emojityper backend is not currently public.
 
 ### I want to change which emoji appear when I type a word
 
-Select a range of text including emoji.
-You'll be prompted to type a name.
+Select a range of emoji.
+You'll be prompted to type a name, which you can then submit.
+Text and non-emoji will be removed from the selection.
 
-*TODO: coming soon*
+The recently top-used emoji will appear first in searches.
