@@ -16,7 +16,14 @@ realURLs.forEach(prefix => {
   // TODO: This only caches the request on the 2nd load. However it's probably coming out of cache
   // for a while anyway because the resources are served with stupid high expiries.
   const r = new RegExp('^' + escape(prefix) + '.*');
-  workboxSW.router.registerRoute(r, workboxSW.strategies.cacheFirst());
+  workboxSW.router.registerRoute(
+    r,
+    workboxSW.strategies.cacheFirst({
+      cacheableResponse: {
+        statuses: [0, 200],
+      }
+    })
+  );  
 });
 
 // TODO: post message to console/etc saying new version ready
