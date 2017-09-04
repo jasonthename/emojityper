@@ -1,5 +1,5 @@
 /**
- * Generated on Mon Jul 24 2017 10:36:43 GMT+1000
+ * Generated on Mon Sep 04 2017 11:38:33 GMT+1000
  */
 
 importScripts('https://unpkg.com/workbox-sw@1.0.1');
@@ -20,7 +20,14 @@ realURLs.forEach(prefix => {
   // TODO: This only caches the request on the 2nd load. However it's probably coming out of cache
   // for a while anyway because the resources are served with stupid high expiries.
   const r = new RegExp('^' + escape(prefix) + '.*');
-  workboxSW.router.registerRoute(r, workboxSW.strategies.cacheFirst());
+  workboxSW.router.registerRoute(
+    r,
+    workboxSW.strategies.cacheFirst({
+      cacheableResponse: {
+        statuses: [0, 200],
+      }
+    })
+  );  
 });
 
 // TODO: post message to console/etc saying new version ready
