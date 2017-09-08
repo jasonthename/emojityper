@@ -1,4 +1,4 @@
-importScripts('https://unpkg.com/workbox-sw@1.0.1');
+importScripts('https://unpkg.com/workbox-sw@2.0.1/build/importScripts/workbox-sw.prod.v2.0.1.js');
 importScripts('./manifest.js');
 
 const workboxSW = new self.WorkboxSW();
@@ -12,7 +12,7 @@ const realURLs = [
 function escape(s) {
   return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 }
-realURLs.forEach(prefix => {
+realURLs.forEach((prefix) => {
   // TODO: This only caches the request on the 2nd load. However it's probably coming out of cache
   // for a while anyway because the resources are served with stupid high expiries.
   const r = new RegExp('^' + escape(prefix) + '.*');
