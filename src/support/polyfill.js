@@ -46,7 +46,7 @@ if (testEl.classList.contains('testClass')) {
     } else {
       this.remove(name);
     }
-    return this.contains(val);
+    return this.contains(name);
   };
 }
 
