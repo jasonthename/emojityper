@@ -1,7 +1,7 @@
 self.__file_manifest = [
   {
     "url": "./bundle.min.js",
-    "revision": "c137ecd4fd87b1a75a9d5cdf7ea2958e"
+    "revision": "780c8b592b89a939a88b4264071f6afb"
   },
   {
     "url": "./error.html",
@@ -37,10 +37,10 @@ self.__file_manifest = [
   },
   {
     "url": "./styles.css",
-    "revision": "d7e8fed0e0cea082df157fa11dbb70cd"
+    "revision": "b5c770bd20c8849faa53e85c76a42915"
   },
   {
     "url": "./support.min.js",
-    "revision": "bab70a3792b3c708aecc18ca4825e2e2"
+    "revision": "d258e15a22ce810be32df9ebc549cede"
   }
 ];
