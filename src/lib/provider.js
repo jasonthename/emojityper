@@ -1,4 +1,6 @@
 const api = 'https://emojityper.appspot.com';
+const recentLimit = 8;
+const selectionDelay = 5 * 1000;
 
 import build from './prefixgen.js';
 import * as promises from './promises.js';
@@ -101,7 +103,6 @@ export function request(text, prefix, more=false) {
  * @param {!Promise<!Response>} eventual response after delay
  */
 export const select = (function() {
-  const delay = 5 * 1000;
   let pending = {};
 
   const runner = () => {
@@ -111,8 +112,18 @@ export const select = (function() {
   };
 
   return function select(name, emoji) {
+    const recent = (window.localStorage['recent'] || '').split(',').filter((x) => x);
+    const index = recent.indexOf(emoji);
+    if (index !== -1) {
+      recent.splice(index, 1);
+    }
+    recent.unshift(emoji);
+    recent.splice(recentLimit);
+    window.localStorage['recent'] = recent.join(',');
+    // TODO: do something with recent emoji use
+
     pending[name] = emoji;
-    return promises.debounce(runner, delay);
+    return promises.debounce(runner, selectionDelay);
   }
 }());
 
