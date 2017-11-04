@@ -9,7 +9,7 @@ self.__file_manifest = [
   },
   {
     "url": "./index.html",
-    "revision": "c654b78698fb50ec6ad7ab6dee57d592"
+    "revision": "2e54ce3d13760a37fb039d80059dcb42"
   },
   {
     "url": "./manifest.json",
