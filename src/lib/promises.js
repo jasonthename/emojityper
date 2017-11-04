@@ -22,3 +22,31 @@ export function rAF(delay=undefined) {
   }
   return new Promise((resolve) => window.requestAnimationFrame(resolve));
 }
+
+const debouceMap = new Map();
+
+/**
+ * Returns a Promise that debounces a call to the passed callable.
+ *
+ * @template T
+ * @param {function(): T} callable
+ * @param {number=} delay
+ * @return {!Promise<T>}
+ */
+export function debounce(callable, delay=0) {
+  let state = debouceMap.get(callable);
+  if (!state) {
+    state = {c: callable};
+    const p = new Promise((resolve) => state.r = resolve);
+    state.p = p.then(() => {
+      debouceMap.delete(callable);
+      return state.c();
+    });
+    debouceMap.set(callable, state);
+  }
+
+  window.clearTimeout(state.t);
+  state.t = window.setTimeout(state.r, Math.max(0, delay));
+
+  return state.p;
+}

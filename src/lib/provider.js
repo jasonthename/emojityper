@@ -1,6 +1,7 @@
 const api = 'https://emojityper.appspot.com';
 
 import build from './prefixgen.js';
+import * as promises from './promises.js';
 import * as results from './results.js';
 
 /**
@@ -102,28 +103,16 @@ export function request(text, prefix, more=false) {
 export const select = (function() {
   const delay = 5 * 1000;
   let pending = {};
-  let timeout;
-  let currentPromise;
-  let eventualResolve;
 
   const runner = () => {
-    currentPromise = null;  // success... probably
     const body = JSON.stringify(pending);
     pending = {};  // clear pending for next time
-    eventualResolve(navigator.sendBeacon(api + '/select', body));
+    return navigator.sendBeacon(api + '/select', body);
   };
 
   return function select(name, emoji) {
     pending[name] = emoji;
-
-    if (!currentPromise) {
-      // save resolve for later
-      currentPromise = new Promise((resolve) => eventualResolve = resolve);
-    }
-
-    window.clearTimeout(timeout);
-    timeout = window.setTimeout(runner, delay);
-    return currentPromise;
+    return promises.debounce(runner, delay);
   }
 }());
 
