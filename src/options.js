@@ -148,25 +148,6 @@ class ButtonManager {
   }
 
   /**
-   * Filters all local option nodes based on the given query.
-   *
-   * @param {string} query
-   * @param {boolean} prefix
-   */
-  localFilter(query, prefix) {
-    let show = predicateTrue;
-    if (prefix === true) {
-      const qlen = query.length;
-      if (qlen !== 0) {
-        show = (name) => name.length >= qlen && name.substr(0, qlen) === query;
-      }
-    } else {
-      show = (name) => (name === query);
-    }
-    this.options_.forEach((node, name) => node.hidden = !show(name));
-  }
-
-  /**
    * Updated displayed options with real results. Adds all nodes immediately, but returns a Promise
    * which indicates when all valid emoji are shown (and the "unknown" className is removed).
    *

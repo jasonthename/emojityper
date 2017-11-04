@@ -1,6 +1,8 @@
 @color-feature: #0afaca;
 @color-background: #2c3e50;
 @color-placeholder: #cbd6e2;
+@color-modifier: rgb(251, 220, 59);
+@color-special: #16d941;
 
 // nb: does NOT include Arial: this causes Chrome 59? to not combine gender emojis properly
 @fonts-normal: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
@@ -408,7 +410,10 @@ main {
     vertical-align: middle;
   }
   &.modifier::before {
-    color: rgb(251, 220, 59);
+    color: @color-modifier;
+  }
+  &.special::before {
+    color: @color-special;
   }
   &:empty {
     display: none;
