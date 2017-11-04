@@ -3,6 +3,7 @@
 
 import * as provider from './lib/provider.js';
 import * as modifier from './lib/modifier.js';
+import isExpectedLength from './lib/cache.js';
 import * as eventlib from './lib/event.js';
 
 const predicateTrue = () => true;
@@ -231,7 +232,7 @@ class ButtonManager {
       // don't start with idle: the first N might complete really fast (already known)
       for (let q = 0; q < queue.length; ++q) {
         const {emoji, button} = queue[q];
-        if (modifier.isExpectedLength(emoji)) {
+        if (isExpectedLength(emoji)) {
           button.className = '';
           button.parentNode.hidden = false;
           ++valid;
