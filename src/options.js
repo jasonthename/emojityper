@@ -7,6 +7,7 @@
 import * as provider from './lib/provider.js';
 import * as modifier from './lib/modifier.js';
 import isExpectedLength from './lib/cache.js';
+import * as promises from './lib/promises.js';
 import * as eventlib from './lib/event.js';
 
 const predicateTrue = () => true;
@@ -253,7 +254,7 @@ class ButtonManager {
         }
         if (expired) {
           this.checkFirstEmoji_();
-          idle = await (new Promise(resolve => window.requestIdleCallback(resolve)));
+          idle = await promises.idle();
         }
       }
 
@@ -389,7 +390,7 @@ chooser.addEventListener('keydown', ev => {
   let pendingFirstEmojiRequest = null;
 
   // handler for a prefix search
-  typer.addEventListener('query', ev => {
+  typer.addEventListener('query', (ev) => {
     // immediately inform manager of modifier buttons (gender, tone), if it's a full word search
     const info = modifier.modify(!ev.detail.prefix && ev.detail.focus || '');
     manager.setModifier(info);
@@ -409,9 +410,7 @@ chooser.addEventListener('keydown', ev => {
 
     const request = async (timeout=0, more=false) => {
       if (timeout) {
-        await new Promise((resolve) => window.setTimeout(() => {
-          window.requestAnimationFrame(resolve);
-        }, timeout));
+        await promises.rAF(timeout);
         if (previous !== query) { return -1; }
       }
       const results = await provider.request(query.text, query.prefix, more);
