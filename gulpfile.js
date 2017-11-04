@@ -18,6 +18,8 @@ const sequence = require('run-sequence');
 const uglifyES = require('uglify-es');
 const workbox = require('workbox-build');
 
+const builtAt = (new Date).toString();
+
 gulp.task('css', function() {
   // exclude IE11's broken flexbox
   const browsers = ['last 2 versions', 'not IE <= 11', 'not IE_mob <= 11'];
@@ -77,6 +79,9 @@ gulp.task('html', function() {
     // fix paths for module/nomodule code
     document.head.querySelector('script[nomodule]').src = 'support.min.js';
     document.head.querySelector('script[src^="src/"]').src = 'bundle.min.js';
+
+    // append buildAt
+    document.head.appendChild(document.createComment(`Generated on: ${builtAt}`));
   };
   return gulp.src('*.html')
     .pipe(tweakdom(mutator))
@@ -113,7 +118,7 @@ gulp.task('manifest', ['css', 'js', 'html', 'static'], function() {
 
 gulp.task('sw', ['manifest'], function() {
   return gulp.src(['sw.js'])
-    .pipe(comment(`Generated on <%= moment().toString() %>`))
+    .pipe(comment(`Generated on: ${builtAt}`))
     .pipe(gulp.dest('./dist'));
 });
 
