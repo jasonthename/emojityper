@@ -1,4 +1,8 @@
 
+/**
+ * @fileoverview Handles the buttons in the top-right of the page (currently just Copy).
+ */
+
 const all = Array.prototype.slice.call(buttons.querySelectorAll('button'));
 
 const handler = ev => {

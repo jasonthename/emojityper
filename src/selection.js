@@ -10,10 +10,6 @@ import * as provider from './lib/provider.js';
   let value = '';
   let pending = null;
 
-  if (!window.fetch) {
-    return false;  // just don't show on non-fetch browsers
-  }
-
   input.addEventListener('query', (ev) => {
     const query = ev.detail;
     const selection = (query.text === null && query.focus !== undefined && query.selection);

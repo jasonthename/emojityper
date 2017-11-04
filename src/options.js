@@ -1,5 +1,8 @@
 
-// suggestion handler
+/**
+ * @fileoverview Emojityper's suggestion handler. Handles creation, showing etc of autocomplete
+ * buttons in the UI.
+ */
 
 import * as provider from './lib/provider.js';
 import * as modifier from './lib/modifier.js';

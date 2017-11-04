@@ -1,4 +1,8 @@
 
+/**
+ * @fileoverview Rotates through various advertisements in Emojityper.
+ */
+
 const adverts = document.getElementById('adverts');
 
 function refresh() {

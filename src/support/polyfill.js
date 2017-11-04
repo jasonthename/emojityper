@@ -50,6 +50,11 @@ if (testEl.classList.contains('testClass')) {
   };
 }
 
+// non-polyfill for window.fetch
+if (!window.fetch) {
+  window.fetch = () => Promise.reject('unsupported');
+}
+
 // for async/await magic
 // nb. this puts regeneratorRuntime into the top-level scope
 import '../../node_modules/regenerator-runtime/runtime.js';
