@@ -107,24 +107,10 @@ export const select = (function() {
   let eventualResolve;
 
   const runner = () => {
+    currentPromise = null;  // success... probably
     const body = JSON.stringify(pending);
     pending = {};  // clear pending for next time
-
-    let p;
-
-    if (navigator.sendBeacon) {
-      p = navigator.sendBeacon(api + '/select', body);
-    } else {
-      p = new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', api + '/select', true);
-        xhr.onerror = reject;
-        xhr.onload = resolve;
-        xhr.send(body);
-      });
-    }
-    currentPromise = null;  // success... probably
-    eventualResolve(p);
+    eventualResolve(navigator.sendBeacon(api + '/select', body));
   };
 
   return function select(name, emoji) {
