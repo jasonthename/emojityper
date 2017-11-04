@@ -3,6 +3,7 @@
 
 import * as provider from './lib/provider.js';
 import * as modifier from './lib/modifier.js';
+import * as eventlib from './lib/event.js';
 
 const predicateTrue = () => true;
 
@@ -162,7 +163,7 @@ class ButtonManager {
 
   /**
    * Updated displayed options with real results. Adds all nodes immediately, but returns a Promise
-   * which indicates when all valid emoji are shown.
+   * which indicates when all valid emoji are shown (and the "unknown" className is removed).
    *
    * @param {!Array<!Array<string>>}
    * @return {!Promise<undefined>}
@@ -192,6 +193,9 @@ class ButtonManager {
         if (!button) {
           button = ButtonManager.button_(emoji);
           queue.push({emoji, button});
+          option.appendChild(button);  // it's "unknown" to start with
+        } else if (button && !button.parentNode) {
+          continue;  // we were removed (unusable based on isExpectedLength)
         } else {
           this.buttons_.delete(emoji);
           if (!button.className) {
@@ -200,7 +204,6 @@ class ButtonManager {
           }
         }
         buttons.set(emoji, button);
-        option.appendChild(button);
       }
     });
 
@@ -228,9 +231,6 @@ class ButtonManager {
       // don't start with idle: the first N might complete really fast (already known)
       for (let q = 0; q < queue.length; ++q) {
         const {emoji, button} = queue[q];
-        if (!button.parentNode) {
-          continue;
-        }
         if (modifier.isExpectedLength(emoji)) {
           button.className = '';
           button.parentNode.hidden = false;
@@ -239,10 +239,10 @@ class ButtonManager {
           button.remove();
         }
 
+        // nb. below is just to control amount of work done
         if (q < 20 || (idle === null && window.performance.now() - start < 10)) {
-          continue;
+          continue;  // continue _immediately_
         }
-
         let expired = true;
         if (idle !== null) {
           expired = idle.timeRemaining() < 0;
@@ -304,11 +304,6 @@ typer.addEventListener('keydown', ev => {
   }
 });
 
-const arrowKeys = ['Left', 'Right', 'Up', 'Down'];
-const isArrowKey = key => {
-  return key.startsWith('Arrow') || arrowKeys.indexOf(key) !== -1;
-};
-
 // handle keyboard navigation inside chooser
 chooser.addEventListener('keydown', ev => {
   switch (ev.key) {
@@ -316,7 +311,9 @@ chooser.addEventListener('keydown', ev => {
     typer.focus();
     break;
   }
-  if (!isArrowKey(ev.key)) { return; }
+  const arrow = eventlib.arrowFromEvent(ev);
+  if (!arrow) { return; }
+
   if (!document.activeElement || !chooser.contains(document.activeElement)) { return; }
 
   // TODO: memoize value
@@ -326,9 +323,9 @@ chooser.addEventListener('keydown', ev => {
 
   // handle l/r keys
   let delta;
-  if (ev.key === 'ArrowLeft' || ev.key === 'Left') {
+  if (arrow === 'ArrowLeft') {
     delta = -1;
-  } else if (ev.key === 'ArrowRight' || ev.key === 'Right') {
+  } else if (arrow === 'ArrowRight') {
     delta = +1;
   }
   if (delta) {
@@ -340,9 +337,9 @@ chooser.addEventListener('keydown', ev => {
   }
 
   // handle u/d keys
-  if (ev.key === 'ArrowUp' || ev.key === 'Up') {
+  if (arrow === 'ArrowUp') {
     delta = -1;
-  } else if (ev.key === 'ArrowDown' || ev.key === 'Down') {
+  } else if (arrow === 'ArrowDown') {
     delta = +1;
   } else {
     return;
