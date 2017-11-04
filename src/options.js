@@ -106,7 +106,7 @@ class ButtonManager {
 
     let cand = node.firstElementChild;
     while (cand) {
-      if (!cand.hidden && cand.className === '') {
+      if (cand.className === '') {
         return cand.textContent;
       }
       cand = cand.nextElementSibling;
@@ -167,7 +167,6 @@ class ButtonManager {
       const option = this.options_.get(name) || ButtonManager.option_(name);
       this.options_.delete(name);
       options.set(name, option);
-      option.hidden = true;
       this.holder_.appendChild(option);  // reinsert in better order
 
       for (let i = 1, emoji; emoji = result[i]; ++i) {
@@ -184,10 +183,6 @@ class ButtonManager {
           continue;  // we were removed (unusable based on isExpectedLength)
         } else {
           this.buttons_.delete(emoji);
-          if (!button.className) {
-            // if it's still unknown, option stays hidden
-            option.hidden = false;
-          }
         }
         buttons.set(emoji, button);
       }
@@ -219,7 +214,6 @@ class ButtonManager {
         const {emoji, button} = queue[q];
         if (isExpectedLength(emoji)) {
           button.className = '';
-          button.parentNode.hidden = false;
           ++valid;
         } else {
           button.remove();
