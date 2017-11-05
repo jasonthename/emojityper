@@ -76,12 +76,12 @@ function upgrade(el) {
 
   // force selection
   const setRange = (from, to) => {
+    [el.dataset.from, el.dataset.to] = [from, to];
     if (from >= to) {
-      datasetSafeDelete(el, 'from', 'to', 'prefix', 'word', 'focus');
+      datasetSafeDelete(el, 'prefix', 'word', 'focus');
       underline.hidden = true;
       return false;
     }
-    [el.dataset.from, el.dataset.to] = [from, to];
     el.dataset['focus'] = el.value.substr(from, to - from);
     renderLine();
     return true;
@@ -174,7 +174,10 @@ function upgrade(el) {
     if (changeHandler(permitNextChange)) { return; }
 
     // send query: prefix or whole-word
-    const text = el.dataset.prefix || el.dataset.word || null;
+    let text = el.dataset.prefix || el.dataset.word || null;
+    if (!el.dataset.focus) {
+      text = '';  // nothing focused, pretend it's empty input
+    }
     const detail = {
       text,
       prefix: 'prefix' in el.dataset,
@@ -293,8 +296,6 @@ function upgrade(el) {
 
   // replace helper
   const replaceFocus = (call) => {
-    if (el.dataset.from === undefined || el.dataset.to === undefined) { return false; }
-
     const previousScrollLeft = el.scrollLeft;
     const [from, to] = [+el.dataset.from, +el.dataset.to];
     const value = el.value.substr(from, to - from);
@@ -305,7 +306,7 @@ function upgrade(el) {
     typer.value = typer.value.substr(0, from) + update + typer.value.substr(to);
 
     const drift = (where) => {
-      if (where > to) {
+      if (where >= to) {
         // after the update
         where = where - (to - from) + update.length;
       } else if (where > from) {

@@ -74,6 +74,13 @@ const getPrefixGen = (function() {
  */
 export function request(text, prefix, more=false) {
   if (!text) {
+    if (more && text === '') {
+      const r = recent();
+      r.unshift('^recent');
+      const p = ['^popular']; // TODO: include popular emoji
+      return Promise.resolve([r, p]);
+    }
+
     return Promise.resolve([]);
   }
 
@@ -112,14 +119,18 @@ export const select = (function() {
   };
 
   return function select(name, emoji) {
-    const recent = (window.localStorage['recent'] || '').split(',').filter((x) => x);
-    const index = recent.indexOf(emoji);
-    if (index !== -1) {
-      recent.splice(index, 1);
+    if (name[0] === '^') {
+      return;  // do nothing
     }
-    recent.unshift(emoji);
-    recent.splice(recentLimit);
-    window.localStorage['recent'] = recent.join(',');
+
+    const r = recent();
+    const index = r.indexOf(emoji);
+    if (index !== -1) {
+      r.splice(index, 1);
+    }
+    r.unshift(emoji);
+    r.splice(recentLimit);
+    window.localStorage['recent'] = r.join(',');
     // TODO: do something with recent emoji use
 
     pending[name] = emoji;
@@ -139,4 +150,13 @@ export function submit(name, emoji) {
   body.append('name', name);
   body.append('emoji', emoji);
   return window.fetch(api + '/name', {method: 'POST', mode: 'cors', body});
+}
+
+/**
+ * Gets recently used emoji.
+ *
+ * @return {!Array<string>}
+ */
+export function recent() {
+  return (window.localStorage['recent'] || '').split(',').filter((x) => x);
 }

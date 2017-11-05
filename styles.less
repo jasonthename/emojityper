@@ -399,8 +399,7 @@ main {
   display: inline-block;
 
   &::before {
-    // TODO(samthor): We have to refer to all types here :(
-    content: attr(data-name) attr(data-modifier) attr(data-special);
+    content: attr(data-name);
     color: @color-feature;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
     text-transform: uppercase;

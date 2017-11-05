@@ -94,7 +94,13 @@ class ButtonManager {
     }
     const node = document.createElement('div');
     node.className = 'options';
-    node.setAttribute('data-name', name);
+    node.setAttribute('data-option', name);
+
+    if (name[0] === '^') {
+      node.classList.add('special');
+      name = name.substr(1);
+    }
+    node.setAttribute('data-name', name);  // presentation only
     return node;
   }
 
@@ -245,15 +251,15 @@ chooser.addEventListener('click', ev => {
     const detail = {type: b.parentNode.dataset['modifier'], code: value};
     typer.dispatchEvent(new CustomEvent('modifier', {detail}));
     label = 'modifier';
-  } else if (b.parentNode.dataset['name']) {
+  } else if (b.parentNode.dataset['option']) {
     // nb. we typically clear the word on choice (as it confuses @nickyringland), but if you hit
     // space or ctrl-click the button, keep it around.
     const retainWord = (spaceFrame !== 0 || ev.metaKey || ev.ctrlKey);
-    const word = retainWord ? b.parentNode.dataset['name'] : null;
+    const word = retainWord ? b.parentNode.dataset['option'] : null;
 
     const detail = {choice: b.textContent, word};
     typer.dispatchEvent(new CustomEvent('emoji', {detail}));
-    provider.select(b.parentNode.dataset['name'], detail.choice);
+    provider.select(b.parentNode.dataset['option'], detail.choice);
     label = 'emoji';
   } else {
     // unknown
@@ -391,6 +397,11 @@ chooser.addEventListener('keydown', ev => {
 
       // TODO: the 'more' behaviour interacts oddly with pendingFirstEmojiRequest, as it can appear
       // as if your emoji changes after a _long_ time.
+
+      if (!query.text) {
+        // TODO: delay empty data by a decent time
+        return request(1500, true);
+      }
 
       const timeout = Math.max(1000, 100 * Math.pow(valid, 0.75));
       return request(timeout, true);
