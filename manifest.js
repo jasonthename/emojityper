@@ -1,7 +1,7 @@
 self.__file_manifest = [
   {
     "url": "./bundle.min.js",
-    "revision": "2c5a23835a00e43a762a04846201f2fc"
+    "revision": "9eff12a4d75c3e2aabe8afffc3e09bcf"
   },
   {
     "url": "./error.html",
@@ -9,7 +9,7 @@ self.__file_manifest = [
   },
   {
     "url": "./index.html",
-    "revision": "62291827f573f8e76ab4269866142312"
+    "revision": "52d9371701aa55f0f1d2c5d595425b6d"
   },
   {
     "url": "./manifest.json",
@@ -41,6 +41,6 @@ self.__file_manifest = [
   },
   {
     "url": "./support.min.js",
-    "revision": "3bb1afd9b317d684d0d2cc773203be30"
+    "revision": "ac257fb47b6d0671c4b6a54e279dc1f9"
   }
 ];
