@@ -1,4 +1,6 @@
 
+const resolved = Promise.resolve();
+
 /**
  * Returns a Promise that resolves on `requestIdleCallback`.
  *
@@ -30,7 +32,9 @@ export function rAF(delay=undefined) {
  */
 export function microTask() {
   let resolver;
-  return new Promise((resolve) => resolver = resolve).then(resolver);
+  const out = new Promise((resolve) => resolver = resolve);
+  resolved.then(() => resolver());  // microTask
+  return out;
 }
 
 const debouceMap = new Map();
