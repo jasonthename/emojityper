@@ -28,6 +28,8 @@ realURLs.forEach((prefix) => {
 
 self.addEventListener('install', function(event) {
   // become active immediately
+  // TODO: There's some concern that Cloudfare is caching .css longer than .js, so clients
+  // are not getting the updated versions.
   event.waitUntil(self.skipWaiting());
 });
 
