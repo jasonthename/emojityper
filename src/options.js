@@ -6,11 +6,9 @@
 
 import * as provider from './lib/provider.js';
 import * as modifier from './lib/modifier.js';
-import isExpectedLength from './lib/cache.js';
+import valid from './lib/valid.js';
 import * as promises from './lib/promises.js';
 import * as eventlib from './lib/event.js';
-
-const predicateTrue = () => true;
 
 /**
  * ButtonManager helps create and show emoji buttons in the UI.
@@ -25,6 +23,9 @@ class ButtonManager {
 
     /** @type {!Map<string, !HTMLButtonElement>} */
     this.buttons_ = new Map();
+
+    /** @type {!WeakMap<!HTMLButtonElement, !DocumentFragment>} */
+    this.buttonTarget_ = new WeakMap();
 
     /** @type {function(this:ButtonManager, !Object): void} */
     this.setModifier = (() => {
@@ -86,17 +87,60 @@ class ButtonManager {
     return node;
   }
 
-  static option_(name) {
+  optionForName_(name) {
+    const prev = this.options_.get(name);
+    if (prev) {
+      return prev;
+    }
     const node = document.createElement('div');
     node.className = 'options';
     node.setAttribute('data-name', name);
     return node;
   }
 
-  static button_(text) {
-    const button = document.createElement('button');
-    button.className = 'unknown';
-    button.textContent = text;
+  /**
+   * Creates a `button` with the textContent of the passed emoji. Starts removed from the page,
+   * but will (when valid) be placed in-order inside the specified `option`.
+   *
+   * @param {!HTMLElement} option to place inside
+   * @param {string} emoji
+   * @return {!HTMLButtonElement}
+   */
+  addEmojiTo_(option, emoji) {
+    let button = this.buttons_.get(emoji);
+    if (button) {
+      // if the button was known, check buttonTarget_: either it's the eventual placement, which
+      // we must replace, or it's a known good/bad already
+      const target = this.buttonTarget_.get(button);
+      if (target === null) {
+        return button;  // known invalid
+      } else if (target === undefined) {
+        option.appendChild(button);  // known good
+        return button;
+      }
+    } else {
+      button = document.createElement('button');
+      button.textContent = emoji;
+      this.buttons_.set(emoji, button);
+
+      valid(emoji).then((isValid) => {
+        if (!isValid) {
+          return this.buttonTarget_.set(button, null);
+        }
+
+        const node = this.buttonTarget_.get(button);
+        node.parentNode.replaceChild(button, node);
+        this.buttonTarget_.delete(button);
+
+        // TODO(samthor): call this less?
+        this.checkFirstEmoji_();
+      });
+    }
+
+    const node = document.createTextNode('');  // empty placeholder to replace
+    this.buttonTarget_.set(button, node);
+    option.appendChild(node);
+
     return button;
   }
 
@@ -106,7 +150,7 @@ class ButtonManager {
 
     let cand = node.firstElementChild;
     while (cand) {
-      if (cand.className === '') {
+      if (!cand.hidden) {
         return cand.textContent;
       }
       cand = cand.nextElementSibling;
@@ -149,7 +193,7 @@ class ButtonManager {
 
   /**
    * Updated displayed options with real results. Adds all nodes immediately, but returns a Promise
-   * which indicates when all valid emoji are shown (and the "unknown" className is removed).
+   * which indicates when all valid emoji are shown (and the hidden attribute is removed).
    *
    * @param {!Array<!Array<string>>}
    * @return {!Promise<undefined>}
@@ -159,37 +203,25 @@ class ButtonManager {
     const buttons = new Map();
     const previousActiveElement =
         this.holder_.contains(document.activeElement) ? document.activeElement : null;
-    const queue = [];
 
-    results.forEach(result => {
+    results.forEach((result) => {
       const name = result[0];
 
-      const option = this.options_.get(name) || ButtonManager.option_(name);
-      this.options_.delete(name);
+      const option = this.optionForName_(name);
       options.set(name, option);
+      this.options_.delete(name);
       this.holder_.appendChild(option);  // reinsert in better order
 
       for (let i = 1, emoji; emoji = result[i]; ++i) {
         if (buttons.has(emoji)) {
           continue;  // already stolen by something above us
         }
-
-        let button = this.buttons_.get(emoji);
-        if (!button) {
-          button = ButtonManager.button_(emoji);
-          queue.push({emoji, button});
-          option.appendChild(button);  // it's "unknown" to start with
-        } else if (button && !button.parentNode) {
-          continue;  // we were removed (unusable based on isExpectedLength)
-        } else {
-          this.buttons_.delete(emoji);
-        }
-        buttons.set(emoji, button);
+        // TODO: this.addEmojiTo_ also uses this.buttons_
+        buttons.set(emoji, this.addEmojiTo_(option, emoji));
       }
     });
 
     this.options_.forEach((option) => option.remove());
-    this.buttons_.forEach((button) => button.remove());
     this.options_ = options;
     this.buttons_ = buttons;
 
@@ -200,42 +232,6 @@ class ButtonManager {
         previousActiveElement.focus();
       }
     }
-
-    // TODO: move this to be running "all the time"
-    // nb. This is a function as Safari fails on async arrows:
-    // https://bugs.webkit.org/show_bug.cgi?id=166879
-    return (async function() {
-      let valid = 0;
-      let idle = null;
-      const start = window.performance.now();
-
-      // don't start with idle: the first N might complete really fast (already known)
-      for (let q = 0; q < queue.length; ++q) {
-        const {emoji, button} = queue[q];
-        if (isExpectedLength(emoji)) {
-          button.className = '';
-          ++valid;
-        } else {
-          button.remove();
-        }
-
-        // nb. below is just to control amount of work done
-        if (q < 20 || (idle === null && window.performance.now() - start < 10)) {
-          continue;  // continue _immediately_
-        }
-        let expired = true;
-        if (idle !== null) {
-          expired = idle.timeRemaining() < 0;
-        }
-        if (expired) {
-          this.checkFirstEmoji_();
-          idle = await promises.idle();
-        }
-      }
-
-      this.checkFirstEmoji_();
-      return valid;
-    }.call(this));
   }
 }
 

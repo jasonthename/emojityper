@@ -37,6 +37,15 @@ export function microTask() {
   return out;
 }
 
+/**
+ * @return {{promise: !Promise<void>, resolver: function(): void}}
+ */
+export function resolver() {
+  let resolver;
+  const promise = new Promise((resolve) => resolver = resolve);
+  return {resolver, promise};
+}
+
 const debouceMap = new Map();
 
 /**
