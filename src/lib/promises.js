@@ -23,6 +23,16 @@ export function rAF(delay=undefined) {
   return new Promise((resolve) => window.requestAnimationFrame(resolve));
 }
 
+/**
+ * Returns a Promise that resolves after a microtask.
+ *
+ * @return {!Promise<void>}
+ */
+export function microTask() {
+  let resolver;
+  return new Promise((resolve) => resolver = resolve).then(resolver);
+}
+
 const debouceMap = new Map();
 
 /**
