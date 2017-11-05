@@ -26,4 +26,12 @@ realURLs.forEach((prefix) => {
   );  
 });
 
-// TODO: post message to console/etc saying new version ready
+self.addEventListener('install', function(event) {
+  // become active immediately
+  event.waitUntil(self.skipWaiting());
+});
+
+self.addEventListener('activate', function(event) {
+  // claim all clients, forcing them to reload
+  return self.clients.claim();
+});
