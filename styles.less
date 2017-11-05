@@ -2,7 +2,7 @@
 @color-background: #2c3e50;
 @color-placeholder: #cbd6e2;
 @color-modifier: rgb(251, 220, 59);
-@color-special: #16d941;
+@color-special: #00eb79;
 
 // nb: does NOT include Arial: this causes Chrome 59? to not combine gender emojis properly
 @fonts-normal: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
@@ -399,7 +399,8 @@ main {
   display: inline-block;
 
   &::before {
-    content: attr(data-name) attr(data-modifier);
+    // TODO(samthor): We have to refer to all types here :(
+    content: attr(data-name) attr(data-modifier) attr(data-special);
     color: @color-feature;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
