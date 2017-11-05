@@ -19,7 +19,7 @@ export function idle() {
 export function rAF(delay=undefined) {
   if (delay !== undefined) {
     return new Promise((resolve) => {
-      window.setTimeout(() => window.requestAnimationFrame(resolve));
+      window.setTimeout(() => window.requestAnimationFrame(resolve), delay);
     });
   }
   return new Promise((resolve) => window.requestAnimationFrame(resolve));
