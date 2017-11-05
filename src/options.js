@@ -133,7 +133,7 @@ class ButtonManager {
         this.buttonTarget_.delete(button);
 
         // TODO(samthor): call this less?
-        this.checkFirstEmoji_();
+        this.pendingFirstEmoji_ && this.pendingFirstEmoji_();
       });
     }
 
@@ -144,22 +144,16 @@ class ButtonManager {
     return button;
   }
 
+  /**
+   * Returns any current valid emoji for the passed option name.
+   *
+   * @param {string} name
+   * @return {?string} emoji
+   */
   immediateFirstEmojiForOption_(name) {
     const node = this.options_.get(name);
-    if (!node) { return null; }
-
-    let cand = node.firstElementChild;
-    while (cand) {
-      if (!cand.hidden) {
-        return cand.textContent;
-      }
-      cand = cand.nextElementSibling;
-    }
-    return null;
-  }
-
-  checkFirstEmoji_() {
-    this.pendingFirstEmoji_ && this.pendingFirstEmoji_();
+    const cand = node && node.firstElementChild;
+    return cand ? cand.textContent : null;
   }
 
   /**
@@ -172,9 +166,6 @@ class ButtonManager {
    * @return {!Promise<?string>} emoji found
    */
   firstEmojiForOption(name) {
-    if (!name) {
-      return Promise.resolve(null);
-    }
     return new Promise((resolve) => {
       const checker = () => {
         const immediateResult = this.immediateFirstEmojiForOption_(name);
@@ -192,11 +183,12 @@ class ButtonManager {
   }
 
   /**
-   * Updated displayed options with real results. Adds all nodes immediately, but returns a Promise
-   * which indicates when all valid emoji are shown (and the hidden attribute is removed).
+   * Updated displayed options with real results. These are expected the API format:
+   *    [[name,emoji,emoji,...],[name,emoji,...],...]
+   *
+   * This retains existing options if they are included in the named results.
    *
    * @param {!Array<!Array<string>>}
-   * @return {!Promise<undefined>}
    */
   update(results) {
     const options = new Map();
@@ -409,10 +401,10 @@ chooser.addEventListener('keydown', ev => {
 
   // nb. this punctuation list is just misc stuff needed by emojimap
   const invalidLetterRe = /[^\w:\.,$%^\-']+/g;
-  const simplifyWord = word => word.replace(invalidLetterRe, '').toLowerCase();
+  const simplifyWord = (word) => word.replace(invalidLetterRe, '').toLowerCase();
 
   // request an autocomplete, the user has just kept typing
-  typer.addEventListener('request', ev => {
+  typer.addEventListener('request', (ev) => {
     const word = simplifyWord(ev.detail || '');
     const request = manager.firstEmojiForOption(word);
     pendingFirstEmojiRequest = request;
