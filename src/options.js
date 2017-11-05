@@ -224,10 +224,10 @@ class ButtonManager {
     this.buttons_ = buttons;
 
     if (previousActiveElement) {
-      if (!previousActiveElement.parentNode) {
-        typer.focus();  // restore to main input
-      } else {
+      if (document.body.contains(previousActiveElement)) {
         previousActiveElement.focus();
+      } else {
+        typer.focus();  // restore to main input
       }
     }
   }
