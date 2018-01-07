@@ -32,7 +32,7 @@ const worker = new Worker(runner);
  * @param {string} string to check
  * @return {!Promise<boolean>} whether this is probably an emoji
  */
-export default async function valid(emoji) {
+export async function valid(emoji) {
   const immediate = known.get(emoji);
   if (immediate !== undefined) {
     return immediate;

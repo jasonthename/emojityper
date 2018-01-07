@@ -6,7 +6,7 @@
 
 import * as provider from './lib/provider.js';
 import * as modifier from './lib/modifier.js';
-import valid from './lib/valid.js';
+import {valid} from './lib/valid.js';
 import * as promises from './lib/promises.js';
 import * as eventlib from './lib/event.js';
 
