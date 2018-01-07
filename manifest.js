@@ -9,7 +9,7 @@ self.__file_manifest = [
   },
   {
     "url": "./index.html",
-    "revision": "8f417c769877e75b53c65470af554a19"
+    "revision": "263ab5656b79637e5b3f50cab2f1867a"
   },
   {
     "url": "./manifest.json",
@@ -41,6 +41,6 @@ self.__file_manifest = [
   },
   {
     "url": "./support.min.js",
-    "revision": "3a2e6c5937fbc2047d7ed24da5d52f52"
+    "revision": "fff2978b1422d194a98cdd846cf9cb0b"
   }
 ];
