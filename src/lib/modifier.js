@@ -232,7 +232,7 @@ const genderFlip = (function() {
     0x1f936, 0x1f385, 0,        // mrs. claus, santa
     0x1f483, 0x1f57a, 0,        // dancers
     0x1f470, 0x1f935, 0,        // bride, man in tuxedo
-    0x1f467, 0x1f466, 0,        // girl, boy
+    0x1f467, 0x1f466, 0x1f9d2,  // girl, boy, child
     0x1f475, 0x1f474, 0x1f9d3,  // old {woman,man,adult}
     0x1f46d, 0x1f46c, 0,        // women/men holding hands
     0x1f478, 0x1f934, 0,        // princess, prince
