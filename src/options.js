@@ -83,7 +83,8 @@ class ButtonManager {
   static optionType_(type, value) {
     const node = document.createElement('div');
     node.className = 'options ' + type;
-    node.setAttribute('data-' + type, value);
+    node.dataset[type] = value;
+    node.dataset['name'] = value;
     return node;
   }
 

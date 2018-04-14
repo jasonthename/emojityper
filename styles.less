@@ -124,15 +124,21 @@ button {
 
 footer {
   margin-top: 1em;
-  opacity: 0.75;
   font-size: 0.4em;
   text-align: center;
+
+  button {
+    display: inline-block;
+    line-height: 2em;
+    font-size: inherit;
+    margin: 0 0.5ch;
+  }
 
   section {
     display: flex;
     align-items: stretch;
     justify-content: center;
-    margin-bottom: 1em;
+    margin: 1em 0;
     height: 5em;  // nb. this is just larger than the help stuff
 
     .line {
@@ -209,6 +215,9 @@ footer {
   }
 }
 body.has-value footer {
+  display: none;
+}
+body:not(.has-install) .install {
   display: none;
 }
 
