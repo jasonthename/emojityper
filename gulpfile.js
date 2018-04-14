@@ -18,7 +18,9 @@ const sequence = require('run-sequence');
 const uglifyES = require('uglify-es');
 const workbox = require('workbox-build');
 
-const builtAt = (new Date).toString();
+const builtAt = new Date;
+const builtAtTime = +builtAt;
+const nonce = builtAtTime.toString(36);
 
 gulp.task('css', function() {
   // exclude IE11's broken flexbox
@@ -27,6 +29,7 @@ gulp.task('css', function() {
     .pipe(less())
     .pipe(autoprefixer({browsers}))
     .pipe(cleanCSS())
+    .pipe(concat(`styles-${nonce}.css`))
     .pipe(gulp.dest('./dist'));
 });
 
@@ -44,7 +47,7 @@ gulp.task('rollup-nomodule', function() {
   return gulp.src(['src/support/*.js', 'src/bundle.js'])
     .pipe(sourcemaps.init())
     .pipe(rollup(options, {format: 'iife'}))
-    .pipe(concat('support.min.js'))
+    .pipe(concat(`support-${nonce}.min.js`))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist'));
 })
@@ -61,7 +64,7 @@ gulp.task('rollup', function() {
   return gulp.src('src/bundle.js')
     .pipe(sourcemaps.init())
     .pipe(rollup(options, {format: 'es'}))
-    .pipe(concat('bundle.min.js'))
+    .pipe(concat(`bundle-${nonce}.min.js`))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist'));
 });
@@ -73,12 +76,12 @@ gulp.task('html', function() {
     // replace lessCSS with actual styles
     document.getElementById('less').remove();
     const link = Object.assign(document.createElement('link'),
-        {href: 'styles.css', rel: 'stylesheet'});
+        {href: `styles-${nonce}.css`, rel: 'stylesheet'});
     document.head.appendChild(link);
 
     // fix paths for module/nomodule code
-    document.head.querySelector('script[nomodule]').src = 'support.min.js';
-    document.head.querySelector('script[src^="src/"]').src = 'bundle.min.js';
+    document.head.querySelector('script[nomodule]').src = `support-${nonce}.min.js`;
+    document.head.querySelector('script[src^="src/"]').src = `bundle-${nonce}.min.js`;
 
     // append buildAt
     document.head.appendChild(document.createComment(`Generated on: ${builtAt}`));
@@ -106,7 +109,8 @@ gulp.task('clean', function() {
   return del(['./dist'])
 });
 
-gulp.task('manifest', ['css', 'js', 'html', 'static'], function() {
+gulp.task('manifest', ['clean', 'css', 'js', 'html', 'static'], function() {
+  // nb. manifest requires clean to remove old output files
   return workbox.generateFileManifest({
     manifestDest: './dist/manifest.js',
     globPatterns: ['**/*.{png,html,js,json,css}'],
