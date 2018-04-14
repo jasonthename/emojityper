@@ -16,7 +16,8 @@
       "sizes": "512x512"
     }
   ],
-  "display": "browser",
+  "description": "Emoji ready to copy and paste! List of all emoji, just type some words to get emoji. Laughing crying emoji \ud83d\ude02\u2328",
+  "display": "standalone",
   "start_url": "/",
   "orientation": "portrait",
   "theme_color": "#1abc9c",

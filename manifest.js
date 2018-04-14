@@ -1,7 +1,7 @@
 self.__file_manifest = [
   {
-    "url": "./bundle.min.js",
-    "revision": "afea945837aa4082f437d496dfba6cce"
+    "url": "./bundle-jfzc204w.min.js",
+    "revision": "417e66da706e3e53924c91d7a4e55356"
   },
   {
     "url": "./error.html",
@@ -9,11 +9,11 @@ self.__file_manifest = [
   },
   {
     "url": "./index.html",
-    "revision": "263ab5656b79637e5b3f50cab2f1867a"
+    "revision": "f46807debd7f0f3a67c09c309cc5666e"
   },
   {
     "url": "./manifest.json",
-    "revision": "65d08396512cb24dc6737bdbbe0d69c4"
+    "revision": "5244f32170c0a02125fc8a22970e0f08"
   },
   {
     "url": "./res/crying.png",
@@ -36,11 +36,11 @@ self.__file_manifest = [
     "revision": "0b23c85f71f7a57e28cc9e897f9ffbe0"
   },
   {
-    "url": "./styles.css",
-    "revision": "d99fe3772b4942cc6673b24635fcf839"
+    "url": "./styles-jfzc204w.css",
+    "revision": "e5c782640741f61527c3301a33e6ef1b"
   },
   {
-    "url": "./support.min.js",
-    "revision": "fff2978b1422d194a98cdd846cf9cb0b"
+    "url": "./support-jfzc204w.min.js",
+    "revision": "3948a026e18009159e20549eb85def46"
   }
 ];
