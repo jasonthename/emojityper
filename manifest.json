@@ -6,6 +6,9 @@
       "src": "res/icon-44.png",
       "sizes": "44x44"
     }, {
+      "src": "res/icon-50.png",
+      "sizes": "50x50"
+    }, {
       "src": "res/icon-100.png",
       "sizes": "100x100"
     }, {
