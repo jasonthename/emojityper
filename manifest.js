@@ -1,7 +1,7 @@
 self.__file_manifest = [
   {
-    "url": "./bundle-jg1pnpjh.min.js",
-    "revision": "91f71dc8105787e94949e1f28e638fae"
+    "url": "./bundle-jg1pyhz9.min.js",
+    "revision": "843c4f2db073f2cfa71dab593ba51e10"
   },
   {
     "url": "./error.html",
@@ -9,11 +9,11 @@ self.__file_manifest = [
   },
   {
     "url": "./index.html",
-    "revision": "a590bca0be70639bb06802b0d9a36c78"
+    "revision": "b92646f0355364be967535887049a29a"
   },
   {
     "url": "./manifest.json",
-    "revision": "9eb2b9aa15cd8132eaa27a69e7589a92"
+    "revision": "27733ed8c5aa1a100248b3c3205ff463"
   },
   {
     "url": "./res/crying.png",
@@ -44,15 +44,19 @@ self.__file_manifest = [
     "revision": "ceb30aaf55029d8c8fb484c0d38108b8"
   },
   {
+    "url": "./res/icon-50.png",
+    "revision": "862f57ffa8b958c5a26805ab5e3a8b81"
+  },
+  {
     "url": "./res/icon-512.png",
     "revision": "0b23c85f71f7a57e28cc9e897f9ffbe0"
   },
   {
-    "url": "./styles-jg1pnpjh.css",
+    "url": "./styles-jg1pyhz9.css",
     "revision": "e5c782640741f61527c3301a33e6ef1b"
   },
   {
-    "url": "./support-jg1pnpjh.min.js",
-    "revision": "d8df5fddbbad8421519d780eea63f857"
+    "url": "./support-jg1pyhz9.min.js",
+    "revision": "eb95864887a135f01bd06236dd395999"
   }
 ];
