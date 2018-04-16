@@ -3,8 +3,17 @@
   "short_name": "Emojityper",
   "icons": [
     {
+      "src": "res/icon-44.png",
+      "sizes": "44x44"
+    }, {
+      "src": "res/icon-100.png",
+      "sizes": "100x100"
+    }, {
       "src": "res/icon-128.png",
       "sizes": "128x128"
+    }, {
+      "src": "res/icon-150.png",
+      "sizes": "150x150"
     }, {
       "src": "res/icon-192.png",
       "sizes": "192x192"
@@ -18,7 +27,7 @@
   ],
   "description": "Emoji ready to copy and paste! List of all emoji, just type some words to get emoji. Laughing crying emoji \ud83d\ude02\u2328",
   "display": "standalone",
-  "start_url": "/",
+  "start_url": "./?utm_source=web_app_manifest&utm_medium=web_app_manifest",
   "orientation": "portrait",
   "theme_color": "#1abc9c",
   "background_color": "#2c3e50"

@@ -1,7 +1,7 @@
 self.__file_manifest = [
   {
-    "url": "./bundle-jfzc204w.min.js",
-    "revision": "417e66da706e3e53924c91d7a4e55356"
+    "url": "./bundle-jg1pnpjh.min.js",
+    "revision": "91f71dc8105787e94949e1f28e638fae"
   },
   {
     "url": "./error.html",
@@ -9,19 +9,27 @@ self.__file_manifest = [
   },
   {
     "url": "./index.html",
-    "revision": "f46807debd7f0f3a67c09c309cc5666e"
+    "revision": "a590bca0be70639bb06802b0d9a36c78"
   },
   {
     "url": "./manifest.json",
-    "revision": "5244f32170c0a02125fc8a22970e0f08"
+    "revision": "9eb2b9aa15cd8132eaa27a69e7589a92"
   },
   {
     "url": "./res/crying.png",
     "revision": "cfb9138bebe7aca2609f1ddc22f89079"
   },
   {
+    "url": "./res/icon-100.png",
+    "revision": "d823ac9463adf2fc4c5895d14e0ad937"
+  },
+  {
     "url": "./res/icon-128.png",
     "revision": "4ede97c725914d6b563ecbebc79ab65f"
+  },
+  {
+    "url": "./res/icon-150.png",
+    "revision": "22ab89a69fc4ecdf44c1cd172d0338dd"
   },
   {
     "url": "./res/icon-192.png",
@@ -32,15 +40,19 @@ self.__file_manifest = [
     "revision": "86f6d723d862012ab85535108000ef25"
   },
   {
+    "url": "./res/icon-44.png",
+    "revision": "ceb30aaf55029d8c8fb484c0d38108b8"
+  },
+  {
     "url": "./res/icon-512.png",
     "revision": "0b23c85f71f7a57e28cc9e897f9ffbe0"
   },
   {
-    "url": "./styles-jfzc204w.css",
+    "url": "./styles-jg1pnpjh.css",
     "revision": "e5c782640741f61527c3301a33e6ef1b"
   },
   {
-    "url": "./support-jfzc204w.min.js",
-    "revision": "3948a026e18009159e20549eb85def46"
+    "url": "./support-jg1pnpjh.min.js",
+    "revision": "d8df5fddbbad8421519d780eea63f857"
   }
 ];
