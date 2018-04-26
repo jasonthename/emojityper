@@ -66,6 +66,10 @@ h1 {
   color: white;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
   font-size: 1em;
+
+  label {
+    cursor: pointer;
+  }
 }
 
 .grow {
@@ -124,7 +128,7 @@ button {
 
 footer {
   margin-top: 1em;
-  font-size: 0.4em;
+  font-size: 16px;  // TODO(samthor): Ditch em units elsewhere since this contains 99%+ of text
   text-align: center;
 
   button {
@@ -279,6 +283,7 @@ main {
   align-items: center;
 
   #input {
+    display: block;
     flex-grow: 1;
     position: relative;
   }
