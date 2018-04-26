@@ -1,5 +1,5 @@
 /**
- * Generated on: Mon Apr 16 2018 14:08:21 GMT+1000 (AEST)
+ * Generated on: Fri Apr 27 2018 08:29:31 GMT+1000 (AEST)
  */
 
 importScripts('https://unpkg.com/workbox-sw@2.0.1/build/importScripts/workbox-sw.prod.v2.0.1.js');

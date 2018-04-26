@@ -1,7 +1,7 @@
 self.__file_manifest = [
   {
-    "url": "./bundle-jg1pyhz9.min.js",
-    "revision": "843c4f2db073f2cfa71dab593ba51e10"
+    "url": "./bundle-jgh3p4mu.min.js",
+    "revision": "12f28437b182b4237696cb76f4cf6e57"
   },
   {
     "url": "./error.html",
@@ -9,11 +9,11 @@ self.__file_manifest = [
   },
   {
     "url": "./index.html",
-    "revision": "b92646f0355364be967535887049a29a"
+    "revision": "13fcad75b1494b392998c68821b3cd74"
   },
   {
     "url": "./manifest.json",
-    "revision": "27733ed8c5aa1a100248b3c3205ff463"
+    "revision": "a7bcbda51ef70d13cbbb4f5ee78c4827"
   },
   {
     "url": "./res/crying.png",
@@ -52,11 +52,11 @@ self.__file_manifest = [
     "revision": "0b23c85f71f7a57e28cc9e897f9ffbe0"
   },
   {
-    "url": "./styles-jg1pyhz9.css",
-    "revision": "e5c782640741f61527c3301a33e6ef1b"
+    "url": "./styles-jgh3p4mu.css",
+    "revision": "7c59e6044aafadfa59f3a9a649e2014e"
   },
   {
-    "url": "./support-jg1pyhz9.min.js",
-    "revision": "eb95864887a135f01bd06236dd395999"
+    "url": "./support-jgh3p4mu.min.js",
+    "revision": "ac9b70c983f934b1160e80848c92d903"
   }
 ];
