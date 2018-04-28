@@ -96,6 +96,7 @@ gulp.task('static', function() {
     'CNAME',
     'manifest.json',
     'opensearch.xml',
+    'google*.html',
     'res/*',
   ];
   return gulp.src(src, {base: '.'})
