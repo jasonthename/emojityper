@@ -1,5 +1,5 @@
 /**
- * Generated on: Sun Apr 29 2018 08:22:51 GMT+1000 (AEST)
+ * Generated on: Mon May 21 2018 18:47:35 GMT+1000 (AEST)
  */
 
 importScripts('https://unpkg.com/workbox-sw@2.0.1/build/importScripts/workbox-sw.prod.v2.0.1.js');
@@ -30,14 +30,14 @@ realURLs.forEach((prefix) => {
   );  
 });
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', (event) => {
   // become active immediately
   // TODO: There's some concern that Cloudfare is caching .css longer than .js, so clients
   // are not getting the updated versions.
   event.waitUntil(self.skipWaiting());
 });
 
-self.addEventListener('activate', function(event) {
+self.addEventListener('activate', (event) => {
   // claim all clients, forcing them to reload
   return self.clients.claim();
 });
