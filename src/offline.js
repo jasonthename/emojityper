@@ -7,7 +7,6 @@ function notifyStatus() {
   if ('onLine' in navigator && prevOnLine !== navigator.onLine) {
     ga('send', 'event', 'network', navigator.onLine ? 'online' : 'offline');
     prevOnLine = navigator.onLine;
-    console.info('sending', prevOnLine);
   }
 }
 
