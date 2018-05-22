@@ -1,13 +1,12 @@
-importScripts('https://unpkg.com/workbox-sw@2.0.1/build/importScripts/workbox-sw.prod.v2.0.1.js');
-importScripts('./manifest.js');
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js');
 
-const workboxSW = new self.WorkboxSW();
-workboxSW.precache(self.__file_manifest);
+workbox.precaching.precacheAndRoute([]);
+workbox.googleAnalytics.initialize();
 
 const realURLs = [
   'https://fonts.googleapis.com/',
   'https://fonts.gstatic.com/',
-  'https://cdn.rawgit.com/samthor/rippleJS/',
+  'https://cdn.rawgit.com/GoogleChromeLabs/pwacompat/',
 ];
 function escape(s) {
   return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -16,24 +15,13 @@ realURLs.forEach((prefix) => {
   // TODO: This only caches the request on the 2nd load. However it's probably coming out of cache
   // for a while anyway because the resources are served with stupid high expiries.
   const r = new RegExp('^' + escape(prefix) + '.*');
-  workboxSW.router.registerRoute(
-    r,
-    workboxSW.strategies.cacheFirst({
-      cacheableResponse: {
-        statuses: [0, 200],
-      }
-    })
-  );  
+  workbox.routing.registerRoute(r, workbox.strategies.cacheFirst());
 });
 
 self.addEventListener('install', (event) => {
-  // become active immediately
-  // TODO: There's some concern that Cloudfare is caching .css longer than .js, so clients
-  // are not getting the updated versions.
-  event.waitUntil(self.skipWaiting());
+  event.waitUntil(self.skipWaiting());  // become active immediately
 });
 
 self.addEventListener('activate', (event) => {
-  // claim all clients, forcing them to reload
-  return self.clients.claim();
+  return self.clients.claim();  // claim, causing window.location.reload()
 });

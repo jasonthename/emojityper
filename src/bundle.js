@@ -7,3 +7,4 @@ import './selection.js';
 import './page.js';
 import './adverts.js';
 import './sw.js';
+import './offline.js';

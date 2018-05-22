@@ -110,23 +110,19 @@ gulp.task('clean', function() {
   return del(['./dist'])
 });
 
-gulp.task('manifest', ['clean', 'css', 'js', 'html', 'static'], function() {
-  // nb. manifest requires clean to remove old output files
-  return workbox.generateFileManifest({
-    manifestDest: './dist/manifest.js',
-    globPatterns: ['**/*.{png,html,js,json,css}'],
-    globIgnores: ['*.map', 'sw.js', 'manifest.js'],  // don't include sourcemaps or SW
+gulp.task('preparedist', ['clean', 'css', 'js', 'html', 'static']);
+
+gulp.task('sw', ['preparedist'], async function() {
+  const {count, size} = await workbox.injectManifest({
+    swSrc: 'sw.js',
+    swDest: './dist/sw.js',
     globDirectory: './dist',
+    globIgnores: ['sw.js'],  // don't include SW
+    globPatterns: ['**/*.{png,html,js,json,css}'],
     modifyUrlPrefix: {'/': './'},  // treat files as relative to SW
   });
 });
 
-gulp.task('sw', ['manifest'], function() {
-  return gulp.src(['sw.js'])
-    .pipe(comment(`Generated on: ${builtAt}`))
-    .pipe(gulp.dest('./dist'));
-});
-
 gulp.task('dist', function(callback) {
-  sequence('clean', ['sw', 'manifest', 'default'], callback);
+  sequence('clean', ['sw', 'preparedist', 'default'], callback);
 });
