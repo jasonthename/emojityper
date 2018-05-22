@@ -2,8 +2,8 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox
 
 workbox.precaching.precacheAndRoute([
   {
-    "url": "bundle-jhh3jam9.min.js",
-    "revision": "187aa78b2c564aa39d817d9886a80ecc"
+    "url": "bundle-jhh3ph0w.min.js",
+    "revision": "ac5b62da0c4eb6e5299765ca8352e373"
   },
   {
     "url": "error.html",
@@ -15,7 +15,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "index.html",
-    "revision": "c0cab73a03777b04a3f91e2cc7327a0a"
+    "revision": "8db160176bcfbf0483687823dc53f984"
   },
   {
     "url": "manifest.json",
@@ -58,12 +58,12 @@ workbox.precaching.precacheAndRoute([
     "revision": "0b23c85f71f7a57e28cc9e897f9ffbe0"
   },
   {
-    "url": "styles-jhh3jam9.css",
+    "url": "styles-jhh3ph0w.css",
     "revision": "7c59e6044aafadfa59f3a9a649e2014e"
   },
   {
-    "url": "support-jhh3jam9.min.js",
-    "revision": "0d541ff11b87cfcf00a25fce79325f04"
+    "url": "support-jhh3ph0w.min.js",
+    "revision": "847b1834f4d08bc3e4ec7832355d8f1e"
   }
 ]);
 workbox.googleAnalytics.initialize();
@@ -71,7 +71,7 @@ workbox.googleAnalytics.initialize();
 const realURLs = [
   'https://fonts.googleapis.com/',
   'https://fonts.gstatic.com/',
-  'https://cdn.rawgit.com/GoogleChromeLabs/pwacompat/',
+  'https://cdn.jsdelivr.net/npm/',
 ];
 function escape(s) {
   return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
