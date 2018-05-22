@@ -6,7 +6,7 @@ workbox.googleAnalytics.initialize();
 const realURLs = [
   'https://fonts.googleapis.com/',
   'https://fonts.gstatic.com/',
-  'https://cdn.rawgit.com/GoogleChromeLabs/pwacompat/',
+  'https://cdn.jsdelivr.net/npm/',
 ];
 function escape(s) {
   return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
