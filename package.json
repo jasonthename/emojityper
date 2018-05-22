@@ -2,7 +2,7 @@
   "name": "emojityper",
   "version": "2.0.0",
   "main": "index.js",
-  "repository": "git@github.com:samthor/mojityper.git",
+  "repository": "git@github.com:emojityper/emojityper.git",
   "author": "Sam Thorogood <sam.thorogood@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
