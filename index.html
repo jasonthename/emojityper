@@ -3,6 +3,9 @@
   <meta name="description" content="Emoji ready to copy and paste! Type emoji on your keyboard. List of all emoji, just type some words to get emoji. Laughing crying emoji 😂⌨️">
   <meta name="author" content="@mangopdf, @samthor">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="og:title" content="Emojityper">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@emojityper">
   <script>
 // nb. intentionally inline ES5 before any other code
 if (window.location.hostname.indexOf('www.') === 0) {
@@ -17,13 +20,13 @@ if (window.location.hostname.indexOf('www.') === 0) {
 // https://gist.github.com/samthor/64b114e4a4f539915a95b91ffd340acc
 !function(){var e=document,t=e.createElement('script');if(!('noModule'in t)&&'onbeforeload'in t){var n=!1;e.addEventListener('beforeload',function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute('nomodule')||!n)return;e.preventDefault()},!0),t.type='module',t.src='.',e.head.appendChild(t),t.remove()}}();
   </script>
-  <script defer="" nomodule="" src="support-jhh3ph0w.min.js"></script>
-  <script type="module" src="bundle-jhh3ph0w.min.js"></script>
+  <script defer="" nomodule="" src="support-jhndj2b1.min.js"></script>
+  <script type="module" src="bundle-jhndj2b1.min.js"></script>
   <link rel="manifest" href="manifest.json">
-  <script async="" src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.1/pwacompat.min.js"></script>
+  <script async="" src="https://cdn.rawgit.com/GoogleChrome/pwacompat/v2.0.1/pwacompat.min.js" integrity="sha384-5TYN8XLZI/035QT4vKv5Xf0PPbsqNeK8otOFxZ1N6l/iNum2GxXNHDBfVs8RwrVz" crossorigin="anonymous"></script>
   <meta name="theme-color" content="#1abc9c">
   <link rel="shortcut icon" type="image/png" href="res/icon-128.png">
-<link href="styles-jhh3ph0w.css" rel="stylesheet"><!--Generated on: Tue May 22 2018 13:09:29 GMT+1000 (AEST)--></head>
+<link href="styles-jhndj2b1.css" rel="stylesheet"><!--Generated on: Sat May 26 2018 22:31:04 GMT+1000 (AEST)--></head>
 <body>
 
 
@@ -35,7 +38,7 @@ if (window.location.hostname.indexOf('www.') === 0) {
   </div>
   <div class="grow"></div>
   <div id="buttons" class="ui">
-    <button disabled="" id="copy" tabindex="-1" data-copied="Copied!">Copy</button>
+    <button disabled="" id="copy" data-copied="Copied!">Copy</button>
   </div>
 </header>
 
@@ -82,7 +85,8 @@ typer.addEventListener('value', function(ev) {
     <ul class="help">
       <li><em>space</em> to get the default emoji</li>
       <li><em>enter</em> to copy to clipboard</li>
-      <li><em>←↑↓→</em> to navigate options</li>
+      <li class="help-desktop"><em>←↑↓→</em> to navigate options</li>
+      <li class="help-desktop"><em>shift-click</em> to copy an option</li>
     </ul>
     <div class="line"></div>
     <div class="adverts" id="adverts">
