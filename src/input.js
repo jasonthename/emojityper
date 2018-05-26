@@ -10,8 +10,22 @@ function datasetSafeDelete(el, ...keys) {
   });
 }
 
+const upgraded = new WeakMap();
+
+export function cursorPosition(el) {
+  const fn = upgraded.get(el);
+  if (fn !== undefined) {
+    return fn();
+  }
+  return undefined;
+}
+
 // word focus handler
 function upgrade(el) {
+  if (upgraded.has(el)) {
+    return false;
+  }
+
   const isWordCode = (code) => {
     // FIXME: turns out matching non-emoji is hard
     // TODO: this RegExp _might_ work but it needs transpiling-
@@ -43,6 +57,12 @@ function upgrade(el) {
     }
   }());
 
+  // record upgraded measurer for callers to find our pixel position
+  upgraded.set(el, () => {
+    const mid = ~~((el.selectionStart + el.selectionEnd) / 2)
+    return measureText(el.value.substr(0, mid)) - el.scrollLeft;
+  });
+
   // hide underline until load: the font used might not be ready, so it's probably out of whack
   if (document.readyState !== 'complete') {
     underline.classList.add('loading');
@@ -71,7 +91,7 @@ function upgrade(el) {
     underline.hidden = width <= 0;
     underline.style.left = left + 'px';
     underline.style.width = width + 'px';
-    underline.style.transform = 'translateX(-' + el.scrollLeft + 'px)';
+    underline.style.transform = `translateX(-${el.scrollLeft}px)`;
   };
 
   // force selection
@@ -318,10 +338,14 @@ function upgrade(el) {
       return where;
     };
 
+    const prev = document.activeElement;
+
     typer.focus();
     typer.dispatchEvent(new CustomEvent('change'));  // nb. updates from/to (from won't change)
     // pretend we were like this all along
     [state.start, state.end] = [typer.selectionStart, typer.selectionEnd] = [drift(start), drift(end)];
+
+    prev && prev.focus();
 
     permitNextChange = true;
     el.scrollLeft = previousScrollLeft;  // before setRange, so the underline is correct

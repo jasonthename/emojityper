@@ -9,6 +9,7 @@ import * as modifier from './lib/modifier.js';
 import {valid} from './lib/valid.js';
 import * as promises from './lib/promises.js';
 import * as eventlib from './lib/event.js';
+import * as input from './input.js';
 
 /**
  * ButtonManager helps create and show emoji buttons in the UI.
@@ -69,14 +70,14 @@ class ButtonManager {
       return function(info) {
         const active =
             modifierHolder.contains(document.activeElement) ? document.activeElement : null;
-        genders.forEach(node => {
+        genders.forEach((node) => {
           const l = node.dataset['value'].length;
           const yes = (!l && info.gender.neutral)
               || (l === 1 && info.gender.single)
               || (l === 2 && info.gender.double);
           updateStatus(yes, node, genderOption);
         });
-        tones.forEach(node => updateStatus(info.tone, node, toneOption));
+        tones.forEach((node) => updateStatus(info.tone, node, toneOption));
 
         // kick the elements: Safari needs this otherwise sometimes they remain hidden (!)
         modifierHolder.insertBefore(genderOption, genderOption.nextSibling);
@@ -244,15 +245,68 @@ class ButtonManager {
 
 // key overrides to recognize spacebar causing 'click'
 let spaceFrame = 0;
-chooser.addEventListener('keyup', ev => {
+chooser.addEventListener('keyup', (ev) => {
   if (ev.key !== ' ' || ev.target.localName !== 'button') { return; }
   spaceFrame = window.setTimeout(() => spaceFrame = 0, 0);
 });
 
-// button click handler
-chooser.addEventListener('click', ev => {
-  const isKeyboard = (ev.screenX === 0 && ev.detail === 0);
+// stores the previous user-driven l/r position
+let previousChooserLeft = undefined;
+let duringNavigate = false;
 
+// if a button was focused, reset chooser unless we were going u/d
+chooser.addEventListener('focus', (ev) => {
+  if (!duringNavigate) {
+    previousChooserLeft = document.activeElement.getBoundingClientRect().left;
+  }
+}, true);
+
+/**
+ * Navigates through candidates until we find the best not on our current row, and focuses it.
+ *
+ * @param {!IArrayLike<!Node>} cands
+ * @return {boolean} true if we focused something new
+ */
+function navigateChooserButtonVertical(cands) {
+  const best = {dist: Infinity, button: null};
+
+  const previousRect = document.activeElement.getBoundingClientRect();
+  // did we have a previous explicit l/r position?
+  const left = (previousChooserLeft !== undefined ? previousChooserLeft : previousRect.left);
+
+  let targetTop = undefined;
+  for (let i = 0; i < cands.length; ++i) {
+    const button = cands[i];
+    const candidateRect = button.getBoundingClientRect();
+
+    if (previousRect.top === candidateRect.top) { continue; }
+    if (targetTop === undefined) {
+      targetTop = candidateRect.top;
+    } else if (candidateRect.top !== targetTop) {
+      break;  // no more good candidates
+    }
+
+    const dist = Math.abs(candidateRect.left - left);
+    if (dist < best.dist) {
+      [best.dist, best.button] = [dist, button];
+    }
+  }
+
+  if (!best.button) {
+    return false;
+  }
+  duringNavigate = true;
+  try {
+    best.button.focus();
+  } finally {
+    duringNavigate = false;
+  }
+  return true;
+}
+
+// button click handler
+chooser.addEventListener('click', (ev) => {
+  previousChooserLeft = undefined;  // used a mouse or chose something
   let label = undefined;
   const b = ev.target;
   if (b.localName !== 'button') {
@@ -275,22 +329,31 @@ chooser.addEventListener('click', ev => {
   } else {
     // unknown
   }
-  label && ga('send', 'event', 'options', 'click', label);
+  if (!label) { return; }
+
+  ga('send', 'event', 'options', 'click', label);
+
+  const isKeyboard = (ev.screenX === 0 && ev.detail === 0);
+  if (!isKeyboard) {
+    typer.focus();  // nb. we're actually double-refocusing
+  }
 });
 
 // handle moving down from input
-typer.addEventListener('keydown', ev => {
+typer.addEventListener('keydown', (ev) => {
   if (ev.key === 'ArrowDown' || ev.key === 'Down') {
-    const first = chooser.querySelector('button');
-    if (first) {
-      first.focus();
+    const typerRect = typer.getBoundingClientRect();
+    previousChooserLeft = typerRect.left + input.cursorPosition(typer);
+
+    if (navigateChooserButtonVertical(chooser.querySelectorAll('button'))) {
       ga('send', 'event', 'options', 'keyboardnav');
+      ev.preventDefault();  // never initially scroll
     }
   }
 });
 
 // handle keyboard navigation inside chooser
-chooser.addEventListener('keydown', ev => {
+chooser.addEventListener('keydown', (ev) => {
   switch (ev.key) {
   case 'Escape':
     typer.focus();
@@ -299,7 +362,7 @@ chooser.addEventListener('keydown', ev => {
   const arrow = eventlib.arrowFromEvent(ev);
   if (!arrow) { return; }
 
-  if (!document.activeElement || !chooser.contains(document.activeElement)) { return; }
+  if (!chooser.contains(document.activeElement)) { return; }
 
   // TODO: memoize value
   const buttonArray = Array.from(chooser.querySelectorAll('button'));
@@ -322,42 +385,28 @@ chooser.addEventListener('keydown', ev => {
   }
 
   // handle u/d keys
+  let cands;
   if (arrow === 'ArrowUp') {
-    delta = -1;
+    cands = buttonArray.slice(0, index);
+    cands.reverse();
   } else if (arrow === 'ArrowDown') {
-    delta = +1;
+    cands = buttonArray.slice(index);
   } else {
     return;
   }
-  const previousRect = document.activeElement.getBoundingClientRect();
-  const best = {dist: Infinity, button: null};
 
-  let targetTop = undefined;
-  let candidate = index;
-  while ((candidate += delta) >= 0 && candidate < buttonArray.length) {
-    const button = buttonArray[candidate];
-    const candidateRect = button.getBoundingClientRect();
-
-    if (previousRect.top === candidateRect.top) { continue; }
-    if (targetTop === undefined) {
-      targetTop = candidateRect.top;
-    }
-    if (candidateRect.top !== targetTop) {
-      break;  // no more good candidates
-    }
-
-    const dist = Math.abs(candidateRect.left - previousRect.left);
-    if (dist < best.dist) {
-      [best.dist, best.button] = [dist, button];
+  if (!navigateChooserButtonVertical(cands)) {
+    if (arrow === 'ArrowUp') {
+      typer.focus();
     }
   }
-
-  if (best.button) {
-    best.button.focus();
-  } else if (targetTop === undefined && delta < 0) {
-    // if we were at top and going -ve, then return to input
-    typer.focus();
-    ev.preventDefault();  // we'd keep moving and clear input
+  if (arrow === 'ArrowDown') {
+    // don't allow arrow scrolling unless we're within 64 pixels of the screen end
+    const focusRect = document.activeElement.getBoundingClientRect();
+    const max = focusRect.top + focusRect.height;
+    if (window.innerHeight - max > 64) {
+      ev.preventDefault();
+    }
   }
 });
 
@@ -417,7 +466,7 @@ chooser.addEventListener('keydown', ev => {
 
       const timeout = Math.max(1000, 100 * Math.pow(valid, 0.75));
       return request(timeout, true);
-    }).catch(err => {
+    }).catch((err) => {
       console.error('error doing request', err);
     });
   });
@@ -431,7 +480,7 @@ chooser.addEventListener('keydown', ev => {
     const word = simplifyWord(ev.detail || '');
     const request = manager.firstEmojiForOption(word);
     pendingFirstEmojiRequest = request;
-    request.then(choice => {
+    request.then((choice) => {
       if (pendingFirstEmojiRequest !== request) { return; }
 
       ga('send', 'event', 'options', 'typing');
