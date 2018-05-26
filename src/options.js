@@ -347,7 +347,6 @@ typer.addEventListener('keydown', (ev) => {
 
     if (navigateChooserButtonVertical(chooser.querySelectorAll('button'))) {
       ga('send', 'event', 'options', 'keyboardnav');
-      ev.preventDefault();  // never initially scroll
     }
   }
 });

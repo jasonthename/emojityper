@@ -277,6 +277,13 @@ function upgrade(el) {
       permitNextChange = false;  // force next change
       break;
 
+    case 'ArrowDown':
+    case 'Down':
+    case 'ArrowUp':
+    case 'Up':
+      ev.preventDefault();  // disable normal up/down behavior
+      return;
+
     case ' ':
       if (el.dataset.prefix && el.selectionStart === +el.dataset.to) {
         el.dispatchEvent(new CustomEvent('request', {detail: el.dataset.prefix}));
