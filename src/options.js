@@ -220,11 +220,24 @@ class ButtonManager {
       this.options_.delete(name);
       this.holder_.appendChild(option);  // reinsert in better order
 
+      // TODO(samthor): This is a bit hacky. This saves buttons that are part of these options,
+      // even if they haven't been sent to us again in results.
+      for (let i = 0; i < option.children.length; ++i) {
+        const b = option.children[i];
+        const emoji = b.textContent;
+        if (buttons.has(emoji)) {
+          b.remove();
+          --i;
+          continue;
+        }
+        buttons.set(emoji, b);
+      }
+
       for (let i = 1, emoji; emoji = result[i]; ++i) {
         if (buttons.has(emoji)) {
           continue;  // already stolen by something above us
         }
-        // TODO: this.addEmojiTo_ also uses this.buttons_
+        // nb. addEmojiTo_ pulls old buttons from this.buttons_
         buttons.set(emoji, this.addEmojiTo_(option, emoji));
       }
     });
