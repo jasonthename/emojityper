@@ -1,5 +1,6 @@
 
 import * as provider from './lib/provider.js';
+import * as promises from './lib/promises.js';
 
 // advanced handler
 (function(input, advanced) {
@@ -64,7 +65,7 @@ import * as provider from './lib/provider.js';
       return true;
     }).then(cleanup);
 
-    pending.then(_ => new Promise((resolve, reject) => window.setTimeout(resolve, 2000))).then(_ => {
+    pending.then(() => promises.delay(2000)).then(() => {
       button.className = '';
     });
   });

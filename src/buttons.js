@@ -3,9 +3,9 @@
  * @fileoverview Handles the buttons in the top-right of the page (currently just Copy).
  */
 
-const all = Array.prototype.slice.call(buttons.querySelectorAll('button'));
+const all = Array.from(buttons.querySelectorAll('button'));
 
-const handler = ev => {
+const handler = (ev) => {
   const text = ev.detail.trim();
   const hasValue = Boolean(text);
   all.forEach(button => button.disabled = !hasValue);
@@ -19,7 +19,7 @@ handler({detail: typer.value});
   const defaultText = button.textContent;
   const spaceRe = /\s*/;
 
-  const copy = _ => {
+  const copy = () => {
     const [start, end] = [input.selectionStart, input.selectionEnd];
 
     // find start/end of content (trim, but find positions)
@@ -56,7 +56,7 @@ handler({detail: typer.value});
     // show message
     button.textContent = button.dataset.copied;
     window.clearTimeout(timeout);
-    timeout = window.setTimeout(ev => {
+    timeout = window.setTimeout((ev) => {
       button.textContent = defaultText;
     }, 500);
   };

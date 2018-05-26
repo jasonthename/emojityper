@@ -31,10 +31,9 @@ export function rAF(delay=undefined) {
  * @return {!Promise<void>}
  */
 export function microTask() {
-  let resolver;
-  const out = new Promise((resolve) => resolver = resolve);
-  resolved.then(() => resolver());  // microTask
-  return out;
+  const {resolver, promise} = resolver()
+  resolved.then(resolver);
+  return promise;
 }
 
 /**
@@ -44,6 +43,13 @@ export function resolver() {
   let resolver;
   const promise = new Promise((resolve) => resolver = resolve);
   return {resolver, promise};
+}
+
+/**
+ * @return {!Promise<void>}
+ */
+export function delay(ms=0) {
+  return new Promise((resolve) => window.setTimeout(resolve, ms));
 }
 
 const debouceMap = new Map();
