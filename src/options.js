@@ -27,12 +27,15 @@ class ButtonManager {
     /** @type {!WeakMap<!HTMLButtonElement, !DocumentFragment>} */
     this.buttonTarget_ = new WeakMap();
 
+    const modifierHolder = document.createElement('div');
+    this.holder_.appendChild(modifierHolder);
+
     /** @type {function(this:ButtonManager, !Object): void} */
     this.setModifier = (() => {
       const genderOption = ButtonManager.optionType_('modifier', 'gender');
       const toneOption = ButtonManager.optionType_('modifier', 'tone');
-      this.holder_.appendChild(genderOption);
-      this.holder_.appendChild(toneOption);
+      modifierHolder.appendChild(genderOption);
+      modifierHolder.appendChild(toneOption);
 
       // helper to create buttons
       const createModifierButton = (text, value=null) => {
@@ -74,8 +77,8 @@ class ButtonManager {
         tones.forEach(node => updateStatus(info.tone, node, toneOption));
 
         // kick the elements: Safari needs this otherwise sometimes they remain hidden (!)
-        this.holder_.insertBefore(genderOption, genderOption.nextSibling);
-        this.holder_.insertBefore(toneOption, toneOption.nextSibling);
+        modifierHolder.insertBefore(genderOption, genderOption.nextSibling);
+        modifierHolder.insertBefore(toneOption, toneOption.nextSibling);
       }
     })();
   }
