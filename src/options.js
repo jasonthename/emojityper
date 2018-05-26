@@ -47,7 +47,7 @@ class ButtonManager {
 
       // create gender options
       const genders = [
-        createModifierButton('\u{2014}', ''),
+        createModifierButton('\u{26AC}', ''),
         createModifierButton('\u{2640}', 'f'),
         createModifierButton('\u{2640}\u{2642}', 'fm'),
         createModifierButton('\u{2642}', 'm'),
