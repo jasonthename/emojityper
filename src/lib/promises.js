@@ -30,7 +30,7 @@ export function rAF(delay=undefined) {
  *
  * @return {!Promise<void>}
  */
-export function microTask() {
+export function microtask() {
   const {resolver, promise} = resolver()
   resolved.then(resolver);
   return promise;

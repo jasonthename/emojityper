@@ -67,6 +67,8 @@ class ButtonManager {
         yes ? owner.appendChild(node) : node.remove();
       };
       return function(info) {
+        const active =
+            modifierHolder.contains(document.activeElement) ? document.activeElement : null;
         genders.forEach(node => {
           const l = node.dataset['value'].length;
           const yes = (!l && info.gender.neutral)
@@ -79,6 +81,9 @@ class ButtonManager {
         // kick the elements: Safari needs this otherwise sometimes they remain hidden (!)
         modifierHolder.insertBefore(genderOption, genderOption.nextSibling);
         modifierHolder.insertBefore(toneOption, toneOption.nextSibling);
+
+        // refocus if one was focused
+        active && active.focus();
       }
     })();
   }
@@ -246,6 +251,8 @@ chooser.addEventListener('keyup', ev => {
 
 // button click handler
 chooser.addEventListener('click', ev => {
+  const isKeyboard = (ev.screenX === 0 && ev.detail === 0);
+
   let label = undefined;
   const b = ev.target;
   if (b.localName !== 'button') {
@@ -350,6 +357,7 @@ chooser.addEventListener('keydown', ev => {
   } else if (targetTop === undefined && delta < 0) {
     // if we were at top and going -ve, then return to input
     typer.focus();
+    ev.preventDefault();  // we'd keep moving and clear input
   }
 });
 
