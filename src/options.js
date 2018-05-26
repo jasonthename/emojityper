@@ -317,19 +317,50 @@ function navigateChooserButtonVertical(cands) {
   return true;
 }
 
+function copyText(text) {
+  const dummy = document.createElement('input');
+  dummy.style.position = 'fixed';
+  dummy.value = text;
+  try {
+    document.body.appendChild(dummy);
+    dummy.focus();
+    dummy.selectionStart = 0;
+    dummy.selectionEnd = dummy.value.length;
+    document.execCommand('copy');
+  } finally {
+    dummy.remove();
+  }
+}
+
 // button click handler
 chooser.addEventListener('click', (ev) => {
   previousChooserLeft = undefined;  // used a mouse or chose something
+  const isKeyboard = (ev.screenX === 0 && ev.detail === 0);
+
   let label = undefined;
   const b = ev.target;
   if (b.localName !== 'button') {
     // ignore
   } else if (b.parentNode.dataset['modifier']) {
+    if (ev.shiftKey) {
+      return;  // don't do anything
+    }
+
     const value = 'value' in b.dataset ? (+b.dataset['value'] || b.dataset['value']) : null;
     const detail = {type: b.parentNode.dataset['modifier'], code: value};
     typer.dispatchEvent(new CustomEvent('modifier', {detail}));
     label = 'modifier';
   } else if (b.parentNode.dataset['option']) {
+    if (ev.shiftKey) {
+      copyText(b.textContent);
+
+      // retain scroll position while refocusing on the suitable target
+      const scrollTop = document.scrollingElement.scrollTop;
+      isKeyboard ? b.focus() : typer.focus();
+      document.scrollingElement.scrollTop = scrollTop;
+      return;
+    }
+
     // nb. we typically clear the word on choice (as it confuses @nickyringland), but if you hit
     // space or ctrl-click the button, keep it around.
     const retainWord = (spaceFrame !== 0 || ev.metaKey || ev.ctrlKey);
@@ -346,7 +377,6 @@ chooser.addEventListener('click', (ev) => {
 
   ga('send', 'event', 'options', 'click', label);
 
-  const isKeyboard = (ev.screenX === 0 && ev.detail === 0);
   if (!isKeyboard) {
     typer.focus();  // nb. we're actually double-refocusing
   }

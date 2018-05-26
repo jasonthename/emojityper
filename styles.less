@@ -145,7 +145,7 @@ footer {
     align-items: stretch;
     justify-content: center;
     margin: 1em 0;
-    height: 5em;  // nb. this is just larger than the help stuff
+    min-height: 5em;  // nb. this is just larger than the help stuff
 
     .line {
       width: 2px;
@@ -164,6 +164,16 @@ footer {
     line-height: 1.5em;
     flex-grow: 1;
     margin: 0 0.5em;
+
+    .help-desktop {
+      display: none;
+      @media (any-pointer: fine) {
+        display: block;
+      }
+      @media (pointer: fine) {
+        display: block;
+      }
+    }
 
     em {
       font-weight: 900;
