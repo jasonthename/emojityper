@@ -353,6 +353,7 @@ chooser.addEventListener('click', (ev) => {
   } else if (b.parentNode.dataset['option']) {
     if (ev.shiftKey) {
       copyText(b.textContent);
+      ga('send', 'event', 'options', 'copy');
 
       // retain scroll position while refocusing on the suitable target
       const scrollTop = document.scrollingElement.scrollTop;
