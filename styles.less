@@ -412,7 +412,7 @@ main {
 }
 .options {
   padding-left: 8px;
-  display: inline-block;
+  display: inline-block;  // nb. hard to make inline, ::before and first option should sit together
 
   &::before {
     content: attr(data-name);
@@ -445,6 +445,9 @@ main {
     line-height: 1.33em;
     margin-bottom: 4px;
     margin-right: 4px;
+
+    &:first-child {
+    }
   }
 }
 
