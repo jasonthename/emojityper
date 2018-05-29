@@ -21,7 +21,6 @@ const uglifyES = require('uglify-es');
 const workbox = require('workbox-build');
 
 const hasher = new (require('./gulp-hash'))();
-const builtAt = new Date;
 
 gulp.task('css', function() {
   // exclude IE11's broken flexbox
@@ -82,8 +81,7 @@ gulp.task('html', ['css'], function() {
     document.head.querySelector('script[nomodule]').src = hasher.must('support.js');
     document.head.querySelector('script[src^="src/"]').src = hasher.must('bundle.js');
 
-    // append buildAt
-    document.head.appendChild(document.createComment(`Generated on: ${builtAt}`));
+    // nb. we used to append (new Date), but everything is hashed now
   };
   return gulp.src('index.html')
     .pipe(tweakdom(mutator))
@@ -104,7 +102,7 @@ gulp.task('static', function() {
 });
 
 gulp.task('js', ['rollup', 'rollup-nomodule']);
-gulp.task('default', ['css', 'js', 'html', 'static']);
+gulp.task('default', ['js', 'html', 'static']);
 
 gulp.task('clean', function() {
   return del(['./dist'])
