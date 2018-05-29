@@ -105,18 +105,13 @@ button {
     display: none !important;
   }
 
-  &.rippleJS {
-    border-radius: 0;
-    color: @color-feature;
-  }
-
   &:disabled {
     visibility: hidden;
     pointer-events: none;
     cursor: default;
   }
 
-  &:focus {
+  &:focus, &:active {
     outline: none;
     border-color: @color-feature;
   }

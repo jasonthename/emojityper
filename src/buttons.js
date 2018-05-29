@@ -3,12 +3,15 @@
  * @fileoverview Handles the buttons in the top-right of the page (currently just Copy).
  */
 
+import * as eventlib from './lib/event.js';
+import * as copier from './lib/copier.js';
+
 const all = Array.from(buttons.querySelectorAll('button'));
 
 const handler = (ev) => {
   const text = ev.detail.trim();
   const hasValue = Boolean(text);
-  all.forEach(button => button.disabled = !hasValue);
+  all.forEach((button) => button.disabled = !hasValue);
 };
 typer.addEventListener('value', handler);
 handler({detail: typer.value});
@@ -20,8 +23,6 @@ handler({detail: typer.value});
   const spaceRe = /\s*/;
 
   const copy = () => {
-    const [start, end] = [input.selectionStart, input.selectionEnd];
-
     // find start/end of content (trim, but find positions)
     let left = 0;
     let right = input.value.length;
@@ -31,45 +32,63 @@ handler({detail: typer.value});
     }
     left += spaceRe.exec(input.value.substr(left))[0].length;
     right = left + input.value.substr(left, right - left).trim().length;
-    if (right <= left) { return false; }
+    if (right <= left) { return; }
 
-    input.focus();
-    input.selectionStart = left;
-    input.selectionEnd = right;
-
-    let ok = false;
-    try {
-      ok = document.execCommand('copy');
-    } catch(e) {
-      console.warn('could not copy', e);
-      ok = false;
+    const text = input.value.substr(left, right - left);
+    if (!copier.copyText(text)) {
+      console.warn('could not copy', text)
+      return true;
     }
-    // restore previous selection
-    [input.selectionStart, input.selectionEnd] = [start, end];
-
-    if (!ok) { return true; }
-    console.info('copied', input.value.substr(left, right));
+    console.info('copied', text);
 
     // analytics
     ga('send', 'event', 'text', 'copy');
 
-    // show message
+    // show 'Copied!' message
     button.textContent = button.dataset.copied;
     window.clearTimeout(timeout);
     timeout = window.setTimeout((ev) => {
       button.textContent = defaultText;
+      maybeReleaseInputEnter();
     }, 500);
   };
 
-  input.addEventListener('keydown', ev => {
-    if (ev.key == 'Enter') {
+  let wasInputEnter = false;
+  input.addEventListener('keydown', (ev) => {
+    if (wasInputEnter) {
+      // do nothing, enter is being _held_
+    } else if (ev.key === 'Enter' && !ev.repeat) {
       button.click();
-      input.focus();
+      button.focus();
+      wasInputEnter = true;
+      ev.preventDefault();
     }
   });
-  button.addEventListener('click', ev => {
-    copy();
-    button.focus();
+  document.body.addEventListener('keyup', (ev) => {
+    if (ev.key === 'Enter') {
+      maybeReleaseInputEnter();
+    }
   });
+  button.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    if (wasInputEnter || ev.repeat) {
+      return;  // click is generated as the user holds enter
+    }
+    copy();
+    if (eventlib.isKeyboardClick(ev)) {
+      // if the user tabbed here, keep focus
+      button.focus();
+    }
+  });
+
+  function maybeReleaseInputEnter() {
+    if (wasInputEnter) {
+      if (document.activeElement === button) {
+        input.focus();  // maybe focus moved
+      }
+      wasInputEnter = false;
+    }
+  }
+
 }(copy, typer));
 

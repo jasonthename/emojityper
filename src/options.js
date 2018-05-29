@@ -317,25 +317,10 @@ function navigateChooserButtonVertical(cands) {
   return true;
 }
 
-function copyText(text) {
-  const dummy = document.createElement('input');
-  dummy.style.position = 'fixed';
-  dummy.value = text;
-  try {
-    document.body.appendChild(dummy);
-    dummy.focus();
-    dummy.selectionStart = 0;
-    dummy.selectionEnd = dummy.value.length;
-    document.execCommand('copy');
-  } finally {
-    dummy.remove();
-  }
-}
-
 // button click handler
 chooser.addEventListener('click', (ev) => {
   previousChooserLeft = undefined;  // used a mouse or chose something
-  const isKeyboard = (ev.screenX === 0 && ev.detail === 0);
+  const isKeyboard = eventlib.isKeyboardClick(ev);
 
   let label = undefined;
   const b = ev.target;
@@ -352,8 +337,9 @@ chooser.addEventListener('click', (ev) => {
     label = 'modifier';
   } else if (b.parentNode.dataset['option']) {
     if (ev.shiftKey) {
-      copyText(b.textContent);
-      ga('send', 'event', 'options', 'copy');
+      if (copier.copyText(b.textContent)) {
+        ga('send', 'event', 'options', 'copy');
+      }
 
       // retain scroll position while refocusing on the suitable target
       const scrollTop = document.scrollingElement.scrollTop;
