@@ -72,7 +72,6 @@ gulp.task('html', ['css'], function() {
   const mutator = (document, file) => {
     // replace lessCSS with actual styles
     // FIXME(samthor): We generate the dist file, but just inline it anyway.
-    document.getElementById('less').remove();
     const raw = fs.readFileSync('./dist/' + hasher.must('styles.css'));
     const style = Object.assign(document.createElement('style'), {textContent: raw});
     document.head.appendChild(style);
@@ -80,6 +79,9 @@ gulp.task('html', ['css'], function() {
     // fix paths for module/nomodule code
     document.head.querySelector('script[nomodule]').src = hasher.must('support.js');
     document.head.querySelector('script[src^="src/"]').src = hasher.must('bundle.js');
+
+    // remove all dev things
+    Array.from(document.querySelectorAll('._dev')).forEach((x) => x.remove());
 
     // nb. we used to append (new Date), but everything is hashed now
   };
