@@ -1,5 +1,6 @@
 
 import * as modifier from './lib/modifier.js';
+import * as word from './lib/word.js';
 
 function datasetSafeDelete(el, ...keys) {
   const d = el.dataset;
@@ -25,13 +26,6 @@ function upgrade(el) {
   if (upgraded.has(el)) {
     return false;
   }
-
-  const isWordCode = (code) => {
-    // FIXME: turns out matching non-emoji is hard
-    // TODO: this RegExp _might_ work but it needs transpiling-
-    // new RegExp(/(?:[\p{Letter}\p{Number}\p{Punctuation}](?!\u{fe0f}?\u{20e3}))+/u);
-    return code < 5000 && code != 32;
-  };
 
   const helper = document.createElement('div');
   helper.className = 'overflow-helper';
@@ -136,41 +130,10 @@ function upgrade(el) {
     underline.classList.remove('range');
     el.classList.remove('range');
 
-    // calculate from/to locally
-    let from = state.start;
-    let to = state.start;
 
-    // are we at the end (only have spaces until end)?
-    const isAtEnd = !el.value.substr(state.end).trim();
-    const isNotWordAfter = isAtEnd || !isWordCode(el.value.charCodeAt(state.end));
-
-    if (isNotWordAfter) {
-      for (; to > 0; --to) {
-        if (el.value.charCodeAt(to - 1) !== 32) {
-          break;
-        }
-      }
-      if (to < from) {
-        from = to;
-      }
-    }
-
-    // walk backwards while the previous character is a word
-    for (; from > 0; --from) {
-      if (!isWordCode(el.value.charCodeAt(from - 1))) {
-        break;
-      }
-    }
-
-    // walk forwards while the next char is not a space
-    for (; to < el.value.length; ++to) {
-      if (!isWordCode(el.value.charCodeAt(to))) {
-        break;
-      }
-    }
-
-    // if it's invalid, but there's not a word after, and we were permitted, ignore
-    if (from >= to && isNotWordAfter && permitNextChange) { return; }
+    // if it's invalid and we were permitted (this is used for faux-highlights), ignore
+    const {from, to} = word.match(el.value, state.start);
+    if (from >= to && permitNextChange) { return; }
     if (setRange(from, to)) {
       // if the range was valid, update the prefix/focus but delete the word (in typing state)
       el.dataset['focus'] = el.dataset['prefix'] = el.value.substr(from, to - from);
