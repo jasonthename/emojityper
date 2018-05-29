@@ -10,6 +10,7 @@ import {valid} from './lib/valid.js';
 import * as promises from './lib/promises.js';
 import * as eventlib from './lib/event.js';
 import * as input from './input.js';
+import * as copier from './lib/copier.js';
 
 /**
  * ButtonManager helps create and show emoji buttons in the UI.
