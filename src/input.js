@@ -293,7 +293,17 @@ function upgrade(el) {
 
     const update = call(value);
     if (update == null) { return false; }
-    typer.value = typer.value.substr(0, from) + update + typer.value.substr(to);
+
+    // select the region and 'type' it with insertText to provide undo/redo history
+    // nb. selecting the typer means that undo will always make us selected; probably fine
+    typer.focus();
+    typer.selectionStart = from;
+    typer.selectionEnd = to;
+    const expected = typer.value.substr(0, from) + update + typer.value.substr(to);
+    if (!document.execCommand('insertText', false, update) || typer.value !== expected) {
+      // set manually: this is fallback / Firefox mode
+      typer.value = typer.value.substr(0, from) + update + typer.value.substr(to);
+    }
 
     const drift = (where) => {
       if (where >= to) {
