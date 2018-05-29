@@ -384,11 +384,6 @@ typer.addEventListener('keydown', (ev) => {
 
 // handle keyboard navigation inside chooser
 chooser.addEventListener('keydown', (ev) => {
-  switch (ev.key) {
-  case 'Escape':
-    typer.focus();
-    break;
-  }
   const arrow = eventlib.arrowFromEvent(ev);
   if (!arrow) { return; }
 

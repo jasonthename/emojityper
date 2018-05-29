@@ -244,7 +244,7 @@ function upgrade(el) {
     case 'Down':
     case 'ArrowUp':
     case 'Up':
-      ev.preventDefault();  // disable normal up/down behavior
+      ev.preventDefault();  // disable normal up/down behavior to change focus
       return;
 
     case ' ':
@@ -294,6 +294,8 @@ function upgrade(el) {
     const update = call(value);
     if (update == null) { return false; }
 
+    const prev = document.activeElement;
+
     // select the region and 'type' it with insertText to provide undo/redo history
     // nb. selecting the typer means that undo will always make us selected; probably fine
     typer.focus();
@@ -304,6 +306,7 @@ function upgrade(el) {
       // set manually: this is fallback / Firefox mode
       typer.value = typer.value.substr(0, from) + update + typer.value.substr(to);
     }
+    typer.dispatchEvent(new CustomEvent('change'));  // nb. updates from/to (from won't change)
 
     const drift = (where) => {
       if (where >= to) {
@@ -318,10 +321,6 @@ function upgrade(el) {
       return where;
     };
 
-    const prev = document.activeElement;
-
-    typer.focus();
-    typer.dispatchEvent(new CustomEvent('change'));  // nb. updates from/to (from won't change)
     // pretend we were like this all along
     [state.start, state.end] = [typer.selectionStart, typer.selectionEnd] = [drift(start), drift(end)];
 

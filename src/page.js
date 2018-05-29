@@ -10,6 +10,15 @@ const value = (ev) => {
 typer.addEventListener('value', value);
 value({detail: typer.value});
 
+// global return-to-typer
+document.body.addEventListener('keydown', (ev) => {
+  switch (ev.key) {
+  case 'Escape':
+    typer.focus();
+    break;
+  }
+});
+
 // set minHeight to actual viewport height, but allow for keyboard etc
 const resize = (ev) => {
   const height = window.innerHeight;
