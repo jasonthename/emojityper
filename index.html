@@ -9,7 +9,6 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@emojityper" />
   <script>
-// nb. intentionally inline ES5 before any other code
 if (window.location.hostname.indexOf('www.') === 0) {
   window.stop();
   window.location.hostname = window.location.hostname.substr(4);
@@ -25,7 +24,7 @@ if (window.location.hostname.indexOf('www.') === 0) {
   <script defer nomodule src="dist/support.min.js"></script>
   <script type="module" src="src/bundle.js"></script>
   <link rel="manifest" href="manifest.json" />
-  <script async src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.2/pwacompat.min.js" integrity="sha384-Hed93irwedHCADsxBJAVmlSMiqpE9BIQPp1XK7tqJh5olTEJTCJnlE7wRU3IDOz9" crossorigin="anonymous"></script>
+  <script async defer src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.2/pwacompat.min.js" integrity="sha384-Hed93irwedHCADsxBJAVmlSMiqpE9BIQPp1XK7tqJh5olTEJTCJnlE7wRU3IDOz9" crossorigin="anonymous"></script>
   <meta name="theme-color" content="#1abc9c" />
   <link rel="shortcut icon" type="image/png" href="res/icon-128.png" />
 </head>
@@ -52,9 +51,9 @@ if (window.location.hostname.indexOf('www.') === 0) {
   <div id="input">
     <input type="text" id="typer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Type words, receive emoji &#x1f44d;" autofocus />
     <div class="focus"></div>
+    <button id="inline-copy" hidden>Copy</button>
   </div>
   <script>
-// nb. intentionally inline ES5
 window.addEventListener('hashchange', function(ev) {
   typer.value = window.decodeURI(window.location.hash.substr(1));
 });
@@ -64,6 +63,9 @@ typer.addEventListener('value', function(ev) {
   var l = window.location;
   window.history.replaceState(null, null, v ? ('#' + v) : l.pathname + l.search);
 });
+if (typer.value) {
+  document.body.classList.add('has-value');
+}
   </script>
 </main>
 <div class="chooser" id="chooser"></div>
