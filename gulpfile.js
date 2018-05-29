@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+'use strict';
+
 const autoprefixer = require('gulp-autoprefixer');
 const del = require('del');
 const gulp = require('gulp');
@@ -10,7 +12,6 @@ const comment = require('gulp-header-comment');
 const less = require('gulp-less');
 const sourcemaps = require('gulp-sourcemaps');
 const tweakdom = require('gulp-tweakdom');
-const path = require('path');
 const fs = require('fs');
 const babel = require('rollup-plugin-babel')
 const commonJS = require('rollup-plugin-commonjs');
@@ -19,9 +20,8 @@ const sequence = require('run-sequence');
 const uglifyES = require('uglify-es');
 const workbox = require('workbox-build');
 
+const hasher = new (require('./gulp-hash'))();
 const builtAt = new Date;
-const builtAtTime = +builtAt;
-const nonce = builtAtTime.toString(36);
 
 gulp.task('css', function() {
   // exclude IE11's broken flexbox
@@ -30,7 +30,7 @@ gulp.task('css', function() {
     .pipe(less())
     .pipe(autoprefixer({browsers}))
     .pipe(cleanCSS())
-    .pipe(concat(`styles-${nonce}.css`))
+    .pipe(hasher.write('styles.css'))
     .pipe(gulp.dest('./dist'));
 });
 
@@ -48,10 +48,10 @@ gulp.task('rollup-nomodule', function() {
   return gulp.src(['src/support/*.js', 'src/bundle.js'])
     .pipe(sourcemaps.init())
     .pipe(rollup(options, {format: 'iife'}))
-    .pipe(concat(`support-${nonce}.min.js`))
+    .pipe(hasher.write('support.js'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist'));
-})
+});
 
 gulp.task('rollup', function() {
   const options = {
@@ -64,7 +64,7 @@ gulp.task('rollup', function() {
   return gulp.src('src/bundle.js')
     .pipe(sourcemaps.init())
     .pipe(rollup(options, {format: 'es'}))
-    .pipe(concat(`bundle-${nonce}.min.js`))
+    .pipe(hasher.write('bundle.js'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist'));
 });
@@ -74,13 +74,13 @@ gulp.task('html', ['css'], function() {
     // replace lessCSS with actual styles
     // FIXME(samthor): We generate the dist file, but just inline it anyway.
     document.getElementById('less').remove();
-    const raw = fs.readFileSync(`./dist/styles-${nonce}.css`);
+    const raw = fs.readFileSync('./dist/' + hasher.must('styles.css'));
     const style = Object.assign(document.createElement('style'), {textContent: raw});
     document.head.appendChild(style);
 
     // fix paths for module/nomodule code
-    document.head.querySelector('script[nomodule]').src = `support-${nonce}.min.js`;
-    document.head.querySelector('script[src^="src/"]').src = `bundle-${nonce}.min.js`;
+    document.head.querySelector('script[nomodule]').src = hasher.must('support.js');
+    document.head.querySelector('script[src^="src/"]').src = hasher.must('bundle.js');
 
     // append buildAt
     document.head.appendChild(document.createComment(`Generated on: ${builtAt}`));
@@ -114,8 +114,9 @@ gulp.task('preparedist', ['clean', 'css', 'js', 'html', 'static']);
 
 gulp.task('sw', ['preparedist'], async function() {
   const globPatterns = [
-    '**/*.{js,json,png}',  // nb. doesn't include css, which is inlined
-    'index.html',          // don't include error/google html
+    'index.html',     // don't include error/google html
+    '*.{js,json}',    // nb. doesn't include css, which is inlined
+    'res/icon-*.png',
   ];
   const {count, size} = await workbox.injectManifest({
     swSrc: 'sw.js',
