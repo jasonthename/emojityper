@@ -58,7 +58,7 @@ class ButtonManager {
 
       // create tone options
       const tones = [
-        toneOption.appendChild(createModifierButton('\u{2014}', '')),
+        createModifierButton('\u{2014}', ''),
       ];
       for (let i = 0x1f3fb; i <= 0x1f3ff; ++i) {
         tones.push(createModifierButton(String.fromCodePoint(i), i));
