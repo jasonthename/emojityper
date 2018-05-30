@@ -121,7 +121,7 @@ export function request(text, prefix, more=false) {
       });
     }
 
-    return Promise.resolve([]);
+    return Promise.resolve(null);  // search is invalid, cannot generate results
   }
 
   const localPromise = getPrefixGen().then((suggest) => suggest(text, prefix));

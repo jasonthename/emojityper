@@ -28,9 +28,11 @@ function upgrade(el) {
   }
 
   // stores the faux-selection shown (different from actual selection in 'state')
+  // stores the faux-selection shown
   const sel = {
     from: el.selectionStart,
     to: el.selectionEnd,
+    emoji: false,
   };
 
   const helper = document.createElement('div');
@@ -107,7 +109,7 @@ function upgrade(el) {
     sel.from = from;
     sel.to = Math.max(from, to);
     if (from >= to) {
-      datasetSafeDelete(el, 'prefix', 'word', 'focus');
+      datasetSafeDelete(el, 'prefix', 'focus');
       underline.hidden = true;
       return false;
     }
@@ -148,9 +150,15 @@ function upgrade(el) {
       state.value = el.value;
     }
 
+    // no longer selecting an implicit emoji
+    if (!permitNextChange) {
+      sel.emoji = false;
+    }
+
     // we're pretending to be the user's selection
     if (state.start !== state.end) {
-      datasetSafeDelete(el, 'prefix', 'word');
+      // we're pretending to be the user's selection
+      datasetSafeDelete(el, 'prefix');
 
       setRange(state.start, state.end);
 
@@ -167,9 +175,8 @@ function upgrade(el) {
       return false;  // we just got an emoji, retain implicit selection until next change
     }
     if (setRange(from, to)) {
-      // if the range was valid, update the prefix/focus but delete the word (in typing state)
+      // if the range was valid, update the prefix/focus
       el.dataset['focus'] = el.dataset['prefix'] = el.value.substr(from, to - from).toLowerCase();
-      datasetSafeDelete(el, 'word');
     }
     return false;
   };
@@ -221,7 +228,7 @@ function upgrade(el) {
     if (alreadyAtState) { return; }
 
     // send query: prefix or whole-word (unless nothing is focused)
-    const text = el.dataset['focus'] ? el.dataset['prefix'] || el.dataset['word'] || null : '';
+    const text = el.dataset['focus'] ? el.dataset['prefix'] || null : '';
     const detail = {
       text,
       prefix: 'prefix' in el.dataset,
@@ -439,11 +446,15 @@ function upgrade(el) {
   // handle 'emoji' event: if there's a current focus word, then replace it with the new emoji \o/
   el.addEventListener('emoji', (ev) => {
     const emoji = ev.detail.choice;
-    if (!replaceFocus(() => emoji)) { return; }
+    if (sel.emoji && !ev.detail.replace) {
+      sel.from = typer.selectionStart;
+      sel.to = typer.selectionEnd;
+    }
 
-    // listen to the caller's view on what word we should pretend this emoji is
-    el.dataset['word'] = ev.detail.word || '';
-    datasetSafeDelete(el, 'prefix');
+    if (replaceFocus(() => emoji)) {
+      sel.emoji = true;
+      datasetSafeDelete(el, 'prefix');
+    }
   });
 }
 
