@@ -273,6 +273,7 @@ function upgrade(el) {
     const [from, to] = [+el.dataset.from, +el.dataset.to];
     const value = el.value.substr(from, to - from);
     let [start, end] = [typer.selectionStart, typer.selectionEnd];
+    const dir = typer.selectionDirection;
 
     const update = call(value);
     if (update == null) { return false; }
@@ -305,8 +306,10 @@ function upgrade(el) {
     };
 
     // pretend we were like this all along
-    [state.start, state.end] = [typer.selectionStart, typer.selectionEnd] = [drift(start), drift(end)];
+    [state.start, state.end] = [drift(start), drift(end)];
+    typer.setSelectionRange(state.start, state.end, dir);
 
+    // TODO(samthor): Safari refuses to make this focus after the first above.
     prev && prev.focus();
 
     permitNextChange = true;
