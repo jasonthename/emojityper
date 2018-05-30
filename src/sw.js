@@ -5,9 +5,9 @@ if (navigator.serviceWorker) {
   });
 
   navigator.serviceWorker.addEventListener('controllerchange', () => {
-    if (!navigator.serviceWorker.controller) {
+    if (navigator.serviceWorker.controller) {
       // only reload if we already had a SW
-      console.info('got SW controllerchange, reload');
+      console.debug('got SW controllerchange, reload');
       window.location.reload();
     }
   });
