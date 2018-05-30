@@ -23,5 +23,8 @@ export function arrowFromEvent(ev) {
  * @return {boolean} whether this is probably a keyboard/non-mouse click
  */
 export function isKeyboardClick(ev) {
-  return ev instanceof MouseEvent && ev.screenX === 0 && ev.detail === 0;
+  if (!(ev instanceof MouseEvent)) {
+    return true;
+  }
+  return (ev.screenX === 0 && ev.detail === 0) || ev.webkitForce === 0;
 }
