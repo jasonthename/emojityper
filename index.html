@@ -28,7 +28,9 @@ if (window.location.hostname.indexOf('www.') === 0) {
   <meta name="theme-color" content="#1abc9c" />
   <link rel="shortcut icon" type="image/png" href="res/icon-128.png" />
 </head>
-<body>
+<body tabindex="-1">
+
+<div class="extent"></div>
 
 <div class="_dev">
   <!-- removed in build -->
@@ -37,7 +39,7 @@ if (window.location.hostname.indexOf('www.') === 0) {
 </div>
 
 <header>
-  <h1><label for="typer">Emojityper</label></h1>
+  <h1>Emojityper</h1>
   <div id="loader" hidden>
     <span class="face">&#x1f914;</span><span class="think">&#x1f4aD;</span>
   </div>
@@ -149,6 +151,8 @@ navigator.sendBeacon && ga('set', 'transport', 'beacon');
 ga('create', 'UA-39885839-6', 'auto');
 ga('send', 'pageview');
 </script>
+
+<div class="extent"></div>
 
 </body>
 </html>

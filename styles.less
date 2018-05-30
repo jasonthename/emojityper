@@ -27,6 +27,8 @@ html {
 }
 
 body {
+  user-select: none;
+  cursor: default;  // prevents "text" cursor
   box-sizing: border-box;
   padding: 1em;
   display: flex;
@@ -68,10 +70,6 @@ h1 {
   color: white;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
   font-size: 1em;
-
-  label {
-    cursor: pointer;
-  }
 }
 
 .grow {
@@ -583,5 +581,14 @@ form.pending button:disabled {
   }
   &::after {
     margin-left: -0.25em;
+  }
+}
+
+.extent {
+  position: fixed;
+  opacity: 0;
+  user-select: auto;  // to catch select-all
+  &::after {
+    content: '\200b';  // zero-width space
   }
 }
