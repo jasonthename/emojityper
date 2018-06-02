@@ -45,7 +45,7 @@ handler({detail: typer.value});
     ga('send', 'event', 'text', 'copy');
 
     // show 'Copied!' message
-    button.textContent = button.dataset.copied;
+    button.textContent = button.dataset['copied'];
     window.clearTimeout(timeout);
     timeout = window.setTimeout((ev) => {
       button.textContent = defaultText;
