@@ -297,7 +297,6 @@ main {
     font: inherit;
     font-family: @fonts-emoji;
     font-size: 1em;
-    padding: 6px 0;
     // include padding on both sides, for IE11/Edge
     line-height: ~"calc(1.5em + 12px)";
     height: ~"calc(1.5em + 12px)";
@@ -352,6 +351,15 @@ main {
       display: inline-block;
     }
   }
+  .autocomplete {
+    position: absolute;
+    visibility: visible;
+    background: transparent;
+    color: @color-placeholder;
+    opacity: 0.33;
+    margin-left: (-2px + @indent);
+    padding: 0 2px;
+  }
 
   .overflow-helper {
     width: 100%;
@@ -385,10 +393,11 @@ main {
     visibility: visible;
     pointer-events: none;
     position: absolute;
-    margin: 6px -2px;
+    margin: 6px -1px;
     margin-left: (-2px + @indent);
-    padding: 0 2px;
+    padding: 0 1px;
     height: 1.5em;
+    // TODO(samthor): If we make this the actual color, we can 'hide' the autocomplete suggestion
     background: white;
     opacity: 0.125;
     will-change: transform;

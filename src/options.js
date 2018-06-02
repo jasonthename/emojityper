@@ -484,6 +484,9 @@ chooser.addEventListener('keydown', (ev) => {
       // to _look_ like the real results?
       // nb. we'd have to say... this is "old" but the final one hasn't finished.
 
+      const detail = query.prefix && results[0] || null;
+      typer.dispatchEvent(new CustomEvent('suggest', {detail}));
+
       return manager.update(results);
     };
 
@@ -512,6 +515,9 @@ chooser.addEventListener('keydown', (ev) => {
   // request an autocomplete, the user has just kept typing
   typer.addEventListener('request', (ev) => {
     const word = simplifyWord(ev.detail || '');
+
+    console.info('got request', word, typer.dataset['prefix']);
+
     const request = manager.firstEmojiForOption(word);
     pendingFirstEmojiRequest = request;
     request.then((choice) => {

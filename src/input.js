@@ -41,6 +41,11 @@ function upgrade(el) {
   underline.className = 'underline';
   helper.appendChild(underline);
 
+  let suggest = null;
+  const autocomplete = document.createElement('div');
+  autocomplete.className = 'autocomplete sizer';
+  helper.appendChild(autocomplete);
+
   // measures the width of text
   const measureText = (function() {
     const sizer = document.createElement('div');
@@ -91,7 +96,10 @@ function upgrade(el) {
     underline.hidden = width <= 0;
     underline.style.left = left + 'px';
     underline.style.width = width + 'px';
-    underline.style.transform = `translateX(-${el.scrollLeft}px)`;
+    underline.style.transform = `translateX(${-el.scrollLeft}px)`;
+
+    // TODO(samthor): put in div with underline so alignment is free?
+    autocomplete.style.transform = `translateX(${-el.scrollLeft + left + width}px)`;
   };
 
   // force selection
@@ -106,6 +114,21 @@ function upgrade(el) {
     el.dataset['focus'] = el.value.substr(from, to - from);
     renderLine();
     return true;
+  };
+
+  // rerender autocomplete word if valid
+  const renderAutocomplete = () => {
+    const s = el.dataset['prefix'] || '';
+    const valid = suggest !== null &&
+        s.length !== 0 &&
+        suggest[0].substr(0, s.length) === s &&
+        el.value.substr(sel.to).trim().length === 0;
+    if (valid) {
+      const display = suggest[0].substr(s.length) + suggest[1];
+      autocomplete.textContent = display;
+    } else {
+      autocomplete.textContent = '';
+    }
   };
 
   // state/handler keep track of the current focus word (plus scroll position, if input is big)
@@ -137,7 +160,6 @@ function upgrade(el) {
     underline.classList.remove('range');
     el.classList.remove('range');
 
-
     // if it's invalid and we were permitted (this is used for faux-highlights), ignore
     const {from, to} = word.match(el.value, state.start);
     if (from >= to && permitNextChange) {
@@ -166,7 +188,9 @@ function upgrade(el) {
     }
 
     // run change handler: if true, nothing changed
-    if (changeHandler(permitNextChange)) { return; }
+    const alreadyAtState = changeHandler(permitNextChange);
+    renderAutocomplete();
+    if (alreadyAtState) { return; }
 
     // send query: prefix or whole-word (unless nothing is focused)
     const text = el.dataset['focus'] ? el.dataset['prefix'] || el.dataset['word'] || null : '';
@@ -209,6 +233,12 @@ function upgrade(el) {
     rest.split(/\s+/).forEach((event) => el.addEventListener(event, dedup));
     dedup();
 
+    // handle 'suggest' event: show default autocomplete option
+    el.addEventListener('suggest', (ev) => {
+      suggest = ev.detail;
+      dedup();
+    });
+
     // if a user is dragging around, this might be changing the offsetLeft (dragging input l/r)
     el.addEventListener('mousemove', (ev) => {
       if (ev.which) {
@@ -225,11 +255,43 @@ function upgrade(el) {
     });
   }());
 
+  function maybeReplace() {
+    const text = el.dataset['prefix'];
+
+    const mustBeSpace = el.value.substr(el.selectionStart, sel.to - el.selectionStart);
+    if (mustBeSpace.trim().length !== 0) {
+      return false;
+    }
+
+    if (text.length === 0 || !suggest || !suggest[0].startsWith(text)) {
+      return false;
+    }
+
+    // if we're not the end, only work if the user's typed the whole thing
+    if (el.value.substr(sel.to).trim().length !== 0 && suggest[0] !== text) {
+      return false;
+    }
+
+    // dispatch change request on ourselves
+    const detail = {
+      choice: suggest[1],
+      word: suggest[0],
+    };
+    typer.dispatchEvent(new CustomEvent('emoji', {detail}));
+    return true;
+  }
+
   // add a non-deduped keydown handler, to run before others and intercept space
   el.addEventListener('keydown', (ev) => {
     switch (ev.key) {
     case 'Escape':
       permitNextChange = false;  // force next change
+      break;
+
+    case 'Enter':
+      console.info('caught enter');
+      ev.stopPropagation();
+      ev.preventDefault();
       break;
 
     case 'ArrowDown':
@@ -240,24 +302,19 @@ function upgrade(el) {
       return;
 
     case ' ':
-      if (el.dataset['prefix'] && el.selectionStart === sel.to) {
-        el.dispatchEvent(new CustomEvent('request', {detail: el.dataset['prefix']}));
+      maybeReplace();
+      if (ev.shiftKey) {
+        ev.preventDefault();  // don't type space if shift held
       }
-
-      // TODO: do this to prevent actually space being hit (@samthor prefers it this way)
-      //ev.preventDefault();
       break;
     }
   });
 
-  // add a non-deduped keyup handler, for space on mobile browsers
+  // add a non-deduped keyup handler, for space on mobile browsers ('dreaded keycode 229')
   el.addEventListener('keyup', (ev) => {
-    if (ev.keyCode === 229 || !ev.keyCode) {
-      // look for a space before whatever was entered.
-      const v = el.value.substr(el.selectionStart - 1, 1);
-      if (v === ' ' && el.dataset['prefix']) {
-        el.dispatchEvent(new CustomEvent('request', {detail: el.dataset['prefix']}));
-      }
+    // was it a 229 or no code, and was the typed character a space?
+    if ((ev.keyCode === 229 || !ev.keyCode) && el.value[el.selectionStart - 1] === ' ') {
+      maybeReplace();
     }
   });
 
