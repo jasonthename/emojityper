@@ -379,6 +379,12 @@ typer.addEventListener('keydown', (ev) => {
     if (navigateChooserButtonVertical(chooser.querySelectorAll('button'))) {
       ga('send', 'event', 'options', 'keyboardnav');
     }
+  } else if (ev.key === 'ArrowRight' || ev.key === 'Right') {
+    const l = typer.value.length;
+    if (typer.selectionEnd === l && typer.selectionStart === l) {
+      const first = chooser.querySelector('button');
+      first && first.focus();
+    }
   }
 });
 
@@ -405,6 +411,9 @@ chooser.addEventListener('keydown', (ev) => {
     const target = index + delta;
     if (target >= 0 && target < buttonArray.length) {
       buttonArray[target].focus();
+    } else if (target < 0) {
+      typer.focus();
+      typer.dispatchEvent(new CustomEvent('select-end'));
     }
     return;  // done
   }
