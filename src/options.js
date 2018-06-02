@@ -458,6 +458,12 @@ chooser.addEventListener('keydown', (ev) => {
       findSuggest(query.text);
     }
 
+    // TODO(samthor): This delays further requests. Ideally we want to 'subscribe' to a topic
+    // from the provider and just be fed updates as fast as we have them (including if we have
+    // a local cache). This way we avoid awkward delays and filtering oddities.
+    const initialMore = previous.text && query.text && previous.text.length !== 0 &&
+        previous.text.startsWith(query.text.substr(0, previous.text.length)) || false;
+
     let immediate = false;
     if (!previous.text || previous.prefix !== query.prefix) {
       immediate = true;  // type changed, user expects snappiness
@@ -475,10 +481,6 @@ chooser.addEventListener('keydown', (ev) => {
       const results = await provider.request(query.text, query.prefix, more);
       if (previous !== query) { return -1; }
 
-      // TODO: rather than discarding, can we work out whether this is something we can _filter_
-      // to _look_ like the real results?
-      // nb. we'd have to say... this is "old" but the final one hasn't finished.
-
       // find the first matching thing and suggest it as autocomplete
       previousResults = results;
       findSuggest(query.text);
@@ -486,11 +488,8 @@ chooser.addEventListener('keydown', (ev) => {
       return manager.update(results);
     };
 
-    const p = request(immediate ? 0 : delayTime).then((valid) => {
+    const p = request(immediate ? 0 : delayTime, initialMore).then((valid) => {
       if (valid < 0) { return -2; }  // query changed
-
-      // TODO: the 'more' behaviour interacts oddly with pendingFirstEmojiRequest, as it can appear
-      // as if your emoji changes after a _long_ time.
 
       if (!query.text) {
         // TODO: delay empty data by a decent time
