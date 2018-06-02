@@ -28,6 +28,15 @@ class ButtonManager {
     /** @type {!WeakMap<!HTMLButtonElement, !DocumentFragment>} */
     this.buttonTarget_ = new WeakMap();
 
+    /** @type {!Array<!HTMLButtonElement} */
+    this.buttonPool_ = [];
+
+    window.requestIdleCallback(() => {
+      for (let i = 0; i < 10; ++i) {
+        this.buttonPool_.push(document.createElement('button'));
+      }
+    });
+
     const modifierHolder = document.createElement('div');
     this.holder_.appendChild(modifierHolder);
 
@@ -135,7 +144,11 @@ class ButtonManager {
         return button;
       }
     } else {
-      button = document.createElement('button');
+      if (this.buttonPool_.length !== 0) {
+        button = this.buttonPool_.pop();
+      } else {
+        button = document.createElement('button');
+      }
       button.textContent = emoji;
       this.buttons_.set(emoji, button);
 
@@ -186,6 +199,7 @@ class ButtonManager {
         const emoji = b.textContent;
         if (buttons.has(emoji)) {
           b.remove();
+          this.buttonPool_.push(b);
           --i;
           continue;
         }
@@ -201,7 +215,10 @@ class ButtonManager {
       }
     });
 
-    this.options_.forEach((option) => option.remove());
+    this.options_.forEach((option) => {
+      this.buttonPool_.push(...option.children);
+      option.remove();
+    });
     this.options_ = options;
     this.buttons_ = buttons;
 
