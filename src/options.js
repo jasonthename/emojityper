@@ -18,7 +18,6 @@ import * as copier from './lib/copier.js';
 class ButtonManager {
   constructor(holder) {
     this.holder_ = holder;
-    this.pendingFirstEmoji_ = null;
 
     /** @type {!Map<string, !HTMLElement>} */
     this.options_ = new Map();
@@ -148,9 +147,6 @@ class ButtonManager {
         const node = this.buttonTarget_.get(button);
         node.parentNode.replaceChild(button, node);
         this.buttonTarget_.delete(button);
-
-        // TODO(samthor): call this less?
-        this.pendingFirstEmoji_ && this.pendingFirstEmoji_();
       });
     }
 
@@ -159,44 +155,6 @@ class ButtonManager {
     option.appendChild(node);
 
     return button;
-  }
-
-  /**
-   * Returns any current valid emoji for the passed option name.
-   *
-   * @param {string} name
-   * @return {?string} emoji
-   */
-  immediateFirstEmojiForOption_(name) {
-    const node = this.options_.get(name);
-    const cand = node && node.firstElementChild;
-    return cand ? cand.textContent : null;
-  }
-
-  /**
-   * Returns a promise for the first valid emoji value for the given name. This allows a user to
-   * keep typing(-ish) yet have their text replaced with emoji.
-   *
-   * This promise isn't guaranteed to resolve. Drops previous request on additional calls.
-   *
-   * @param {string} name to search for
-   * @return {!Promise<?string>} emoji found
-   */
-  firstEmojiForOption(name) {
-    return new Promise((resolve) => {
-      const checker = () => {
-        const immediateResult = this.immediateFirstEmojiForOption_(name);
-        if (!immediateResult) {
-          return false;
-        }
-        if (this.pendingFirstEmoji_ === checker) {
-          this.pendingFirstEmoji_ = null;
-        }
-        resolve(immediateResult);
-      };
-      this.pendingFirstEmoji_ = checker;
-      checker();
-    });
   }
 
   /**
@@ -505,27 +463,6 @@ chooser.addEventListener('keydown', (ev) => {
       return request(timeout, true);
     }).catch((err) => {
       console.error('error doing request', err);
-    });
-  });
-
-  // nb. this punctuation list is just misc stuff needed by emojimap
-  const invalidLetterRe = /[^\w:\.,$%^\-']+/g;
-  const simplifyWord = (word) => word.replace(invalidLetterRe, '').toLowerCase();
-
-  // request an autocomplete, the user has just kept typing
-  typer.addEventListener('request', (ev) => {
-    const word = simplifyWord(ev.detail || '');
-
-    console.info('got request', word, typer.dataset['prefix']);
-
-    const request = manager.firstEmojiForOption(word);
-    pendingFirstEmojiRequest = request;
-    request.then((choice) => {
-      if (pendingFirstEmojiRequest !== request) { return; }
-
-      ga('send', 'event', 'options', 'typing');
-      const detail = {choice, word};
-      typer.dispatchEvent(new CustomEvent('emoji', {detail}));
     });
   });
 }());

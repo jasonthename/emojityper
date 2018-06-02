@@ -121,7 +121,7 @@ function upgrade(el) {
     const s = el.dataset['prefix'] || '';
     const valid = suggest !== null &&
         s.length !== 0 &&
-        suggest[0].substr(0, s.length) === s &&
+        suggest[0].substr(0, s.length) === s.toLowerCase() &&
         el.value.substr(sel.to).trim().length === 0;
     if (valid) {
       const display = suggest[0].substr(s.length) + suggest[1];
@@ -211,6 +211,9 @@ function upgrade(el) {
     }
   };
 
+  // whether user typed shift-space and nothing came out
+  let hasPendingShiftSpace = false;
+
   // dedup listeners on a rAF
   let permitNextChange;  // FIXME: global-ish scope is ugly
   (function() {
@@ -236,6 +239,7 @@ function upgrade(el) {
     // handle 'suggest' event: show default autocomplete option
     el.addEventListener('suggest', (ev) => {
       suggest = ev.detail;
+      maybeReplace(!hasPendingShiftSpace);
       dedup();
     });
 
@@ -255,24 +259,31 @@ function upgrade(el) {
     });
   }());
 
-  function maybeReplace() {
-    const text = el.dataset['prefix'];
-
-    const mustBeSpace = el.value.substr(el.selectionStart, sel.to - el.selectionStart);
-    if (mustBeSpace.trim().length !== 0) {
-      return false;
-    }
-
+  function maybeReplace(expectSpace = false) {
+    const text = (el.dataset['prefix'] || '').toLowerCase();
     if (text.length === 0 || !suggest || !suggest[0].startsWith(text)) {
+      // no valid sugestion or no text anyway
       return false;
     }
 
-    // if we're not the end, only work if the user's typed the whole thing
-    if (el.value.substr(sel.to).trim().length !== 0 && suggest[0] !== text) {
+    const rest = el.value.substr(sel.to);
+    const mustBeSpace = rest.substr(0, el.selectionStart - sel.to);
+    const trimmed = mustBeSpace.trim();
+    if (trimmed.length !== 0) {
+      // this wasn't blank or space chars
+      return false;
+    } else if (expectSpace && !mustBeSpace.length) {
+      // there wasn't a space and we expected one
+      return false;
+    }
+
+    if (rest.trim().length !== 0 && suggest[0] !== text) {
+      // we're not the end of the string, so only autocomplete if it's entirely typed
       return false;
     }
 
     // dispatch change request on ourselves
+    ga('send', 'event', 'options', 'typing');
     const detail = {
       choice: suggest[1],
       word: suggest[0],
@@ -283,15 +294,10 @@ function upgrade(el) {
 
   // add a non-deduped keydown handler, to run before others and intercept space
   el.addEventListener('keydown', (ev) => {
+    hasPendingShiftSpace = false;
     switch (ev.key) {
     case 'Escape':
       permitNextChange = false;  // force next change
-      break;
-
-    case 'Enter':
-      console.info('caught enter');
-      ev.stopPropagation();
-      ev.preventDefault();
       break;
 
     case 'ArrowDown':
@@ -302,9 +308,13 @@ function upgrade(el) {
       return;
 
     case ' ':
-      maybeReplace();
+      const success = maybeReplace();
       if (ev.shiftKey) {
         ev.preventDefault();  // don't type space if shift held
+        if (!success) {
+          // hold this for when we get autocompletes (@samthor loves this)
+          hasPendingShiftSpace = true;
+        }
       }
       break;
     }
@@ -313,8 +323,8 @@ function upgrade(el) {
   // add a non-deduped keyup handler, for space on mobile browsers ('dreaded keycode 229')
   el.addEventListener('keyup', (ev) => {
     // was it a 229 or no code, and was the typed character a space?
-    if ((ev.keyCode === 229 || !ev.keyCode) && el.value[el.selectionStart - 1] === ' ') {
-      maybeReplace();
+    if (ev.keyCode === 229 || !ev.keyCode) {
+      maybeReplace(true);
     }
   });
 
