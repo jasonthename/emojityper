@@ -27,6 +27,12 @@ function upgrade(el) {
     return false;
   }
 
+  // stores the faux-selection shown (different from actual selection in 'state')
+  const sel = {
+    from: el.selectionStart,
+    to: el.selectionEnd,
+  };
+
   const helper = document.createElement('div');
   helper.className = 'overflow-helper';
   el.parentNode.insertBefore(helper, el);
@@ -67,11 +73,11 @@ function upgrade(el) {
   }
 
   const renderLine = () => {
-    if (el.dataset.from === undefined) {
+    if (sel.from >= sel.to) {
       underline.hidden = true;
       return false;
     }
-    const [from, to] = [+el.dataset.from, +el.dataset.to];
+    const {from, to} = sel;
 
     // otherwise, record and draw the line
     const left = measureText(el.value.substr(0, from));
@@ -90,7 +96,8 @@ function upgrade(el) {
 
   // force selection
   const setRange = (from, to) => {
-    [el.dataset.from, el.dataset.to] = [from, to];
+    sel.from = from;
+    sel.to = Math.max(from, to);
     if (from >= to) {
       datasetSafeDelete(el, 'prefix', 'word', 'focus');
       underline.hidden = true;
@@ -117,7 +124,7 @@ function upgrade(el) {
       state.value = el.value;
     }
 
-    // range selection, magic
+    // we're pretending to be the user's selection
     if (state.start !== state.end) {
       datasetSafeDelete(el, 'prefix', 'word');
 
@@ -133,7 +140,9 @@ function upgrade(el) {
 
     // if it's invalid and we were permitted (this is used for faux-highlights), ignore
     const {from, to} = word.match(el.value, state.start);
-    if (from >= to && permitNextChange) { return; }
+    if (from >= to && permitNextChange) {
+      return;  // we just got an emoji, retain implicit selection until next change
+    }
     if (setRange(from, to)) {
       // if the range was valid, update the prefix/focus but delete the word (in typing state)
       el.dataset['focus'] = el.dataset['prefix'] = el.value.substr(from, to - from);
@@ -159,15 +168,12 @@ function upgrade(el) {
     // run change handler: if true, nothing changed
     if (changeHandler(permitNextChange)) { return; }
 
-    // send query: prefix or whole-word
-    let text = el.dataset.prefix || el.dataset.word || null;
-    if (!el.dataset.focus) {
-      text = '';  // nothing focused, pretend it's empty input
-    }
+    // send query: prefix or whole-word (unless nothing is focused)
+    const text = el.dataset['focus'] ? el.dataset['prefix'] || el.dataset['word'] || null : '';
     const detail = {
       text,
       prefix: 'prefix' in el.dataset,
-      focus: el.dataset.focus,
+      focus: el.dataset['focus'],
       selection: (el.selectionStart !== el.selectionEnd),
     };
 
@@ -234,8 +240,8 @@ function upgrade(el) {
       return;
 
     case ' ':
-      if (el.dataset.prefix && el.selectionStart === +el.dataset.to) {
-        el.dispatchEvent(new CustomEvent('request', {detail: el.dataset.prefix}));
+      if (el.dataset['prefix'] && el.selectionStart === sel.to) {
+        el.dispatchEvent(new CustomEvent('request', {detail: el.dataset['prefix']}));
       }
 
       // TODO: do this to prevent actually space being hit (@samthor prefers it this way)
@@ -249,8 +255,8 @@ function upgrade(el) {
     if (ev.keyCode === 229 || !ev.keyCode) {
       // look for a space before whatever was entered.
       const v = el.value.substr(el.selectionStart - 1, 1);
-      if (v === ' ' && el.dataset.prefix) {
-        el.dispatchEvent(new CustomEvent('request', {detail: el.dataset.prefix}));
+      if (v === ' ' && el.dataset['prefix']) {
+        el.dispatchEvent(new CustomEvent('request', {detail: el.dataset['prefix']}));
       }
     }
   });
@@ -273,7 +279,7 @@ function upgrade(el) {
   // replace helper
   const replaceFocus = (call) => {
     const previousScrollLeft = el.scrollLeft;
-    const [from, to] = [+el.dataset.from, +el.dataset.to];
+    const {from, to} = sel;
     const value = el.value.substr(from, to - from);
     let [start, end] = [typer.selectionStart, typer.selectionEnd];
     const dir = typer.selectionDirection;
@@ -321,10 +327,10 @@ function upgrade(el) {
     return true;
   };
 
-  // handle 'modifier' event: apply modifiers to the focus word, if any
+  // handle 'modifier' event: apply modifiers to the focus emoji, if any
   el.addEventListener('modifier', (ev) => {
     const arg = {[ev.detail.type]: ev.detail.code};
-    replaceFocus((value) => modifier.modify(value, arg).out || '');
+    replaceFocus((value) => modifier.modify(value, arg).out);
   });
 
   // handle 'emoji' event: if there's a current focus word, then replace it with the new emoji \o/
