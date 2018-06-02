@@ -121,7 +121,7 @@ function upgrade(el) {
     const s = el.dataset['prefix'] || '';
     const valid = suggest !== null &&
         s.length !== 0 &&
-        suggest[0].substr(0, s.length) === s.toLowerCase() &&
+        suggest[0].substr(0, s.length) === s &&
         el.value.substr(sel.to).trim().length === 0;
     if (valid) {
       const display = suggest[0].substr(s.length) + suggest[1];
@@ -167,7 +167,7 @@ function upgrade(el) {
     }
     if (setRange(from, to)) {
       // if the range was valid, update the prefix/focus but delete the word (in typing state)
-      el.dataset['focus'] = el.dataset['prefix'] = el.value.substr(from, to - from);
+      el.dataset['focus'] = el.dataset['prefix'] = el.value.substr(from, to - from).toLowerCase();
       datasetSafeDelete(el, 'word');
     }
   };
@@ -260,7 +260,7 @@ function upgrade(el) {
   }());
 
   function maybeReplace(expectSpace = false) {
-    const text = (el.dataset['prefix'] || '').toLowerCase();
+    const text = el.dataset['prefix'] || '';
     if (text.length === 0 || !suggest || !suggest[0].startsWith(text)) {
       // no valid sugestion or no text anyway
       return false;

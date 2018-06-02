@@ -409,19 +409,39 @@ chooser.addEventListener('keydown', (ev) => {
 
   let previous = {};
   let previousQueryAt = performance.now();
-  let pendingFirstEmojiRequest = null;
+  let previousResults = [];
+
+  // finds the best suggestion and tells the typer
+  function findSuggest(q) {
+    let suggest = null;
+    for (let i = 0; i < previousResults.length; ++i) {
+      const r = previousResults[i];
+      if (suggest === null && r[0].startsWith(q)) {
+        suggest = r;
+      } else if (r[0] === q) {
+        // if we have an _exact_ match, always use it
+        suggest = r;
+        break;
+      }
+    }
+    typer.dispatchEvent(new CustomEvent('suggest', {detail: suggest}));
+  }
 
   // handler for a prefix search
   typer.addEventListener('query', (ev) => {
+    const query = ev.detail;
+    const now = performance.now();
+
     // immediately inform manager of modifier buttons (gender, tone), if it's a full word search
     const info = modifier.modify(!ev.detail.prefix && ev.detail.focus || '');
     manager.setModifier(info);
 
-    pendingFirstEmojiRequest = null;  // user typed something else
+    if (previous.text !== query.text) {
+      // text changed, immediately run suggest code
+      findSuggest(query.text);
+    }
 
     let immediate = false;
-    const now = performance.now();
-    const query = ev.detail;
     if (!previous.text || previous.prefix !== query.prefix) {
       immediate = true;  // type changed, user expects snappiness
     } else if (now - previousQueryAt > longTime) {
@@ -442,8 +462,9 @@ chooser.addEventListener('keydown', (ev) => {
       // to _look_ like the real results?
       // nb. we'd have to say... this is "old" but the final one hasn't finished.
 
-      const detail = query.prefix && results[0] || null;
-      typer.dispatchEvent(new CustomEvent('suggest', {detail}));
+      // find the first matching thing and suggest it as autocomplete
+      previousResults = results;
+      findSuggest(query.text);
 
       return manager.update(results);
     };
