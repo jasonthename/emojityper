@@ -332,6 +332,7 @@ function upgrade(el) {
   el.addEventListener('keyup', (ev) => {
     // was it a 229 or no code, and was the typed character a space?
     if (ev.keyCode === 229 || !ev.keyCode) {
+      // TODO: possibly record hasPendingSpace for future arriving suggestions
       maybeReplace(true);
     }
   });
