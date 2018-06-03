@@ -211,8 +211,8 @@ function upgrade(el) {
     }
   };
 
-  // whether user typed shift-space and nothing came out
-  let hasPendingShiftSpace = false;
+  // whether user typed space and nothing came out
+  let hasPendingSpace = false;
 
   // dedup listeners on a rAF
   let permitNextChange;  // FIXME: global-ish scope is ugly
@@ -239,7 +239,9 @@ function upgrade(el) {
     // handle 'suggest' event: show default autocomplete option
     el.addEventListener('suggest', (ev) => {
       suggest = ev.detail;
-      maybeReplace(!hasPendingShiftSpace);
+      if (hasPendingSpace) {
+        maybeReplace();
+      }
       dedup();
     });
 
@@ -260,6 +262,11 @@ function upgrade(el) {
   }());
 
   function maybeReplace(expectSpace = false) {
+    if (el.selectionEnd < sel.to) {
+      // this was before the end of the selection, don't autocomplete
+      return false;
+    }
+
     const text = el.dataset['prefix'] || '';
     if (text.length === 0 || !suggest || !suggest[0].startsWith(text)) {
       // no valid sugestion or no text anyway
@@ -289,12 +296,13 @@ function upgrade(el) {
       word: suggest[0],
     };
     typer.dispatchEvent(new CustomEvent('emoji', {detail}));
+    console.info('did replacement', detail, 'pending', hasPendingSpace, new Error());
     return true;
   }
 
   // add a non-deduped keydown handler, to run before others and intercept space
   el.addEventListener('keydown', (ev) => {
-    hasPendingShiftSpace = false;
+    hasPendingSpace = false;
     switch (ev.key) {
     case 'Escape':
       permitNextChange = false;  // force next change
@@ -311,10 +319,10 @@ function upgrade(el) {
       const success = maybeReplace();
       if (ev.shiftKey) {
         ev.preventDefault();  // don't type space if shift held
-        if (!success) {
-          // hold this for when we get autocompletes (@samthor loves this)
-          hasPendingShiftSpace = true;
-        }
+      }
+      if (!success) {
+        // hold this for when autocompletes arrive
+        hasPendingSpace = true;
       }
       break;
     }
