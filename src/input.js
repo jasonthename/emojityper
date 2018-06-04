@@ -123,12 +123,13 @@ function upgrade(el) {
         s.length !== 0 &&
         suggest[0].substr(0, s.length) === s &&
         el.value.substr(sel.to).trim().length === 0;
-    if (valid) {
-      const display = suggest[0].substr(s.length) + suggest[1];
-      autocomplete.textContent = display;
-    } else {
+    if (!valid) {
       autocomplete.textContent = '';
+      return false;
     }
+    const display = suggest[0].substr(s.length) + suggest[1];
+    autocomplete.textContent = display;
+    return true;
   };
 
   // state/handler keep track of the current focus word (plus scroll position, if input is big)
@@ -163,13 +164,14 @@ function upgrade(el) {
     // if it's invalid and we were permitted (this is used for faux-highlights), ignore
     const {from, to} = word.match(el.value, state.start);
     if (from >= to && permitNextChange) {
-      return;  // we just got an emoji, retain implicit selection until next change
+      return false;  // we just got an emoji, retain implicit selection until next change
     }
     if (setRange(from, to)) {
       // if the range was valid, update the prefix/focus but delete the word (in typing state)
       el.dataset['focus'] = el.dataset['prefix'] = el.value.substr(from, to - from).toLowerCase();
       datasetSafeDelete(el, 'word');
     }
+    return false;
   };
 
   // runs change handler and emits the 'word' event as appropriate
@@ -188,8 +190,24 @@ function upgrade(el) {
     }
 
     // run change handler: if true, nothing changed
+    // (nb. the logic before return is because autocompletes don't count for alreadyAtState)
     const alreadyAtState = changeHandler(permitNextChange);
-    renderAutocomplete();
+
+    // clear suggestion if we tried to render it and it wasn't valid
+    if (!renderAutocomplete()) {
+      suggest = null;
+    }
+
+    // set dataset['copy'] to the value you'd copy if you hit enter right now
+    // TODO(samthor): Generate this only when we run a copy?
+    if (el.selectionStart !== el.selectionEnd) {
+      el.dataset['copy'] = el.value.substr(el.selectionStart, el.selectionEnd - el.selectionStart);
+    } else {
+      const withoutSelection = el.value.substr(0, sel.from) + el.value.substr(sel.to);
+      el.dataset['copy'] = withoutSelection + (suggest !== null ? suggest[1] : '');
+    }
+
+    // if nothing changed, don't trigger any option callbacks
     if (alreadyAtState) { return; }
 
     // send query: prefix or whole-word (unless nothing is focused)

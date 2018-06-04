@@ -23,18 +23,7 @@ handler({detail: typer.value});
   const spaceRe = /\s*/;
 
   const copy = () => {
-    // find start/end of content (trim, but find positions)
-    let left = 0;
-    let right = input.value.length;
-    if (input.selectionStart !== input.selectionEnd) {
-      left = input.selectionStart;
-      right = input.selectionEnd;
-    }
-    left += spaceRe.exec(input.value.substr(left))[0].length;
-    right = left + input.value.substr(left, right - left).trim().length;
-    if (right <= left) { return; }
-
-    const text = input.value.substr(left, right - left);
+    const text = input.dataset['copy'].trim().replace(/\s+/, ' ');
     if (!copier.copyText(text)) {
       console.warn('could not copy', text)
       return true;
