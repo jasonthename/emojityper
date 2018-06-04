@@ -11,7 +11,7 @@ if (navigator.serviceWorker) {
       console.debug('got SW controllerchange, reload');
       window.location.reload();
     } else {
-      console.info('NOT reloading')
+      // this is the very first SW, so reloading doesn't help us
     }
   });
 }

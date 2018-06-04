@@ -296,7 +296,6 @@ function upgrade(el) {
       word: suggest[0],
     };
     typer.dispatchEvent(new CustomEvent('emoji', {detail}));
-    console.info('did replacement', detail, 'pending', hasPendingSpace, new Error());
     return true;
   }
 
