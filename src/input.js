@@ -202,9 +202,10 @@ function upgrade(el) {
     // TODO(samthor): Generate this only when we run a copy?
     if (el.selectionStart !== el.selectionEnd) {
       el.dataset['copy'] = el.value.substr(el.selectionStart, el.selectionEnd - el.selectionStart);
+    } else if (suggest !== null) {
+      el.dataset['copy'] = el.value.substr(0, sel.from) + el.value.substr(sel.to) + suggest[1];
     } else {
-      const withoutSelection = el.value.substr(0, sel.from) + el.value.substr(sel.to);
-      el.dataset['copy'] = withoutSelection + (suggest !== null ? suggest[1] : '');
+      el.dataset['copy'] = el.value;
     }
 
     // if nothing changed, don't trigger any option callbacks
