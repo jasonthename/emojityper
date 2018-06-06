@@ -22,6 +22,8 @@ const workbox = require('workbox-build');
 
 const hasher = new (require('./gulp-hash'))();
 
+const version = (new Date).toISOString().replace(/[^\d]/g, '').substr(0, 12);
+
 gulp.task('css', function() {
   // exclude IE11's broken flexbox
   const browsers = ['last 2 versions', 'not IE <= 11', 'not IE_mob <= 11'];
@@ -70,6 +72,8 @@ gulp.task('rollup', function() {
 
 gulp.task('html', ['css'], function() {
   const mutator = (document, file) => {
+    document.body.setAttribute('data-version', version);
+
     // replace lessCSS with actual styles
     // FIXME(samthor): We generate the dist file, but just inline it anyway.
     const raw = fs.readFileSync('./dist/' + hasher.must('styles.css'));

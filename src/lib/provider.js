@@ -1,4 +1,4 @@
-const api = 'https://emojityper.appspot.com';
+const api = 'https://emojibuff.appspot.com/api';
 const recentLimit = 8;
 const selectionDelay = 5 * 1000;
 
@@ -90,12 +90,12 @@ export function request(text, prefix, more=false) {
   }
 
   // TODO: At some point, the 'more' data should go into a local cache. For now, just fetch.
-  let url = `${api}/query?query=${window.encodeURIComponent(text)}`;
-  if (prefix) {
-    url += '&prefix=true';
+  let url = `${api}/q?q=${window.encodeURIComponent(text)}`;
+  if (!prefix) {
+    url += '&exact';
   }
-  const morePromise = window.fetch(url).then(out => out.json()).then(out => out['results']);
-  return Promise.all([localPromise, morePromise]).then(both => {
+  const morePromise = window.fetch(url).then((out) => out.json()).then((out) => out['results']);
+  return Promise.all([localPromise, morePromise]).then((both) => {
     const [local, more] = both;
     results.merge(local, more);
     return local;
@@ -115,7 +115,7 @@ export const select = (function() {
   const runner = () => {
     const body = JSON.stringify(pending);
     pending = {};  // clear pending for next time
-    return navigator.sendBeacon(api + '/select', body);
+    return navigator.sendBeacon(api + '/sel', body);
   };
 
   return function select(name, emoji) {
