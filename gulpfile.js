@@ -97,11 +97,12 @@ gulp.task('html', ['css'], function() {
 gulp.task('static', function() {
   const src = [
     'CNAME',
-    'manifest.json',
-    'opensearch.xml',
     'error.html',
     'google*.html',
+    'manifest.json',
+    'opensearch.xml',
     'res/*',
+    'robots.txt',
   ];
   return gulp.src(src, {base: '.'})
     .pipe(gulp.dest('./dist'));
