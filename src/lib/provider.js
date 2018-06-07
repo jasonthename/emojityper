@@ -7,61 +7,98 @@ import * as promises from './promises.js';
 import * as results from './results.js';
 
 /**
- * Returns the local prefix search tool.
- *
- * @return {function(string, boolean): !Array<!Array<string>>}
+ * @param {string} key for endpoint/cache
+ * @param {number} expiry in hours
+ * @param {(function(boolean): void)=} callback to call with true then false (for loading work)
+ * @return {function(): !Promise<!Array<!Array<string>>}
  */
-const getPrefixGen = (function() {
-  let localPromise = null;  // results from localStorage
-  const raw = window.localStorage['popular'];
+function loaderFor(key, expiry=24, callback=() => {}) {
+  let promiseResults;
+
+  // TODO: refetch after >expiry, don't just invalidate
+
+  const raw = window.localStorage[key];
   if (raw) {
     let out;
     try {
       out = JSON.parse(raw);
     } catch (e) {
-      console.debug('couldn\'t parse localStorage popular', e);
+      console.debug('couldn\'t parse localStorage', key, e);
       out = null;
     }
-    if (out) {
-      localPromise = Promise.resolve(build(out['results']));
-      if (out['created'] >= (+new Date - 60 * 60 * 24 * 1000)) {
+    if (out && out['results']) {
+      promiseResults = Promise.resolve(out['results']);
+      if (out['created'] >= +new Date - (60 * 60 * 1000 * expiry)) {
         // return immediately, it's less than one day old
-        return () => localPromise;
+        return () => promiseResults;
       }
     }
   }
 
   // we don't have data or it's >1day old, refetch
+  // TODO(samthor): Break into retryable fetch.
   const f = new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', api + '/popular');
+    xhr.open('GET', `${api}/${key}`);
     xhr.onerror = reject;
     xhr.responseType = 'json';
     xhr.onload = () => resolve(xhr.response);
     xhr.send();
-  }).then(raw => {
+  }).then((raw) => {
     // IE11 doesn't respect responseType, and we always return an Object
     return typeof raw === 'string' ? JSON.parse(raw) : raw;
+  }).then((update) => {
+    promiseResults = f;  // can return real results now
+
+    // store in localStorage for next time
+    update['created'] = +new Date();
+    window.localStorage[key] = JSON.stringify(update);
+
+    // return updated results
+    return update['results'];
   });
 
-  f.then(data => {
-    // TODO: It's a bit ugly to hit the loader from here.
-    window.loader.hidden = true;
-    data['created'] = +new Date();
-    window.localStorage['popular'] = JSON.stringify(data);
-  });
-
-  const remotePromise = f.then(v => build(v['results']));
-  if (!localPromise) {
-    // TODO: It's a bit ugly to hit the loader from here.
-    window.loader.hidden = false;
-    return () => remotePromise;  // wait for data
+  // no local data, wait for data
+  if (!promiseResults) {
+    callback(true);                 // indicate working
+    f.then(() => callback(false));  // done
+    return () => f;
   }
 
-  // return localPromise until remotePromise is done
-  let promiseToReturn = localPromise;
-  remotePromise.then(() => promiseToReturn = remotePromise);
-  return () => promiseToReturn;
+  return () => promiseResults;
+}
+
+/**
+ * Returns the local prefix search tool.
+ *
+ * @return {!Promise<function(string, boolean): !Array<!Array<string>>>}
+ */
+const getPrefixGen = (function() {
+  const loader = loaderFor('popular', 24, (working) => {
+    // TODO: It's a bit ugly to hit the loader from here.
+    window.loader.hidden = !working;
+  });
+  return () => {
+    return loader().then((results) => build(results))
+  };
+}());
+
+/**
+ * Returns the trending emoji.
+ *
+ * @return {!Promise<!Array<string>>}
+ */
+const getTrendingEmoji = (function() {
+  const loader = loaderFor('hot', 1);
+  return () => {
+    return loader().then((results) => {
+      const out = [];
+      results.forEach((data) => {
+        out.push(...data.slice(1));  // drop name
+      });
+      return out;
+    });
+  };
 }());
 
 /**
@@ -77,14 +114,17 @@ export function request(text, prefix, more=false) {
     if (more && text === '') {
       const r = recent();
       r.unshift('^recent');
-      const p = ['^popular']; // TODO: include popular emoji
-      return Promise.resolve([r, p]);
+
+      return getTrendingEmoji().then((p) => {
+        p.unshift('^trending');
+        return [r, p];
+      });
     }
 
     return Promise.resolve([]);
   }
 
-  const localPromise = getPrefixGen().then(suggest => suggest(text, prefix));
+  const localPromise = getPrefixGen().then((suggest) => suggest(text, prefix));
   if (!more) {
     return localPromise;
   }
