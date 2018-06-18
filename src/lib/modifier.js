@@ -1,31 +1,21 @@
 
-const canvas = document.createElement('canvas');
-const context = canvas.getContext('2d');
-
-// Windows needs specified fonts (and Courier New, as monospace doesn't work?)
-context.font = '1px "Segoe UI Emoji", "Segoe UI Symbol", "Courier New", monospace';
+import {isSingleEmoji} from './measurer.js';
+import {cacheFor} from './cache.js';
 
 /**
  * @param {string} string to measure
  * @return {number} length of text in monospace units
  */
 const measureText = (function() {
-  let cache = {};
-  let count = 0;
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
 
-  return (s) => {
-    let result = cache[s];
-    if (result === undefined) {
-      cache[s] = result = context.measureText(s).width;
-      if (++count > 4000) {
-        // nb. at June 2017, there's about ~1,800 emojis including variations, so this number is
-        // probably greater than we'll ever use: still, empty if it's too big
-        cache = {};
-        count = 0;
-      }
-    }
-    return result;
-  };
+  // Windows needs specified fonts (and Courier New, as monospace doesn't work?)
+  context.font = '1px "Segoe UI Emoji", "Segoe UI Symbol", "Courier New", monospace';
+
+  // nb. at June 2017, there's about ~1,800 emojis including variations, so this number is
+  // probably greater than we'll ever use: still, empty if it's too big (limit=4000)
+  return cacheFor((s) => context.measureText(s).width);
 }());
 
 /**
@@ -57,42 +47,19 @@ const isSingle = (function() {
     return (s) => measureText(s) === emojiWidth;
   }
 
-  const wm = window.measurer;
-  const invalidWidth = context.measureText('\u{ffffd}').width;
-  const characterWidth = context.measureText('a').width;
-  if (debugMode) {
-    console.info('invalid char has width', invalidWidth, 'ascii char has width', characterWidth);
-    return (s, shouldEqual) => {
-      wm.textContent = s;
-      console.debug('isSingle', s, 'has height', wm.offsetHeight)
-      if (wm.offsetHeight !== 1) {
-        return false;  // browser has wrapped
-      }
-
-      const width = measureText(s);
-      const expected = measureText(shouldEqual || s);
-      console.debug('isSingle', s, 'has width', width, 'should equal', expected);
-      return (width !== invalidWidth && width !== characterWidth && width === expected);
-    }
-  }
-
-  return (s, shouldEqual) => {
-    wm.textContent = s;
-    if (wm.offsetHeight !== 1) {
-      return false;  // browser has wrapped
-    }
-    const width = measureText(s);
-    const expected = measureText(shouldEqual || s);
-    return (width !== invalidWidth && width !== characterWidth && width === expected);
-  };
+  // use the DOM rounding approach
+  return cacheFor(isSingleEmoji);
 }());
 
 /**
- * Is this string rendering correctly as an emoji or sequence of emojis? On variable width
+ * Is this string rendering correctly as an emoji or sequence of emoji? On variable width
  * platforms, this can take O(n).
  *
- * This is only used by emoji returned by the API, which we know are valid, and have no gender
- * or diversity markers.
+ * This is only used by emoji returned by the API, which we know are valid emoji#, and have no
+ * gender or diversity markers. It's also cached in `valid.js`.
+ *
+ * FIXME(samthor): # except for shruggie etc, but the mainpath is broken right now anyway
+ * TODO(samthor): Mark shruggie etc with a magic char on the API side
  *
  * @param {string} string to check
  * @return {boolean} whether this is probably an emoji
@@ -124,6 +91,9 @@ export const isExpectedLength = (function() {
   }
 
   return (s) => {
+    // TODO(samthor): We could do a 1st pass to check expected number of chars, and a 2nd pass
+    // to determine whether the parts are valid.
+
     const points = jsdecode(s);
     const chars = splitEmoji(points);
     const clen = chars.length;
