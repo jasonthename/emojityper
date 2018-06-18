@@ -1,7 +1,7 @@
 
 const canvas = document.createElement('canvas');
 const context = canvas.getContext('2d');
-context.font = '1px "Segoe UI Emoji", "Segoe UI Symbol", monospace';
+context.font = '1px "Courier New", monospace';  // Windows needs "Courier New", monospace fails
 
 /**
  * @param {string} string to measure
@@ -33,7 +33,7 @@ const fixedWidthEmoji = Boolean(/Mac|Android|iP(hone|od|ad)/.exec(navigator.plat
 
 /**
  * @param {string} string to measure
- * @return {boolean} whether this is a single char long (and probably a single emoji)
+ * @return {boolean} whether this is a single emoji long
  */
 const isSingle = (function() {
   const debugMode = window.location.search.indexOf('debug') !== -1;
@@ -65,7 +65,10 @@ const isSingle = (function() {
     if (debugMode) {
       console.debug('isSingle', s, 'has width', width);
     }
-    return (width !== invalidWidth && width < invalidWidth * 2 && width > characterWidth) ||
+    // FIXME(samthor): On Windows, some emoji are just really big: e.g. the full Family emoji.
+    // It could be possible to check isSingle by removing parts and ensuring the width doesn't..
+    // something. Bigger? Smaller? Count ZWJs?
+    return (width !== invalidWidth && width < emojiWidth * 2 && width > characterWidth) ||
         width === emojiWidth;
   };
 }());

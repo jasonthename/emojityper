@@ -7,8 +7,11 @@
 // nb: does NOT include Arial: this causes Chrome 59? to not combine gender emojis properly
 @fonts-normal: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
 
-// nb: include Segoe for IE11/Edge
+// nb: include Segoe for Windows
 @fonts-emoji: 'Lato', 'Helvetica Neue', 'Helvetica', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+
+// on Edge, we need to specify emoji first in all cases (we lose Lato- eh, Windows is ugly anyway)
+@fonts-edge-emoji: 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 
 @button-width: 48px;
 
@@ -83,7 +86,6 @@ h1 {
 
 button {
   font: inherit;
-  font-family: @fonts-emoji;
   border-radius: 4px;
   border: 2px solid transparent;
   background: rgba(0, 0, 0, 0.25);
@@ -98,6 +100,11 @@ button {
   display: block;
   will-change: opacity;  /* force layer */
   overflow: hidden;
+
+  font-family: @fonts-emoji;
+  @supports (-ms-ime-align:auto) {
+    font-family: @fonts-edge-emoji;
+  }
 
   &.unknown {
     display: none !important;
@@ -291,12 +298,16 @@ main {
 
   input, .sizer {
     font: inherit;
-    font-family: @fonts-emoji;
     font-size: 1em;
     // include padding on both sides, for IE11/Edge
     line-height: ~"calc(1.5em + 12px)";
     height: ~"calc(1.5em + 12px)";
     border: 0;
+
+    font-family: @fonts-emoji;
+    @supports (-ms-ime-align:auto) {
+      font-family: @fonts-edge-emoji;
+    }
   }
   input {
     position: relative;  // place above underline
