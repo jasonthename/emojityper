@@ -103,7 +103,6 @@ export const isExpectedLength = (function() {
     };
   }
 
-  const invalidWidth = context.measureText('\u{ffffd}').width;
   return (s) => {
     const points = jsdecode(s);
     const chars = splitEmoji(points);
