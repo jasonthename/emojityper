@@ -60,7 +60,7 @@ const isSingle = (function() {
   const characterWidth = context.measureText('a').width;
   if (debugMode) {
     console.info('invalid char has width', invalidWidth, 'ascii char has width', characterWidth);
-    return (s) => {
+    return (s, shouldEqual) => {
       wm.textContent = s;
       console.debug('isSingle', s, 'has height', wm.offsetHeight)
       if (wm.offsetHeight !== 1) {
@@ -68,24 +68,29 @@ const isSingle = (function() {
       }
 
       const width = measureText(s);
-      console.debug('isSingle', s, 'has width', width);
-      return (width !== invalidWidth && width !== characterWidth);
+      const expected = measureText(shouldEqual || s);
+      console.debug('isSingle', s, 'has width', width, 'should equal', expected);
+      return (width !== invalidWidth && width !== characterWidth && width === expected);
     }
   }
 
-  return (s) => {
+  return (s, expected) => {
     wm.textContent = s;
     if (wm.offsetHeight !== 1) {
       return false;  // browser has wrapped
     }
     const width = measureText(s);
-    return (width !== invalidWidth && width !== characterWidth);
+    const expected = measureText(shouldEqual || s);
+    return (width !== invalidWidth && width !== characterWidth && width === expected);
   };
 }());
 
 /**
  * Is this string rendering correctly as an emoji or sequence of emojis? On variable width
  * platforms, this can take O(n).
+ *
+ * This is only used by emoji returned by the API, which we know are valid, and have no gender
+ * or diversity markers.
  *
  * @param {string} string to check
  * @return {boolean} whether this is probably an emoji
@@ -416,7 +421,7 @@ export function modify(s, opt_op) {
     if (basicDiversity && !stats.tone && isSingle(candidate + '\u{1f3fb}')) {
       stats.tone = true;
     }
-    if (!stats.gender.neutral && isSingle(candidate + '\u{200d}\u{2640}\u{fe0f}')) {
+    if (!stats.gender.neutral && isSingle(candidate + '\u{200d}\u{2640}\u{fe0f}', candidate)) {
       stats.gender.neutral = true;
       stats.gender.single = true;
     }
@@ -479,7 +484,8 @@ export function modify(s, opt_op) {
       // under various conditions, add a gender modifier to a single point
       if (isSinglePerson === undefined && char.length === 1 && !isPointGender(first)) {
         const genderPoint = nextGenderPoint(points);
-        if (genderPoint && isSingle(String.fromCodePoint(first) + '\u{200d}\u{2640}\u{fe0f}')) {
+        const c = String.fromCodePoint(first);
+        if (genderPoint && isSingle(c + '\u{200d}\u{2640}\u{fe0f}', c)) {
           char.push({suffix: 0xfe0f, point: genderPoint});
         }
       }
