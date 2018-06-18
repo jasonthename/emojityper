@@ -92,9 +92,9 @@ const getTrendingEmoji = (function() {
   const loader = loaderFor('hot', 1);
   return () => {
     return loader().then((results) => {
-      const out = [];
+      let out = [];
       results.forEach((data) => {
-        out.push(...data.slice(1));  // drop name
+        out = out.concat(data.slice(1));  // drop name
       });
       return out;
     });

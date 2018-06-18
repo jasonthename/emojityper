@@ -216,7 +216,10 @@ class ButtonManager {
     });
 
     this.options_.forEach((option) => {
-      this.buttonPool_.push(...option.children);
+      // TODO(samthor): Edge doesn't like ...HTMLCollection
+      for (let i = 0; i < option.children.length; ++i) {
+        this.buttonPool_.push(option.children[i]);
+      }
       option.remove();
     });
     this.options_ = options;
