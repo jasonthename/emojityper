@@ -1,7 +1,7 @@
 
 const canvas = document.createElement('canvas');
 const context = canvas.getContext('2d');
-context.font = '1px monospace';
+context.font = '1px "Segoe UI Emoji", "Segoe UI Symbol", monospace';
 
 /**
  * @param {string} string to measure
@@ -11,7 +11,7 @@ const measureText = (function() {
   let cache = {};
   let count = 0;
 
-  return s => {
+  return (s) => {
     let result = cache[s];
     if (result === undefined) {
       cache[s] = result = context.measureText(s).width;
@@ -110,11 +110,16 @@ export const isExpectedLength = (function() {
     const clen = chars.length;
     for (let i = 0; i < clen; ++i) {
       const char = chars[i];
-      if (char.length === 0 && isFlagPoint(char[0].point)) {
+      if (isFlagPoint(char[0].point)) {
         continue;  // treat flag chars as A-OK
       }
       // measure this particular point and ensure it's single.
-      const s = String.fromCodePoint(...char.map(c => c.point));
+      const buf = [];
+      char.forEach(({point, suffix}) => {
+        buf.push(point);
+        suffix && buf.push(suffix);
+      });
+      const s = String.fromCodePoint(...buf);
       if (!isSingle(s)) {
         return false;
       }
@@ -195,7 +200,7 @@ function unlikelyModifierBase(p) {
  * @param {string} s to decode
  * @return {!Array<number>} code points
  */
-function jsdecode(s) {
+export function jsdecode(s) {
   const len = s.length;
   const points = [];
 
@@ -256,7 +261,7 @@ const genderFlip = (function() {
   }
 
   // return helper
-  return point => {
+  return (point) => {
     const out = all.get(point) || null;
     if (out && out.single === undefined) {
       // do the heavy lifting only when first fetched
@@ -275,7 +280,7 @@ const genderFlip = (function() {
  * @param {!Array<number>} points
  * @return {!Array<!Array<{point: number, suffix: number}>>}
  */
-function splitEmoji(points) {
+export function splitEmoji(points) {
   if (!points.length) {
     return [];
   }
@@ -335,7 +340,7 @@ export function modify(s, opt_op) {
     let family = false;
 
     // search for existing gender characters
-    char.forEach(ch => {
+    char.forEach((ch) => {
       const p = ch.point;
       if (isPointGender(p)) {
         // we can remove or replace the point
@@ -446,7 +451,7 @@ export function modify(s, opt_op) {
       // replace/remove existing male/female characters
       // nb. this removes orphaned gender point characters
       const allowOtherFlip = (isSinglePerson === undefined);  // not for family/profession
-      char.forEach(ch => ch.point = nextGenderPoint(points, ch.point, allowOtherFlip));
+      char.forEach((ch) => ch.point = nextGenderPoint(points, ch.point, allowOtherFlip));
 
       // under various conditions, add a gender modifier to a single point
       if (isSinglePerson === undefined && char.length === 1 && !isPointGender(first)) {
@@ -473,7 +478,7 @@ export function modify(s, opt_op) {
     }
 
     // flatten into actual codepoints again
-    char.forEach(ch => {
+    char.forEach((ch) => {
       if (ch.point) {
         points.length && points.push(0x200d);
         points.push(ch.point);
