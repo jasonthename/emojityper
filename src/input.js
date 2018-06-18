@@ -121,13 +121,13 @@ function upgrade(el) {
     const s = el.dataset['prefix'] || '';
     const valid = suggest !== null &&
         s.length !== 0 &&
-        suggest[0].substr(0, s.length) === s &&
+        suggest.name.substr(0, s.length) === s &&
         el.value.substr(sel.to).trim().length === 0;
     if (!valid) {
       autocomplete.textContent = '';
       return false;
     }
-    const display = suggest[0].substr(s.length) + suggest[1];
+    const display = suggest.name.substr(s.length) + suggest.emoji;
     autocomplete.textContent = display;
     return true;
   };
@@ -203,7 +203,7 @@ function upgrade(el) {
     if (el.selectionStart !== el.selectionEnd) {
       el.dataset['copy'] = el.value.substr(el.selectionStart, el.selectionEnd - el.selectionStart);
     } else if (suggest !== null) {
-      el.dataset['copy'] = el.value.substr(0, sel.from) + el.value.substr(sel.to) + suggest[1];
+      el.dataset['copy'] = el.value.substr(0, sel.from) + el.value.substr(sel.to) + suggest.emoji;
     } else {
       el.dataset['copy'] = el.value;
     }
@@ -287,7 +287,7 @@ function upgrade(el) {
     }
 
     const text = el.dataset['prefix'] || '';
-    if (text.length === 0 || !suggest || !suggest[0].startsWith(text)) {
+    if (text.length === 0 || !suggest || !suggest.name.startsWith(text)) {
       // no valid sugestion or no text anyway
       return false;
     }
@@ -303,7 +303,7 @@ function upgrade(el) {
       return false;
     }
 
-    if (rest.trim().length !== 0 && suggest[0] !== text) {
+    if (rest.trim().length !== 0 && suggest.name !== text) {
       // we're not the end of the string, so only autocomplete if it's entirely typed
       return false;
     }
@@ -311,8 +311,8 @@ function upgrade(el) {
     // dispatch change request on ourselves
     ga('send', 'event', 'options', 'typing');
     const detail = {
-      choice: suggest[1],
-      word: suggest[0],
+      choice: suggest.emoji,
+      word: suggest.name,
     };
     typer.dispatchEvent(new CustomEvent('emoji', {detail}));
     return true;

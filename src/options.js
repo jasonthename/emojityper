@@ -6,7 +6,7 @@
 
 import * as provider from './lib/provider.js';
 import * as modifier from './lib/modifier.js';
-import {valid} from './lib/valid.js';
+import {valid, findValidMatch} from './lib/valid.js';
 import * as promises from './lib/promises.js';
 import * as eventlib from './lib/event.js';
 import * as input from './input.js';
@@ -431,20 +431,30 @@ chooser.addEventListener('keydown', (ev) => {
   let previousQueryAt = performance.now();
   let previousResults = [];
 
-  // finds the best suggestion and tells the typer
+  let suggestInvoke = 0;
   function findSuggest(q) {
-    let suggest = null;
-    for (let i = 0; i < previousResults.length; ++i) {
-      const r = previousResults[i];
-      if (suggest === null && r[0].startsWith(q)) {
-        suggest = r;
-      } else if (r[0] === q) {
-        // if we have an _exact_ match, always use it
-        suggest = r;
-        break;
-      }
+    const localSuggestInvoke = ++suggestInvoke;
+    if (!q) {
+      typer.dispatchEvent(new CustomEvent('suggest', {detail: null}));
+      return;
     }
-    typer.dispatchEvent(new CustomEvent('suggest', {detail: suggest}));
+
+    let exactMatch = null;
+    const localResults = previousResults.slice().filter((row) => {
+      if (q.length > 1 && row[0] === q) {
+        exactMatch = row;
+        return false;
+      }
+      return row[0].startsWith(q);
+    });
+    exactMatch && localResults.unshift(exactMatch);
+
+    const callback = (result) => {
+      if (localSuggestInvoke === suggestInvoke) {
+        typer.dispatchEvent(new CustomEvent('suggest', {detail: result}));
+      }
+    };
+    findValidMatch(localResults, callback);
   }
 
   // handler for a prefix search
