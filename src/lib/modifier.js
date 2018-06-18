@@ -74,7 +74,7 @@ const isSingle = (function() {
     }
   }
 
-  return (s, expected) => {
+  return (s, shouldEqual) => {
     wm.textContent = s;
     if (wm.offsetHeight !== 1) {
       return false;  // browser has wrapped
