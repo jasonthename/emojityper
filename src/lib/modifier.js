@@ -110,11 +110,16 @@ export const isExpectedLength = (function() {
     for (let i = 0; i < clen; ++i) {
       const char = chars[i];
       if (isFlagPoint(char[0].point)) {
-        continue;  // treat flag chars as A-OK
+        // Since we have to check individual chars, it's hard to know whether flags are supported.
+        // Assume any flag point is fine.
+        continue;
       }
       // measure this particular point and ensure it's single.
       const buf = [];
-      char.forEach(({point, suffix}) => {
+      char.forEach(({point, suffix, attach}, i) => {
+        if (i && !attach) {
+          buf.push(0x200d);
+        }
         buf.push(point);
         suffix && buf.push(suffix);
       });
@@ -276,14 +281,16 @@ const genderFlip = (function() {
  * Splits a single emoji into raw characters, removing variants or diversity modifiers. Each
  * sub-array represents a character previously split by ZWJs.
  *
+ * FIXME(samthor): "attach" is a temporary hack to allow keycaps.
+ *
  * @param {!Array<number>} points
- * @return {!Array<!Array<{point: number, suffix: number}>>}
+ * @return {!Array<!Array<{point: number, suffix: number, attach: boolean}>>}
  */
 export function splitEmoji(points) {
   if (!points.length) {
     return [];
   }
-  let curr = [{point: points[0], suffix: 0}];
+  let curr = [{point: points[0], suffix: 0, attach: false}];
   const out = [curr];
 
   // TODO: doesn't deal with flags or regional letters
@@ -300,15 +307,19 @@ export function splitEmoji(points) {
       // store in suffix
       curr[curr.length-1].suffix = check;
       continue;
+    } else if (check === 0x20e3) {
+      // keycap, push onto last
+      curr.push({point: check, suffix: 0, attach: true});
+      continue;
     } else if (check === 0x200d) {
       // push next char onto curr
       const next = points[++i];
-      next && curr.push({point: next, suffix: 0});
+      next && curr.push({point: next, suffix: 0, attach: false});
       continue;
     }
 
     // new character, reset
-    curr = [{point: check, suffix: 0}];
+    curr = [{point: check, suffix: 0, attach: false}];
     out.push(curr);
   }
   return out;

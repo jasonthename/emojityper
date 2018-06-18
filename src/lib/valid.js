@@ -11,20 +11,23 @@ const ls = window.localStorage;
 const known = new Map();
 
 function runner(emoji) {
-  const key = prefix + emoji;
-  if (ls[key]) {
-    return true;
-  }
-
   const out = isExpectedLength(emoji);
   known.set(emoji, out);
   if (out) {
-    ls[key] = 't';  // use dummy small string
+    ls[prefix + emoji] = 't';  // use dummy small string
   }
   return out;
 }
 
 const worker = new Worker(runner);
+
+function immediate(emoji) {
+  const immediate = known.get(emoji);
+  if (immediate !== undefined) {
+    return immediate;
+  }
+  return ls[prefix + emoji];
+}
 
 /**
  * As per isExpectedLength, but caches successful results.
@@ -33,14 +36,18 @@ const worker = new Worker(runner);
  * @return {!Promise<boolean>} whether this is probably an emoji
  */
 export async function valid(emoji) {
-  const immediate = known.get(emoji);
-  if (immediate !== undefined) {
-    return immediate;
+  const result = immediate(emoji);
+  if (result !== undefined) {
+    return result;
   }
   return worker.task(emoji);
 }
 
 /**
+ * Async helper that finds the first valid autocomplete option. Uses a callback in order to hint
+ * whether the result is coming in the current frame (before any await) or after (calls callback
+ * with null first).
+ *
  * @param {!Array<!Array<string>>} options
  * @param {function(?{name: string, emoji: string})} callback
  */
@@ -51,11 +58,10 @@ export async function findValidMatch(options, callback) {
     const row = options[i];
     for (let j = 1; j < row.length; ++j) {
       const emoji = row[j];
-      let result = known.get(emoji) || ls[prefix + emoji];
+      let result = immediate(emoji);
       if (result === undefined) {
         // we have to wait for the runner, so call with a delay
         if (!calledWithDelay) {
-          console.info('not sure about', emoji, 'calling callback');
           callback(null);
           calledWithDelay = true;
         }
@@ -71,31 +77,4 @@ export async function findValidMatch(options, callback) {
   if (!calledWithDelay) {
     callback(null);
   }
-}
-
-// finds the best suggestion and tells the typer
-let suggestInvoke = 0;
-async function findSuggest(q) {
-  typer.dispatchEvent(new CustomEvent('suggest', {detail: null}));
-  const localSuggestInvoke = ++suggestInvoke;
-
-  let suggest = null;
-  for (let i = 0; i < previousResults.length; ++i) {
-    const r = previousResults[i];
-    if (suggest === null && r[0].startsWith(q)) {
-      if (await valid(r[1])) {
-        suggest = r;
-      }
-    } else if (r[0] === q) {
-      if (await valid(r[1])) {
-        // if we have an _exact_ match, always use it
-        suggest = r;
-        break;
-      }
-    }
-  }
-  if (localSuggestInvoke !== suggestInvoke) {
-    return;
-  }
-  typer.dispatchEvent(new CustomEvent('suggest', {detail: suggest}));
 }
