@@ -55,21 +55,31 @@ const isSingle = (function() {
     return (s) => measureText(s) === emojiWidth;
   }
 
+  const wm = window.measurer;
   const invalidWidth = context.measureText('\u{ffffd}').width;
   const characterWidth = context.measureText('a').width;
   if (debugMode) {
     console.info('invalid char has width', invalidWidth, 'ascii char has width', characterWidth);
-  }
-  return (s) => {
-    const width = measureText(s);
-    if (debugMode) {
+    return (s) => {
+      wm.textContent = s;
+      console.debug('isSingle', s, 'has height', wm.offsetHeight)
+      if (wm.offsetHeight !== 1) {
+        return false;  // browser has wrapped
+      }
+
+      const width = measureText(s);
       console.debug('isSingle', s, 'has width', width);
+      return (width !== invalidWidth && width !== characterWidth);
     }
-    // FIXME(samthor): On Windows, some emoji are just really big: e.g. the full Family emoji.
-    // It could be possible to check isSingle by removing parts and ensuring the width doesn't..
-    // something. Bigger? Smaller? Count ZWJs?
-    return (width !== invalidWidth && width < emojiWidth * 2 && width > characterWidth) ||
-        width === emojiWidth;
+  }
+
+  return (s) => {
+    wm.textContent = s;
+    if (wm.offsetHeight !== 1) {
+      return false;  // browser has wrapped
+    }
+    const width = measureText(s);
+    return (width !== invalidWidth && width !== characterWidth);
   };
 }());
 

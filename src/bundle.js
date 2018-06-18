@@ -16,3 +16,8 @@ window.onerror = (msg, file, line, col, error) => {
     ga('send', 'event', 'error', `${file},${line}:${col}`, String(msg), {nonInteraction: true});
   } catch (e) {}
 };
+
+// Windows hack
+if (navigator.platform.startsWith('Win')) {
+  document.body.classList.add('win');
+}
