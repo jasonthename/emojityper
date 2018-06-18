@@ -1,7 +1,9 @@
 
 const canvas = document.createElement('canvas');
 const context = canvas.getContext('2d');
-context.font = '1px "Courier New", monospace';  // Windows needs "Courier New", monospace fails
+
+// Windows needs specified fonts (and Courier New, as monospace doesn't work?)
+context.font = '1px "Segoe UI Emoji", "Segoe UI Symbol", "Courier New", monospace';
 
 /**
  * @param {string} string to measure
