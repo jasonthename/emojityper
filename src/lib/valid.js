@@ -6,6 +6,8 @@
 import {isExpectedLength} from './modifier.js';
 import Worker from './worker.js';
 
+const dummyString = 'a';  // change if we mess something up
+
 const prefix = '-ok_';
 const ls = window.localStorage;
 const known = new Map();
@@ -14,7 +16,7 @@ function runner(emoji) {
   const out = isExpectedLength(emoji);
   known.set(emoji, out);
   if (out) {
-    ls[prefix + emoji] = 't';  // use dummy small string
+    ls[prefix + emoji] = dummyString;  // use dummy small string
   }
   return out;
 }
@@ -26,7 +28,10 @@ function immediate(emoji) {
   if (immediate !== undefined) {
     return immediate;
   }
-  return ls[prefix + emoji];
+  if (ls[prefix + emoji] === dummyString) {
+    return true;
+  }
+  return undefined;
 }
 
 /**
