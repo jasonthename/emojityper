@@ -129,9 +129,12 @@ button {
 /** header/footer */
 
 footer {
-  margin-top: 1em;
   font-size: 16px;  // TODO(samthor): Ditch em units elsewhere since this contains 99%+ of text
   text-align: center;
+
+  p {
+    margin-top: 1em;
+  }
 
   button {
     display: inline-block;
@@ -213,7 +216,10 @@ footer {
 
       &:not(.active) {
         opacity: 0;
-        user-select: none;
+      }
+
+      p {
+        margin: 0;
       }
     }
   }
@@ -233,7 +239,10 @@ footer {
 body.has-value footer {
   display: none;
 }
-body:not(.has-install) .install {
+body:not(.has-install-pwa) #install-pwa {
+  display: none;
+}
+body:not(.has-install-windows) #install-windows {
   display: none;
 }
 

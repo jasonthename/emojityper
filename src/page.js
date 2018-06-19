@@ -70,17 +70,43 @@ window.addEventListener('resize', resize);
 window.addEventListener('load', resize);
 resize();
 
+// Link tracking
+
+document.body.addEventListener('click', (ev) => {
+  const target = ev.target && ev.target.closest('a[href]');
+  if (!target) { return; }
+
+  console.info('got outbound', target.href);
+  ga('send', 'event', 'outbound', 'click', target.href);
+});
+
+// Windows install code below
+
+const windowsDismissKey = 'dismiss-install-windows'
+if (!window.localStorage['dismiss-install-windows'] && typeof Windows === 'undefined' && navigator.platform.startsWith('Win')) {
+  // 'Windows' not found (not already installed), and on Windows
+  document.body.classList.add('has-install-windows');
+}
+const dismissWindows = document.getElementById('dismiss-windows');
+dismissWindows.addEventListener('click', (ev) => {
+  ga('send', 'event', 'install', 'dismiss-windows');
+  window.localStorage['dismiss-install-windows'] = true;
+  document.body.classList.remove('has-install-windows');
+});
+
+// PWA install code below
 
 let deferredPrompt = null;
 
 function cleanupPrompt() {
-  document.body.classList.remove('has-install');
+  document.body.classList.remove('has-install-pwa');
   deferredPrompt = null;
 }
 
 window.addEventListener('beforeinstallprompt', (ev) => {
   ga('send', 'event', 'install', 'available');
-  document.body.classList.add('has-install');
+  document.body.classList.add('has-install-pwa');
+  document.body.classList.remove('has-install-windows');  // incase Windows ups their PWA game
   deferredPrompt = ev;
   ev.preventDefault();
   return false;
