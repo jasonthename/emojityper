@@ -76,7 +76,6 @@ document.body.addEventListener('click', (ev) => {
   const target = ev.target && ev.target.closest('a[href]');
   if (!target) { return; }
 
-  console.info('got outbound', target.href);
   ga('send', 'event', 'outbound', 'click', target.href);
 });
 
