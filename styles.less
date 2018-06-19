@@ -7,11 +7,11 @@
 // nb: does NOT include Arial: this causes Chrome 59? to not combine gender emojis properly
 @fonts-normal: 'Lato', 'Helvetica Neue', 'Helvetica', sans-serif;
 
-// nb: include Segoe for Windows
-@fonts-emoji: 'Lato', 'Helvetica Neue', 'Helvetica', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+// nb: include Segoe for Windows, but _before_ Helvetica, which causes ZWJs not to work there.
+@fonts-emoji: 'Lato', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica Neue', 'Helvetica', sans-serif;
 
-// on Edge, we need to specify emoji first in all cases (we lose Lato- eh, ugly anyway)
-@fonts-windows-emoji: 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+// on Edge, we need to specify emoji fonts because Lato decides to "steal" rendering of number+cap.
+@fonts-edge-emoji: 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 
 @button-width: 48px;
 
@@ -103,7 +103,7 @@ button {
   overflow: hidden;
 
   @supports (-ms-ime-align:auto) {
-    font-family: @fonts-windows-emoji;
+    font-family: @fonts-edge-emoji;
   }
 
   &.unknown {
@@ -313,7 +313,7 @@ main {
     border: 0;
 
     @supports (-ms-ime-align:auto) {
-      font-family: @fonts-windows-emoji;
+      font-family: @fonts-edge-emoji;
     }
   }
 
