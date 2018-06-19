@@ -11,7 +11,12 @@ const measureText = (function() {
   const context = canvas.getContext('2d');
 
   // Windows needs specified fonts (and Courier New, as monospace doesn't work?)
-  context.font = '1px "Segoe UI Emoji", "Segoe UI Symbol", "Courier New", monospace';
+  // TODO(samthor): We may be able to order this backwards, so monospace takes precedent on macOS.
+  if (navigator.platform.startsWith('Win')) {
+    context.font = '1px "Segoe UI Emoji", "Segoe UI Symbol", "Courier New", monospace';
+  } else {
+    context.font = '1px monospace';
+  }
 
   // nb. at June 2017, there's about ~1,800 emojis including variations, so this number is
   // probably greater than we'll ever use: still, empty if it's too big (limit=4000)
@@ -38,7 +43,7 @@ const isSingle = (function() {
       return (s) => {
         const ok = measureText(s) === emojiWidth;
         if (!ok) {
-          console.debug('isSingle can\'t render', s, 'width', measureText(s));
+          console.debug('isSingle can\'t render', s, 'width', measureText(s), emojiWidth);
         }
         return ok;
       };
