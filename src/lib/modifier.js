@@ -68,10 +68,15 @@ export const isExpectedLength = (function() {
   // FIXME: This treats ZWJ'ed characters that aren't a single char as invalid. Maybe it's not
   // worth worrying, but instead just checking that all the points are valid emoji.
 
+  // nb. Helper code for detecting text-only results from backend.
+  const isTextResult = (s) => s.charCodeAt(0) === 0x200b;
+
   if (fixedWidthEmoji) {
     // use 'FACE WITH TEARS OF JOY'
     const emojiWidth = measureText('\u{1f602}');
     return (s) => {
+      if (isTextResult(s)) { return true; }
+
       // emojis could be _smaller_ than expected, but not larger- and not random non-unit widths
       const points = jsdecode(s);
       const chars = splitEmoji(points);
@@ -91,6 +96,8 @@ export const isExpectedLength = (function() {
   }
 
   return (s) => {
+    if (isTextResult(s)) { return true; }
+
     // TODO(samthor): We could do a 1st pass to check expected number of chars, and a 2nd pass
     // to determine whether the parts are valid.
 
