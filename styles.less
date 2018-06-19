@@ -10,7 +10,7 @@
 // nb: include Segoe for Windows
 @fonts-emoji: 'Lato', 'Helvetica Neue', 'Helvetica', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 
-// on Windows, we need to specify emoji first in all cases (we lose Lato- eh, ugly anyway)
+// on Edge, we need to specify emoji first in all cases (we lose Lato- eh, ugly anyway)
 @fonts-windows-emoji: 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 
 @button-width: 48px;
@@ -102,6 +102,10 @@ button {
   will-change: opacity;  /* force layer */
   overflow: hidden;
 
+  @supports (-ms-ime-align:auto) {
+    font-family: @fonts-windows-emoji;
+  }
+
   &.unknown {
     display: none !important;
   }
@@ -120,9 +124,6 @@ button {
   .loader {
     opacity: 0;
   }
-}
-body.win button {
-  font-family: @fonts-windows-emoji;
 }
 
 /** header/footer */
@@ -301,16 +302,12 @@ main {
     line-height: ~"calc(1.5em + 12px)";
     height: ~"calc(1.5em + 12px)";
     border: 0;
-  }
-}
-body.win {
-  main {
-    input, .sizer {
+
+    @supports (-ms-ime-align:auto) {
       font-family: @fonts-windows-emoji;
     }
   }
-}
-main {
+
   @indent: 15px;
 
   input {
