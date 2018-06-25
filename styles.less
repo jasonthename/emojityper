@@ -328,6 +328,18 @@ main {
     color: white;
     text-indent: @indent;
 
+    padding-right: 15px;
+
+    &::-webkit-search-cancel-button {
+      position: relative;
+      right: 0px;
+      color: white;
+      cursor: pointer;
+
+      &:active {
+      }
+    }
+
     @supports (-ms-ime-align:auto) {
       // For IE11/Edge, don't use text-indent: it's applied twice to the placeholder.
       text-indent: 0;
