@@ -250,6 +250,19 @@ header {
   display: flex;
   align-items: flex-end;
   padding: 0 12px 0.5em;
+
+  button#copy {
+    width: 4.5em;
+    padding: 0;
+    &:not(.copied) {
+      &:after {
+        content: '↵';
+        transform: translate(0, 3px);
+        padding-left: 0.1ch;
+        display: inline-block;
+      }
+    }
+  }
 }
 .ui button {
   min-width: 2em;
@@ -632,10 +645,38 @@ form.pending button:disabled {
   }
 }
 
+aside {
+  display: flex;
+  padding: 0 12px;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.125);
+  font-size: 0.5em;
+  line-height: 2em;
+
+  h1 {
+    font-size: 16px;
+    text-shadow: none;
+  }
+}
+
+@media (min-height: 401px) {
+  aside {
+    display: none;
+  }
+}
+
 @media (max-height: 400px) {
   body {
     max-height: 100vh;
     padding: 0;
+    padding-bottom: 32px;
+  }
+  aside {
+    height: 32px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
   footer, #advanced {
     display: none !important;
@@ -660,7 +701,7 @@ form.pending button:disabled {
   }
   #chooser {
     overflow: auto;
-    padding: 4px 8px;
+    padding: 4px 8px 0;
 
     .options::before {
       margin-right: 6px;
@@ -684,7 +725,7 @@ form.pending button:disabled {
       border-radius: 0;
     }
     input {
-      padding-right: 75px;
+      padding-right: 82px;
 
       &::placeholder {
         color: transparent;

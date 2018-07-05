@@ -505,8 +505,9 @@ chooser.addEventListener('keydown', (ev) => {
       if (valid < 0) { return -2; }  // query changed
 
       if (!query.text) {
-        // TODO: delay empty data by a decent time
-        return request(1500, true);
+        // TODO: delay empty data by a decent time, except on small screens
+        const timeout = window.innerHeight <= 400 ? 0 : 750;
+        return request(timeout, true);
       }
 
       const timeout = Math.max(1000, 100 * Math.pow(valid, 0.75));

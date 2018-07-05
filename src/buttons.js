@@ -35,9 +35,11 @@ handler({detail: typer.value});
 
     // show 'Copied!' message
     button.textContent = button.dataset['copied'];
+    button.classList.add('copied');
     window.clearTimeout(timeout);
     timeout = window.setTimeout((ev) => {
       button.textContent = defaultText;
+      button.classList.remove('copied');
       maybeReleaseInputEnter();
     }, 500);
   };
