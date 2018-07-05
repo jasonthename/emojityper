@@ -44,7 +44,7 @@ body {
   @media (max-height: 400px) {
     padding: 0.5em;
     padding-top: 0.125em;
-    font-size: 32px;
+    font-size: 28px;
   }
   @media (max-width: 600px) {
     padding: 0.25em;
@@ -629,5 +629,66 @@ form.pending button:disabled {
   user-select: auto;  // to catch select-all
   &::after {
     content: '\200b';  // zero-width space
+  }
+}
+
+@media (max-height: 400px) {
+  body {
+    max-height: 100vh;
+    padding: 0;
+  }
+  footer, #advanced {
+    display: none !important;
+  }
+  header {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: 54px;
+    padding: 0 12px;
+    align-items: center;
+
+    button {
+      pointer-events: auto;
+    }
+    h1 {
+      display: none !important;
+    }
+  }
+  #chooser {
+    overflow: auto;
+    padding: 4px 8px;
+
+    .options::before {
+      margin-right: 6px;
+    }
+    .options {
+      padding-left: 0;
+      padding-right: 4px;
+      display: inline;
+      &:empty {
+        display: none;
+      }
+      button {
+        min-width: 0px;
+        padding-left: 4px;
+        padding-right: 2px;
+      }
+    }
+  }
+  main {
+    input, input + .focus {
+      border-radius: 0;
+    }
+    input {
+      padding-right: 75px;
+
+      &::placeholder {
+        color: transparent;
+      }
+    }
   }
 }
