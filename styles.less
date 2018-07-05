@@ -645,6 +645,7 @@ form.pending button:disabled {
   }
 }
 
+// mobile footer
 aside {
   display: flex;
   padding: 0 12px;
@@ -657,6 +658,9 @@ aside {
     font-size: 16px;
     text-shadow: none;
   }
+}
+body.has-value aside {
+  display: none;
 }
 
 @media (min-height: 401px) {
