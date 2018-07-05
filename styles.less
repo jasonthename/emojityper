@@ -670,13 +670,16 @@ body.has-value aside {
 }
 
 @media (max-height: 400px) {
+  @aside-height: 32px;
   body {
     max-height: 100vh;
     padding: 0;
-    padding-bottom: 32px;
+    &:not(.has-value) {
+      padding-bottom: @aside-height;
+    }
   }
   aside {
-    height: 32px;
+    height: @aside-height;
     position: absolute;
     left: 0;
     right: 0;
