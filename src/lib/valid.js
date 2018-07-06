@@ -3,7 +3,7 @@
  * @fileoverview The validator runs constantly and validates emoji rendering.
  */
 
-import {isExpectedLength} from './modifier.js';
+import {isExpectedLength} from '../../node_modules/ok-emoji/src/measurer.js';
 import Worker from './worker.js';
 
 const dummyString = 'a';  // change if we mess something up
@@ -13,6 +13,10 @@ const ls = window.localStorage;
 const known = new Map();
 
 function runner(emoji) {
+  // nb. Helper code for detecting text-only results from backend.
+  if (emoji.charCodeAt(0) === 0x200b) {
+    return true;
+  }
   const out = isExpectedLength(emoji);
   known.set(emoji, out);
   if (out) {

@@ -1,4 +1,6 @@
 
+import * as emoji from '../../node_modules/ok-emoji/src/emoji.js';
+
 // TODO(samthor): Just use this on supported browsers.
 // const re = new RegExp(/(?:[\p{Letter}\p{Number}])/u);
 
@@ -6,7 +8,7 @@ function letterAt(text, pos) {
   const code = text.charCodeAt(pos);
   const after = text.charCodeAt(pos + 1);
 
-  if (after === 0xfe0f) {
+  if (after === emoji.runeVS16) {
     return false;  // VS16 follows
   }
 

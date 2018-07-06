@@ -1,139 +1,15 @@
 
-import {isSingleEmoji} from './measurer.js';
+import {jsdecode} from '../../node_modules/ok-emoji/src/string.js';
+import {isSingleValidEmoji} from '../../node_modules/ok-emoji/src/measurer.js';
+import * as emoji from '../../node_modules/ok-emoji/src/emoji.js';
+
 import {cacheFor} from './cache.js';
-
-/**
- * @param {string} string to measure
- * @return {number} length of text in monospace units
- */
-const measureText = (function() {
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d');
-
-  // Windows needs specified fonts (and Courier New, as monospace doesn't work?)
-  // TODO(samthor): We may be able to order this backwards, so monospace takes precedent on macOS.
-  if (navigator.platform.startsWith('Win')) {
-    context.font = '1px "Segoe UI Emoji", "Segoe UI Symbol", "Courier New", monospace';
-  } else {
-    context.font = '1px monospace';
-  }
-
-  // nb. at June 2017, there's about ~1,800 emojis including variations, so this number is
-  // probably greater than we'll ever use: still, empty if it's too big (limit=4000)
-  return cacheFor((s) => context.measureText(s).width);
-}());
-
-/**
- * @type {boolean} whether this platform probably has fixed width emoji
- */
-const fixedWidthEmoji = Boolean(/Mac|Android|iP(hone|od|ad)/.exec(navigator.platform));
 
 /**
  * @param {string} string to measure
  * @return {boolean} whether this is a single emoji long
  */
-const isSingle = (function() {
-  const debugMode = window.location.search.indexOf('debug') !== -1;
-
-  // get a baseline emoji width: this is the well-supported 'FACE WITH TEARS OF JOY'
-  const emojiWidth = measureText('\u{1f602}');
-  if (fixedWidthEmoji) {
-    if (debugMode) {
-      console.info('fixed emoji width is', emojiWidth, 'for \u{1f602}');
-      return (s) => {
-        const ok = measureText(s) === emojiWidth;
-        if (!ok) {
-          console.debug('isSingle can\'t render', s, 'width', measureText(s), emojiWidth);
-        }
-        return ok;
-      };
-    }
-    // great! We can quickly check this!
-    return (s) => measureText(s) === emojiWidth;
-  }
-
-  // use the DOM rounding approach
-  return cacheFor(isSingleEmoji);
-}());
-
-/**
- * Is this string rendering correctly as an emoji or sequence of emoji? On variable width
- * platforms, this can take O(n).
- *
- * This is only used by emoji returned by the API, which we know are valid emoji#, and have no
- * gender or diversity markers. It's also cached in `valid.js`.
- *
- * FIXME(samthor): # except for shruggie etc, but the mainpath is broken right now anyway
- * TODO(samthor): Mark shruggie etc with a magic char on the API side
- *
- * @param {string} string to check
- * @return {boolean} whether this is probably an emoji
- */
-export const isExpectedLength = (function() {
-  // FIXME: This treats ZWJ'ed characters that aren't a single char as invalid. Maybe it's not
-  // worth worrying, but instead just checking that all the points are valid emoji.
-
-  // nb. Helper code for detecting text-only results from backend.
-  const isTextResult = (s) => s.charCodeAt(0) === 0x200b;
-
-  if (fixedWidthEmoji) {
-    // use 'FACE WITH TEARS OF JOY'
-    const emojiWidth = measureText('\u{1f602}');
-    return (s) => {
-      if (isTextResult(s)) { return true; }
-
-      // emojis could be _smaller_ than expected, but not larger- and not random non-unit widths
-      const points = jsdecode(s);
-      const chars = splitEmoji(points);
-
-      // count flags, reduce expected by / 2
-      const flags = chars.reduce((total, char) => total += isFlagPoint(char[0].point) ? 1 : 0, 0);
-      const expectedLength = chars.length - Math.ceil(flags / 2);
-
-      const width = measureText(s) / emojiWidth;
-
-      // does this have non-emoji characters in it?
-      if (Math.floor(width) !== width) { return false; }
-
-      // otherwise, as long as we're equal or smaller
-      return width <= expectedLength;
-    };
-  }
-
-  return (s) => {
-    if (isTextResult(s)) { return true; }
-
-    // TODO(samthor): We could do a 1st pass to check expected number of chars, and a 2nd pass
-    // to determine whether the parts are valid.
-
-    const points = jsdecode(s);
-    const chars = splitEmoji(points);
-    const clen = chars.length;
-    for (let i = 0; i < clen; ++i) {
-      const char = chars[i];
-      if (isFlagPoint(char[0].point)) {
-        // Since we have to check individual chars, it's hard to know whether flags are supported.
-        // Assume any flag point is fine.
-        continue;
-      }
-      // measure this particular point and ensure it's single.
-      const buf = [];
-      char.forEach(({point, suffix, attach}, i) => {
-        if (i && !attach) {
-          buf.push(0x200d);
-        }
-        buf.push(point);
-        suffix && buf.push(suffix);
-      });
-      const s = String.fromCodePoint(...buf);
-      if (!isSingle(s)) {
-        return false;
-      }
-    }
-
-    return true;
-  };
-}());
+const isSingle = cacheFor(isSingleValidEmoji);
 
 /**
  * True if the standard "female" icon can be varied with a diversity modifier. This is the basic
@@ -141,7 +17,7 @@ export const isExpectedLength = (function() {
  *
  * @type {boolean}
  */
-const basicDiversity = (measureText('\u{1f468}\u{1f3fb}') === measureText('\u{1f468}'));
+const basicDiversity = isSingle('\u{1f468}\u{1f3fb}');
 
 /**
  * @param {number} p
@@ -172,23 +48,7 @@ function isFamilyMember(p) {
  * @return {boolean} whether the passed rune is a Variation_Selector
  */
 function isVariationSelector(p) {
-  return (p >= 0xfe00 && p <= 0xfe0f) || (p >= 0xe0100 && p <= 0xe01ef);
-}
-
-/**
- * @param {number} p
- * @return {boolean} whether the passed rune is a diversity selector (one of five skin tones)
- */
-function isDiversitySelector(p) {
-  return p >= 0x1f3fb && p <= 0x1f3ff;
-}
-
-/**
- * @param {number} p
- * @return {boolean} whether the passed rune is one of A-Z for flags
- */
-function isFlagPoint(p) {
-  return p >= 0x1f1e6 && p <= 0x1f1ff;
+  return (p >= 0xfe00 && p <= emoji.runeVS16) || (p >= 0xe0100 && p <= 0xe01ef);
 }
 
 /**
@@ -196,37 +56,8 @@ function isFlagPoint(p) {
  * @return {boolean} whether the passed rune is probably not a modifier base
  */
 function unlikelyModifierBase(p) {
-  return p < 0x261d || isPointGender(p) || isVariationSelector(p) || isDiversitySelector(p) ||
-      isFlagPoint(p);
-}
-
-/**
- * Decodes a JavaScript string into Unicode code points.
- *
- * @param {string} s to decode
- * @return {!Array<number>} code points
- */
-export function jsdecode(s) {
-  const len = s.length;
-  const points = [];
-
-  for (let i = 0; i < len;) {
-    const raw = s.charCodeAt(i++) || 0;
-    if (raw < 0xd800 || raw > 0xdbff || i === len) {
-      // not a high surrogate, or end of string
-    } else {
-      const extra = s.charCodeAt(i) || 0;
-      if ((extra & 0xfc00) === 0xdc00) {
-        // got a low surrogate, eat 2nd char
-        ++i;
-        points.push(0x10000 + (extra & 0x3ff) + ((raw & 0x3ff) << 10));
-        continue;
-      }
-    }
-    points.push(raw);
-  }
-
-  return points;
+  return p < 0x261d || isPointGender(p) || isVariationSelector(p) || emoji.isSkinTone(p) ||
+      emoji.isFlagPoint(p);
 }
 
 /**
@@ -303,17 +134,17 @@ export function splitEmoji(points) {
   for (let i = 1; i < points.length; ++i) {
     const check = points[i];
 
-    if (isFlagPoint(curr[curr.length-1].point)) {
+    if (emoji.isFlagPoint(curr[curr.length-1].point)) {
       // previous was a flag, create a new one
-    } else if (isDiversitySelector(check) || isVariationSelector(check)) {
+    } else if (emoji.isSkinTone(check) || isVariationSelector(check)) {
       // store in suffix
       curr[curr.length-1].suffix = check;
       continue;
-    } else if (check === 0x20e3) {
+    } else if (check === emoji.runeCap) {
       // keycap, push onto last
       curr.push({point: check, suffix: 0, attach: true});
       continue;
-    } else if (check === 0x200d) {
+    } else if (check === emoji.runeZWJ) {
       // push next char onto curr
       const next = points[++i];
       next && curr.push({point: next, suffix: 0, attach: false});
@@ -330,7 +161,7 @@ export function splitEmoji(points) {
 /**
  * Analyses or modifes an emoji string for modifier support: diversity and gender.
  *
- * This might be O(n), including the cost of measuring every individual character via measureText.
+ * This might be O(n), including the cost of measuring every individual character via isSingle..
  *
  * @param {string} s
  * @param {{tone: undefined|number, gender: undefined|string}=} opt_op
@@ -400,7 +231,7 @@ export function modify(s, opt_op) {
     if (isSinglePerson === false || unlikelyModifierBase(first)) { return; }
 
     // do slow measure checks
-    // TODO: can we use \p{Modifier_Base} as a faster check than measureText for +ve case?
+    // TODO: can we use \p{Modifier_Base} as a faster check than isSingle for +ve case?
     const candidate = String.fromCodePoint(first);
     if (basicDiversity && !stats.tone && isSingle(candidate + '\u{1f3fb}')) {
       stats.tone = true;
@@ -470,7 +301,7 @@ export function modify(s, opt_op) {
         const genderPoint = nextGenderPoint(points);
         const c = String.fromCodePoint(first);
         if (genderPoint && isSingle(c + '\u{200d}\u{2640}\u{fe0f}', c)) {
-          char.push({suffix: 0xfe0f, point: genderPoint});
+          char.push({suffix: emoji.runeVS16, point: genderPoint});
         }
       }
     }
@@ -478,7 +309,7 @@ export function modify(s, opt_op) {
     // apply diversity
     if (opt_op.tone !== undefined) {
       char.forEach((ch, i) => {
-        if (isDiversitySelector(ch.suffix)) {
+        if (emoji.isSkinTone(ch.suffix)) {
           // always tweak existing diversity modifiers
           ch.suffix = opt_op.tone;
         } else if (i === 0 && basicDiversity && isSinglePerson !== false) {
@@ -493,7 +324,7 @@ export function modify(s, opt_op) {
     // flatten into actual codepoints again
     char.forEach((ch) => {
       if (ch.point) {
-        points.length && points.push(0x200d);
+        points.length && points.push(emoji.runeZWJ);
         points.push(ch.point);
         ch.suffix && points.push(ch.suffix);
       }

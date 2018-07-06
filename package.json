@@ -20,6 +20,7 @@
     "gulp-less": "^3.5.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-tweakdom": "^1.0.2",
+    "ok-emoji": "^1.0.0",
     "rollup": "^0.42.0",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.4.1",
