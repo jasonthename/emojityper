@@ -381,10 +381,16 @@ main {
   input {
     position: relative;  // place above underline
     background: transparent;
-    width: 100%;
+    width: 0;  // combined with flex-grow, this doesn't eat more space than it should
+    flex-grow: 1;
     box-sizing: border-box;
     color: white;
     text-indent: @indent;
+
+    // microsoft X button
+    &::-ms-clear {
+      display: none;
+    }
 
     &:valid {
       padding-right: 32px;
