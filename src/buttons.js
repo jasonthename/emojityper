@@ -6,7 +6,7 @@
 import * as eventlib from './lib/event.js';
 import * as copier from './lib/copier.js';
 
-const all = Array.from(buttons.querySelectorAll('button'));
+const all = Array.from(input.querySelectorAll('button'));
 
 const handler = (ev) => {
   const text = ev.detail.trim();

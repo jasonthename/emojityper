@@ -53,20 +53,22 @@ if (window.location.hostname.indexOf('www.') === 0) {
 
 <header>
   <h1>Emojityper</h1>
+  <div class="grow"></div>
   <div id="loader" hidden>
     <span class="face">&#x1f914;</span><span class="think">&#x1f4aD;</span>
   </div>
-  <div class="grow"></div>
-  <div id="buttons" class="ui">
-    <button disabled id="copy" data-copied="Copied!">Copy</button>
+  <div id="popout">
+    <a href="https://emojityper.com" target="_blank" rel="noopener">&#x2198;&#xfe0f;</a>
   </div>
 </header>
 
 <main>
   <div id="input">
-    <input type="text" id="typer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="&nbsp;" autofocus />
+    <input type="text" id="typer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="&nbsp;" autofocus required />
     <div class="focus"></div>
-    <button id="inline-copy" hidden>Copy</button>
+    <div class="ui">
+      <button id="copy" data-copied="Copied!">Copy</button>
+    </div>
   </div>
   <script>
 window.addEventListener('hashchange', function(ev) {
@@ -152,9 +154,6 @@ if (typer.value) {
     </span>
   </p>
 </footer>
-<aside>
-  <h1>Emojityper</h1>
-</aside>
 
 <script class="_dev">
 window.ga = () => {};  // don't send analytics in dev
