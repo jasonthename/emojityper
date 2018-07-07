@@ -1,9 +1,8 @@
 
+import {cacheFor} from './cache.js';
 import {jsdecode} from '../../node_modules/ok-emoji/src/string.js';
 import {isSingleValidEmoji} from '../../node_modules/ok-emoji/src/measurer.js';
 import * as emoji from '../../node_modules/ok-emoji/src/emoji.js';
-
-import {cacheFor} from './cache.js';
 
 /**
  * @param {string} string to measure
@@ -62,7 +61,7 @@ function unlikelyModifierBase(p) {
 
 /**
  * Returns details about a character and whether it can be gender flipped to a single or neutral
- * gender. This contains emojis which, due to historical emoji reasons, aren't officially versions
+ * gender. This contains emoji which, due to historical emoji reasons, aren't officially versions
  * of each other: e.g., Santa and Mrs. Claus, or Old {Man,Woman,Adult}.
  *
  * @param {number} point to look up in the other gender flips table
@@ -102,7 +101,8 @@ const genderFlip = (function() {
     const out = all.get(point) || null;
     if (out && out.single === undefined) {
       // do the heavy lifting only when first fetched
-      out.single = isSingle(String.fromCodePoint(out.points.f)) &&
+      out.single =
+          isSingle(String.fromCodePoint(out.points.f)) &&
           isSingle(String.fromCodePoint(out.points.m));
       out.neutral = out.points.n && isSingle(String.fromCodePoint(out.points.n));
     }
@@ -119,7 +119,7 @@ const genderFlip = (function() {
  * @param {!Array<number>} points
  * @return {!Array<!Array<{point: number, suffix: number, attach: boolean}>>}
  */
-export function splitEmoji(points) {
+function splitEmoji(points) {
   if (!points.length) {
     return [];
   }
@@ -227,7 +227,7 @@ export function modify(s, opt_op) {
       return !record && stats.gender.single && stats.gender.double;
     }
 
-    // skip if profession, low emojis (everything below Emoji_Modifier_Base) and male/female signs
+    // skip if profession, low emoji (everything below Emoji_Modifier_Base) and male/female signs
     if (isSinglePerson === false || unlikelyModifierBase(first)) { return; }
 
     // do slow measure checks
