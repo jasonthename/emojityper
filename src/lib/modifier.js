@@ -20,6 +20,15 @@ const basicDiversity = isSingle('\u{1f468}\u{1f3fb}');
 
 /**
  * @param {number} p
+ * @return {boolean} whether to skip diversity for this point
+ */
+function skipDiversity(p) {
+  // nuclear family and people wrestling
+  return p === 0x1f46a || p === 0x1f93c;
+}
+
+/**
+ * @param {number} p
  * @return {boolean} whether the passed rune is a gender character
  */
 function isPointGender(p) {
@@ -40,23 +49,6 @@ function isPersonGender(p) {
  */
 function isFamilyMember(p) {
   return p === 0x1f476 || p === 0x1f466 || p === 0x1f467;
-}
-
-/**
- * @param {number} p
- * @return {boolean} whether the passed rune is a Variation_Selector
- */
-function isVariationSelector(p) {
-  return (p >= 0xfe00 && p <= emoji.runeVS16) || (p >= 0xe0100 && p <= 0xe01ef);
-}
-
-/**
- * @param {number} p
- * @return {boolean} whether the passed rune is probably not a modifier base
- */
-function unlikelyModifierBase(p) {
-  return p < 0x261d || isPointGender(p) || isVariationSelector(p) || emoji.isSkinTone(p) ||
-      emoji.isFlagPoint(p);
 }
 
 /**
@@ -228,7 +220,7 @@ outer:
       }
 
       // measure if diversity is possible (only on first char)
-      if (basicDiversity && !stats.tone && !trailer) {
+      if (basicDiversity && !stats.tone && !trailer && !skipDiversity(first)) {
         const cand = String.fromCodePoint(first, 0x1f3fb);
         stats.tone = isSingle(cand);
       }
@@ -271,6 +263,10 @@ outer:
         const update = points.filter((point) => !emoji.isSkinTone(point));
         points.splice(0, points.length, ...update);
         return;  // in-place update
+      }
+
+      if (skipDiversity(points[0])) {
+        return;  // skip
       }
 
       const cand = String.fromCodePoint(points[0], op.tone, ...points.slice(1));
