@@ -15,6 +15,7 @@
 @fonts-edge-emoji: 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 
 @button-width: 48px;
+@button-width-small: 28px;
 
 * {
   margin: 0;
@@ -754,7 +755,7 @@ form.pending button:disabled {
         display: none;
       }
       button {
-        min-width: 0px;
+        min-width: @button-width-small;
         padding-left: 4px;
         padding-right: 2px;
       }
