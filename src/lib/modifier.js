@@ -68,14 +68,14 @@ function unlikelyModifierBase(p) {
  * @return {{single: boolean, neutral: boolean, points: {f: number, m: number, n: number}}?}
  */
 const genderFlip = (function() {
-  // TODO: covers F/M/neutral, but _not_ mixed (e.g. holding hands => no m/f combo)
   const list = [
+    0x1f468, 0x1f469, 0,        // man, woman (normal case)
     0x1f936, 0x1f385, 0,        // mrs. claus, santa
     0x1f483, 0x1f57a, 0,        // dancers
     0x1f470, 0x1f935, 0,        // bride, man in tuxedo
     0x1f467, 0x1f466, 0x1f9d2,  // girl, boy, child
     0x1f475, 0x1f474, 0x1f9d3,  // old {woman,man,adult}
-    0x1f46d, 0x1f46c, 0,        // women/men holding hands
+    0x1f46d, 0x1f46c, 0x1f46b,  // women/men holding hands; note this has 'mixed' for neutral
     0x1f478, 0x1f934, 0,        // princess, prince
   ];
 
@@ -104,234 +104,260 @@ const genderFlip = (function() {
       out.single =
           isSingle(String.fromCodePoint(out.points.f)) &&
           isSingle(String.fromCodePoint(out.points.m));
-      out.neutral = out.points.n && isSingle(String.fromCodePoint(out.points.n));
+      out.neutral = out.points.n ? isSingle(String.fromCodePoint(out.points.n)) : false;
     }
     return out;
   };
 }());
 
 /**
- * Splits a single emoji into raw characters, removing variants or diversity modifiers. Each
- * sub-array represents a character previously split by ZWJs.
- *
- * FIXME(samthor): "attach" is a temporary hack to allow keycaps.
- *
  * @param {!Array<number>} points
- * @return {!Array<!Array<{point: number, suffix: number, attach: boolean}>>}
+ * @yields {{part: !Array<number>, trailer: boolean}}
  */
-function splitEmoji(points) {
-  if (!points.length) {
-    return [];
-  }
-  let curr = [{point: points[0], suffix: 0, attach: false}];
-  const out = [curr];
+function *reverseParts(points) {
+  let last = -1;
 
-  // TODO: doesn't deal with flags or regional letters
-  // flags are weird: U + N + A, for instance, will render the Namibia flag where the UN flag is
-  // not supported (but the UN flag where it is)- taking the left-most valid code
-  // NOTE: the regional flag letters are seen as _emoji_ on their own, at least on Mac.
+  // nb. this actually works in reverse
+  do {
+    // ugh so many off by ones
+    const index = points.lastIndexOf(emoji.runeZWJ, last);
+    const from = index + 1;
+    const to = (last === -1 ? points.length : last + 1);
+    last = index - 1;
 
-  for (let i = 1; i < points.length; ++i) {
-    const check = points[i];
-
-    if (emoji.isFlagPoint(curr[curr.length-1].point)) {
-      // previous was a flag, create a new one
-    } else if (emoji.isSkinTone(check) || isVariationSelector(check)) {
-      // store in suffix
-      curr[curr.length-1].suffix = check;
-      continue;
-    } else if (check === emoji.runeCap) {
-      // keycap, push onto last
-      curr.push({point: check, suffix: 0, attach: true});
-      continue;
-    } else if (check === emoji.runeZWJ) {
-      // push next char onto curr
-      const next = points[++i];
-      next && curr.push({point: next, suffix: 0, attach: false});
-      continue;
+    const part = points.slice(from, to);
+    if (part.length === 0) {
+      continue;  // ignore empty char
     }
 
-    // new character, reset
-    curr = [{point: check, suffix: 0, attach: false}];
-    out.push(curr);
+    const x = {part: points.slice(from, to), trailer: from !== 0};
+    yield x;
+  } while (last !== -2);
+}
+
+/**
+ * @param {!Array<number>} points
+ * @return {!Array<!Array<number>>}
+ */
+function splitPoints(points) {
+  let last = 0;
+  const out = [];
+
+  for (;;) {
+    const index = points.indexOf(emoji.runeZWJ, last);
+    const to = (index === -1 ? points.length : index);
+
+    const part = points.slice(last, to);
+    if (part.length !== 0) {
+      out.push(part);
+    }
+
+    if (index === -1) {
+      break;
+    }
+    last = index + 1;
   }
+
   return out;
 }
 
 /**
  * Analyses or modifes an emoji string for modifier support: diversity and gender.
  *
- * This might be O(n), including the cost of measuring every individual character via isSingle..
+ * This might be O(n), due to the cost of measuring every individual character on some platforms.
  *
  * @param {string} s
- * @param {{tone: undefined|number, gender: undefined|string}=} opt_op
- * @return {out: (string|undefined), tone: boolean, gender: {single: boolean, double: boolean, neutral: boolean}}
+ * @param {{tone: (undefined|number), gender: (undefined|string)}=} op
+ * @return {
+ *   out: (string|undefined),
+ *   tone: boolean,
+ *   gender: {single: boolean, double: boolean, neutral: boolean},
+ * }
  */
-export function modify(s, opt_op) {
+export function modify(s, op=undefined) {
   const stats = {tone: false, gender: {single: false, double: false, neutral: false}};
-  if (!s) {
-    return stats;
-  }
-  const points = jsdecode(s);
 
-  // split out gender modifiers and other variations with splitEmoji, walk chars
-  const chars = splitEmoji(points);
-  const record = (opt_op ? [] : null);
-  chars.some((char, i) => {
-    const first = char[0].point;
+  const all = op !== undefined ? [] : null;
+outer:
+  for (const points of emoji.iterateEmoji(s)) {
+    if (all) {
+      all.push(points);  // store for 2nd round
+    }
+
     let genderable = 0;
-    let family = false;
+    let familyLike = false;
 
-    // search for existing gender characters
-    char.forEach((ch) => {
-      const p = ch.point;
-      if (isPointGender(p)) {
-        // we can remove or replace the point
+    for (const {part, trailer} of reverseParts(points)) {
+      // check for early exhaustive answer
+      if (op === undefined &&
+        (stats.tone || !basicDiversity) &&
+        stats.gender.neutral && stats.gender.single && stats.gender.double) {
+        break outer;
+      }
+
+      const first = part[0];
+
+      if (emoji.isFlagPoint(first)) {
+        continue;
+      }
+
+      const localFamilyMember = isFamilyMember(first)
+      if (trailer && localFamilyMember) {
+        familyLike = true;   // familyLike is family member in later part of char
+      }
+
+      const localPersonGender = isPersonGender(first)
+      if (localFamilyMember || localPersonGender) {
+        stats.tone = !familyLike && basicDiversity;
         stats.gender.single = true;
-        stats.gender.neutral = true;
-      } else if (isPersonGender(p)) {
-        // easily swappable person
-        stats.gender.single = true;
-        if (++genderable >= 2) {
+        if (localPersonGender && ++genderable >= 2) {
           stats.gender.double = true;
         }
-      } else if (isFamilyMember(p) && genderable) {
-        // this run is a family (child and already has parent), so it can't be made diverse
-        family = true;
-      } else {
-        // look for potential gender flips
-        const flip = genderFlip(p);
-        if (flip) {
-          stats.gender.single |= flip.single;
-          stats.gender.neutral |= flip.neutral;
-        }
+        continue;  // nothing more to find out here
       }
-    });
 
-    // check for professions ('non family person'): single initial person gender, not a family
-    const isSinglePerson =
-        genderable ? (isPersonGender(first) && genderable === 1 && !family) : undefined;
-    if (isSinglePerson) {
-      stats.tone = basicDiversity;
-    }
-    if (record) {
-      // true: is a 'non family person', aka profession or disembodied head (diversity OK)
-      // false: is a family or other combined group of persons (no diversity)
-      // undefined: something else
-      record[i] = isSinglePerson;
-    }
+      if (familyLike) {
+        continue;  // no more checks to do
+      }
 
-    // check for early exhaustive answer
-    if ((stats.tone || !basicDiversity) && stats.gender.neutral) {
-      // ... don't finish 'some' early if we're recording gender data
-      return !record && stats.gender.single && stats.gender.double;
-    }
+      // check for prescribed gender flips
+      const flip = genderFlip(first);
+      if (flip !== null) {
+        stats.gender.single |= flip.single;
+        stats.gender.neutral |= flip.neutral;
+      }
 
-    // skip if profession, low emoji (everything below Emoji_Modifier_Base) and male/female signs
-    if (isSinglePerson === false || unlikelyModifierBase(first)) { return; }
+      // measure if diversity is possible (only on first char)
+      if (basicDiversity && !stats.tone && !trailer) {
+        const cand = String.fromCodePoint(first, 0x1f3fb);
+        stats.tone = isSingle(cand);
+      }
 
-    // do slow measure checks
-    // TODO: can we use \p{Modifier_Base} as a faster check than isSingle for +ve case?
-    const candidate = String.fromCodePoint(first);
-    if (basicDiversity && !stats.tone && isSingle(candidate + '\u{1f3fb}')) {
-      stats.tone = true;
+      // measure if gender is possible
+      if (!stats.gender.neutral) {
+        const cand = String.fromCodePoint(first, emoji.runeZWJ, 0x2640, emoji.runeVS16);
+        const valid = isSingle(cand);
+        stats.gender.neutral = valid;
+        stats.gender.single = stats.gender.single || valid;
+      }
     }
-    if (!stats.gender.neutral && isSingle(candidate + '\u{200d}\u{2640}\u{fe0f}', candidate)) {
-      stats.gender.neutral = true;
-      stats.gender.single = true;
-    }
-  });
+  }
 
-  // early out without op
-  if (!opt_op) {
+  if (op === undefined) {
     return stats;
   }
 
-  // gender helper: modifies passed character to apply next gender (or returns new ch)
-  const nextGenderPoint = (function() {
-    const g = opt_op.gender || '';
-    let previousMaster;
-    let index;
-    return (master, opt_point, opt_allowOtherFlip) => {
-      if (previousMaster === undefined || master !== previousMaster) {
-        previousMaster = master;
-        index = 0;
-      } else {
-        ++index;
-      }
-      const next = g ? g[index % g.length] : '';
-      const point = opt_point || 0;
-      if (isPersonGender(point)) {
-        // if this is a person, return the alternative person (or make no change)
-        return next ? (next === 'm' ? 0x1f468 : 0x1f469) : point;
-      } else if (!point || isPointGender(point)) {
-        // if this is a point, return the alternative point (or clear)
-        return next ? (next === 'm' ? 0x2642 : 0x2640) : 0;
-      } else if (opt_allowOtherFlip) {
-        // do other gender flips: note that some of these have F/M/N, but not all have N
-        const flip = genderFlip(point);
-        if (flip) {
-          if (!next && flip.neutral) {
-            return flip.points.n;
-          } else if (next && flip.single) {
-            return next === 'm' ? flip.points.m : flip.points.f;
+  if (op.tone !== undefined && stats.tone) {
+    // nb. tones are only ever valid in position 1
+    all.forEach((points) => {
+      if (emoji.isSkinTone(points[1])) {
+        // found one, either replace or clear
+        if (op.tone) {
+          // great, save in place
+          points[1] = op.tone;
+        } else {
+          const cand = String.fromCodePoint(points[0]);
+          if (!isSingle(cand)) {
+            points[1] = emoji.runeVS16;  // tone was holding this as emoji
+          } else {
+            points.splice(1, 1);  // just remove
           }
         }
+        return;  // in-place update
       }
-      // didn't consume anything
-      --index;
-      return point;
-    };
-  }());
 
-  // walk over all chars, apply change
-  const out = chars.map((char, i) => {
-    const points = [];  // used as nonce, declare first
-    const isSinglePerson = record[i];
-    const first = char[0].point;
-
-    if (opt_op.gender !== undefined) {
-      // replace/remove existing male/female characters
-      // nb. this removes orphaned gender point characters
-      const allowOtherFlip = (isSinglePerson === undefined);  // not for family/profession
-      char.forEach((ch) => ch.point = nextGenderPoint(points, ch.point, allowOtherFlip));
-
-      // under various conditions, add a gender modifier to a single point
-      if (isSinglePerson === undefined && char.length === 1 && !isPointGender(first)) {
-        const genderPoint = nextGenderPoint(points);
-        const c = String.fromCodePoint(first);
-        if (genderPoint && isSingle(c + '\u{200d}\u{2640}\u{fe0f}', c)) {
-          char.push({suffix: emoji.runeVS16, point: genderPoint});
-        }
+      if (!op.tone) {
+        // just remove in case one's in a weird place
+        const update = points.filter((point) => !emoji.isSkinTone(point));
+        points.splice(0, points.length, ...update);
+        return;  // in-place update
       }
-    }
 
-    // apply diversity
-    if (opt_op.tone !== undefined) {
-      char.forEach((ch, i) => {
-        if (emoji.isSkinTone(ch.suffix)) {
-          // always tweak existing diversity modifiers
-          ch.suffix = opt_op.tone;
-        } else if (i === 0 && basicDiversity && isSinglePerson !== false) {
-          // if it's the first point in a non-family, try to apply diversity
-          if (isSinglePerson || isSingle(String.fromCodePoint(first) + '\u{1f3fb}')) {
-            ch.suffix = opt_op.tone;
-          }
-        }
-      });
-    }
-
-    // flatten into actual codepoints again
-    char.forEach((ch) => {
-      if (ch.point) {
-        points.length && points.push(emoji.runeZWJ);
-        points.push(ch.point);
-        ch.suffix && points.push(ch.suffix);
+      const cand = String.fromCodePoint(points[0], op.tone, ...points.slice(1));
+      if (!isSingle(cand)) {
+        return;
       }
+      points.splice(1, 0, op.tone);
     });
-    return points;
-  }).reduce((all, points) => all.concat(points), []);
+  }
 
-  stats.out = String.fromCodePoint(...out);
+  if (op.gender !== undefined) {
+    const splitAll = all.map((points) => splitPoints(points));
+    const updateSplitAll = splitAll.map((parts, i) => {
+      // check last point first
+      const hadTrailingGender = isPointGender(parts[parts.length - 1][0]);
+
+      // look for gendered emoji at start of all and flip
+      if (!hadTrailingGender) {
+        let localOp = [];
+        let foundAny = false;
+        for (let i = 0; i < parts.length; ++i) {
+          const part = parts[i];
+          const first = part[0];
+
+          const flip = genderFlip(first);
+          if (!flip) {
+            if (i === 0) {
+              break;  // genderable will always be first, give up
+            }
+            continue;
+          }
+
+          // if we're out of ops, split for more (this might still be blank, but reset anyway)
+          localOp = localOp.length ? localOp : op.gender.split('');
+          const next = localOp.shift();
+          if (foundAny && (!next || isFamilyMember(first))) {
+            break;  // if we've already matched some, and now have no more data / is family, fail
+          }
+
+          if (!next && flip.neutral) {
+            part[0] = flip.points.n;
+          } else if (next && flip.single) {
+            part[0] = (next === 'm' ? flip.points.m : flip.points.f);
+          }
+          foundAny = true;
+        }
+        if (foundAny) {
+          return parts;  // don't try to add a gender modifier
+        }
+
+        // now, either change trailing gender or try to add one
+        if (!op.gender) {
+          return null;  // nothing to do
+        }
+
+        // we need to see if it's possible, clone _whole_ emoji
+        const run = all[i].slice();
+        run.push(emoji.runeZWJ, 0x2640, emoji.runeVS16);
+        const cand = String.fromCodePoint(...run);
+        if (!isSingle(cand)) {
+          return null;
+        }
+        parts.push([0x2640, emoji.runeVS16]);  // we change this below
+      } else if (!op.gender) {
+        parts.pop();
+        return parts;
+      }
+
+      const last = parts[parts.length - 1];
+      last[0] = (op.gender[0] === 'm' ? 0x2642 : 0x2640);
+      return parts;
+    });
+
+    // remerge changed parts
+    updateSplitAll.forEach((parts, i) => {
+      if (parts === null) {
+        return;  // nothing changed here
+      }
+      const merged = [];
+      parts.forEach((part) => {
+        merged.push(...part, emoji.runeZWJ);
+      });
+      merged.pop();  // remove trailing ZWJ
+      all[i] = merged;
+    });
+  }
+
+  stats.out = all.map((points) => String.fromCodePoint(...points)).join('');
   return stats;
-};
+}
