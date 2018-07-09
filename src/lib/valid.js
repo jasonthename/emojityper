@@ -12,6 +12,8 @@ const prefix = '-ok_';
 const ls = window.localStorage;
 const known = new Map();
 
+const ignoreValid = (window.location.search.indexOf('ignore_valid') !== -1);
+
 function runner(emoji) {
   // nb. Helper code for detecting text-only results from backend.
   if (emoji.charCodeAt(0) === 0x200b) {
@@ -26,6 +28,7 @@ function runner(emoji) {
 }
 
 const worker = new Worker(runner);
+const task = ignoreValid ? () => true : worker.task.bind(worker);
 
 function immediate(emoji) {
   const immediate = known.get(emoji);
@@ -49,7 +52,7 @@ export async function valid(emoji) {
   if (result !== undefined) {
     return result;
   }
-  return worker.task(emoji);
+  return task(emoji);
 }
 
 /**
@@ -74,7 +77,7 @@ export async function findValidMatch(options, callback) {
           callback(null);
           calledWithDelay = true;
         }
-        result = await worker.task(emoji);
+        result = await task(emoji);
       }
 
       if (result) {
