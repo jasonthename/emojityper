@@ -250,10 +250,14 @@ footer {
 body.has-value footer {
   display: none;
 }
-body:not(.has-install-pwa) #install-pwa {
+
+body:not([data-install="pwa"]) #install-pwa {
   display: none;
 }
-body:not(.has-install-windows) #install-windows {
+body:not([data-install="windows"]) #install-windows {
+  display: none;
+}
+body:not([data-install="ext"]) #install-ext {
   display: none;
 }
 
