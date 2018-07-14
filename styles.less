@@ -100,7 +100,7 @@ button {
   color: white;
   letter-spacing: -1px;
   position: relative;
-  display: block;
+  display: inline-block;
   will-change: opacity;  /* force layer */
   overflow: hidden;
 
@@ -148,7 +148,6 @@ footer {
   }
 
   button {
-    display: inline-block;
     line-height: 2em;
     font-size: inherit;
     margin: 0 0.5ch;
@@ -557,9 +556,7 @@ main {
   }
 
   button {
-    display: inline-block;
     padding-top: 1px;  /** offset emoji slightly lower */
-    line-height: 1.33em;
     margin-bottom: 4px;
     margin-right: 4px;
   }
@@ -760,8 +757,10 @@ form.pending button:disabled {
       }
       button {
         min-width: @button-width-small;
-        padding-left: 4px;
-        padding-right: 2px;
+        padding-left: 2px;
+        padding-right: 0px;
+        margin-bottom: 2px;
+        margin-right: 2px;
       }
     }
   }
