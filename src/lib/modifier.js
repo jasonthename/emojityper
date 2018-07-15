@@ -19,12 +19,23 @@ const isSingle = cacheFor(isSingleValidEmoji);
 const basicDiversity = isSingle('\u{1f468}\u{1f3fb}');
 
 /**
+ * @type {!Array<number>}
+ */
+const skipDiversityList = [
+  0x1f91d,  // handshake
+  0x1f46a,  // nuclear family
+  0x1f93c,  // people wrestling
+  0x1f46b,  // m+w hands
+  0x1f46c,  // m+m hands
+  0x1f46d,  // w+w hands
+];
+
+/**
  * @param {number} p
  * @return {boolean} whether to skip diversity for this point
  */
 function skipDiversity(p) {
-  // nuclear family and people wrestling
-  return p === 0x1f46a || p === 0x1f93c;
+  return skipDiversityList.indexOf(p) !== -1;
 }
 
 /**
