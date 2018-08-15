@@ -16,6 +16,15 @@ const handler = (ev) => {
 typer.addEventListener('value', handler);
 handler({detail: typer.value});
 
+const buttonTextShow = 500;
+
+function notifyParentCopy() {
+  // notify parent (for ext)
+  if (window.parent) {
+    window.parent.postMessage('copy', '*');
+  }
+}
+
 // copy handler
 (function(button, input) {
   let timeout;
@@ -41,7 +50,8 @@ handler({detail: typer.value});
       button.textContent = defaultText;
       button.classList.remove('copied');
       maybeReleaseInputEnter();
-    }, 500);
+      notifyParentCopy();
+    }, buttonTextShow);
   };
 
   let wasInputEnter = false;
